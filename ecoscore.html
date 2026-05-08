@@ -1,0 +1,402 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>O Sistema EcoScore — Pilares, Skill Tree e Ranking</title>
+  <meta name="description" content="Explore os pilares do EcoScore, a Árvore de Habilidades Sustentáveis e o sistema de ranking com recompensas reais." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/componentes.css" />
+  <link rel="stylesheet" href="css/responsivo.css" />
+</head>
+<body>
+
+  <header class="header">
+    <a href="index.html" class="header__logo">
+      <div class="header__logo-icon"><i data-lucide="leaf"></i></div>
+      Eco<span>Score</span>
+    </a>
+    <button class="nav__toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <ul class="nav__lista">
+        <li><a href="index.html" class="nav__link">Início</a></li>
+        <li><a href="sobre.html" class="nav__link">Sobre</a></li>
+        <li><a href="ecoscore.html" class="nav__link">EcoScore</a></li>
+        <li><a href="como-funciona.html" class="nav__link">Como Funciona</a></li>
+        <li><a href="faq.html" class="nav__link">FAQ</a></li>
+        <li><a href="integrantes.html" class="nav__link">Equipe</a></li>
+        <li><a href="contato.html" class="nav__link nav__link--cta">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-interno">
+      <div class="hero-interno__conteudo">
+        <span class="secao__tag">O Sistema</span>
+        <h1 class="hero-interno__titulo">Conheça o <span class="texto-gradiente">EcoScore</span> em detalhe</h1>
+        <p class="hero-interno__texto">A Árvore de Habilidades Sustentáveis, os pilares de engajamento e o ranking com recompensas que mudam de vida.</p>
+      </div>
+    </section>
+
+    <!-- SKILL TREE -->
+    <section class="secao">
+      <div class="container">
+        <div class="secao__header">
+          <span class="secao__tag">Progressão</span>
+          <h2 class="secao__titulo">Árvore de Habilidades Sustentáveis</h2>
+          <p class="secao__descricao">3 classes no MVP — escolhidas por acessibilidade urbana. Qualquer usuário em apartamento consegue percorrer as três. Cada classe tem 3 camadas de progressão.</p>
+        </div>
+
+        <!-- 3 CAMADAS EXPLICADAS -->
+        <div class="grid-3" style="margin-bottom: 3rem;">
+          <div class="card texto-centro">
+            <div class="card__icone card__icone--verde" style="margin: 0 auto 1rem;"><i data-lucide="help-circle"></i></div>
+            <h3 class="card__titulo">1. Quiz</h3>
+            <p class="card__texto">Baixo atrito. Ativa o loop de recompensa rápida e ensina o conceito antes de exigir qualquer ação real.</p>
+          </div>
+          <div class="card texto-centro">
+            <div class="card__icone card__icone--azul" style="margin: 0 auto 1rem;"><i data-lucide="camera"></i></div>
+            <h3 class="card__titulo">2. Evidência</h3>
+            <p class="card__texto">Foto capturada direto no app — sem upload externo. Elimina fraude sem adicionar fricção para quem está sendo honesto.</p>
+          </div>
+          <div class="card texto-centro">
+            <div class="card__icone card__icone--laranja" style="margin: 0 auto 1rem;"><i data-lucide="award"></i></div>
+            <h3 class="card__titulo">3. Selo</h3>
+            <p class="card__texto">Concedido automaticamente ao completar a trilha. O peso do selo vem do caminho percorrido, não de votos externos.</p>
+          </div>
+        </div>
+
+        <div class="skill-tree">
+          <div class="skill-tree__centro"><i data-lucide="leaf"></i> EcoScore — MVP</div>
+          <div class="skill-tree__ramos" style="grid-template-columns: repeat(3, 1fr);">
+
+            <div class="skill-ramo">
+              <div class="skill-ramo__emoji">♻️</div>
+              <div class="skill-ramo__nome">Reciclagem</div>
+              <div class="skill-ramo__nos">
+                <div class="skill-no skill-no--ativo">Quiz: Separação básica</div>
+                <div class="skill-no skill-no--ativo">Evidência: Foto no descarte</div>
+                <div class="skill-no">Selo: Reciclador Certificado</div>
+              </div>
+            </div>
+
+            <div class="skill-ramo">
+              <div class="skill-ramo__emoji"><i data-lucide="sprout"></i></div>
+              <div class="skill-ramo__nome">Jardinagem</div>
+              <div class="skill-ramo__nos">
+                <div class="skill-no skill-no--ativo">Quiz: Fundamentos de cultivo</div>
+                <div class="skill-no skill-no--ativo">Evidência: Plantio em recipiente</div>
+                <div class="skill-no">Foto 14 dias após plantio</div>
+                <div class="skill-no">Selo: Cultivador Urbano</div>
+              </div>
+            </div>
+
+            <div class="skill-ramo">
+              <div class="skill-ramo__emoji"><i data-lucide="droplets"></i></div>
+              <div class="skill-ramo__nome">Água</div>
+              <div class="skill-ramo__nos">
+                <div class="skill-no skill-no--ativo">Quiz: Consumo consciente</div>
+                <div class="skill-no">Evidência: Adaptações no lar</div>
+                <div class="skill-no">Selo: Guardião das Águas</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="destaque-box mt-4 texto-centro" style="margin-top: 2.5rem;">
+          <p style="color: var(--cor-texto-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">Verde = desbloqueado. A progressão é por camadas de comprometimento — não de complexidade técnica.</p>
+          <div class="flex-gap flex-center mt-2">
+            <span class="badge badge--verde">● Desbloqueado</span>
+            <span class="badge" style="background: rgba(30,58,95,0.5); color: var(--cor-texto-muted); border: 1px solid var(--cor-borda);">● Bloqueado</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUESTS -->
+    <section class="secao">
+      <div class="container">
+        <div class="secao__header">
+          <span class="secao__tag">Missões</span>
+          <h2 class="secao__titulo">Trilhas das 3 Classes</h2>
+          <p class="secao__descricao">Cada classe segue a mesma estrutura: Quiz → Evidência → Selo. A dificuldade cresce por camadas de comprometimento, não de complexidade técnica.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+              <span class="badge badge--verde">Em progresso</span>
+              <span style="font-size: 0.8rem; color: var(--cor-texto-muted);">2/3 camadas</span>
+            </div>
+            <div class="card__icone card__icone--azul"><i data-lucide="recycle"></i></div>
+            <h3 class="card__titulo">Reciclagem</h3>
+            <p class="card__texto">Quiz de separação básica concluído. Próximo passo: foto no ponto de descarte, capturada direto no app.</p>
+            <div class="progresso mt-2"><div class="progresso__barra" data-valor="66"></div></div>
+            <p style="font-size: 0.75rem; color: var(--cor-texto-muted); margin-top: 0.4rem;">Camada atual: Evidência</p>
+          </div>
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+              <span class="badge badge--verde">Em progresso</span>
+              <span style="font-size: 0.8rem; color: var(--cor-texto-muted);">1/3 camadas</span>
+            </div>
+            <div class="card__icone card__icone--verde"><i data-lucide="sprout"></i></div>
+            <h3 class="card__titulo">Jardinagem</h3>
+            <p class="card__texto">Qualquer recipiente conta: garrafa PET, copo, lata. A evidência intermediária 2 exige uma foto 14 dias após o plantio — o único ponto com tempo real obrigatório.</p>
+            <div class="progresso mt-2"><div class="progresso__barra" data-valor="33"></div></div>
+            <p style="font-size: 0.75rem; color: var(--cor-texto-muted); margin-top: 0.4rem;">Camada atual: Evidência</p>
+          </div>
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+              <span class="badge badge--laranja">Não iniciada</span>
+              <span style="font-size: 0.8rem; color: var(--cor-texto-muted);">0/3 camadas</span>
+            </div>
+            <div class="card__icone card__icone--azul"><i data-lucide="droplets"></i></div>
+            <h3 class="card__titulo">Água</h3>
+            <p class="card__texto">Quiz de consumo consciente disponível. Evidência: adaptações no lar fotografadas no app. Sem necessidade de fatura ou comprovante externo.</p>
+            <div class="progresso mt-2"><div class="progresso__barra" data-valor="0"></div></div>
+            <p style="font-size: 0.75rem; color: var(--cor-texto-muted); margin-top: 0.4rem;">Camada atual: Quiz</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RANKING -->
+    <section class="secao secao--escura">
+      <div class="container">
+        <div class="secao__header">
+          <span class="secao__tag">Competição</span>
+          <h2 class="secao__titulo">Ranking de EcoPoints</h2>
+          <p class="secao__descricao">O top do ranking mensal recebe a conta de energia elétrica 100% subsidiada. Competição real, recompensa real.</p>
+        </div>
+        <div class="grid-2" style="gap: 3rem; align-items: flex-start;">
+          <div class="ranking-lista">
+            <div class="ranking-item ranking-item--1">
+              <div class="ranking-posicao ranking-posicao--1">🥇</div>
+              <div class="ranking-avatar">M</div>
+              <div class="ranking-info">
+                <div class="ranking-nome">Marina Costa</div>
+                <div class="ranking-cidade">São Paulo, SP</div>
+              </div>
+              <div class="ranking-pontos">
+                <div class="ranking-pontos__valor">14.820</div>
+                <div class="ranking-pontos__label">EcoPoints</div>
+              </div>
+            </div>
+            <div class="ranking-item ranking-item--2">
+              <div class="ranking-posicao ranking-posicao--2">🥈</div>
+              <div class="ranking-avatar">R</div>
+              <div class="ranking-info">
+                <div class="ranking-nome">Rafael Andrade</div>
+                <div class="ranking-cidade">Curitiba, PR</div>
+              </div>
+              <div class="ranking-pontos">
+                <div class="ranking-pontos__valor">13.410</div>
+                <div class="ranking-pontos__label">EcoPoints</div>
+              </div>
+            </div>
+            <div class="ranking-item ranking-item--3">
+              <div class="ranking-posicao ranking-posicao--3">🥉</div>
+              <div class="ranking-avatar">A</div>
+              <div class="ranking-info">
+                <div class="ranking-nome">Ana Luz</div>
+                <div class="ranking-cidade">Florianópolis, SC</div>
+              </div>
+              <div class="ranking-pontos">
+                <div class="ranking-pontos__valor">11.990</div>
+                <div class="ranking-pontos__label">EcoPoints</div>
+              </div>
+            </div>
+            <div class="ranking-item">
+              <div class="ranking-posicao ranking-posicao--outros">4</div>
+              <div class="ranking-avatar" style="background: var(--cor-fundo-card2); color: var(--cor-primaria); border: 2px solid rgba(0,214,143,0.3);">C</div>
+              <div class="ranking-info">
+                <div class="ranking-nome">Carlos Franco</div>
+                <div class="ranking-cidade">São Paulo, SP</div>
+              </div>
+              <div class="ranking-pontos">
+                <div class="ranking-pontos__valor">9.780</div>
+                <div class="ranking-pontos__label">EcoPoints</div>
+              </div>
+            </div>
+            <div class="ranking-item">
+              <div class="ranking-posicao ranking-posicao--outros">5</div>
+              <div class="ranking-avatar" style="background: var(--cor-fundo-card2); color: var(--cor-primaria); border: 2px solid rgba(0,214,143,0.3);">J</div>
+              <div class="ranking-info">
+                <div class="ranking-nome">Julia Mendes</div>
+                <div class="ranking-cidade">Belo Horizonte, MG</div>
+              </div>
+              <div class="ranking-pontos">
+                <div class="ranking-pontos__valor">8.530</div>
+                <div class="ranking-pontos__label">EcoPoints</div>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <div class="destaque-box--laranja destaque-box">
+              <div style="margin-bottom: 0.75rem;" class="icone-md icone-laranja"><i data-lucide="zap"></i></div>
+              <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--cor-texto-claro); margin-bottom: 0.6rem;">Recompensa do Top 1</h3>
+              <p style="color: var(--cor-texto-muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem;">O primeiro colocado do ranking mensal recebe a conta de energia elétrica 100% subsidiada por um mês inteiro.</p>
+              <div class="badge badge--laranja" style="font-size: 0.8rem; padding: 0.4rem 1rem;">Valor médio: R$ 280/mês</div>
+            </div>
+            <div class="card">
+              <h3 class="card__titulo mb-2">Como acumular EcoPoints</h3>
+              <div class="feature-lista">
+                <div class="feature-item">
+                  <div class="feature-item__check"><i data-lucide="check"></i></div>
+                  <span><strong style="color: var(--cor-texto-claro);">Quizzes</strong> — pontos por camada de aprendizado</span>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-item__check"><i data-lucide="check"></i></div>
+                  <span><strong style="color: var(--cor-texto-claro);">Evidências</strong> — pontos por foto validada no app</span>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-item__check"><i data-lucide="check"></i></div>
+                  <span><strong style="color: var(--cor-texto-claro);">Selos</strong> — bônus ao completar a trilha completa</span>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-item__check"><i data-lucide="check"></i></div>
+                  <span><strong style="color: var(--cor-texto-claro);">Jardinagem cruzada</strong> — vaso de PET conta em Reciclagem e Jardinagem simultaneamente</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AVATAR / PERSONALIZAÇÃO -->
+    <section class="secao">
+      <div class="container">
+        <div class="secao__header">
+          <span class="secao__tag">Pertencimento</span>
+          <h2 class="secao__titulo">Avatar como registro de trajetória</h2>
+          <p class="secao__descricao">O avatar não é uma loja. Itens base são gratuitos desde o início. Itens especiais são desbloqueados por missão — não comprados com pontos. Quem tem um item raro percorreu um caminho específico.</p>
+        </div>
+        <div class="grid-4">
+          <div class="card texto-centro">
+            <div style="margin-bottom: 0.75rem;" class="icone-card-display"><i data-lucide="shirt"></i></div>
+            <h3 class="card__titulo" style="font-size: 1rem;">Itens Base</h3>
+            <p class="card__texto">Gratuitos desde o início — sem custo de pontos</p>
+          </div>
+          <div class="card texto-centro">
+            <div style="margin-bottom: 0.75rem;" class="icone-card-display"><i data-lucide="lock-open"></i></div>
+            <h3 class="card__titulo" style="font-size: 1rem;">Itens de Missão</h3>
+            <p class="card__texto">Desbloqueados ao completar trilhas — não estão à venda</p>
+          </div>
+          <div class="card texto-centro">
+            <div style="margin-bottom: 0.75rem;" class="icone-card-display"><i data-lucide="medal"></i></div>
+            <h3 class="card__titulo" style="font-size: 1rem;">Selos no Perfil</h3>
+            <p class="card__texto">Status conquistado visível para toda a comunidade</p>
+          </div>
+          <div class="card texto-centro">
+            <div style="margin-bottom: 0.75rem;" class="icone-card-display"><i data-lucide="user-check"></i></div>
+            <h3 class="card__titulo" style="font-size: 1rem;">Identidade Real</h3>
+            <p class="card__texto">O perfil conta sua história — não seu saldo de pontos</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REPUTAÇÃO SOCIAL -->
+    <section class="secao secao--escura">
+      <div class="container">
+        <div class="grid-2" style="gap: 4rem; align-items: center;">
+          <div>
+            <span class="secao__tag">Comunidade</span>
+            <h2 class="secao__titulo">Reputação social e visibilidade</h2>
+            <p style="color: var(--cor-texto-muted); line-height: 1.8; margin-bottom: 1.25rem;">
+              Cada post pode receber ups e downs da comunidade. Conteúdo relevante sobe, conteúdo fraco some. Sem moderação manual, sem algoritmo opaco — a própria base de usuários decide o que merece atenção.
+            </p>
+            <p style="color: var(--cor-texto-muted); line-height: 1.8; margin-bottom: 1.5rem;">
+              O diferencial está no <strong style="color: var(--cor-primaria);">peso da reputação acumulada</strong>: um up de quem completou a trilha de Reciclagem vale mais do que um up de quem criou a conta ontem. Isso cria um incentivo concreto para investir na própria trajetória — não só pelos selos, mas porque a voz dentro da comunidade cresce junto.
+            </p>
+            <div class="feature-lista">
+              <div class="feature-item">
+                <div class="feature-item__check"><i data-lucide="check"></i></div>
+                <span>Posts com evidências reais ganham mais visibilidade naturalmente</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-item__check"><i data-lucide="check"></i></div>
+                <span>Peso do voto proporcional aos selos e histórico do usuário</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-item__check"><i data-lucide="check"></i></div>
+                <span>O feed se auto-organiza em torno de quem está realmente agindo</span>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div class="card">
+              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem;">
+                <div class="ranking-avatar" style="width:38px;height:38px;font-size:0.9rem;">M</div>
+                <div>
+                  <div style="font-size:0.9rem;font-weight:600;color:var(--cor-texto-claro);">Marina Costa</div>
+                  <div style="font-size:0.75rem;color:var(--cor-texto-muted);">Recicladora Certificada · Cultivadora Urbana</div>
+                </div>
+              </div>
+              <p style="font-size:0.875rem;color:var(--cor-texto-muted);margin-bottom:0.75rem;">Fiz um vaso com garrafa PET — contou nas duas trilhas ao mesmo tempo.</p>
+              <div style="display:flex;gap:0.75rem;">
+                <span style="display:flex;align-items:center;gap:0.3rem;font-size:0.8rem;color:var(--cor-primaria);font-weight:700;"><i data-lucide="thumbs-up" style="width:14px;height:14px;"></i> 142</span>
+                <span style="display:flex;align-items:center;gap:0.3rem;font-size:0.8rem;color:var(--cor-texto-muted);"><i data-lucide="thumbs-down" style="width:14px;height:14px;"></i> 3</span>
+              </div>
+            </div>
+            <div class="card">
+              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem;">
+                <div class="ranking-avatar" style="width:38px;height:38px;font-size:0.9rem;background:var(--cor-fundo-card2);color:var(--cor-texto-muted);border:2px solid var(--cor-borda);">?</div>
+                <div>
+                  <div style="font-size:0.9rem;font-weight:600;color:var(--cor-texto-claro);">Usuário novo</div>
+                  <div style="font-size:0.75rem;color:var(--cor-texto-muted);">Sem selos · Sem histórico</div>
+                </div>
+              </div>
+              <p style="font-size:0.875rem;color:var(--cor-texto-muted);margin-bottom:0.75rem;">Sustentabilidade é importante! #verde #planeta</p>
+              <div style="display:flex;gap:0.75rem;">
+                <span style="display:flex;align-items:center;gap:0.3rem;font-size:0.8rem;color:var(--cor-texto-muted);"><i data-lucide="thumbs-up" style="width:14px;height:14px;"></i> 4</span>
+                <span style="display:flex;align-items:center;gap:0.3rem;font-size:0.8rem;color:var(--cor-texto-muted);"><i data-lucide="thumbs-down" style="width:14px;height:14px;"></i> 1</span>
+              </div>
+            </div>
+            <p style="font-size:0.78rem;color:var(--cor-texto-muted);text-align:center;">O sistema não precisa dizer que evidências valem mais. O comportamento emerge da mecânica.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo"><i data-lucide="leaf"></i> Eco<span>Score</span></div>
+        <p class="footer__descricao">Sistema de gamificação sustentável desenvolvido para o Challenge FIAP 2026 em parceria com a SoulUp (by Prospera).</p>
+        <span class="footer__badge-fiap">🎓 Challenge FIAP 2026 · Turma 1TDSPH</span>
+      </div>
+      <div>
+        <p class="footer__titulo-col">Páginas</p>
+        <ul class="footer__links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="ecoscore.html">EcoScore</a></li>
+          <li><a href="como-funciona.html">Como Funciona</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__titulo-col">Projeto</p>
+        <ul class="footer__links">
+          <li><a href="integrantes.html">Equipe</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__copy">
+      <span>© 2026 EcoScore — Challenge FIAP · 1TDSPH</span>
+      <span>Desenvolvido com HTML5, CSS3 e JavaScript puro</span>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

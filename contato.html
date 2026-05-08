@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato — EcoScore</title>
+  <meta name="description" content="Entre em contato com a equipe EcoScore. Tire dúvidas, envie sugestões ou fale sobre parcerias." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/componentes.css" />
+  <link rel="stylesheet" href="css/responsivo.css" />
+</head>
+<body>
+
+  <header class="header">
+    <a href="index.html" class="header__logo">
+      <div class="header__logo-icon"><i data-lucide="leaf"></i></div>
+      Eco<span>Score</span>
+    </a>
+    <button class="nav__toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <ul class="nav__lista">
+        <li><a href="index.html" class="nav__link">Início</a></li>
+        <li><a href="sobre.html" class="nav__link">Sobre</a></li>
+        <li><a href="ecoscore.html" class="nav__link">EcoScore</a></li>
+        <li><a href="como-funciona.html" class="nav__link">Como Funciona</a></li>
+        <li><a href="faq.html" class="nav__link">FAQ</a></li>
+        <li><a href="integrantes.html" class="nav__link">Equipe</a></li>
+        <li><a href="contato.html" class="nav__link nav__link--cta">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-interno">
+      <div class="hero-interno__conteudo">
+        <span class="secao__tag">Contato</span>
+        <h1 class="hero-interno__titulo">Fale com a <span class="texto-gradiente">equipe</span></h1>
+        <p class="hero-interno__texto">Dúvidas sobre o projeto, sugestões ou interesse em parceria? Preencha o formulário e entraremos em contato.</p>
+      </div>
+    </section>
+
+    <section class="secao">
+      <div class="container">
+        <div class="grid-2" style="gap: 4rem; align-items: flex-start;">
+
+          <!-- FORMULÁRIO -->
+          <div>
+            <form class="form" id="form-contato" novalidate>
+              <div class="form-grupo--duplo">
+                <div class="form-grupo">
+                  <label class="form-label" for="nome">Nome completo *</label>
+                  <input class="form-input" type="text" id="nome" name="nome" placeholder="Seu nome" autocomplete="name" />
+                  <span class="form-erro" id="erro-nome"></span>
+                </div>
+                <div class="form-grupo">
+                  <label class="form-label" for="email">E-mail *</label>
+                  <input class="form-input" type="email" id="email" name="email" placeholder="seu@email.com" autocomplete="email" />
+                  <span class="form-erro" id="erro-email"></span>
+                </div>
+              </div>
+
+              <div class="form-grupo">
+                <label class="form-label" for="assunto">Assunto *</label>
+                <select class="form-select" id="assunto" name="assunto">
+                  <option value="">Selecione um assunto</option>
+                  <option value="duvida">Dúvida sobre o projeto</option>
+                  <option value="sugestao">Sugestão de melhoria</option>
+                  <option value="parceria">Interesse em parceria</option>
+                  <option value="imprensa">Imprensa / Media</option>
+                  <option value="outro">Outro</option>
+                </select>
+                <span class="form-erro" id="erro-assunto"></span>
+              </div>
+
+              <div class="form-grupo">
+                <label class="form-label" for="mensagem">Mensagem *</label>
+                <textarea class="form-textarea" id="mensagem" name="mensagem" placeholder="Descreva sua dúvida ou mensagem com detalhes (mínimo 20 caracteres)..."></textarea>
+                <span class="form-erro" id="erro-mensagem"></span>
+              </div>
+
+              <button type="submit" class="btn btn--primario" style="width: 100%; justify-content: center;">
+                Enviar Mensagem →
+              </button>
+            </form>
+
+            <div class="form-sucesso" id="form-sucesso">
+              <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">✅</div>
+              <h3 style="margin-bottom: 0.5rem;">Mensagem enviada!</h3>
+              <p style="font-size: 0.9rem; color: var(--cor-texto-muted); font-weight: 400;">Agradecemos o contato. Retornaremos em até 3 dias úteis.</p>
+            </div>
+          </div>
+
+          <!-- INFO LATERAL -->
+          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <div>
+              <h2 style="font-size: 1.2rem; font-weight: 700; color: var(--cor-texto-claro); margin-bottom: 1rem;">Outras formas de contato</h2>
+            </div>
+
+            <div class="card" style="padding: 1.5rem;">
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <div style="font-size: 1.75rem;"><i data-lucide="mail"></i></div>
+                <div>
+                  <div style="font-size: 0.8rem; color: var(--cor-texto-muted); margin-bottom: 0.2rem;">E-mail do projeto</div>
+                  <div style="font-size: 0.9rem; font-weight: 600; color: var(--cor-primaria);">ecoscore@fiap.com.br</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" style="padding: 1.5rem;">
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <div style="font-size: 1.75rem;"><i data-lucide="monitor"></i></div>
+                <div>
+                  <div style="font-size: 0.8rem; color: var(--cor-texto-muted); margin-bottom: 0.2rem;">Repositório no GitHub</div>
+                  <a href="https://github.com/francosdev/challenge-soulup-solcon" target="_blank" rel="noopener" style="font-size: 0.9rem; font-weight: 600;">
+                    challenge-soulup-solcon
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" style="padding: 1.5rem;">
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <div style="font-size: 1.75rem;"><i data-lucide="graduation-cap"></i></div>
+                <div>
+                  <div style="font-size: 0.8rem; color: var(--cor-texto-muted); margin-bottom: 0.2rem;">Instituição</div>
+                  <div style="font-size: 0.9rem; font-weight: 600; color: var(--cor-texto-claro);">FIAP — Turma 1TDSPH · 2026</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="destaque-box" style="padding: 1.5rem;">
+              <p style="font-size: 0.85rem; color: var(--cor-texto-muted); line-height: 1.7;">
+                <strong style="color: var(--cor-primaria);">Prazo de resposta:</strong> Nossa equipe responde em até 3 dias úteis. Para dúvidas frequentes, consulte primeiro nossa <a href="faq.html">página de FAQ</a>.
+              </p>
+            </div>
+
+            <div>
+              <p style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--cor-texto-muted); margin-bottom: 0.75rem;">Integrantes no LinkedIn</p>
+              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                <a href="https://linkedin.com/in/carlos-franco-devs" target="_blank" rel="noopener" class="card" style="padding: 0.875rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+                  <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--cor-primaria), var(--cor-terciaria)); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; color: #060E1A; flex-shrink: 0;">CF</div>
+                  <div>
+                    <div style="font-size: 0.85rem; font-weight: 600; color: var(--cor-texto-claro);">Carlos Henrique De Melo Franco</div>
+                    <div style="font-size: 0.75rem; color: #0A66C2;">linkedin.com/in/carlos-franco-devs</div>
+                  </div>
+                </a>
+                <a href="https://linkedin.com/in/murilo-a-souza" target="_blank" rel="noopener" class="card" style="padding: 0.875rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+                  <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #7C3AED, #A78BFA); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; color: #fff; flex-shrink: 0;">MS</div>
+                  <div>
+                    <div style="font-size: 0.85rem; font-weight: 600; color: var(--cor-texto-claro);">Murilo de Souza</div>
+                    <div style="font-size: 0.75rem; color: #0A66C2;">linkedin.com/in/murilo-a-souza</div>
+                  </div>
+                </a>
+                <a href="https://linkedin.com/in/henrique-bonachela" target="_blank" rel="noopener" class="card" style="padding: 0.875rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+                  <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #F4A261, #E8894A); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; color: #060E1A; flex-shrink: 0;">HB</div>
+                  <div>
+                    <div style="font-size: 0.85rem; font-weight: 600; color: var(--cor-texto-claro);">Henrique Bonachela de Carvalho Carabante</div>
+                    <div style="font-size: 0.75rem; color: #0A66C2;">linkedin.com/in/henrique-bonachela</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo"><i data-lucide="leaf"></i> Eco<span>Score</span></div>
+        <p class="footer__descricao">Sistema de gamificação sustentável desenvolvido para o Challenge FIAP 2026 em parceria com a SoulUp (by Prospera).</p>
+        <span class="footer__badge-fiap">🎓 Challenge FIAP 2026 · Turma 1TDSPH</span>
+      </div>
+      <div>
+        <p class="footer__titulo-col">Páginas</p>
+        <ul class="footer__links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="ecoscore.html">EcoScore</a></li>
+          <li><a href="como-funciona.html">Como Funciona</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__titulo-col">Projeto</p>
+        <ul class="footer__links">
+          <li><a href="integrantes.html">Equipe</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__copy">
+      <span>© 2026 EcoScore — Challenge FIAP · 1TDSPH</span>
+      <span>Desenvolvido com HTML5, CSS3 e JavaScript puro</span>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/contato.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
