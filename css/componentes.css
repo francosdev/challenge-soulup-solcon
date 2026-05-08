@@ -482,7 +482,7 @@ div > [data-lucide="graduation-cap"] {
   top: 32px;
   bottom: 32px;
   width: 2px;
-  background: linear-gradient(to bottom, var(--cor-primaria), var(--cor-terciaria));
+  background: linear-gradient(to bottom, var(--cor-primaria), var(--cor-terciaria) 80%, transparent);
   opacity: 0.25;
 }
 

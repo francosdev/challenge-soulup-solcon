@@ -23,6 +23,20 @@
 
 /* ===== TABLET: até 768px ===== */
 @media (max-width: 768px) {
+  /* Header fixo no mobile para garantir alinhamento com o menu */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  /* Compensar o header fixo */
+  body {
+    padding-top: 70px;
+  }
+
   /* Nav */
   .nav__toggle { display: flex; }
 
