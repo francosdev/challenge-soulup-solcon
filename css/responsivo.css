@@ -33,20 +33,23 @@
     right: 0;
     bottom: 0;
     background: #060E1A;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 0.5rem;
-    overflow-y: auto;
+    padding-top: 2.5rem;
+    gap: 0.25rem;
     transform: translateX(100%);
     transition: transform 0.35s ease;
-    z-index: 999;
+    z-index: 1001;
+    pointer-events: none;
+    visibility: hidden;
+    overflow-y: auto;
   }
 
   .nav__lista.aberta {
     transform: translateX(0);
+    pointer-events: auto;
+    visibility: visible;
   }
 
   .nav__link {

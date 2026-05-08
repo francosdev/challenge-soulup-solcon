@@ -59,7 +59,7 @@ img {
 .header {
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1100;
   background: rgba(6, 14, 26, 0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--cor-borda);
