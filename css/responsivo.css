@@ -41,6 +41,11 @@
   .nav__toggle { display: flex; }
 
   .nav__lista {
+    display: none;
+  }
+
+  .nav__lista.aberta {
+    display: flex;
     position: fixed;
     top: 70px;
     left: 0;
@@ -51,13 +56,8 @@
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    transform: translateX(100%);
-    transition: transform 0.35s ease;
     z-index: 1050;
-  }
-
-  .nav__lista.aberta {
-    transform: translateX(0);
+    overflow-y: auto;
   }
 
   .nav__link {
@@ -72,6 +72,7 @@
   }
 
   /* Hero */
+  .hero__scroll { display: none; }
   .hero__titulo { font-size: 2.2rem; }
   .hero__acoes { flex-direction: column; align-items: center; }
 

@@ -35,14 +35,27 @@
   <main>
     <!-- HERO -->
     <section class="hero">
+      <canvas id="mycelium-bg"></canvas>
       <div class="hero__conteudo">
-        <div class="hero__badge">🏆 Challenge FIAP 2026 · SoulUp</div>
+        <div class="hero__parceiros">
+          <span class="hero__parceiro-item">
+            <i data-lucide="graduation-cap"></i> FIAP 2026
+          </span>
+          <span class="hero__parceiro-sep">×</span>
+          <span class="hero__parceiro-item">
+            <i data-lucide="leaf"></i> SoulUp
+          </span>
+          <span class="hero__parceiro-sep">×</span>
+          <span class="hero__parceiro-item hero__parceiro-item--solcon">
+            <i data-lucide="cpu"></i> SolCon
+          </span>
+        </div>
         <h1 class="hero__titulo">
           Sustentabilidade que<br />
           <span class="destaque">gera recompensas reais</span>
         </h1>
         <p class="hero__subtitulo">
-          O EcoScore transforma suas ações sustentáveis do dia a dia em pontos, conquistas e benefícios reais — validados por inteligência artificial.
+          O EcoScore transforma ações sustentáveis do dia a dia em progressão, selos e benefícios concretos — verificados por foto no app.
         </p>
         <div class="hero__acoes">
           <a href="ecoscore.html" class="btn btn--primario btn--grande">Explorar o Sistema</a>
@@ -138,9 +151,9 @@
             <p class="card__texto">O top do ranking recebe 100% da conta de energia elétrica subsidiada. Sustentabilidade que paga literalmente suas contas.</p>
           </div>
           <div class="card">
-            <div class="card__icone card__icone--laranja"><i data-lucide="globe"></i></div>
-            <h3 class="card__titulo">Impacto Coletivo</h3>
-            <p class="card__texto">Cada ação individual contribui para métricas globais de impacto. Veja o quanto a comunidade EcoScore já economizou.</p>
+            <div class="card__icone card__icone--laranja"><i data-lucide="users"></i></div>
+            <h3 class="card__titulo">Sua voz cresce com sua trajetória</h3>
+            <p class="card__texto">Ups de quem completou a trilha de Reciclagem valem mais do que os de quem criou a conta ontem. Não é algoritmo — é consequência direta de quem agiu.</p>
           </div>
         </div>
       </div>
@@ -196,5 +209,6 @@
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script src="js/menu.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/micelio.js"></script>
 </body>
 </html>

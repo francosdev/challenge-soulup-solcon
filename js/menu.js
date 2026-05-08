@@ -5,6 +5,7 @@ if (toggle && nav) {
   toggle.addEventListener('click', () => {
     const aberto = toggle.classList.toggle('aberto');
     nav.classList.toggle('aberta', aberto);
+    document.documentElement.style.overflow = aberto ? 'hidden' : '';
     document.body.style.overflow = aberto ? 'hidden' : '';
   });
 
@@ -12,6 +13,7 @@ if (toggle && nav) {
     link.addEventListener('click', () => {
       toggle.classList.remove('aberto');
       nav.classList.remove('aberta');
+      document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
     });
   });
@@ -21,6 +23,5 @@ const links = document.querySelectorAll('.nav__link');
 const pagina = window.location.pathname.split('/').pop() || 'index.html';
 
 links.forEach(link => {
-  const href = link.getAttribute('href');
-  if (href === pagina) link.classList.add('ativo');
+  if (link.getAttribute('href') === pagina) link.classList.add('ativo');
 });

@@ -76,30 +76,53 @@
           <div>
             <div class="card" style="padding: 2.5rem; background: rgba(255,107,107,0.04); border-color: rgba(255,107,107,0.2);">
               <div style="margin-bottom: 1rem;" class="icone-lg icone-vermelho"><i data-lucide="trending-down"></i></div>
-              <h3 style="color: var(--cor-texto-claro); font-size: 1.3rem; margin-bottom: 0.75rem;">Cenário atual</h3>
-              <p style="color: var(--cor-texto-muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem;">Usuários se engajam por impulso, mas sem estrutura de progressão e recompensas tangíveis, a maioria abandona práticas sustentáveis em semanas.</p>
+              <h3 style="color: var(--cor-texto-claro); font-size: 1.3rem; margin-bottom: 0.25rem;">Cenário atual</h3>
+              <p style="color: var(--cor-texto-muted); font-size: 0.75rem; margin-bottom: 1rem;">Fonte: GA4 SoulUp, jan–abr 2026</p>
               <div style="display: flex; flex-direction: column; gap: 1rem;">
                 <div>
                   <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--cor-texto-muted); margin-bottom: 0.4rem;">
-                    <span>Retenção após 30 dias</span><span style="color: #FF6B6B;">23%</span>
+                    <span>Queda anual em usuários ativos</span><span style="color: #FF6B6B;">−77%</span>
                   </div>
-                  <div class="progresso"><div class="progresso__barra" data-valor="23" style="background: #FF6B6B;"></div></div>
+                  <div class="progresso"><div class="progresso__barra" data-valor="77" style="background: #FF6B6B;"></div></div>
                 </div>
                 <div>
                   <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--cor-texto-muted); margin-bottom: 0.4rem;">
-                    <span>Retorno diário ao app</span><span style="color: #FF6B6B;">31%</span>
+                    <span>Sessões por usuário/mês (média)</span><span style="color: #FF6B6B;">0,4</span>
                   </div>
-                  <div class="progresso"><div class="progresso__barra" data-valor="31" style="background: #FF6B6B;"></div></div>
+                  <div class="progresso"><div class="progresso__barra" data-valor="8" style="background: #FF6B6B;"></div></div>
                 </div>
                 <div>
                   <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--cor-texto-muted); margin-bottom: 0.4rem;">
-                    <span>Hábito consolidado (90 dias)</span><span style="color: #FF6B6B;">12%</span>
+                    <span>Novos usuários sobre total ativo</span><span style="color: #FF6B6B;">30%</span>
                   </div>
-                  <div class="progresso"><div class="progresso__barra" data-valor="12" style="background: #FF6B6B;"></div></div>
+                  <div class="progresso"><div class="progresso__barra" data-valor="30" style="background: #FF6B6B;"></div></div>
                 </div>
               </div>
+              <p style="font-size: 0.75rem; color: var(--cor-texto-muted); margin-top: 1rem; line-height: 1.6;">9.599 usuários ativos · 15.572 sessões · tempo médio 11min06s por sessão. Base retorna, mas sem frequência estruturada.</p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COM QUEM CONVERSAMOS -->
+    <section class="secao secao--escura">
+      <div class="container" style="max-width: 780px;">
+        <span class="secao__tag">Pesquisa</span>
+        <h2 class="secao__titulo" style="margin-bottom: 2rem;">Com quem conversamos</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <p style="color: var(--cor-texto-muted); line-height: 1.85; font-size: 1rem;">
+            Antes de definir as classes do MVP, conversamos com 7 pessoas — moradores de apartamento, em sua maioria jovens adultos de São Paulo — sobre o que as faz agir (ou não) quando o assunto é sustentabilidade. Nenhuma entrevista foi formal: foram conversas sobre rotina, hábitos e frustração.
+          </p>
+          <p style="color: var(--cor-texto-muted); line-height: 1.85; font-size: 1rem;">
+            O padrão mais comum foi <strong style="color: var(--cor-texto-claro);">fricção de contexto</strong>: a maioria quer reciclar, mas não sabe onde fica o ponto de coleta mais próximo. Quer plantar, mas não tem espaço nem vaso. A intenção existe — o que falta é um ponto de entrada pequeno o suficiente para começar agora, com o que já tem em casa. Ninguém pediu por complexidade. Pediram por um primeiro passo que não exija planejamento.
+          </p>
+          <p style="color: var(--cor-texto-muted); line-height: 1.85; font-size: 1rem;">
+            Sobre o que traz de volta, duas coisas apareceram sempre: ver que progrediu em algo concreto, e saber que alguém viu. Não necessariamente elogio — só visibilidade. A recompensa tangível foi mencionada como "seria ótimo", mas nunca como razão principal de retornar. O status dentro da comunidade importou mais do que o benefício financeiro.
+          </p>
+          <p style="color: var(--cor-primaria); font-weight: 600; font-size: 0.95rem; border-top: 1px solid var(--cor-borda); padding-top: 1.25rem;">
+            Essas conversas moldaram as 3 classes do MVP: escolhidas por acessibilidade, não por complexidade.
+          </p>
         </div>
       </div>
     </section>
@@ -111,28 +134,25 @@
           <div>
             <div class="card" style="padding: 2.5rem;">
               <div style="margin-bottom: 1rem;" class="icone-lg"><i data-lucide="trending-up"></i></div>
-              <h3 style="color: var(--cor-texto-claro); font-size: 1.3rem; margin-bottom: 0.75rem;">Com o EcoScore</h3>
-              <p style="color: var(--cor-texto-muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem;">A gamificação estruturada com recompensas reais e progressão visível muda completamente o padrão de engajamento.</p>
+              <h3 style="color: var(--cor-texto-claro); font-size: 1.3rem; margin-bottom: 0.25rem;">Hipótese de design</h3>
+              <p style="color: var(--cor-texto-muted); font-size: 0.75rem; margin-bottom: 1rem;">Baseada em benchmarks de apps de gamificação com mecânicas similares</p>
               <div style="display: flex; flex-direction: column; gap: 1rem;">
                 <div>
                   <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--cor-texto-muted); margin-bottom: 0.4rem;">
-                    <span>Retenção projetada (30 dias)</span><span style="color: var(--cor-primaria);">78%</span>
+                    <span>Sessões/usuário por mês (objetivo)</span><span style="color: var(--cor-primaria);">4+</span>
                   </div>
-                  <div class="progresso"><div class="progresso__barra" data-valor="78"></div></div>
+                  <div class="progresso"><div class="progresso__barra" data-valor="75"></div></div>
+                  <p style="font-size: 0.7rem; color: var(--cor-texto-muted); margin-top: 0.3rem;">Duolingo reporta média de 4,3 sessões/semana para usuários com streak ativo</p>
                 </div>
                 <div>
                   <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--cor-texto-muted); margin-bottom: 0.4rem;">
-                    <span>Retorno diário ao app</span><span style="color: var(--cor-primaria);">65%</span>
+                    <span>Retenção em 30 dias (faixa estimada)</span><span style="color: var(--cor-primaria);">35–50%</span>
                   </div>
-                  <div class="progresso"><div class="progresso__barra" data-valor="65"></div></div>
-                </div>
-                <div>
-                  <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--cor-texto-muted); margin-bottom: 0.4rem;">
-                    <span>Hábito consolidado (90 dias)</span><span style="color: var(--cor-primaria);">52%</span>
-                  </div>
-                  <div class="progresso"><div class="progresso__barra" data-valor="52"></div></div>
+                  <div class="progresso"><div class="progresso__barra" data-valor="42"></div></div>
+                  <p style="font-size: 0.7rem; color: var(--cor-texto-muted); margin-top: 0.3rem;">Apps gamificados de hábito (Habitica, Nike Run Club) reportam 2–3× a retenção de apps não-gamificados equivalentes</p>
                 </div>
               </div>
+              <p style="font-size: 0.72rem; color: var(--cor-texto-muted); margin-top: 1.25rem; line-height: 1.6; border-top: 1px solid var(--cor-borda); padding-top: 0.75rem;">Projeções baseadas em benchmarks de sistemas de gamificação com mecânicas similares. Dados base: GA4 SoulUp, jan–abr 2026.</p>
             </div>
           </div>
           <div>
@@ -141,9 +161,13 @@
             <p style="color: var(--cor-texto-muted); line-height: 1.8; margin-bottom: 1.5rem;">
               O EcoScore é uma camada de amplificação sobre a plataforma SoulUp. Ele usa mecânicas de jogos comprovadas — progressão, recompensa, comunidade — direcionadas para hábitos sustentáveis verificáveis.
             </p>
-            <p style="color: var(--cor-texto-muted); line-height: 1.8; margin-bottom: 1.5rem;">
-              O diferencial está na <strong style="color: var(--cor-primaria);">validação por IA + vídeo</strong>: as ações precisam ser reais. Isso elimina a fraude e garante que cada EcoPoint represente impacto genuíno no mundo.
+            <p style="color: var(--cor-texto-muted); line-height: 1.8; margin-bottom: 1rem;">
+              O diferencial está na <strong style="color: var(--cor-primaria);">validação por metadados</strong>: a foto é capturada no app com GPS e timestamp automáticos. Isso elimina o principal vetor de fraude — reutilização de imagens antigas ou de outro contexto — sem adicionar fricção para quem está sendo honesto.
             </p>
+            <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+              <span class="badge badge--verde">MVP · Foto + metadados no app</span>
+              <span class="badge badge--roxo">Fase 2 · Visão computacional</span>
+            </div>
             <a href="como-funciona.html" class="btn btn--primario">Ver Como Funciona →</a>
           </div>
         </div>
@@ -163,10 +187,10 @@
             <div>
               <h3 style="font-size: 1.4rem; font-weight: 700; color: var(--cor-texto-claro); margin-bottom: 1rem;">SoulUp <span style="color: var(--cor-texto-muted); font-weight: 400; font-size: 1rem;">by Prospera</span></h3>
               <p style="color: var(--cor-texto-muted); line-height: 1.8; margin-bottom: 1rem;">
-                A SoulUp é uma plataforma digital brasileira que transforma interações online em benefícios reais e impacto ambiental positivo. Usuários realizam ações — compras, indicações, posts — e acumulam pontos que viram benefícios concretos.
+                A SoulUp identificou que engajamento pontual não gera retenção duradoura. Os dados de 2026 mostram queda de 77% em usuários ativos em relação ao ano anterior. O EcoScore nasce como resposta direta a esse desafio: criar uma razão estrutural para o usuário voltar — não por notificação, mas porque tem algo concreto a construir.
               </p>
               <p style="color: var(--cor-texto-muted); line-height: 1.8;">
-                O EcoScore expande essa lógica ao direcionar o foco especificamente para ações sustentáveis verificáveis, criando um loop virtuoso de engajamento com impacto real no meio ambiente.
+                A plataforma fornece a infraestrutura de pontos e benefícios. O EcoScore traz a camada de progressão, verificação e comunidade que transforma uma visita isolada em uma trajetória.
               </p>
             </div>
             <div style="display: flex; flex-direction: column; gap: 1rem;">
