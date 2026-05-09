@@ -19,8 +19,8 @@ A SoulUp é uma plataforma digital brasileira que transforma interações online
 - Feed social com up/down ponderado por reputação acumulada
 
 **Progressão**
-- Árvore de Habilidades com 3 classes no MVP: ♻️ Reciclagem | 🌱 Jardinagem | 💧 Água
-- Cada classe tem 3 camadas: Quiz → Evidência (foto no app) → Selo automático
+- Árvore de Habilidades com 4 ramos no MVP: ♻️ Reciclagem | 🌱 Jardinagem | 💧 Água | ⚡ Energia
+- Cada ramo tem 3 camadas: Quiz → Evidência (foto no app) → Selo automático
 - Progressão por comprometimento, não por complexidade técnica
 
 **Recompensa com propósito**
@@ -34,7 +34,8 @@ A SoulUp é uma plataforma digital brasileira que transforma interações online
 
 - HTML5 semântico
 - CSS3 puro — Flexbox, Grid, variáveis CSS, media queries
-- JavaScript ES6+ vanilla
+- JavaScript ES6+ vanilla — incluindo Canvas API para animação de micélio
+- Python 3.10+ — módulo CLI de gamificação (`ecoscore.py`)
 - [Lucide Icons](https://lucide.dev) via CDN — biblioteca de ícones SVG
 
 > Nenhum framework CSS ou JS foi utilizado — projeto desenvolvido com tecnologias puras conforme requisitos da disciplina.
@@ -61,7 +62,15 @@ challenge-soulup-solcon/
 ├── /js
 │   ├── main.js             ← Animações e FAQ acordeon
 │   ├── menu.js             ← Menu hambúrguer mobile
-│   └── contato.js          ← Validação do formulário
+│   ├── contato.js          ← Validação do formulário
+│   ├── micelio.js          ← Animação Canvas do fundo (hero micélio)
+│   └── particulas.js       ← Efeito de partículas
+│
+├── /python
+│   └── ecoscore.py         ← CLI Python: cadastro, ações, ranking e perfil
+│
+├── /java
+│   └── diagrama-classes_incompleto.drawio  ← Diagrama de classes (em andamento)
 │
 └── /assets
     ├── /imagens
@@ -94,9 +103,27 @@ challenge-soulup-solcon/
 
 ---
 
+## Python
+
+O módulo `python/ecoscore.py` implementa o sistema de gamificação como aplicação CLI:
+
+| Funcionalidade | Descrição |
+|----------------|-----------|
+| Cadastro | Registra usuário com nome e e-mail (valida duplicatas) |
+| Registrar ação | Categorias: Jardinagem (5 pts/muda), Reciclagem (3 pts/kg), Água (0,1 pts/L), Energia (10 pts/ação) |
+| Ranking | Exibe usuários ordenados por EcoPoints; encerra automaticamente ao atingir 100 pts |
+| Perfil | Exibe histórico completo de ações e total de pontos |
+
+Para executar:
+```bash
+python python/ecoscore.py
+```
+
+---
+
 ## Java
 
-[☕ Diagramas de classe](./java/diagrama-classes.drawio)
+[☕ Diagramas de classe (em andamento)](./java/diagrama-classes_incompleto.drawio)
 
 ---
 
