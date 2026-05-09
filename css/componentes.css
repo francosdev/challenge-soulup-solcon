@@ -3,8 +3,7 @@
 .pilar-card,
 .integrante-card,
 .stat-item,
-.skill-ramo {
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+.skill-ramo { n: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .card:hover,
