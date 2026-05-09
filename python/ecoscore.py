@@ -42,7 +42,6 @@ def linha(char="─", n=52):
 
 
 # Verifica se uma string representa um número decimal positivo.
-# Checa caractere a caractere para evitar try/except na conversão.
 def eh_numero_positivo(texto):
     texto = texto.strip()
 
