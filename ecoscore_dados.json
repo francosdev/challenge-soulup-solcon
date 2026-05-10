@@ -1,0 +1,40 @@
+{
+    "ranking_encerrado": false,
+    "usuarios": [
+        [
+            "Carlos",
+            "francosdevs@gmail.com",
+            "Celi2708.",
+            36,
+            [
+                [
+                    "Plantio",
+                    "Cultivar horta doméstica",
+                    4.0,
+                    16
+                ],
+                [
+                    "Economia de Água",
+                    "Economia de Água",
+                    20.0,
+                    2
+                ],
+                [
+                    "Plantio",
+                    "Plantar muda ou árvore",
+                    3.0,
+                    15
+                ],
+                [
+                    "Economia de Água",
+                    "Economia de Água",
+                    30.0,
+                    3
+                ]
+            ],
+            [
+                "Primeiro Broto"
+            ]
+        ]
+    ]
+}

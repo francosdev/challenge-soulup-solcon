@@ -3,12 +3,15 @@
 #  FIAP | Turma 1TDS | Sprint 1 | 2026
 # ============================================================
 
+import json
 import msvcrt
+import os
 
 # Lista global de usuários.
-# Cada elemento é uma lista: [nome, email, senha, total_pontos, lista_de_acoes]
+# Cada elemento é uma lista: [nome, email, senha, pontos, historico, conquistas]
 usuarios = []
 ranking_encerrado = False  # True quando algum usuário atingir 100 pontos
+ARQUIVO_DADOS = "ecoscore_dados.json"
 
 # Dicionário de categorias: chave -> (nome_exibido, slug, peso_por_unidade)
 CATEGORIAS = {
@@ -18,8 +21,96 @@ CATEGORIAS = {
     "4": ("Redução de Energia",     "energia",     2.0),
 }
 
+CONQUISTAS = [
+    ("Primeiro Broto",      "🌱", "Você registrou sua primeira ação sustentável!"),
+    ("Reciclador Ativo",   "♻️", "Você reciclou 10kg de materiais no ciclo mensal!"),
+    ("Água Consciente",    "💧", "Você economizou 100 litros de água!"),
+    ("Energia Inteligente", "⚡", "Você registrou 5 ações de economia de energia!"),
+    ("Mão Verde",          "🌿", "Você registrou 5 ações de plantio e jardinagem!"),
+    ("Campeão EcoScore",   "🏆", "Você atingiu 100 EcoPoints!"),
+]
+
 
 # ── utilidades ───────────────────────────────────────────────
+
+# Imprime uma linha decorativa com o caractere e comprimento escolhidos.
+def linha(char="─", n=52):
+    print(char * n)
+
+
+# Renderiza um título com linhas decorativas.
+def cabecalho(titulo):
+    linha("═")
+    print(f"  {titulo}")
+    linha("═")
+
+
+# Salva os dados do EcoScore em arquivo JSON.
+def salvar_dados():
+    dados = {
+        "ranking_encerrado": ranking_encerrado,
+        "usuarios": usuarios,
+    }
+
+    with open(ARQUIVO_DADOS, "w", encoding="utf-8") as arquivo:
+        json.dump(dados, arquivo, ensure_ascii=False, indent=4)
+
+
+# Adapta históricos antigos para o formato: categoria, descrição, quantidade, pontos.
+def normalizar_historico(historico):
+    historico_normalizado = []
+
+    for acao in historico:
+        if len(acao) == 4:
+            historico_normalizado.append(acao)
+        elif len(acao) == 3:
+            if type(acao[1]) == str:
+                historico_normalizado.append([acao[0], acao[1], 1, acao[2]])
+            else:
+                historico_normalizado.append([acao[0], acao[0], acao[1], acao[2]])
+
+    return historico_normalizado
+
+
+# Garante que usuários antigos sejam adaptados para a estrutura atual.
+def normalizar_usuarios():
+    for i, usuario in enumerate(usuarios):
+        if len(usuario) == 6:
+            if type(usuario[4]) != list:
+                usuario[4] = []
+            usuario[4] = normalizar_historico(usuario[4])
+            if type(usuario[5]) != list:
+                usuario[5] = []
+        elif len(usuario) == 5:
+            usuarios[i] = [usuario[0], usuario[1], usuario[2], usuario[3], normalizar_historico(usuario[4]), []]
+        elif len(usuario) == 4:
+            usuarios[i] = [usuario[0], usuario[1], "", usuario[2], normalizar_historico(usuario[3]), []]
+
+
+# Carrega os dados salvos, se o arquivo existir.
+def carregar_dados():
+    global usuarios, ranking_encerrado
+
+    if os.path.exists(ARQUIVO_DADOS):
+        with open(ARQUIVO_DADOS, "r", encoding="utf-8") as arquivo:
+            dados = json.load(arquivo)
+
+        if type(dados) == dict:
+            if "usuarios" in dados:
+                usuarios = dados["usuarios"]
+            else:
+                usuarios = []
+
+            if "ranking_encerrado" in dados:
+                ranking_encerrado = dados["ranking_encerrado"]
+            else:
+                ranking_encerrado = False
+        else:
+            usuarios = dados
+            ranking_encerrado = False
+
+        normalizar_usuarios()
+
 
 # Calcula os EcoPoints multiplicando quantidade pelo peso da categoria.
 # Resultado limitado entre 0 e 100 (teto por registro).
@@ -33,9 +124,11 @@ def calcular_pontuacao(categoria_key, quantidade):
 def ler_quantidade(prompt):
     while True:
         entrada = input(prompt).strip()
+        if entrada == "0":
+            return None
         if eh_numero_positivo(entrada):
             return float(entrada)
-        print("  [!] Informe um número positivo.")
+        print("  [!] Informe um número positivo ou 0 para voltar.")
 
 
 # Lê a senha caractere por caractere, mostrando "*" no terminal.
@@ -67,14 +160,18 @@ def ler_senha_oculta(mensagem):
 def adicionar_pontos_usuario(usuario_logado, pontos):
     global ranking_encerrado
 
-    if not ranking_encerrado:
-        usuario_logado[3] = min(100, usuario_logado[3] + pontos)
-        if usuario_logado[3] >= 100:
-            ranking_encerrado = True
-            print("\n  ⚡ PARABÉNS! Você atingiu 100 EcoPoints!")
-            print(f"  🏆 {usuario_logado[0]} venceu o ranking mensal!")
-            print("  🌱 O ranking foi encerrado para todos os usuários.")
-            print("  💡 Sua conta de energia deste mês será subsidiada pela SoulUp.")
+    if ranking_encerrado:
+        return False
+
+    usuario_logado[3] = min(100, usuario_logado[3] + pontos)
+    if usuario_logado[3] >= 100:
+        ranking_encerrado = True
+        print("\n  ⚡ PARABÉNS! Você atingiu 100 EcoPoints!")
+        print(f"  🏆 {usuario_logado[0]} venceu o ranking mensal!")
+        print("  🌱 O ranking foi encerrado para todos os usuários.")
+        print("  💡 Sua conta de energia deste mês será subsidiada pela SoulUp.")
+
+    return True
 
 
 # Percorre a lista de usuários comparando e-mails sem diferenciar maiúsculas.
@@ -86,96 +183,263 @@ def buscar_usuario(email):
     return -1
 
 
-# Imprime uma linha decorativa com o caractere e comprimento escolhidos.
-def linha(char="─", n=52):
-    print(char * n)
-
-
 # Verifica se uma string representa um número decimal positivo.
 def eh_numero_positivo(texto):
     texto = texto.strip()
 
-    # Rejeita strings vazias
     if len(texto) == 0:
         return False
 
     pontos_decimais = 0
     tem_digito = False
 
-    # Percorre cada caractere verificando se é dígito ou ponto decimal
     for c in texto:
         if c == ".":
             pontos_decimais = pontos_decimais + 1
-            if pontos_decimais > 1:              # mais de um ponto → inválido
+            if pontos_decimais > 1:
                 return False
         elif c >= "0" and c <= "9":
             tem_digito = True
         else:
-            return False                         # caractere inesperado → inválido
+            return False
 
-    # Rejeita strings como "." sem nenhum dígito
     if not tem_digito:
         return False
 
-    # Rejeita zero e negativos (o campo anterior garante que float() não falha)
     if float(texto) <= 0:
         return False
 
     return True
 
 
+# Formata números para evitar casas decimais desnecessárias.
+def formatar_quantidade(valor):
+    if int(valor) == valor:
+        return str(int(valor))
+    return str(valor)
+
+
+# Retorna o nome da conquista, ícone e mensagem pelo nome salvo.
+def buscar_conquista(nome_conquista):
+    for conquista in CONQUISTAS:
+        if conquista[0] == nome_conquista:
+            return conquista
+    return None
+
+
+# Exibe o feedback de uma conquista nova.
+def mostrar_conquista(conquista):
+    linha("━")
+    print("  🏆 NOVA CONQUISTA!")
+    print(f"  {conquista[1]} {conquista[0]}")
+    print(f"  {conquista[2]}")
+    linha("━")
+
+
+# Desbloqueia uma conquista sem repetir.
+def desbloquear_conquista(usuario_logado, nome_conquista):
+    conquista = buscar_conquista(nome_conquista)
+    if conquista is not None and nome_conquista not in usuario_logado[5]:
+        usuario_logado[5].append(nome_conquista)
+        mostrar_conquista(conquista)
+
+
+# Calcula o impacto acumulado a partir do histórico do usuário.
+def calcular_impacto(usuario_logado):
+    mudas = 0
+    hortas = 0
+    plantio = 0
+    compostagem = 0
+    polinizadores = 0
+    reaproveitados = 0
+    reciclado = 0
+    agua = 0
+    energia = 0
+
+    for acao in usuario_logado[4]:
+        categoria = acao[0]
+        descricao = acao[1]
+        quantidade = acao[2]
+
+        if categoria == "Plantio":
+            plantio = plantio + 1
+            if descricao == "Plantar muda ou árvore":
+                mudas = mudas + quantidade
+            elif descricao == "Cultivar horta doméstica":
+                hortas = hortas + quantidade
+            elif descricao == "Compostagem Orgânica":
+                compostagem = compostagem + quantidade
+            elif descricao == "Criar jardim para polinizadores":
+                polinizadores = polinizadores + quantidade
+            elif descricao == "Reaproveitar resíduos orgânicos":
+                reaproveitados = reaproveitados + quantidade
+        elif categoria == CATEGORIAS["2"][0]:
+            reciclado = reciclado + quantidade
+        elif categoria == CATEGORIAS["3"][0]:
+            agua = agua + quantidade
+        elif categoria == CATEGORIAS["4"][0]:
+            energia = energia + quantidade
+
+    return (mudas, hortas, plantio, compostagem, polinizadores, reaproveitados, reciclado, agua, energia)
+
+
+# Verifica se alguma conquista foi desbloqueada após uma ação.
+def verificar_conquistas(usuario_logado):
+    if len(usuario_logado[4]) >= 1:
+        desbloquear_conquista(usuario_logado, "Primeiro Broto")
+
+    impacto = calcular_impacto(usuario_logado)
+
+    if impacto[6] >= 10:
+        desbloquear_conquista(usuario_logado, "Reciclador Ativo")
+    if impacto[7] >= 100:
+        desbloquear_conquista(usuario_logado, "Água Consciente")
+    if impacto[8] >= 5:
+        desbloquear_conquista(usuario_logado, "Energia Inteligente")
+    if impacto[2] >= 5:
+        desbloquear_conquista(usuario_logado, "Mão Verde")
+    if usuario_logado[3] >= 100:
+        desbloquear_conquista(usuario_logado, "Campeão EcoScore")
+
+
+# Registra uma ação no histórico, soma pontos, verifica conquistas e salva.
+def registrar_acao_usuario(usuario_logado, acao, pontos):
+    usuario_logado[4].append(acao)
+    pontos_somados = adicionar_pontos_usuario(usuario_logado, pontos)
+    verificar_conquistas(usuario_logado)
+    salvar_dados()
+    return pontos_somados
+
+
+# Exibe feedback visual padronizado para ações registradas.
+def mostrar_feedback_acao(titulo, pontos, pontos_somados):
+    linha("━")
+    print(f"  🌿 {titulo}")
+    if pontos_somados:
+        print(f"  +{pontos} EcoPoints adicionados.")
+    else:
+        print("  Ação salva no histórico.")
+        print("  Ranking encerrado: nenhum EcoPoint foi somado.")
+    linha("━")
+
+
 # ── funcionalidades ──────────────────────────────────────────
 
-# Solicita nome, e-mail e senha, valida os campos e insere o usuário na lista global.
-def cadastrar_usuario():
-    linha()
-    print("  CADASTRO DE CONTA")
-    linha()
-
-    # Loop até receber um nome não vazio
+# Lê um nome válido para cadastro ou retorna None para cancelar.
+def ler_nome_cadastro():
     while True:
         nome = input("  Nome: ").strip()
+        if nome == "0":
+            return None
         if nome:
-            break
+            return nome
         print("  [!] Nome não pode ser vazio.")
 
-    # Loop até receber um e-mail válido e ainda não cadastrado
+
+# Lê um e-mail válido para cadastro ou retorna None para cancelar.
+def ler_email_cadastro():
     while True:
         email = input("  E-mail: ").strip()
-        if not email:
-            print("  [!] E-mail não pode ser vazio.")
-        elif buscar_usuario(email) != -1:
-            print("  [!] E-mail já cadastrado.")
-        else:
-            break
+        if email == "0":
+            return None
+        if email:
+            return email
+        print("  [!] E-mail não pode ser vazio.")
 
-    # Loop até receber uma senha não vazia
+
+# Lê uma senha válida para cadastro ou retorna None para cancelar.
+def ler_senha_cadastro():
     while True:
         senha = ler_senha_oculta("  Senha: ").strip()
+        if senha == "0":
+            return None
         if senha:
-            break
+            return senha
         print("  [!] Senha não pode ser vazia.")
 
-    # Adiciona o usuário com pontuação zero e histórico de ações vazio
-    novo_usuario = [nome, email, senha, 0, []]
-    usuarios.append(novo_usuario)
-    print("\n  Conta criada com sucesso!")
-    print(f"  Bem-vindo(a), {nome}!")
-    input("\n  [Enter para continuar]")
-    menu_usuario_logado(novo_usuario)
+
+# Solicita nome, e-mail e senha, confirma os dados e insere o usuário na lista global.
+def cadastrar_usuario():
+    cabecalho("CADASTRAR CONTA")
+    print("  Digite 0 a qualquer momento para voltar ao menu inicial.\n")
+
+    nome = ler_nome_cadastro()
+    if nome is None:
+        return
+
+    email = ler_email_cadastro()
+    if email is None:
+        return
+
+    senha = ler_senha_cadastro()
+    if senha is None:
+        return
+
+    while True:
+        cabecalho("CONFIRMAR CADASTRO")
+        print(f"  Nome: {nome}")
+        print(f"  E-mail: {email}")
+        print("  Senha: ********")
+        print("\n  Os dados estão corretos?\n")
+        print("  1. Confirmar cadastro")
+        print("  2. Corrigir nome")
+        print("  3. Corrigir e-mail")
+        print("  4. Corrigir senha")
+        print("  0. Cancelar e voltar ao menu inicial")
+
+        opcao = input("\n  Opção: ").strip()
+
+        match opcao:
+            case "1":
+                if buscar_usuario(email) != -1:
+                    print("  [!] E-mail já cadastrado. Corrija o e-mail para continuar.")
+                else:
+                    novo_usuario = [nome, email, senha, 0, [], []]
+                    usuarios.append(novo_usuario)
+                    salvar_dados()
+                    print("\n  Conta criada com sucesso!")
+                    print(f"  Bem-vindo(a), {nome}!")
+                    input("\n  [Enter para continuar]")
+                    menu_usuario_logado(novo_usuario)
+                    return
+            case "2":
+                novo_nome = ler_nome_cadastro()
+                if novo_nome is None:
+                    return
+                nome = novo_nome
+            case "3":
+                novo_email = ler_email_cadastro()
+                if novo_email is None:
+                    return
+                email = novo_email
+            case "4":
+                nova_senha = ler_senha_cadastro()
+                if nova_senha is None:
+                    return
+                senha = nova_senha
+            case "0":
+                return
+            case _:
+                print("  [!] Opção inválida. Tente novamente.")
 
 
 # Solicita e-mail e senha, valida os campos e abre o menu do usuário logado.
 def login():
-    linha()
-    print("  ENTRAR")
-    linha()
+    cabecalho("ENTRAR")
+    print("  Digite 0 para voltar ao menu inicial.\n")
 
     email = input("  E-mail: ").strip()
-    senha = ler_senha_oculta("  Senha: ").strip()
+    if email == "0":
+        return
+    if not email:
+        print("  [!] E-mail não pode ser vazio.")
+        return
 
-    if not email or not senha:
-        print("  E-mail ou senha inválidos.")
+    senha = ler_senha_oculta("  Senha: ").strip()
+    if senha == "0":
+        return
+    if not senha:
+        print("  [!] Senha não pode ser vazia.")
         return
 
     i = buscar_usuario(email)
@@ -184,7 +448,7 @@ def login():
         return
 
     usuario_logado = usuarios[i]
-    if usuario_logado[2] != senha:                  # índice 2 = senha
+    if usuario_logado[2] != senha:
         print("  E-mail ou senha inválidos.")
         return
 
@@ -204,9 +468,7 @@ def registrar_plantio_jardinagem(usuario_logado):
     }
 
     while True:
-        linha()
-        print("  PLANTIO E JARDINAGEM")
-        linha()
+        cabecalho("PLANTIO E JARDINAGEM")
         print("  1. Plantar muda ou árvore")
         print("  2. Cultivar horta doméstica")
         print("  3. Compostagem orgânica")
@@ -218,236 +480,457 @@ def registrar_plantio_jardinagem(usuario_logado):
         opcao = input("\n  Escolha uma ação: ").strip()
 
         if opcao == "0":
-            return
+            return False
 
         if opcao in ACOES_PLANTIO:
-            descricao = ACOES_PLANTIO[opcao][0]       # índice 0 = descrição
-            unidade = ACOES_PLANTIO[opcao][1]         # índice 1 = unidade
-            peso = ACOES_PLANTIO[opcao][2]            # índice 2 = pontos por unidade
+            descricao = ACOES_PLANTIO[opcao][0]
+            unidade = ACOES_PLANTIO[opcao][1]
+            peso = ACOES_PLANTIO[opcao][2]
 
-            quantidade = ler_quantidade(f"  Informe a quantidade em {unidade}: ")
+            quantidade = ler_quantidade(f"  Informe a quantidade em {unidade} (0 para voltar): ")
+            if quantidade is None:
+                continue
+
             pontos = min(100, int(quantidade * peso))
-
             acao = ("Plantio", descricao, quantidade, pontos)
-            usuario_logado[4].append(acao)
-            adicionar_pontos_usuario(usuario_logado, pontos)
-
-            print(f"\n  🌿 {descricao} registrada com sucesso!")
-            print(f"  +{pontos} EcoPoints adicionados.")
-            print("  Você contribuiu para um ambiente mais sustentável!")
-            return
+            pontos_somados = registrar_acao_usuario(usuario_logado, acao, pontos)
+            mostrar_feedback_acao(f"{descricao} registrada com sucesso!", pontos, pontos_somados)
+            return True
 
         if opcao == "4":
-            ACOES_CUIDADO = {
-                "1": ("Regar corretamente",    2),
-                "2": ("Adubar naturalmente",   2),
-                "3": ("Podar sem desperdício", 2),
-            }
+            resultado = registrar_cuidado_planta(usuario_logado)
+            if resultado:
+                return True
+        else:
+            print("  [!] Opção inválida.")
 
-            print("\n  Cuidados com planta existente:")
-            for key in ACOES_CUIDADO:
-                print(f"    {key}. {ACOES_CUIDADO[key][0]}")
 
-            while True:
-                entrada = input("\n  Selecione as ações realizadas (ex: 1 2 3): ").strip()
-                partes = entrada.split()
-                selecionadas = []
-                entrada_valida = True
+# Submenu para cuidar de planta existente.
+def registrar_cuidado_planta(usuario_logado):
+    ACOES_CUIDADO = {
+        "1": ("Regar corretamente",    2),
+        "2": ("Adubar naturalmente",   2),
+        "3": ("Podar sem desperdício", 2),
+    }
 
-                for s in partes:
-                    if s in ACOES_CUIDADO:
-                        if s not in selecionadas:
-                            selecionadas.append(s)
-                    else:
-                        entrada_valida = False
+    while True:
+        cabecalho("CUIDAR DE PLANTA EXISTENTE")
+        print("  1. Regar corretamente")
+        print("  2. Adubar naturalmente")
+        print("  3. Podar sem desperdício")
+        print("  0. Voltar")
 
-                if entrada_valida and len(selecionadas) > 0:
-                    break
-                print("  [!] Selecione ao menos uma ação válida.")
+        entrada = input("\n  Selecione as ações realizadas (ex: 1 2 3): ").strip()
+        if entrada == "0":
+            return False
 
+        partes = entrada.split()
+        selecionadas = []
+        entrada_valida = True
+
+        for s in partes:
+            if s in ACOES_CUIDADO:
+                if s not in selecionadas:
+                    selecionadas.append(s)
+            else:
+                entrada_valida = False
+
+        if entrada_valida and len(selecionadas) > 0:
             pontos = len(selecionadas) * 2
             descricao = ""
+
             for pos, s in enumerate(selecionadas):
                 if pos > 0:
                     descricao = descricao + ", "
                 descricao = descricao + ACOES_CUIDADO[s][0]
 
-            quantidade = len(selecionadas)
-            acao = ("Plantio", descricao, quantidade, pontos)
-            usuario_logado[4].append(acao)
-            adicionar_pontos_usuario(usuario_logado, pontos)
+            acao = ("Plantio", descricao, len(selecionadas), pontos)
+            pontos_somados = registrar_acao_usuario(usuario_logado, acao, pontos)
+            mostrar_feedback_acao("Cuidado com planta registrado com sucesso!", pontos, pontos_somados)
+            return True
 
-            print(f"\n  🌱 +{pontos} EcoPoints")
-            print("  Cuidado com planta existente registrado com sucesso!")
-            print("  Você contribuiu para um ambiente mais sustentável!")
-            return
-
-        print("  [!] Opção inválida.")
+        print("  [!] Selecione ao menos uma ação válida ou 0 para voltar.")
 
 
 # Escolhe a categoria e registra a ação para o usuário logado.
 def registrar_acao_sustentavel(usuario_logado):
     global ranking_encerrado
-    linha()
-    print("  REGISTRAR AÇÃO SUSTENTÁVEL")
-    linha()
 
-    if ranking_encerrado:
-        print("\n  ⚠️  O ranking mensal já foi encerrado.")
-        print("  Você ainda pode registrar ações, mas não geram mais pontos.")
-
-    # Exibe todas as categorias disponíveis usando o índice 0 (nome)
-    print("\n  Categorias de ação:")
-    for key in CATEGORIAS:
-        print(f"    {key}. {CATEGORIAS[key][0]}")
-
-    # Valida que a categoria escolhida existe no dicionário
     while True:
-        opcao = input("\n  Escolha a categoria (1-4): ").strip()
-        if opcao in CATEGORIAS:
-            break
-        print("  [!] Opção inválida.")
+        cabecalho("REGISTRAR AÇÃO")
 
-    if opcao == "1":
-        registrar_plantio_jardinagem(usuario_logado)
-        return
+        if ranking_encerrado:
+            print("  ⚠️  O ranking mensal já foi encerrado.")
+            print("  Você ainda pode registrar ações, mas não geram mais pontos.\n")
 
-    # Submenu exclusivo para Redução de Energia (categoria "4")
-    ACOES_ENERGIA = {
-        "1": ("Desliguei luzes em ambientes vazios",     10),
-        "2": ("Desliguei aparelhos em standby",          10),
-        "3": ("Reduzi uso do ar condicionado",           10),
-        "4": ("Usei luz natural no lugar da artificial", 10),
-        "5": ("Lavei roupa com água fria",               10),
-    }
+        print("  1. Plantio e Jardinagem")
+        print("  2. Reciclagem de Resíduos")
+        print("  3. Economia de Água")
+        print("  4. Redução de Energia")
+        print("  0. Voltar")
 
-    if opcao == "4":
-        # Lista as ações de energia usando o índice 0 (descrição)
-        print("\n  Ações de economia de energia:")
-        for key in ACOES_ENERGIA:
-            print(f"    {key}. {ACOES_ENERGIA[key][0]}")
+        opcao = input("\n  Escolha a categoria: ").strip()
 
-        # Lê a entrada e valida todas as chaves informadas com um for + append
-        while True:
-            entrada = input("\n  Selecione as ações realizadas (ex: 1 3 5): ").strip()
-            partes = entrada.split()
-            selecionadas = []
-            entrada_valida = True
-            for s in partes:
-                if s in ACOES_ENERGIA:
-                    if s not in selecionadas:
-                        selecionadas.append(s)
-                else:
-                    entrada_valida = False
-            if entrada_valida and len(selecionadas) > 0:
-                break
-            print("  [!] Selecione ao menos uma ação válida.")
+        if opcao == "0":
+            return
 
-        # Soma os pontos das ações escolhidas com um for, limitando a 100
-        total = 0
-        for s in selecionadas:
-            total = total + ACOES_ENERGIA[s][1]    # índice 1 = pontos
-        pontos = min(100, total)
+        if opcao not in CATEGORIAS:
+            print("  [!] Opção inválida.")
+        elif opcao == "1":
+            if registrar_plantio_jardinagem(usuario_logado):
+                return
+        elif opcao == "4":
+            if registrar_energia(usuario_logado):
+                return
+        else:
+            if registrar_categoria_quantidade(usuario_logado, opcao):
+                return
 
-        # Constrói a descrição concatenando os nomes um a um
-        descricao = ""
-        for pos, s in enumerate(selecionadas):
-            if pos > 0:
-                descricao = descricao + ", "
-            descricao = descricao + ACOES_ENERGIA[s][0]  # índice 0 = nome
 
-        # Registra a ação e acumula os pontos no total do usuário
-        acao = (CATEGORIAS["4"][0], descricao, len(selecionadas), pontos)
-        usuario_logado[4].append(acao)                 # índice 4 = lista de ações
-        adicionar_pontos_usuario(usuario_logado, pontos)
-        print(f"\n  Ações registradas! +{pontos} EcoPoints")
-        return
-
-    # Prompts específicos para as categorias numéricas 2 e 3
+# Registra categorias simples que usam quantidade.
+def registrar_categoria_quantidade(usuario_logado, opcao):
     prompts_categoria = {
-        "2": "  Quantos kg de material você reciclou? ",
-        "3": "  Quantos litros de água você economizou? ",
+        "2": "  Quantos kg de material você reciclou? (0 para voltar): ",
+        "3": "  Quantos litros de água você economizou? (0 para voltar): ",
     }
 
     quantidade = ler_quantidade(prompts_categoria[opcao])
+    if quantidade is None:
+        return False
 
-    # Calcula os pontos e grava a ação no histórico do usuário
     pontos = calcular_pontuacao(opcao, quantidade)
-    nome_cat = CATEGORIAS[opcao][0]                      # índice 0 = nome da categoria
-
+    nome_cat = CATEGORIAS[opcao][0]
     acao = (nome_cat, nome_cat, quantidade, pontos)
-    usuario_logado[4].append(acao)                     # índice 4 = lista de ações
-    adicionar_pontos_usuario(usuario_logado, pontos)
+    pontos_somados = registrar_acao_usuario(usuario_logado, acao, pontos)
+    mostrar_feedback_acao(f"{nome_cat} registrada com sucesso!", pontos, pontos_somados)
+    return True
 
-    print(f"\n  Ação '{nome_cat}' registrada! +{pontos} EcoPoints")
+
+# Registra ações de economia de energia.
+def registrar_energia(usuario_logado):
+    ACOES_ENERGIA = {
+        "1": ("Desliguei luzes em ambientes vazios",     2),
+        "2": ("Desliguei aparelhos em standby",          2),
+        "3": ("Reduzi uso do ar condicionado",           2),
+        "4": ("Usei luz natural no lugar da artificial", 2),
+        "5": ("Lavei roupa com água fria",               2),
+    }
+
+    while True:
+        cabecalho("AÇÕES DE ECONOMIA DE ENERGIA")
+        for key in ACOES_ENERGIA:
+            print(f"  {key}. {ACOES_ENERGIA[key][0]}")
+        print("  0. Voltar")
+
+        entrada = input("\n  Selecione as ações realizadas (ex: 1 3 5): ").strip()
+        if entrada == "0":
+            return False
+
+        partes = entrada.split()
+        selecionadas = []
+        entrada_valida = True
+
+        for s in partes:
+            if s in ACOES_ENERGIA:
+                if s not in selecionadas:
+                    selecionadas.append(s)
+            else:
+                entrada_valida = False
+
+        if entrada_valida and len(selecionadas) > 0:
+            total = 0
+            descricao = ""
+
+            for pos, s in enumerate(selecionadas):
+                total = total + ACOES_ENERGIA[s][1]
+                if pos > 0:
+                    descricao = descricao + ", "
+                descricao = descricao + ACOES_ENERGIA[s][0]
+
+            pontos = min(100, total)
+            acao = (CATEGORIAS["4"][0], descricao, len(selecionadas), pontos)
+            pontos_somados = registrar_acao_usuario(usuario_logado, acao, pontos)
+            mostrar_feedback_acao("Ações de energia registradas com sucesso!", pontos, pontos_somados)
+            return True
+
+        print("  [!] Selecione ao menos uma ação válida ou 0 para voltar.")
 
 
 # Exibe todos os usuários ordenados do maior para o menor pontuador.
 def ver_ranking():
-    linha()
-    print("  RANKING ECOSCORE")
-    linha()
+    cabecalho("RANKING ECOSCORE")
 
     if not usuarios:
         print("  Nenhum usuário cadastrado.")
         return
 
-    # Função interna que retorna a pontuação — substitui o lambda proibido
     def pegar_pontos(u):
-        return u[3]                                      # índice 3 = total de pontos
+        return u[3]
 
     ordenados = sorted(usuarios, key=pegar_pontos, reverse=True)
 
-    # Primeiro lugar recebe destaque; demais ficam em formato compacto
     for pos, u in enumerate(ordenados, start=1):
-        nome   = u[0]                                    # índice 0 = nome
-        email  = u[1]                                    # índice 1 = email
-        pontos = u[3]                                    # índice 3 = pontos
+        nome = u[0]
+        email = u[1]
+        pontos = u[3]
         if pos == 1:
             print(f"  🏆 {pos}º {nome} — {pontos} EcoPoints")
             print(f"     {email}")
-            print(f"     🌱 Campeão da Sustentabilidade! Sua conta de energia este mês é por conta da SoulUp.")
+            print("     🌱 Líder do ciclo sustentável.")
             linha("·")
         else:
             print(f"  {pos}º {nome} ({email}) — {pontos} EcoPoints")
 
 
-# Exibe nome, e-mail, total de pontos e histórico de ações do usuário logado.
-def consultar_perfil(usuario_logado):
-    linha()
-    print("  CONSULTA DE PERFIL")
-    linha()
+# Retorna o status visual da conquista.
+def status_conquista(usuario_logado, nome_conquista, progresso_atual):
+    if nome_conquista in usuario_logado[5]:
+        return "DESBLOQUEADA ✅"
+    if progresso_atual > 0:
+        return "EM PROGRESSO"
+    return "BLOQUEADA 🔒"
 
-    # Acessa cada campo pelo índice, sem desempacotamento com _
-    nome   = usuario_logado[0]
-    email  = usuario_logado[1]
+
+# Exibe uma conquista com objetivo, status e progresso.
+def exibir_card_conquista(icone, nome, status, objetivo, progresso):
+    print(f"  {icone} {nome}")
+    print(f"  Status: {status}")
+    print(f"  Objetivo: {objetivo}")
+    if progresso:
+        print(f"  Progresso atual: {progresso}")
+    linha("━")
+
+
+# Exibe as conquistas do usuário logado com progresso gamificado.
+def ver_conquistas(usuario_logado):
+    cabecalho("CONQUISTAS ECOSCORE")
+
+    impacto = calcular_impacto(usuario_logado)
+    total_acoes = len(usuario_logado[4])
+    plantio = impacto[2]
+    reciclado = impacto[6]
+    agua = impacto[7]
+    energia = impacto[8]
     pontos = usuario_logado[3]
-    acoes  = usuario_logado[4]
 
-    print(f"\n  Nome : {nome}")
-    print(f"  Email: {email}")
-    print(f"  Total: {pontos} EcoPoints")
-    linha("·")
+    exibir_card_conquista(
+        "🌱",
+        "Primeiro Broto",
+        status_conquista(usuario_logado, "Primeiro Broto", total_acoes),
+        "Registrar sua primeira ação sustentável.",
+        f"{total_acoes} / 1 ação",
+    )
+
+    exibir_card_conquista(
+        "♻️",
+        "Reciclador Ativo",
+        status_conquista(usuario_logado, "Reciclador Ativo", reciclado),
+        "Reciclar 10kg de material.",
+        f"{formatar_quantidade(reciclado)}kg / 10kg",
+    )
+
+    exibir_card_conquista(
+        "💧",
+        "Água Consciente",
+        status_conquista(usuario_logado, "Água Consciente", agua),
+        "Economizar 100 litros de água.",
+        f"{formatar_quantidade(agua)}L / 100L",
+    )
+
+    exibir_card_conquista(
+        "⚡",
+        "Energia Inteligente",
+        status_conquista(usuario_logado, "Energia Inteligente", energia),
+        "Registrar 5 ações de energia.",
+        f"{formatar_quantidade(energia)} / 5 ações",
+    )
+
+    exibir_card_conquista(
+        "🌿",
+        "Mão Verde",
+        status_conquista(usuario_logado, "Mão Verde", plantio),
+        "Registrar 5 ações de plantio.",
+        f"{formatar_quantidade(plantio)} / 5 ações",
+    )
+
+    exibir_card_conquista(
+        "🏆",
+        "Campeão EcoScore",
+        status_conquista(usuario_logado, "Campeão EcoScore", pontos),
+        "Atingir 100 EcoPoints.",
+        f"{pontos} / 100 EcoPoints",
+    )
+
+
+# Retorna o líder atual do ranking.
+def buscar_lider():
+    if not usuarios:
+        return None
+
+    lider = usuarios[0]
+    for usuario in usuarios:
+        if usuario[3] > lider[3]:
+            lider = usuario
+
+    return lider
+
+
+# Exibe o status geral da competição mensal.
+def ver_status_competicao():
+    cabecalho("STATUS DA COMPETIÇÃO")
+
+    if ranking_encerrado:
+        print("  ⚠️ O ranking mensal foi encerrado.\n")
+        print("  Ranking: ENCERRADO")
+    else:
+        print("  Ranking: ATIVO")
+
+    lider = buscar_lider()
+
+    if lider is None:
+        print("\n  Nenhum usuário cadastrado ainda.")
+        print("  Usuários cadastrados: 0")
+        return
+
+    pontos_lider = lider[3]
+    faltam = max(0, 100 - pontos_lider)
+
+    print("\n  Líder atual:")
+    print(f"  {lider[0]} — {pontos_lider} EcoPoints")
+
+    if ranking_encerrado:
+        print("\n  O ciclo já tem um campeão.")
+    else:
+        print(f"\n  Faltam {faltam} pontos para encerrar o ranking.")
+
+    print(f"\n  Usuários cadastrados: {len(usuarios)}")
+
+
+# Reinicia o ranking mensal.
+def reiniciar_ranking():
+    global ranking_encerrado
+
+    cabecalho("REINICIAR RANKING MENSAL")
+    print("  Deseja realmente reiniciar o ranking mensal?\n")
+    print("  1. Sim")
+    print("  0. Cancelar")
+
+    while True:
+        opcao = input("\n  Opção: ").strip()
+
+        match opcao:
+            case "1":
+                for usuario in usuarios:
+                    usuario[3] = 0
+                    usuario[4] = []
+                    usuario[5] = []
+                ranking_encerrado = False
+                salvar_dados()
+                print("\n  Novo ciclo mensal iniciado com sucesso!")
+                return
+            case "0":
+                return
+            case _:
+                print("  [!] Opção inválida.")
+
+
+# Retorna o ícone da categoria do histórico.
+def icone_categoria(categoria):
+    if categoria == "Plantio":
+        return "🌱"
+    if categoria == CATEGORIAS["2"][0]:
+        return "♻️"
+    if categoria == CATEGORIAS["3"][0]:
+        return "💧"
+    if categoria == CATEGORIAS["4"][0]:
+        return "⚡"
+    return "🌿"
+
+
+# Retorna a unidade visual da ação registrada.
+def unidade_acao(acao):
+    categoria = acao[0]
+    descricao = acao[1]
+
+    if categoria == CATEGORIAS["2"][0]:
+        return "kg"
+    if categoria == CATEGORIAS["3"][0]:
+        return "L"
+    if categoria == CATEGORIAS["4"][0]:
+        return " ações"
+    if descricao == "Compostagem Orgânica":
+        return "kg"
+    if descricao == "Reaproveitar resíduos orgânicos":
+        return "kg"
+    if descricao == "Plantar muda ou árvore":
+        return " mudas"
+    if descricao == "Cultivar horta doméstica":
+        return " vasos/canteiros"
+    if descricao == "Criar jardim para polinizadores":
+        return " flores/plantas"
+    return " ações"
+
+
+# Exibe o histórico com uma apresentação mais gamificada.
+def exibir_historico(usuario_logado):
     print("  Histórico de ações:")
 
-    # Itera sobre as ações acessando cada campo da tupla pelo índice
-    if not acoes:
+    if not usuario_logado[4]:
         print("  Nenhuma ação registrada ainda.")
-    else:
-        for i, acao in enumerate(acoes, start=1):
-            if len(acao) == 4:
-                print(f"    {i}. {acao[0]} | {acao[1]} | qtd: {acao[2]} | {acao[3]} pts")
-            else:
-                print(f"    {i}. {acao[0]} | qtd: {acao[1]} | {acao[2]} pts")
+        return
+
+    for acao in usuario_logado[4]:
+        categoria = acao[0]
+        descricao = acao[1]
+        quantidade = formatar_quantidade(acao[2])
+        pontos = acao[3]
+        unidade = unidade_acao(acao)
+
+        linha("·")
+        if categoria == descricao:
+            print(f"  {icone_categoria(categoria)} {categoria}")
+        else:
+            print(f"  {icone_categoria(categoria)} {categoria} | {descricao}")
+        print(f"  Quantidade: {quantidade}{unidade}")
+        print(f"  EcoPoints: +{pontos}")
+
+
+# Exibe impacto ambiental acumulado a partir do histórico.
+def exibir_impacto(usuario_logado):
+    impacto = calcular_impacto(usuario_logado)
+
+    cabecalho("IMPACTO AMBIENTAL")
+    print(f"  🌱 Mudas/árvores plantadas: {formatar_quantidade(impacto[0])}")
+    print(f"  🥬 Hortas cultivadas: {formatar_quantidade(impacto[1])} vasos/canteiros")
+    print(f"  🌿 Ações de plantio/jardinagem: {formatar_quantidade(impacto[2])}")
+    print(f"  🍂 Resíduos orgânicos compostados: {formatar_quantidade(impacto[3])} kg")
+    print(f"  🌸 Plantas para polinizadores: {formatar_quantidade(impacto[4])}")
+    print(f"  ♻️ Resíduos orgânicos reaproveitados: {formatar_quantidade(impacto[5])} kg")
+    print()
+    print(f"  ♻️ Material reciclado: {formatar_quantidade(impacto[6])} kg")
+    print(f"  💧 Água economizada: {formatar_quantidade(impacto[7])} litros")
+    print(f"  ⚡ Ações de energia: {formatar_quantidade(impacto[8])}")
+
+
+# Exibe nome, e-mail, total de pontos e histórico de ações do usuário logado.
+def consultar_perfil(usuario_logado):
+    cabecalho("CONSULTA DE PERFIL")
+
+    print(f"  Nome : {usuario_logado[0]}")
+    print(f"  Email: {usuario_logado[1]}")
+    print(f"  Total: {usuario_logado[3]} EcoPoints")
+    linha("·")
+
+    exibir_historico(usuario_logado)
+    print()
+    exibir_impacto(usuario_logado)
 
 
 # ── menus ────────────────────────────────────────────────────
 
 # Renderiza a tela inicial de login e cadastro.
 def exibir_tela_inicial():
-    linha("═")
-    print("  ECOSCORE")
-    linha("═")
+    cabecalho("ECOSCORE")
     print("  1. Entrar")
     print("  2. Cadastrar conta")
     print("  0. Encerrar programa")
@@ -456,15 +939,16 @@ def exibir_tela_inicial():
 
 # Renderiza o menu da conta autenticada.
 def exibir_menu_usuario(usuario_logado):
-    linha("═")
-    print("  MENU ECOSCORE")
-    linha("═")
+    cabecalho("MENU ECOSCORE")
     print(f"  Usuário: {usuario_logado[0]}")
     print(f"  EcoPoints: {usuario_logado[3]}")
     print()
     print("  1. Registrar ação sustentável")
     print("  2. Ver ranking")
     print("  3. Consultar perfil")
+    print("  4. Ver conquistas")
+    print("  5. Status da competição")
+    print("  6. Reiniciar ranking mensal")
     print("  0. Sair")
     linha()
 
@@ -482,6 +966,12 @@ def menu_usuario_logado(usuario_logado):
                 ver_ranking()
             case "3":
                 consultar_perfil(usuario_logado)
+            case "4":
+                ver_conquistas(usuario_logado)
+            case "5":
+                ver_status_competicao()
+            case "6":
+                reiniciar_ranking()
             case "0":
                 print("\n  Você saiu da conta.")
                 break
@@ -493,6 +983,8 @@ def menu_usuario_logado(usuario_logado):
 
 # Ponto de entrada: tela inicial com login, cadastro e encerramento.
 def main():
+    carregar_dados()
+
     while True:
         exibir_tela_inicial()
         opcao = input("  Opção: ").strip()
@@ -503,9 +995,8 @@ def main():
             case "2":
                 cadastrar_usuario()
             case "0":
-                linha("═")
-                print("  Até logo! Continue sendo sustentável. 🌱")
-                linha("═")
+                cabecalho("ATÉ LOGO")
+                print("  Continue sendo sustentável. 🌱")
                 break
             case _:
                 print("  [!] Opção inválida. Tente novamente.")
