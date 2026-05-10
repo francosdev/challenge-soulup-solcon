@@ -806,6 +806,224 @@ def ver_status_competicao():
     print(f"\n  Usuários cadastrados: {len(usuarios)}")
 
 
+# Calcula a posição de um usuário no ranking.
+def calcular_posicao_ranking(usuario_visitado):
+    def pegar_pontos(u):
+        return u[3]
+
+    ordenados = sorted(usuarios, key=pegar_pontos, reverse=True)
+
+    for pos, usuario in enumerate(ordenados, start=1):
+        if usuario is usuario_visitado:
+            return pos
+
+    return 0
+
+
+# Busca usuários por nome, ignorando diferenças de maiúsculas/minúsculas.
+def buscar_usuarios_por_nome(nome):
+    encontrados = []
+    termo = nome.lower()
+
+    for usuario in usuarios:
+        if termo in usuario[0].lower():
+            encontrados.append(usuario)
+
+    return encontrados
+
+
+# Exibe a lista de usuários encontrados sem expor e-mail ou senha.
+def exibir_lista_usuarios_encontrados(encontrados):
+    cabecalho("USUÁRIOS ENCONTRADOS")
+
+    for i, usuario in enumerate(encontrados, start=1):
+        print(f"  {i}. {usuario[0]} — {usuario[3]} EcoPoints")
+
+    print("\n  0. Cancelar")
+
+
+# Seleciona um usuário da lista de resultados.
+def selecionar_usuario_encontrado(encontrados):
+    while True:
+        opcao = input("\n  Escolha um perfil: ").strip()
+
+        if opcao == "0":
+            return None
+
+        if opcao.isdigit():
+            indice = int(opcao)
+            if indice >= 1 and indice <= len(encontrados):
+                return encontrados[indice - 1]
+
+        print("  [!] Opção inválida.")
+
+
+# Retorna uma linha resumida para as últimas ações do perfil público.
+def resumir_acao_publica(acao):
+    categoria = acao[0]
+    descricao = acao[1]
+    quantidade = formatar_quantidade(acao[2])
+    pontos = acao[3]
+    unidade = unidade_acao(acao)
+
+    if categoria == CATEGORIAS["3"][0]:
+        return f"{categoria} | {quantidade}{unidade} | +{pontos} pts"
+
+    if categoria == CATEGORIAS["2"][0]:
+        return f"{categoria} | {quantidade}{unidade} | +{pontos} pts"
+
+    if categoria == descricao:
+        return f"{categoria} | +{pontos} pts"
+
+    return f"{categoria} | {descricao} | +{pontos} pts"
+
+
+# Exibe o perfil público de outro usuário.
+def exibir_perfil_publico(usuario_visitado):
+    posicao = calcular_posicao_ranking(usuario_visitado)
+    impacto = calcular_impacto(usuario_visitado)
+
+    cabecalho("PERFIL PÚBLICO")
+    print(f"  Nome: {usuario_visitado[0]}")
+    print(f"  EcoPoints: {usuario_visitado[3]}")
+    print(f"  Ranking: {posicao}º lugar")
+
+    linha("━")
+    print("  🏆 CONQUISTAS\n")
+
+    if not usuario_visitado[5]:
+        print("  Nenhuma conquista desbloqueada ainda.")
+    else:
+        for nome_conquista in usuario_visitado[5]:
+            conquista = buscar_conquista(nome_conquista)
+            if conquista is not None:
+                print(f"  {conquista[1]} {conquista[0]}")
+
+    linha("━")
+    print("  🌍 IMPACTO AMBIENTAL\n")
+    print(f"  🌱 Ações de plantio: {formatar_quantidade(impacto[2])}")
+    print(f"  🥬 Hortas cultivadas: {formatar_quantidade(impacto[1])}")
+    print(f"  ♻️ Material reciclado: {formatar_quantidade(impacto[6])} kg")
+    print(f"  💧 Água economizada: {formatar_quantidade(impacto[7])} litros")
+    print(f"  ⚡ Ações de energia: {formatar_quantidade(impacto[8])}")
+
+    linha("━")
+    print("  🕓 ÚLTIMAS AÇÕES\n")
+
+    if not usuario_visitado[4]:
+        print("  Nenhuma ação registrada ainda.")
+    else:
+        ultimas_acoes = usuario_visitado[4][-3:]
+        ultimas_acoes.reverse()
+
+        for i, acao in enumerate(ultimas_acoes, start=1):
+            print(f"  {i}. {resumir_acao_publica(acao)}")
+
+
+# Fluxo social para visitar o perfil público de outro usuário.
+def visitar_perfil_usuario(usuario_logado):
+    cabecalho("VISITAR PERFIL")
+    print("  Digite o nome do usuário que deseja procurar.")
+    print("  Digite 0 para voltar.\n")
+
+    nome = input("  Nome: ").strip()
+
+    if nome == "0":
+        return
+
+    if not nome:
+        print("  [!] Nome não pode ser vazio.")
+        return
+
+    encontrados = buscar_usuarios_por_nome(nome)
+
+    if len(encontrados) == 0:
+        print("\n  Nenhum usuário encontrado.")
+        return
+
+    if len(encontrados) == 1:
+        usuario_visitado = encontrados[0]
+    else:
+        exibir_lista_usuarios_encontrados(encontrados)
+        usuario_visitado = selecionar_usuario_encontrado(encontrados)
+        if usuario_visitado is None:
+            return
+
+    if usuario_visitado is usuario_logado:
+        print("\n  Esse é o seu perfil. Use a opção Consultar perfil.")
+        return
+
+    exibir_perfil_publico(usuario_visitado)
+
+
+# Remove o usuário da lista global e salva os dados atualizados.
+def deletar_usuario(usuario_logado):
+    global ranking_encerrado
+
+    for i, usuario in enumerate(usuarios):
+        if usuario is usuario_logado:
+            usuarios.pop(i)
+            ranking_encerrado = False
+
+            for usuario_restante in usuarios:
+                if usuario_restante[3] >= 100:
+                    ranking_encerrado = True
+
+            salvar_dados()
+            return True
+
+    return False
+
+
+# Confirma senha e executa a exclusão permanente da conta.
+def confirmar_exclusao_conta(usuario_logado):
+    linha("━")
+    print("  ⚠️ ATENÇÃO")
+    print("  Essa ação irá apagar permanentemente:")
+    print("  - seu perfil")
+    print("  - EcoPoints")
+    print("  - histórico de ações")
+    print("  - conquistas")
+    print()
+    print("  Essa ação não poderá ser desfeita.")
+    linha("━")
+    print("\n  Deseja continuar?\n")
+    print("  1. Sim")
+    print("  0. Cancelar")
+
+    while True:
+        opcao = input("\n  Opção: ").strip()
+
+        match opcao:
+            case "1":
+                cabecalho("CONFIRMAR IDENTIDADE")
+                print("  Digite sua senha para deletar a conta.")
+                print("  Digite 0 para cancelar.\n")
+
+                senha = ler_senha_oculta("  Senha: ").strip()
+
+                if senha == "0":
+                    return False
+
+                if not senha or senha != usuario_logado[2]:
+                    print("  Senha incorreta.")
+                    return False
+
+                if deletar_usuario(usuario_logado):
+                    linha("━")
+                    print("  🗑️ Conta deletada com sucesso.")
+                    print("  Esperamos ver você novamente no EcoScore.")
+                    linha("━")
+                    return True
+
+                print("  [!] Não foi possível deletar a conta.")
+                return False
+            case "0":
+                return False
+            case _:
+                print("  [!] Opção inválida.")
+
+
 # Reinicia o ranking mensal.
 def reiniciar_ranking():
     global ranking_encerrado
@@ -946,9 +1164,11 @@ def exibir_menu_usuario(usuario_logado):
     print("  1. Registrar ação sustentável")
     print("  2. Ver ranking")
     print("  3. Consultar perfil")
-    print("  4. Ver conquistas")
-    print("  5. Status da competição")
-    print("  6. Reiniciar ranking mensal")
+    print("  4. Visitar perfil de outro usuário")
+    print("  5. Deletar minha conta")
+    print("  6. Ver conquistas")
+    print("  7. Status da competição")
+    print("  8. Reiniciar ranking mensal")
     print("  0. Sair")
     linha()
 
@@ -967,10 +1187,16 @@ def menu_usuario_logado(usuario_logado):
             case "3":
                 consultar_perfil(usuario_logado)
             case "4":
-                ver_conquistas(usuario_logado)
+                visitar_perfil_usuario(usuario_logado)
             case "5":
-                ver_status_competicao()
+                conta_deletada = confirmar_exclusao_conta(usuario_logado)
+                if conta_deletada:
+                    break
             case "6":
+                ver_conquistas(usuario_logado)
+            case "7":
+                ver_status_competicao()
+            case "8":
                 reiniciar_ranking()
             case "0":
                 print("\n  Você saiu da conta.")

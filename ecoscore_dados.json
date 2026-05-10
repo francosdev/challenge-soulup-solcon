@@ -5,7 +5,7 @@
             "Carlos",
             "francosdevs@gmail.com",
             "Celi2708.",
-            36,
+            76,
             [
                 [
                     "Plantio",
@@ -30,10 +30,46 @@
                     "Economia de Água",
                     30.0,
                     3
+                ],
+                [
+                    "Plantio",
+                    "Plantar muda ou árvore",
+                    6.0,
+                    30
+                ],
+                [
+                    "Plantio",
+                    "Plantar muda ou árvore",
+                    2.0,
+                    10
                 ]
             ],
             [
                 "Primeiro Broto"
+            ]
+        ],
+        [
+            "Murilo",
+            "murilodesouza@gmail.com",
+            "fiap123",
+            92,
+            [
+                [
+                    "Redução de Energia",
+                    "Usei luz natural no lugar da artificial",
+                    1,
+                    2
+                ],
+                [
+                    "Reciclagem de Resíduos",
+                    "Reciclagem de Resíduos",
+                    30.0,
+                    90
+                ]
+            ],
+            [
+                "Primeiro Broto",
+                "Reciclador Ativo"
             ]
         ]
     ]
