@@ -1,76 +1,111 @@
 {
-    "ranking_encerrado": false,
+    "ranking_encerrado": true,
     "usuarios": [
         [
             "Carlos",
             "francosdevs@gmail.com",
-            "Celi2708.",
-            76,
+            "e9d29f55bb4512a145185a30da514ea57941e5f0f08acdbd449a08b7043044c7",
+            100,
             [
                 [
                     "Plantio",
                     "Cultivar horta doméstica",
                     4.0,
-                    16
+                    16,
+                    "Data não disponível"
                 ],
                 [
                     "Economia de Água",
                     "Economia de Água",
                     20.0,
-                    2
+                    2,
+                    "Data não disponível"
                 ],
                 [
                     "Plantio",
                     "Plantar muda ou árvore",
                     3.0,
-                    15
+                    15,
+                    "Data não disponível"
                 ],
                 [
                     "Economia de Água",
                     "Economia de Água",
                     30.0,
-                    3
+                    3,
+                    "Data não disponível"
                 ],
                 [
                     "Plantio",
                     "Plantar muda ou árvore",
                     6.0,
-                    30
+                    30,
+                    "Data não disponível"
                 ],
                 [
                     "Plantio",
                     "Plantar muda ou árvore",
                     2.0,
-                    10
+                    10,
+                    "Data não disponível"
+                ],
+                [
+                    "Plantio",
+                    "Plantar muda ou árvore",
+                    3.0,
+                    15,
+                    "10/05/2026 20:15"
+                ],
+                [
+                    "Plantio",
+                    "Plantar muda ou árvore",
+                    3.0,
+                    15,
+                    "11/05/2026 13:09"
                 ]
             ],
             [
-                "Primeiro Broto"
-            ]
+                "Primeiro Broto",
+                "Mão Verde",
+                "Campeão EcoScore"
+            ],
+            false
         ],
         [
             "Murilo",
             "murilodesouza@gmail.com",
-            "fiap123",
+            "98f387b829b732323ae4699236364ef5e23d7c7118828a4e689290365ac0d54e",
             92,
             [
                 [
                     "Redução de Energia",
                     "Usei luz natural no lugar da artificial",
                     1,
-                    2
+                    2,
+                    "Data não disponível"
                 ],
                 [
                     "Reciclagem de Resíduos",
                     "Reciclagem de Resíduos",
                     30.0,
-                    90
+                    90,
+                    "Data não disponível"
                 ]
             ],
             [
                 "Primeiro Broto",
                 "Reciclador Ativo"
-            ]
+            ],
+            false
+        ],
+        [
+            "Admin",
+            "admin@ecoscore.com",
+            "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
+            0,
+            [],
+            [],
+            true
         ]
     ]
 }

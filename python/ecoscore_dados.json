@@ -1,0 +1,23 @@
+{
+    "ranking_encerrado": false,
+    "usuarios": [
+        {
+            "nome": "Carlos",
+            "email": "francosdevs@gmail.com",
+            "senha": "e9d29f55bb4512a145185a30da514ea57941e5f0f08acdbd449a08b7043044c7",
+            "pontos": 0,
+            "historico": [],
+            "conquistas": [],
+            "admin": false
+        },
+        {
+            "nome": "Admin",
+            "email": "admin@ecoscore.com",
+            "senha": "e9d29f55bb4512a145185a30da514ea57941e5f0f08acdbd449a08b7043044c7",
+            "pontos": 0,
+            "historico": [],
+            "conquistas": [],
+            "admin": true
+        }
+    ]
+}
