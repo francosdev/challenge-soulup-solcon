@@ -97,7 +97,7 @@ def deletar_conta_admin(admin_logado):
         dados.registrar_log("EXCLUSAO_ADMIN", f"admin={admin_logado['email']} usuario={email_deletado}")
         print(f"\n  🗑️ Conta de {nome_deletado} deletada com sucesso.")
     else:
-        print("  [!] Nao foi possivel deletar a conta.")
+        print("  [!] Não foi possível deletar a conta.")
 
 
 def remover_usuario_comum(usuario_alvo):

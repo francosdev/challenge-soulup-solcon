@@ -162,7 +162,7 @@ def registrar_cuidado_planta(usuario):
         cabecalho("CUIDAR DE PLANTA EXISTENTE")
         print("  1. Regar corretamente")
         print("  2. Adubar naturalmente")
-        print("  3. Podar sem desperdicio")
+        print("  3. Podar sem desperdício")
         print("  0. Voltar")
 
         entrada = input("\n  Selecione as ações realizadas (ex: 1 2 3): ").strip()

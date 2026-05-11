@@ -242,7 +242,7 @@ def exibir_perfil_publico(usuario_logado, usuario_visitado):
     exibir_impacto_resumido(usuario_visitado)
 
     linha("━")
-    print("  🕓 ULTIMAS ACOES\n")
+    print("  🕓 ÚLTIMAS AÇÕES\n")
 
     if not usuario_visitado["historico"]:
         print("  Nenhuma ação registrada ainda.")
@@ -380,7 +380,7 @@ def confirmar_exclusao_conta(usuario):
         linha("━")
         return True
 
-    print("  [!] Nao foi possivel deletar a conta.")
+        print("  [!] Não foi possível deletar a conta.")
     return False
 
 

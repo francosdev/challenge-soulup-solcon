@@ -114,6 +114,21 @@ cd challenge-soulup-solcon/python
 python main.py
 ```
 
+## Persistência JSON
+
+O sistema utiliza `python/ecoscore_dados.json` como armazenamento local. O arquivo guarda usuários, histórico, conquistas, pontuação e estado do ranking mensal.
+
+O JSON de entrega fica limpo por padrão:
+
+```json
+{
+  "ranking_encerrado": false,
+  "usuarios": []
+}
+```
+
+No primeiro uso, o sistema solicita a criação segura da senha do administrador padrão. Essa escolha evita credenciais fracas em repositório e deixa a demonstração mais profissional.
+
 ## Regras da Gamificação
 
 | Categoria | Regra | Pontuação |
@@ -174,6 +189,48 @@ A proposta é manter uma auditoria simples e acadêmica, suficiente para demonst
 ## Compatibilidade com o Challenge
 
 O EcoScore demonstra escalabilidade, organização, validação, segurança e gamificação sustentável em um MVP funcional. A estrutura atual permite evoluir para uma integração maior com a SoulUp, preservando regras de negócio claras e uma separação técnica adequada entre autenticação, dados, gamificação, impacto e administração.
+
+## Material de Demo
+
+### Roteiro curto de apresentação
+
+1. Apresentar o problema: transformar ações sustentáveis em hábito, progresso e reconhecimento.
+2. Explicar que o EcoScore é o motor de gamificação sustentável da SoulUp em formato MVP.
+3. Mostrar a tela inicial com login e cadastro.
+4. Criar uma conta de usuário comum.
+5. Registrar uma ação sustentável e destacar EcoPoints, barra de progresso e histórico.
+6. Abrir a tela de conquistas e mostrar o progresso gamificado.
+7. Consultar perfil para exibir impacto ambiental acumulado.
+8. Entrar no painel admin para mostrar separação entre usuário comum e gestão.
+9. Encerrar explicando evolução futura: React, API, validação por vídeo/foto, IA e banco de dados.
+
+### Sequência ideal de demonstração
+
+1. `python main.py`
+2. Configurar a senha do administrador no primeiro uso, se o JSON estiver limpo.
+3. Cadastrar um usuário comum.
+4. Registrar "Plantio e Jardinagem" ou "Reciclagem de Resíduos".
+5. Mostrar o feedback com EcoPoints e barra `[████░░░░░░]`.
+6. Consultar o perfil para exibir histórico e impacto ambiental.
+7. Ver conquistas para explicar objetivos e progresso.
+8. Sair e entrar como admin.
+9. Mostrar ranking, status da competição e listagem de usuários.
+
+### Como explicar o diferencial
+
+O diferencial do EcoScore é transformar sustentabilidade em experiência recorrente: o usuário vê progresso, desbloqueia conquistas, compara evolução e acompanha impacto ambiental realista. A gamificação não é decorativa; ela organiza comportamento, incentivo e mensuração.
+
+### Como defender as escolhas técnicas
+
+- **Python terminal:** permite validar a regra de negócio sem depender da interface final.
+- **JSON:** suficiente para MVP acadêmico, simples de auditar e fácil de migrar.
+- **Módulos separados:** tornam o projeto mais claro para manutenção e apresentação.
+- **Hash de senha:** demonstra preocupação com segurança mesmo em ambiente acadêmico.
+- **Painel admin:** separa operação da competição e aproxima o MVP de um produto real.
+
+### Por que terminal como MVP?
+
+O terminal reduz complexidade visual e permite provar o fluxo principal: autenticação, pontuação, ranking, conquistas, impacto, auditoria e administração. Em uma próxima sprint, esse motor pode ser conectado a uma interface React/Web ou a uma API sem descartar a lógica criada.
 
 ## Futuras Melhorias
 

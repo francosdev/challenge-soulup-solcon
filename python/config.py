@@ -33,7 +33,7 @@ ACOES_PLANTIO = {
 ACOES_CUIDADO = {
     "1": {"descricao": "Regar corretamente", "pontos": 2},
     "2": {"descricao": "Adubar naturalmente", "pontos": 2},
-    "3": {"descricao": "Podar sem desperdicio", "pontos": 2},
+    "3": {"descricao": "Podar sem desperdício", "pontos": 2},
 }
 
 ACOES_ENERGIA = {
