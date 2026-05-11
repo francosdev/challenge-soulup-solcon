@@ -1,5 +1,5 @@
 # ============================================================
-#  EcoScore - autenticacao e senhas
+#  EcoScore - autenticação e senhas
 # ============================================================
 
 import getpass
@@ -10,6 +10,7 @@ from interface import cabecalho, pausar
 
 
 def criptografar_senha(senha):
+    """Gera hash SHA-256 para armazenamento seguro de senhas."""
     return hashlib.sha256(senha.encode("utf-8")).hexdigest()
 
 
@@ -33,6 +34,7 @@ def normalizar_senha(senha):
 
 
 def ler_senha_oculta(mensagem):
+    """Lê senha sem eco no terminal usando biblioteca portável."""
     return getpass.getpass(mensagem)
 
 
@@ -41,6 +43,7 @@ def senha_valida(senha):
 
 
 def validar_senha_usuario(usuario, senha_digitada):
+    """Compara a senha digitada com o hash salvo do usuário."""
     if not senha_digitada:
         return False
     return criptografar_senha(senha_digitada) == usuario["senha"]
@@ -51,6 +54,7 @@ def senha_admin_precisa_troca(usuario):
 
 
 def trocar_senha_admin_obrigatoria(admin):
+    """Força troca de senha do admin quando credencial legada é detectada."""
     from dados import salvar_dados
 
     cabecalho("TROCA DE SENHA ADMIN")
@@ -66,7 +70,7 @@ def trocar_senha_admin_obrigatoria(admin):
         elif validar_senha_usuario(admin, nova_senha):
             print("  [!] A nova senha deve ser diferente da senha atual.")
         elif nova_senha != confirmar_senha:
-            print("  [!] As senhas nao conferem.")
+            print("  [!] As senhas não conferem.")
         else:
             admin["senha"] = criptografar_senha(nova_senha)
             salvar_dados()
@@ -76,8 +80,9 @@ def trocar_senha_admin_obrigatoria(admin):
 
 
 def login():
+    """Autentica usuário comum ou administrador e abre o menu correto."""
     from admin import menu_admin
-    from dados import buscar_usuario_por_email
+    from dados import buscar_usuario_por_email, registrar_log
     from usuarios import menu_usuario_logado
 
     cabecalho("ENTRAR")
@@ -91,15 +96,18 @@ def login():
     if senha == "0":
         return
     if not senha:
-        print("  [!] Senha nao pode ser vazia.")
+        print("  [!] Senha não pode ser vazia.")
         return
 
     usuario = buscar_usuario_por_email(email)
     if usuario is None or not validar_senha_usuario(usuario, senha):
-        print("  E-mail ou senha invalidos.")
+        registrar_log("LOGIN_FALHO", f"email={email}")
+        print("  E-mail ou senha inválidos.")
         return
 
     print(f"\n  Bem-vindo(a), {usuario['nome']}!")
+    perfil = "admin" if usuario["admin"] else "usuário"
+    registrar_log("LOGIN", f"email={usuario['email']} perfil={perfil}")
     pausar()
 
     if usuario["admin"]:

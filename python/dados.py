@@ -1,5 +1,5 @@
 # ============================================================
-#  EcoScore - persistencia, migracao e estado global
+#  EcoScore - persistência, migração e estado global
 # ============================================================
 
 import json
@@ -7,7 +7,7 @@ import os
 from datetime import datetime
 
 from autenticacao import ler_senha_oculta, normalizar_senha, senha_valida
-from config import ADMIN_EMAIL, ARQUIVO_DADOS, ARQUIVO_DADOS_LEGADO, META_PONTOS
+from config import ADMIN_EMAIL, ARQUIVO_DADOS, ARQUIVO_DADOS_LEGADO, ARQUIVO_LOG, META_PONTOS
 from interface import cabecalho
 
 usuarios = []
@@ -15,6 +15,7 @@ ranking_encerrado = False
 
 
 def data_atual():
+    """Retorna data e hora atuais no formato usado no histórico e logs."""
     return datetime.now().strftime("%d/%m/%Y %H:%M")
 
 
@@ -74,6 +75,7 @@ def item_antigo(sequencia, indice, padrao=None):
 
 
 def criar_acao(categoria, descricao, quantidade, pontos, data=None):
+    """Cria uma ação sustentável no formato atual do sistema."""
     if data is None or data == "":
         data = data_atual()
 
@@ -87,6 +89,7 @@ def criar_acao(categoria, descricao, quantidade, pontos, data=None):
 
 
 def criar_usuario(nome, email, senha, pontos=0, historico=None, conquistas=None, admin=False):
+    """Cria um usuário no modelo de dicionário usado pela aplicação."""
     if historico is None:
         historico = []
     if conquistas is None:
@@ -104,13 +107,14 @@ def criar_usuario(nome, email, senha, pontos=0, historico=None, conquistas=None,
 
 
 def normalizar_acao(acao):
+    """Migra ações antigas em listas/tuplas para dicionários."""
     if type(acao) == dict:
         return criar_acao(
             acao.get("categoria", ""),
             acao.get("descricao", acao.get("categoria", "")),
             acao.get("quantidade", 0),
             acao.get("pontos", 0),
-            acao.get("data", "Data nao disponivel"),
+            acao.get("data", "Data não disponível"),
         )
 
     if type(acao) == list or type(acao) == tuple:
@@ -128,7 +132,7 @@ def normalizar_acao(acao):
                 item_antigo(acao, 1),
                 item_antigo(acao, 2),
                 item_antigo(acao, 3),
-                "Data nao disponivel",
+                "Data não disponível",
             )
         if len(acao) == 3:
             categoria = item_antigo(acao, 0)
@@ -136,10 +140,10 @@ def normalizar_acao(acao):
             terceiro_campo = item_antigo(acao, 2)
 
             if type(segundo_campo) == str:
-                return criar_acao(categoria, segundo_campo, 1, terceiro_campo, "Data nao disponivel")
-            return criar_acao(categoria, categoria, segundo_campo, terceiro_campo, "Data nao disponivel")
+                return criar_acao(categoria, segundo_campo, 1, terceiro_campo, "Data não disponível")
+            return criar_acao(categoria, categoria, segundo_campo, terceiro_campo, "Data não disponível")
 
-    return criar_acao("Acao", "Registro antigo", 0, 0, "Data nao disponivel")
+    return criar_acao("Ação", "Registro antigo", 0, 0, "Data não disponível")
 
 
 def normalizar_historico(historico):
@@ -171,13 +175,13 @@ def normalizar_conquistas(conquistas):
         elif "reciclador" in texto:
             nome = "Reciclador Ativo"
         elif "agua" in texto or "água" in texto or "gua" in texto:
-            nome = "Agua Consciente"
+            nome = "Água Consciente"
         elif "energia" in texto:
             nome = "Energia Inteligente"
         elif "verde" in texto:
-            nome = "Mao Verde"
+            nome = "Mão Verde"
         elif "campe" in texto:
-            nome = "Campeao EcoScore"
+            nome = "Campeão EcoScore"
 
         if nome in CONQUISTAS and nome not in conquistas_normalizadas:
             conquistas_normalizadas.append(nome)
@@ -186,6 +190,7 @@ def normalizar_conquistas(conquistas):
 
 
 def normalizar_usuario(usuario):
+    """Migra usuários antigos em listas para o modelo atual de dicionário."""
     if type(usuario) == dict:
         return criar_usuario(
             usuario.get("nome", ""),
@@ -210,7 +215,7 @@ def normalizar_usuario(usuario):
         if len(usuario) == 4:
             return criar_usuario(nome, email, "", item_antigo(usuario, 2), item_antigo(usuario, 3), [], False)
 
-    return criar_usuario("Usuario sem nome", "", "", 0, [], [], False)
+    return criar_usuario("Usuário sem nome", "", "", 0, [], [], False)
 
 
 def normalizar_usuarios():
@@ -231,6 +236,7 @@ def caminho_para_carregar():
 
 
 def carregar_dados():
+    """Carrega JSON, aplica migração automática e garante o admin padrão."""
     global usuarios, ranking_encerrado
 
     caminho = caminho_para_carregar()
@@ -253,6 +259,7 @@ def carregar_dados():
 
 
 def salvar_dados():
+    """Persiste usuários e estado do ranking em JSON."""
     dados = {
         "ranking_encerrado": ranking_encerrado,
         "usuarios": usuarios,
@@ -262,7 +269,16 @@ def salvar_dados():
         json.dump(dados, arquivo, ensure_ascii=False, indent=4)
 
 
+def registrar_log(evento, detalhe):
+    """Registra auditoria simples para ações críticas do sistema."""
+    linha_log = f"{data_atual()} | {evento} | {detalhe}\n"
+
+    with open(ARQUIVO_LOG, "a", encoding="utf-8") as arquivo:
+        arquivo.write(linha_log)
+
+
 def garantir_admin_padrao():
+    """Cria ou normaliza a conta administrativa do EcoScore."""
     admin = buscar_usuario_por_email(ADMIN_EMAIL)
 
     if admin is not None:
@@ -272,9 +288,9 @@ def garantir_admin_padrao():
         admin["admin"] = True
         return
 
-    cabecalho("CONFIGURACAO DO ADMINISTRADOR")
+    cabecalho("CONFIGURAÇÃO DO ADMINISTRADOR")
     print("  Nenhuma conta administradora foi encontrada.")
-    print("  Crie uma senha forte para o admin padrao do EcoScore.\n")
+    print("  Crie uma senha forte para o admin padrão do EcoScore.\n")
 
     while True:
         senha = ler_senha_oculta("  Nova senha do admin: ").strip()
@@ -283,14 +299,15 @@ def garantir_admin_padrao():
         if not senha_valida(senha):
             print("  [!] A senha do admin deve ter pelo menos 6 caracteres.")
         elif senha != confirmar:
-            print("  [!] As senhas nao conferem.")
+            print("  [!] As senhas não conferem.")
         else:
             usuarios.append(criar_usuario("Admin", ADMIN_EMAIL, senha, 0, [], [], True))
-            print("\n  Conta administradora criada com seguranca.")
+            print("\n  Conta administradora criada com segurança.")
             return
 
 
 def buscar_usuario_por_email(email):
+    """Busca usuário por e-mail sem diferenciar maiúsculas e minúsculas."""
     email = email.strip().lower()
 
     for usuario in usuarios:
@@ -329,6 +346,7 @@ def buscar_usuarios_por_nome(nome, incluir_admin=False):
 
 
 def obter_ranking():
+    """Retorna usuários comuns ordenados por EcoPoints."""
     def pegar_pontos(usuario):
         return usuario["pontos"]
 
@@ -356,6 +374,7 @@ def buscar_lider():
 
 
 def recalcular_ranking_encerrado():
+    """Recalcula o encerramento do ranking considerando apenas usuários comuns."""
     global ranking_encerrado
 
     ranking_encerrado = False

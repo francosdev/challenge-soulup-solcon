@@ -1,5 +1,5 @@
 # ============================================================
-#  EcoScore - usuarios, perfil e fluxo social
+#  EcoScore - usuários, perfil e fluxo social
 # ============================================================
 
 import dados
@@ -10,6 +10,7 @@ from interface import barra_progresso, cabecalho, exibir_menu_usuario, linha, pa
 
 
 def validar_email(email):
+    """Valida e-mail com regra simples para cadastro e edição."""
     email = email.strip()
 
     if not email or " " in email:
@@ -40,7 +41,7 @@ def ler_nome_cadastro(mensagem="  Nome: "):
         if nome:
             return nome
 
-        print("  [!] Nome nao pode ser vazio.")
+        print("  [!] Nome não pode ser vazio.")
 
 
 def ler_email_cadastro(usuario_atual=None, mensagem="  E-mail: "):
@@ -50,9 +51,9 @@ def ler_email_cadastro(usuario_atual=None, mensagem="  E-mail: "):
         if email == "0":
             return None
         if not validar_email(email):
-            print("  [!] Informe um e-mail valido.")
+            print("  [!] Informe um e-mail válido.")
         elif not dados.email_disponivel(email, usuario_atual):
-            print("  [!] E-mail ja cadastrado.")
+            print("  [!] E-mail já cadastrado.")
         else:
             return email
 
@@ -70,6 +71,7 @@ def ler_senha_cadastro(mensagem="  Senha: "):
 
 
 def cadastrar_usuario():
+    """Realiza cadastro com revisão dos dados antes de salvar."""
     cabecalho("CADASTRAR CONTA")
     print("  Digite 0 a qualquer momento para voltar ao menu inicial.\n")
 
@@ -90,14 +92,14 @@ def cadastrar_usuario():
         print(f"  Nome: {nome}")
         print(f"  E-mail: {email}")
         print("  Senha: ********")
-        print("\n  Os dados estao corretos?\n")
+        print("\n  Os dados estão corretos?\n")
         print("  1. Confirmar cadastro")
         print("  2. Corrigir nome")
         print("  3. Corrigir e-mail")
         print("  4. Corrigir senha")
         print("  0. Cancelar e voltar ao menu inicial")
 
-        opcao = input("\n  Opcao: ").strip()
+        opcao = input("\n  Opção: ").strip()
 
         match opcao:
             case "1":
@@ -127,10 +129,11 @@ def cadastrar_usuario():
             case "0":
                 return
             case _:
-                print("  [!] Opcao invalida. Tente novamente.")
+                print("  [!] Opção inválida. Tente novamente.")
 
 
 def consultar_perfil(usuario):
+    """Mostra dados privados, histórico e impacto do usuário logado."""
     cabecalho("MEU PERFIL")
     print(f"  Nome: {usuario['nome']}")
     print(f"  E-mail: {usuario['email']}")
@@ -148,7 +151,8 @@ def consultar_perfil(usuario):
 
 
 def selecionar_usuario_encontrado(encontrados, mostrar_email=False):
-    cabecalho("USUARIOS ENCONTRADOS")
+    """Permite escolher um usuário quando a busca retorna múltiplos nomes."""
+    cabecalho("USUÁRIOS ENCONTRADOS")
 
     for indice, usuario in enumerate(encontrados, start=1):
         if mostrar_email:
@@ -168,12 +172,13 @@ def selecionar_usuario_encontrado(encontrados, mostrar_email=False):
             if indice >= 1 and indice <= len(encontrados):
                 return encontrados[indice - 1]
 
-        print("  [!] Opcao invalida.")
+        print("  [!] Opção inválida.")
 
 
 def escolher_usuario_por_nome(titulo, mostrar_email=False):
+    """Busca usuários comuns por nome e retorna o perfil selecionado."""
     cabecalho(titulo)
-    print("  Digite o nome do usuario que deseja procurar.")
+    print("  Digite o nome do usuário que deseja procurar.")
     print("  Digite 0 para voltar.\n")
 
     nome = input("  Nome: ").strip()
@@ -181,13 +186,13 @@ def escolher_usuario_por_nome(titulo, mostrar_email=False):
     if nome == "0":
         return None
     if not nome:
-        print("  [!] Nome nao pode ser vazio.")
+        print("  [!] Nome não pode ser vazio.")
         return None
 
     encontrados = dados.buscar_usuarios_por_nome(nome)
 
     if not encontrados:
-        print("\n  Nenhum usuario encontrado.")
+        print("\n  Nenhum usuário encontrado.")
         return None
     if len(encontrados) == 1:
         return encontrados[0]
@@ -196,6 +201,7 @@ def escolher_usuario_por_nome(titulo, mostrar_email=False):
 
 
 def exibir_conquistas_resumidas(usuario):
+    """Lista apenas as conquistas desbloqueadas do usuário."""
     from config import CONQUISTAS
 
     if not usuario["conquistas"]:
@@ -209,21 +215,23 @@ def exibir_conquistas_resumidas(usuario):
 
 
 def mensagem_diferenca_pontos(usuario_logado, usuario_visitado):
+    """Compara EcoPoints entre o usuário logado e o perfil visitado."""
     diferenca = usuario_visitado["pontos"] - usuario_logado["pontos"]
 
     if diferenca > 0:
-        return f"{usuario_visitado['nome']} esta {diferenca} EcoPoints a sua frente."
+        return f"{usuario_visitado['nome']} está {diferenca} EcoPoints à sua frente."
     if diferenca < 0:
-        return f"Voce esta {abs(diferenca)} EcoPoints a frente de {usuario_visitado['nome']}."
-    return "Vocês estao empatados em EcoPoints."
+        return f"Você está {abs(diferenca)} EcoPoints à frente de {usuario_visitado['nome']}."
+    return "Vocês estão empatados em EcoPoints."
 
 
 def exibir_perfil_publico(usuario_logado, usuario_visitado):
-    cabecalho("PERFIL PUBLICO")
+    """Exibe perfil público sem e-mail ou senha, com comparação social."""
+    cabecalho("PERFIL PÚBLICO")
     print(f"  Nome: {usuario_visitado['nome']}")
     print(f"  EcoPoints: {usuario_visitado['pontos']}")
     print(f"  Ranking: {dados.calcular_posicao_ranking(usuario_visitado)}º lugar")
-    print(f"  Comparacao: {mensagem_diferenca_pontos(usuario_logado, usuario_visitado)}")
+    print(f"  Comparação: {mensagem_diferenca_pontos(usuario_logado, usuario_visitado)}")
 
     linha("━")
     print("  🏆 CONQUISTAS\n")
@@ -237,7 +245,7 @@ def exibir_perfil_publico(usuario_logado, usuario_visitado):
     print("  🕓 ULTIMAS ACOES\n")
 
     if not usuario_visitado["historico"]:
-        print("  Nenhuma acao registrada ainda.")
+        print("  Nenhuma ação registrada ainda.")
         return
 
     ultimas_acoes = usuario_visitado["historico"][-3:]
@@ -248,18 +256,20 @@ def exibir_perfil_publico(usuario_logado, usuario_visitado):
 
 
 def visitar_perfil_usuario(usuario_logado):
+    """Fluxo social para visitar o perfil público de outro usuário."""
     usuario_visitado = escolher_usuario_por_nome("VISITAR PERFIL")
 
     if usuario_visitado is None:
         return
     if usuario_visitado is usuario_logado:
-        print("\n  Esse e o seu perfil. Use a opcao Consultar perfil.")
+        print("\n  Esse é o seu perfil. Use a opção Consultar perfil.")
         return
 
     exibir_perfil_publico(usuario_logado, usuario_visitado)
 
 
 def editar_perfil(usuario):
+    """Permite editar nome, e-mail e senha da conta logada."""
     while True:
         cabecalho("EDITAR PERFIL")
         print("  1. Alterar nome")
@@ -267,7 +277,7 @@ def editar_perfil(usuario):
         print("  3. Alterar senha")
         print("  0. Voltar")
 
-        opcao = input("\n  Opcao: ").strip()
+        opcao = input("\n  Opção: ").strip()
 
         match opcao:
             case "1":
@@ -289,10 +299,11 @@ def editar_perfil(usuario):
             case "0":
                 return
             case _:
-                print("  [!] Opcao invalida.")
+                print("  [!] Opção inválida.")
 
 
 def alterar_senha(usuario):
+    """Altera a senha após validar a senha atual."""
     senha_atual = ler_senha_oculta("  Senha atual: ").strip()
 
     if senha_atual == "0":
@@ -312,7 +323,7 @@ def alterar_senha(usuario):
     if confirmar_senha == "0":
         return
     if confirmar_senha != nova_senha:
-        print("  [!] As senhas nao conferem.")
+        print("  [!] As senhas não conferem.")
         return
 
     usuario["senha"] = criptografar_senha(nova_senha)
@@ -326,33 +337,34 @@ def confirmar_texto_deletar():
 
 
 def confirmar_exclusao_conta(usuario):
+    """Confirma senha e palavra-chave antes de excluir a própria conta."""
     if usuario["admin"]:
         print("  [!] Administradores devem ser gerenciados pelo painel administrativo.")
         return False
 
     linha("━")
     print("  ⚠️ ATENCAO")
-    print("  Essa acao ira apagar permanentemente:")
+    print("  Essa ação irá apagar permanentemente:")
     print("  - seu perfil")
     print("  - EcoPoints")
-    print("  - historico de acoes")
+    print("  - histórico de ações")
     print("  - conquistas")
     print()
-    print("  Essa acao nao podera ser desfeita.")
+    print("  Essa ação não poderá ser desfeita.")
     linha("━")
     print("\n  Deseja continuar?\n")
     print("  1. Sim")
     print("  0. Cancelar")
 
-    opcao = input("\n  Opcao: ").strip()
+    opcao = input("\n  Opção: ").strip()
     if opcao == "0":
         return False
     if opcao != "1":
-        print("  [!] Opcao invalida.")
+        print("  [!] Opção inválida.")
         return False
 
     if not confirmar_texto_deletar():
-        print("  Exclusao cancelada.")
+        print("  Exclusão cancelada.")
         return False
 
     senha = ler_senha_oculta("  Digite sua senha para deletar a conta: ").strip()
@@ -361,9 +373,10 @@ def confirmar_exclusao_conta(usuario):
         return False
 
     if remover_usuario(usuario):
+        dados.registrar_log("EXCLUSAO_CONTA", f"email={usuario['email']} origem=usuario")
         linha("━")
         print("  🗑️ Conta deletada com sucesso.")
-        print("  Esperamos ver voce novamente no EcoScore.")
+        print("  Esperamos ver você novamente no EcoScore.")
         linha("━")
         return True
 
@@ -372,6 +385,7 @@ def confirmar_exclusao_conta(usuario):
 
 
 def remover_usuario(usuario_alvo):
+    """Remove um usuário da lista global e recalcula o ranking."""
     for indice, usuario in enumerate(dados.usuarios):
         if usuario is usuario_alvo:
             dados.usuarios.pop(indice)
@@ -383,9 +397,10 @@ def remover_usuario(usuario_alvo):
 
 
 def menu_usuario_logado(usuario):
+    """Controla a navegação da sessão de um usuário comum."""
     while True:
         exibir_menu_usuario(usuario)
-        opcao = input("  Opcao: ").strip()
+        opcao = input("  Opção: ").strip()
 
         match opcao:
             case "1":
@@ -406,9 +421,9 @@ def menu_usuario_logado(usuario):
             case "8":
                 ver_status_competicao()
             case "0":
-                print("\n  Voce saiu da conta.")
+                print("\n  Você saiu da conta.")
                 break
             case _:
-                print("  [!] Opcao invalida. Tente novamente.")
+                print("  [!] Opção inválida. Tente novamente.")
 
         pausar()

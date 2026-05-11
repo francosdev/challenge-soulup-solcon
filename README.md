@@ -1,150 +1,202 @@
-# EcoScore — Sistema de Gamificação Sustentável
+# EcoScore - Gamificação Sustentável SoulUp
 
-> Projeto desenvolvido para o **Challenge FIAP 2026** em parceria com a **SoulUp (by Prospera)**  
-> Turma: **1TDSPH** — 1º Semestre 2026
+> Challenge FIAP 2026 em parceria com a SoulUp by Prospera
+> Turma: 1TDSPH | SolCon
 
----
+## Descrição
 
-## Sobre o Projeto
+O **EcoScore** é um MVP funcional de gamificação sustentável criado para estimular hábitos ambientais positivos por meio de EcoPoints, conquistas, ranking mensal e perfis públicos. O sistema foi desenvolvido como uma camada complementar à proposta da SoulUp, transformando ações sustentáveis em progresso, reconhecimento e competição saudável.
 
-O **EcoScore** é um sistema de gamificação sustentável desenvolvido como uma camada de amplificação da plataforma SoulUp. O objetivo é transformar o engajamento esporádico dos usuários em hábitos sustentáveis duradouros.
+Este projeto representa um MVP funcional da lógica de gamificação sustentável da SoulUp. A versão atual roda em terminal Python, persiste dados em JSON e simula os principais fluxos de produto antes de uma futura integração web/mobile.
 
-A SoulUp é uma plataforma digital brasileira que transforma interações online em benefícios reais e impacto ambiental positivo. O EcoScore potencializa essa experiência por meio de três pilares:
+## Objetivo
 
-### Pilares
+Criar uma experiência simples, segura e demonstrável para:
 
-**Pertencimento**
-- Avatar com itens base gratuitos desde o início
-- Itens especiais desbloqueados por missão — não comprados com pontos
-- Feed social com up/down ponderado por reputação acumulada
+- cadastrar usuários;
+- registrar ações sustentáveis;
+- calcular EcoPoints;
+- acompanhar impacto ambiental;
+- exibir ranking mensal;
+- desbloquear conquistas;
+- permitir gestão administrativa;
+- sustentar uma lógica escalável para evolução futura da SoulUp.
 
-**Progressão**
-- Árvore de Habilidades com 4 ramos no MVP: ♻️ Reciclagem | 🌱 Jardinagem | 💧 Água | ⚡ Energia
-- Cada ramo tem 3 camadas: Quiz → Evidência (foto no app) → Selo automático
-- Progressão por comprometimento, não por complexidade técnica
+## Funcionalidades
 
-**Recompensa com propósito**
-- EcoPoints usando o sistema de pontos da SoulUp — sem moeda adicional
-- Selos no perfil como status conquistado pela trilha percorrida
-- Recompensa máxima: conta de energia elétrica 100% subsidiada para o top do ranking
-
----
+- Cadastro e login com senha protegida por hash SHA-256.
+- Leitura de senha oculta com `getpass`, compatível com Windows, Mac e Linux.
+- Sessão de usuário logado.
+- Painel administrativo separado.
+- Persistência local em `ecoscore_dados.json`.
+- Migração automática de dados antigos em listas para dicionários.
+- Registro de ações sustentáveis nas categorias:
+  - Plantio e Jardinagem;
+  - Reciclagem de Resíduos;
+  - Economia de Água;
+  - Redução de Energia.
+- Ranking mensal com encerramento automático ao atingir 100 EcoPoints.
+- Ações continuam sendo salvas após o encerramento, mas não somam pontos.
+- Sistema de conquistas com progresso.
+- Perfil privado com histórico e impacto ambiental.
+- Perfil público para visita social.
+- Exclusão de conta com senha e confirmação textual.
+- Auditoria simples em arquivo texto para ações críticas.
 
 ## Tecnologias Utilizadas
 
-- HTML5 semântico
-- CSS3 puro — Flexbox, Grid, variáveis CSS, media queries
-- JavaScript ES6+ vanilla — incluindo Canvas API para animação de micélio
-- Python 3.10+ — módulo CLI de gamificação (`ecoscore.py`)
-- [Lucide Icons](https://lucide.dev) via CDN — biblioteca de ícones SVG
-
-> Nenhum framework CSS ou JS foi utilizado — projeto desenvolvido com tecnologias puras conforme requisitos da disciplina.
-
----
+- Python 3.10+
+- JSON para persistência local
+- `hashlib` para hash de senha
+- `getpass` para entrada segura de senha
+- HTML5, CSS3 e JavaScript vanilla na interface web complementar do repositório
 
 ## Estrutura de Pastas
 
-```
+```text
 challenge-soulup-solcon/
-├── index.html              ← Página inicial
-├── sobre.html              ← Contexto e solução
-├── integrantes.html        ← Equipe do projeto
-├── faq.html                ← Perguntas frequentes
-├── contato.html            ← Formulário de contato
-├── ecoscore.html           ← Skill tree, ranking e avatar
-├── como-funciona.html      ← Fluxo: ação → foto → evidência → selo
-│
-├── /css
-│   ├── style.css           ← Estilos globais e variáveis CSS
-│   ├── responsivo.css      ← Media queries
-│   └── componentes.css     ← Componentes reutilizáveis
-│
-├── /js
-│   ├── main.js             ← Animações e FAQ acordeon
-│   ├── menu.js             ← Menu hambúrguer mobile
-│   ├── contato.js          ← Validação do formulário
-│   ├── micelio.js          ← Animação Canvas do fundo (hero micélio)
-│   └── particulas.js       ← Efeito de partículas
-│
-├── /python
-│   └── ecoscore.py         ← CLI Python: cadastro, ações, ranking e perfil
-│
-├── /java
-│   └── diagrama-classes_incompleto.drawio  ← Diagrama de classes (em andamento)
-│
-└── /assets
-    ├── /imagens
-    └── /icons
+├── README.md
+├── index.html
+├── sobre.html
+├── integrantes.html
+├── faq.html
+├── contato.html
+├── ecoscore.html
+├── como-funciona.html
+├── assets/
+├── css/
+├── js/
+├── java/
+└── python/
+    ├── main.py
+    ├── config.py
+    ├── dados.py
+    ├── autenticacao.py
+    ├── usuarios.py
+    ├── gamificacao.py
+    ├── impacto.py
+    ├── admin.py
+    ├── interface.py
+    └── ecoscore_dados.json
 ```
 
----
+## Responsabilidade dos Módulos Python
 
-## Páginas
-
-| Página | Descrição |
-|--------|-----------|
-| `index.html` | Apresentação do projeto EcoScore |
-| `sobre.html` | Contexto do problema e solução proposta |
-| `integrantes.html` | Equipe com foto, RM, LinkedIn, GitHub e startup SolCon |
-| `faq.html` | Perguntas e respostas sobre o projeto |
-| `contato.html` | Formulário com validação JavaScript |
-| `ecoscore.html` | Skill tree, trilhas das 3 classes, ranking e reputação social |
-| `como-funciona.html` | Fluxo completo: quiz → evidência → selo → recompensa |
-
----
-
-## Equipe
-
-| Nome | RM | LinkedIn | GitHub |
-|------|----|----------|--------|
-| Carlos Henrique De Melo Franco | 569868 | [carlos-franco-devs](https://linkedin.com/in/carlos-franco-devs) | [francosdev](https://github.com/francosdev) |
-| Murilo de Souza | 573977 | [murilo-a-souza](https://linkedin.com/in/murilo-a-souza) | [murilo-a-souza](https://github.com/murilo-a-souza) |
-| Henrique Bonachela de Carvalho Carabante | 573620 | [henrique-bonachela](https://linkedin.com/in/henrique-bonachela-de-carvalho-carabante-260b86338) | [henriquebonachela](https://github.com/henriquebonachela) |
-
----
-
-## Python
-
-O módulo `python/ecoscore.py` implementa o sistema de gamificação como aplicação CLI:
-
-| Funcionalidade | Descrição |
-|----------------|-----------|
-| Cadastro | Registra usuário com nome e e-mail (valida duplicatas) |
-| Registrar ação | Categorias: Jardinagem (5 pts/muda), Reciclagem (3 pts/kg), Água (0,1 pts/L), Energia (10 pts/ação) |
-| Ranking | Exibe usuários ordenados por EcoPoints; encerra automaticamente ao atingir 100 pts |
-| Perfil | Exibe histórico completo de ações e total de pontos |
-
-Para executar:
-```bash
-python python/ecoscore.py
-```
-
----
-
-## Java
-
-[☕ Diagramas de classe (em andamento)](./java/diagrama-classes_incompleto.drawio)
-
----
+| Arquivo | Responsabilidade |
+|--------|-------------------|
+| `main.py` | Ponto de entrada e menu inicial |
+| `config.py` | Constantes, categorias, conquistas e caminhos |
+| `dados.py` | Persistência, migração, usuários globais e ranking |
+| `autenticacao.py` | Hash de senha, login e leitura segura |
+| `usuarios.py` | Cadastro, perfil, edição, exclusão e perfil público |
+| `gamificacao.py` | Registro de ações, EcoPoints, conquistas e ranking |
+| `impacto.py` | Cálculo e exibição do impacto ambiental |
+| `admin.py` | Painel administrativo e gestão de usuários |
+| `interface.py` | Cabeçalhos, menus e feedback visual |
 
 ## Como Executar
 
 1. Clone o repositório:
-   ```bash
-   git clone https://github.com/francosdev/challenge-soulup-solcon.git
-   ```
-2. Abra o arquivo `index.html` no navegador — nenhuma instalação necessária.
+
+```bash
+git clone https://github.com/francosdev/challenge-soulup-solcon.git
+```
+
+2. Acesse a pasta Python:
+
+```bash
+cd challenge-soulup-solcon/python
+```
+
+3. Execute o sistema:
+
+```bash
+python main.py
+```
+
+## Regras da Gamificação
+
+| Categoria | Regra | Pontuação |
+|----------|-------|-----------|
+| Plantar muda ou árvore | quantidade de mudas | 5 pts por unidade |
+| Cultivar horta doméstica | vasos/canteiros | 4 pts por unidade |
+| Compostagem orgânica | kg compostados | 3 pts por kg |
+| Cuidar de planta existente | ações selecionadas | 2 pts por ação |
+| Jardim para polinizadores | flores/plantas | 6 pts por unidade |
+| Reaproveitar resíduos orgânicos | kg reaproveitados | 2 pts por kg |
+| Reciclagem de resíduos | kg reciclados | 3 pts por kg |
+| Economia de água | litros economizados | 0,1 pt por litro |
+| Redução de energia | ações selecionadas | 2 pts por ação |
+
+O ciclo mensal encerra quando um usuário comum atinge 100 EcoPoints.
+
+## Conquistas
+
+- 🌱 Primeiro Broto: registrar a primeira ação sustentável.
+- ♻️ Reciclador Ativo: reciclar 10kg de material.
+- 💧 Água Consciente: economizar 100 litros de água.
+- ⚡ Energia Inteligente: registrar 5 ações de energia.
+- 🌿 Mão Verde: registrar 5 ações de plantio.
+- 🏆 Campeão EcoScore: atingir 100 EcoPoints.
+
+## Segurança e Validações
+
+- Senhas são salvas apenas como hash SHA-256.
+- O administrador não participa do ranking.
+- O administrador possui painel separado.
+- Exclusões exigem senha e confirmação digitando `DELETAR`.
+- Entradas numéricas, e-mail, nome e senha são validados.
+- Dados antigos são migrados automaticamente para o formato atual.
+
+## Auditoria
+
+O sistema registra eventos críticos em `python/ecoscore_auditoria.txt` quando eles acontecem:
+
+- login bem-sucedido;
+- tentativa de login inválida;
+- ação sustentável registrada;
+- exclusão de conta;
+- exclusão feita pelo administrador;
+- reset do ranking mensal.
+
+A proposta é manter uma auditoria simples e acadêmica, suficiente para demonstrar rastreabilidade sem adicionar banco de dados externo.
+
+## Diferenciais do Sistema
+
+- Arquitetura modular, com responsabilidades separadas.
+- Persistência local sem dependências externas.
+- Compatibilidade com dados antigos.
+- Gamificação com feedback visual e barra de progresso.
+- Perfil público para experiência social.
+- Painel administrativo para gestão real do MVP.
+- Impacto ambiental calculado automaticamente pelo histórico.
+
+## Compatibilidade com o Challenge
+
+O EcoScore demonstra escalabilidade, organização, validação, segurança e gamificação sustentável em um MVP funcional. A estrutura atual permite evoluir para uma integração maior com a SoulUp, preservando regras de negócio claras e uma separação técnica adequada entre autenticação, dados, gamificação, impacto e administração.
+
+## Futuras Melhorias
+
+- Validação por vídeo, foto ou bot para confirmar ações sustentáveis.
+- Integração com React/Web como próxima etapa de produto.
+- API para conectar o motor de gamificação à plataforma SoulUp.
+- Banco de dados relacional ou NoSQL para ambiente real.
+- Recuperação de senha e autenticação multifator.
+- Dashboard administrativo com métricas agregadas.
+- Moderação social e feed de ações sustentáveis.
+
+## Integrantes
+
+| Nome | RM | GitHub |
+|------|----|--------|
+| Carlos Henrique De Melo Franco | 569868 | [francosdev](https://github.com/francosdev) |
+| Murilo de Souza | 573977 | [murilo-a-souza](https://github.com/murilo-a-souza) |
+| Henrique Bonachela de Carvalho Carabante | 573620 | [henriquebonachela](https://github.com/henriquebonachela) |
+
+## GitHub
+
+Repositório: <https://github.com/francosdev/challenge-soulup-solcon>
 
 ---
 
-## Responsividade
-
-O projeto foi desenvolvido para três breakpoints:
-
-- **Mobile:** até 480px — layout coluna única, menu hambúrguer
-- **Tablet:** a partir de 768px — grid 2 colunas
-- **Desktop:** a partir de 992px — layout completo
-
----
-
-*Challenge FIAP 2026 — Turma 1TDSPH | Parceria SoulUp (by Prospera) | SolCon*
+Challenge FIAP 2026 | SoulUp by Prospera | SolCon

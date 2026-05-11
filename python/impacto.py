@@ -1,5 +1,5 @@
 # ============================================================
-#  EcoScore - impacto ambiental e historico
+#  EcoScore - impacto ambiental e histórico
 # ============================================================
 
 from config import CATEGORIAS
@@ -7,6 +7,7 @@ from interface import cabecalho, linha
 
 
 def formatar_quantidade(valor):
+    """Remove casas decimais desnecessárias em quantidades."""
     if type(valor) == int:
         return str(valor)
     if type(valor) == float:
@@ -36,6 +37,7 @@ def categoria_eh(categoria, slug):
 
 
 def calcular_impacto(usuario):
+    """Calcula métricas ambientais acumuladas a partir do histórico."""
     impacto = {
         "mudas": 0,
         "hortas": 0,
@@ -89,6 +91,7 @@ def icone_categoria(categoria):
 
 
 def unidade_acao(acao):
+    """Retorna a unidade visual adequada para uma ação do histórico."""
     categoria = acao["categoria"]
     descricao = texto_normalizado(acao["descricao"])
 
@@ -97,7 +100,7 @@ def unidade_acao(acao):
     if categoria_eh(categoria, "agua"):
         return "L"
     if categoria_eh(categoria, "energia"):
-        return " acoes"
+        return " ações"
     if "compostagem" in descricao or "reaproveitar" in descricao:
         return "kg"
     if "muda" in descricao or "arvore" in descricao or "árvore" in descricao:
@@ -106,10 +109,11 @@ def unidade_acao(acao):
         return " vasos/canteiros"
     if "polinizadores" in descricao:
         return " flores/plantas"
-    return " acoes"
+    return " ações"
 
 
 def exibir_item_historico(acao):
+    """Exibe uma ação do histórico em formato legível."""
     categoria = acao["categoria"]
     descricao = acao["descricao"]
     quantidade = formatar_quantidade(acao["quantidade"])
@@ -126,18 +130,19 @@ def exibir_item_historico(acao):
 
 
 def exibir_historico(usuario, limite=5, permitir_ver_tudo=True):
+    """Exibe histórico recente e permite abrir o histórico completo."""
     acoes = usuario["historico"]
 
     if not acoes:
-        print("  Nenhuma acao registrada ainda.")
+        print("  Nenhuma ação registrada ainda.")
         return
 
     if limite is None or len(acoes) <= limite:
         acoes_exibidas = list(acoes)
-        titulo = "Historico completo:"
+        titulo = "Histórico completo:"
     else:
         acoes_exibidas = acoes[-limite:]
-        titulo = f"Ultimas {limite} acoes:"
+        titulo = f"Últimas {limite} ações:"
 
     print(f"  {titulo}")
     acoes_exibidas.reverse()
@@ -146,9 +151,9 @@ def exibir_historico(usuario, limite=5, permitir_ver_tudo=True):
         exibir_item_historico(acao)
 
     if permitir_ver_tudo and limite is not None and len(acoes) > limite:
-        print("\n  1. Ver historico completo")
+        print("\n  1. Ver histórico completo")
         print("  0. Continuar")
-        opcao = input("\n  Opcao: ").strip()
+        opcao = input("\n  Opção: ").strip()
 
         if opcao == "1":
             print()
@@ -156,32 +161,35 @@ def exibir_historico(usuario, limite=5, permitir_ver_tudo=True):
 
 
 def exibir_impacto(usuario):
+    """Mostra o impacto ambiental completo do usuário."""
     impacto = calcular_impacto(usuario)
 
     cabecalho("IMPACTO AMBIENTAL")
-    print(f"  🌱 Mudas/arvores plantadas: {formatar_quantidade(impacto['mudas'])}")
+    print(f"  🌱 Mudas/árvores plantadas: {formatar_quantidade(impacto['mudas'])}")
     print(f"  🥬 Hortas cultivadas: {formatar_quantidade(impacto['hortas'])} vasos/canteiros")
-    print(f"  🌿 Acoes de plantio/jardinagem: {formatar_quantidade(impacto['plantio'])}")
-    print(f"  🍂 Residuos organicos compostados: {formatar_quantidade(impacto['compostagem'])} kg")
+    print(f"  🌿 Ações de plantio/jardinagem: {formatar_quantidade(impacto['plantio'])}")
+    print(f"  🍂 Resíduos orgânicos compostados: {formatar_quantidade(impacto['compostagem'])} kg")
     print(f"  🌸 Plantas para polinizadores: {formatar_quantidade(impacto['polinizadores'])}")
-    print(f"  ♻️ Residuos organicos reaproveitados: {formatar_quantidade(impacto['reaproveitados'])} kg")
+    print(f"  ♻️ Resíduos orgânicos reaproveitados: {formatar_quantidade(impacto['reaproveitados'])} kg")
     print()
     print(f"  ♻️ Material reciclado: {formatar_quantidade(impacto['reciclado'])} kg")
-    print(f"  💧 Agua economizada: {formatar_quantidade(impacto['agua'])} litros")
-    print(f"  ⚡ Acoes de energia: {formatar_quantidade(impacto['energia'])}")
+    print(f"  💧 Água economizada: {formatar_quantidade(impacto['agua'])} litros")
+    print(f"  ⚡ Ações de energia: {formatar_quantidade(impacto['energia'])}")
 
 
 def exibir_impacto_resumido(usuario):
+    """Mostra uma versão curta do impacto ambiental para perfil público."""
     impacto = calcular_impacto(usuario)
 
-    print(f"  🌱 Acoes de plantio: {formatar_quantidade(impacto['plantio'])}")
+    print(f"  🌱 Ações de plantio: {formatar_quantidade(impacto['plantio'])}")
     print(f"  🥬 Hortas cultivadas: {formatar_quantidade(impacto['hortas'])}")
     print(f"  ♻️ Material reciclado: {formatar_quantidade(impacto['reciclado'])} kg")
-    print(f"  💧 Agua economizada: {formatar_quantidade(impacto['agua'])} litros")
-    print(f"  ⚡ Acoes de energia: {formatar_quantidade(impacto['energia'])}")
+    print(f"  💧 Água economizada: {formatar_quantidade(impacto['agua'])} litros")
+    print(f"  ⚡ Ações de energia: {formatar_quantidade(impacto['energia'])}")
 
 
 def resumir_acao_publica(acao):
+    """Gera uma linha compacta para últimas ações em perfil público."""
     categoria = acao["categoria"]
     descricao = acao["descricao"]
     quantidade = formatar_quantidade(acao["quantidade"])

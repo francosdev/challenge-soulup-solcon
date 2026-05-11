@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.pyo
+*.tmp
+*.bak
+.DS_Store
+.vscode/
+.idea/
+python/ecoscore_auditoria.txt

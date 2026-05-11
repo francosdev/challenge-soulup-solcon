@@ -9,9 +9,10 @@ from usuarios import cadastrar_usuario
 
 
 def menu_inicial():
+    """Exibe a tela inicial e direciona para login, cadastro ou saída."""
     while True:
         exibir_tela_inicial()
-        opcao = input("  Opcao: ").strip()
+        opcao = input("  Opção: ").strip()
 
         match opcao:
             case "1":
@@ -20,14 +21,15 @@ def menu_inicial():
                 cadastrar_usuario()
             case "0":
                 cabecalho("ATE LOGO")
-                print("  Continue sendo sustentavel. 🌱")
+                print("  Continue sendo sustentável. 🌱")
                 break
             case _:
-                print("  [!] Opcao invalida. Tente novamente.")
+                print("  [!] Opção inválida. Tente novamente.")
                 pausar()
 
 
 def main():
+    """Carrega dados persistidos e inicia o EcoScore."""
     carregar_dados()
     menu_inicial()
 
