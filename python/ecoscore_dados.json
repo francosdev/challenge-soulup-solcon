@@ -1,4 +1,58 @@
 {
     "ranking_encerrado": false,
-    "usuarios": []
+    "usuarios": [
+        {
+            "nome": "Admin",
+            "email": "admin@ecoscore.com",
+            "senha": "a79b7560af03d4018c5d59f269989bac3c9fe07db2089deb48ca3e756a3f1b5e",
+            "pontos": 0,
+            "historico": [],
+            "conquistas": [],
+            "admin": true
+        },
+        {
+            "nome": "Henrique",
+            "email": "henriquebona@gmail.com",
+            "senha": "b85db1f133ef71d81e9c3d7f70ef7132195b41162cfde9e2d444851c89f6cb2f",
+            "pontos": 9,
+            "historico": [
+                {
+                    "categoria": "Plantio",
+                    "descricao": "Plantar muda ou árvore",
+                    "quantidade": 1.0,
+                    "pontos": 5,
+                    "data": "11/05/2026 19:35"
+                },
+                {
+                    "categoria": "Plantio",
+                    "descricao": "Cultivar horta doméstica",
+                    "quantidade": 1.0,
+                    "pontos": 4,
+                    "data": "11/05/2026 19:36"
+                }
+            ],
+            "conquistas": [
+                "Primeiro Broto"
+            ],
+            "admin": false
+        },
+        {
+            "nome": "Carlos",
+            "email": "carlosfrancobar15@gmail.com",
+            "senha": "e9d29f55bb4512a145185a30da514ea57941e5f0f08acdbd449a08b7043044c7",
+            "pontos": 0,
+            "historico": [],
+            "conquistas": [],
+            "admin": false
+        },
+        {
+            "nome": "Viviane",
+            "email": "v.veisid@gmail.com",
+            "senha": "b55ebab3d0e0f7dd7c8f5f08e9281bc0ae6459857a3477bef2b5f8c51fec5242",
+            "pontos": 0,
+            "historico": [],
+            "conquistas": [],
+            "admin": false
+        }
+    ]
 }

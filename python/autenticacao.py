@@ -4,6 +4,7 @@
 
 import getpass
 import hashlib
+import msvcrt
 
 from config import ADMIN_EMAIL, HASH_ADMIN_LEGADO_FRACO
 from interface import cabecalho, pausar
@@ -35,7 +36,34 @@ def normalizar_senha(senha):
 
 def ler_senha_oculta(mensagem):
     """Lê senha sem eco no terminal usando biblioteca portável."""
-    return getpass.getpass(mensagem)
+    try:
+        print(mensagem, end="", flush=True)
+        senha = ""
+
+        while True:
+            tecla = msvcrt.getwch()
+
+            if tecla in ("\r", "\n"):
+                print()
+                return senha
+
+            if tecla == "\003":
+                raise KeyboardInterrupt
+
+            if tecla == "\b":
+                if senha:
+                    senha = senha[:-1]
+                    print("\b \b", end="", flush=True)
+                continue
+
+            if tecla in ("\x00", "\xe0"):
+                msvcrt.getwch()
+                continue
+
+            senha = senha + tecla
+            print("*", end="", flush=True)
+    except (AttributeError, OSError):
+        return getpass.getpass(mensagem)
 
 
 def senha_valida(senha):
