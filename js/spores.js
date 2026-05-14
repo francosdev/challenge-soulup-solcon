@@ -1,6 +1,3 @@
-// SporeField — partículas estilo PS5 para o hero canvas #mycelium-bg
-// Este arquivo é carregado pelo index.html; define a classe e inicializa.
-
 class SporeField {
   constructor(canvasId) {
     this.canvas = document.getElementById(canvasId);
@@ -11,7 +8,9 @@ class SporeField {
     this.targetCount = 0;
     this.raf = null;
 
-    window.addEventListener('resize', () => this._resize());
+    this._onResize = () => this._resize();
+    window.addEventListener('resize', this._onResize);
+
     this._resize();
     this._init();
   }
@@ -52,27 +51,32 @@ class SporeField {
     const r = Math.random();
     let size, category;
     if (r < 0.60) {
-      size = 0.5 + Math.random() * 0.7;   category = 'micro';
+      size = 0.5 + Math.random() * 0.7;
+      category = 'micro';
     } else if (r < 0.90) {
-      size = 1.2 + Math.random() * 1.0;   category = 'small';
+      size = 1.2 + Math.random() * 1.0;
+      category = 'small';
     } else {
-      size = 2.2 + Math.random() * 1.3;   category = 'medium';
+      size = 2.2 + Math.random() * 1.3;
+      category = 'medium';
     }
+
     const maxOpacity = category === 'micro' ? 0.15 : category === 'small' ? 0.30 : 0.50;
     const totalLife = 200 + Math.random() * 300;
     const p = {
-      originX:     Math.random() * W,
-      originY:     H * 0.5 + Math.random() * H * 0.5,
+      originX: Math.random() * W,
+      originY: H * 0.5 + Math.random() * H * 0.5,
       size, category, maxOpacity,
-      shape:       Math.random() < 0.8 ? 'circle' : 'diamond',
-      wobbleFreq:  0.5 + Math.random() * 1.5,
-      wobbleAmp:   3 + Math.random() * 5,
+      shape: Math.random() < 0.8 ? 'circle' : 'diamond',
+      wobbleFreq: 0.5 + Math.random() * 1.5,
+      wobbleAmp: 3 + Math.random() * 5,
       wobblePhase: Math.random() * Math.PI * 2,
-      speed:       0.18 + Math.random() * 0.42,
-      colorStart:  Math.random(),
-      colorEnd:    Math.random(),
-      life: 0, totalLife,
-      fadeInEnd:    totalLife * 0.15,
+      speed: 0.18 + Math.random() * 0.42,
+      colorStart: Math.random(),
+      colorEnd: Math.random(),
+      life: 0,
+      totalLife,
+      fadeInEnd: totalLife * 0.15,
       fadeOutStart: totalLife * 0.82,
     };
     if (randomLife) p.life = Math.random() * p.totalLife;
@@ -97,18 +101,28 @@ class SporeField {
       const p = this.particles[i];
       p.life++;
 
-      if (p.life >= p.totalLife) { this.particles[i] = this._makeParticle(false); continue; }
+      if (p.life >= p.totalLife) {
+        this.particles[i] = this._makeParticle(false);
+        continue;
+      }
 
-      const t    = p.life / p.totalLife;
+      const t = p.life / p.totalLife;
       const drawX = p.originX + Math.sin(p.wobblePhase + t * p.wobbleFreq * Math.PI * 2) * p.wobbleAmp;
       const drawY = p.originY - p.speed * p.life;
 
-      if (drawY < -p.size * 3) { this.particles[i] = this._makeParticle(false); continue; }
+      if (drawY < -p.size * 3) {
+        this.particles[i] = this._makeParticle(false);
+        continue;
+      }
 
       let opacity;
-      if      (p.life < p.fadeInEnd)    opacity = (p.life / p.fadeInEnd) * p.maxOpacity;
-      else if (p.life < p.fadeOutStart) opacity = p.maxOpacity;
-      else    opacity = ((p.totalLife - p.life) / (p.totalLife - p.fadeOutStart)) * p.maxOpacity;
+      if (p.life < p.fadeInEnd) {
+        opacity = (p.life / p.fadeInEnd) * p.maxOpacity;
+      } else if (p.life < p.fadeOutStart) {
+        opacity = p.maxOpacity;
+      } else {
+        opacity = ((p.totalLife - p.life) / (p.totalLife - p.fadeOutStart)) * p.maxOpacity;
+      }
 
       const colorT = ((p.colorStart + (p.colorEnd - p.colorStart) * t) % 1 + 1) % 1;
       const [r, g, b] = this._colorAtT(colorT);
@@ -154,15 +168,3 @@ class SporeField {
     this.raf = requestAnimationFrame(() => this._loop());
   }
 }
-
-// Auto-inicialização — este script é carregado pelo index.html
-(function () {
-  function start() {
-    new SporeField('mycelium-bg');
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', start);
-  } else {
-    start();
-  }
-})();

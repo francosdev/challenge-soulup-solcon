@@ -53,6 +53,63 @@
             "historico": [],
             "conquistas": [],
             "admin": false
+        },
+        {
+            "nome": "Murilo",
+            "email": "murilodesouza@gmail.com",
+            "senha": "98f387b829b732323ae4699236364ef5e23d7c7118828a4e689290365ac0d54e",
+            "pontos": 20,
+            "historico": [
+                {
+                    "categoria": "Plantio",
+                    "descricao": "Plantar muda ou árvore",
+                    "quantidade": 4.0,
+                    "pontos": 20,
+                    "data": "12/05/2026 08:39"
+                }
+            ],
+            "conquistas": [
+                "Primeiro Broto"
+            ],
+            "admin": false
+        },
+        {
+            "nome": "Vica",
+            "email": "vica.experiencias@gmail.com",
+            "senha": "1c319b4174bf49146b99b79862f6d34a12a0da18f0ad97665ce00004a05dd860",
+            "pontos": 36,
+            "historico": [
+                {
+                    "categoria": "Plantio",
+                    "descricao": "Criar jardim para polinizadores",
+                    "quantidade": 6.0,
+                    "pontos": 36,
+                    "data": "12/05/2026 08:43"
+                }
+            ],
+            "conquistas": [
+                "Primeiro Broto"
+            ],
+            "admin": false
+        },
+        {
+            "nome": "Henrique",
+            "email": "henriquebonachela@gmail.com",
+            "senha": "942a2dbce8d7de89429416c4c5815db5911505ec85663070d10193b79e410fab",
+            "pontos": 4,
+            "historico": [
+                {
+                    "categoria": "Plantio",
+                    "descricao": "Cultivar horta doméstica",
+                    "quantidade": 1.0,
+                    "pontos": 4,
+                    "data": "12/05/2026 09:30"
+                }
+            ],
+            "conquistas": [
+                "Primeiro Broto"
+            ],
+            "admin": false
         }
     ]
 }

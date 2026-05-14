@@ -59,3 +59,18 @@ document.querySelectorAll('.progresso__barra').forEach(barra => {
   }, { threshold: 0.5 });
   obs.observe(barra);
 });
+
+// SporeField e MyceliumDivider — inicializados após todos os scripts carregarem
+window.addEventListener('load', function () {
+  // SporeField: instância protegida contra duplicação via canvas._sporeField
+  if (typeof SporeField !== 'undefined') {
+    new SporeField('mycelium-bg');
+  }
+
+  // MyceliumDivider: auto-detecta qualquer .mycelium-divider canvas no DOM
+  if (typeof MyceliumDivider !== 'undefined') {
+    document.querySelectorAll('.mycelium-divider canvas[id]').forEach(function (c) {
+      new MyceliumDivider(c.id);
+    });
+  }
+});
