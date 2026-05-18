@@ -346,7 +346,7 @@ def buscar_usuarios_por_nome(nome, incluir_admin=False):
 
 
 def obter_ranking():
-    """Retorna usuários comuns ordenados por EcoPoints."""
+    """Retorna usuários comuns ordenados por Soul Points."""
     def pegar_pontos(usuario):
         return usuario["pontos"]
 

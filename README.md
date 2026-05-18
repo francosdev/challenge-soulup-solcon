@@ -5,57 +5,115 @@
 
 ## Descrição
 
-O **EcoScore** é um MVP funcional de gamificação sustentável criado para estimular hábitos ambientais positivos por meio de EcoPoints, conquistas, ranking mensal e perfis públicos. O sistema foi desenvolvido como uma camada complementar à proposta da SoulUp, transformando ações sustentáveis em progresso, reconhecimento e competição saudável.
+O **EcoScore** é um MVP funcional de gamificação sustentável criado para estimular hábitos ambientais positivos por meio de Soul Points, conquistas, ranking mensal e perfis públicos. O sistema foi desenvolvido como uma camada complementar à proposta da SoulUp, transformando ações sustentáveis em progresso, reconhecimento e competição saudável.
 
-Este projeto representa um MVP funcional da lógica de gamificação sustentável da SoulUp. A versão atual roda em terminal Python, persiste dados em JSON e simula os principais fluxos de produto antes de uma futura integração web/mobile.
+A versão atual roda em terminal Python, persiste dados em JSON e simula os principais fluxos de produto antes de uma futura integração web/mobile. O repositório também inclui uma interface web complementar com sete páginas HTML e uma animação generativa de micélio em canvas.
 
 ## Objetivo
 
 Criar uma experiência simples, segura e demonstrável para:
 
-- cadastrar usuários;
-- registrar ações sustentáveis;
-- calcular EcoPoints;
-- acompanhar impacto ambiental;
-- exibir ranking mensal;
-- desbloquear conquistas;
-- permitir gestão administrativa;
+- cadastrar e autenticar usuários com segurança;
+- registrar ações sustentáveis em múltiplas categorias;
+- calcular Soul Points e exibir progresso visual;
+- acompanhar impacto ambiental detalhado;
+- exibir ranking mensal competitivo;
+- desbloquear conquistas com barra de progresso;
+- visitar e comparar perfis sociais;
+- permitir gestão administrativa completa;
 - sustentar uma lógica escalável para evolução futura da SoulUp.
 
 ## Funcionalidades
 
-- Cadastro e login com senha protegida por hash SHA-256.
-- Leitura de senha oculta com `getpass`, compatível com Windows, Mac e Linux.
-- Sessão de usuário logado.
-- Painel administrativo separado.
-- Persistência local em `ecoscore_dados.json`.
-- Migração automática de dados antigos em listas para dicionários.
-- Registro de ações sustentáveis nas categorias:
-  - Plantio e Jardinagem;
-  - Reciclagem de Resíduos;
-  - Economia de Água;
-  - Redução de Energia.
-- Ranking mensal com encerramento automático ao atingir 100 EcoPoints.
-- Ações continuam sendo salvas após o encerramento, mas não somam pontos.
-- Sistema de conquistas com progresso.
-- Perfil privado com histórico e impacto ambiental.
-- Perfil público para visita social.
-- Exclusão de conta com senha e confirmação textual.
-- Auditoria simples em arquivo texto para ações críticas.
+### Autenticação
+
+- Cadastro com revisão dos dados antes de confirmar (nome, e-mail e senha editáveis na tela de confirmação).
+- Login com senha protegida por hash SHA-256.
+- Leitura de senha oculta com eco em asteriscos (`*`) via `msvcrt` no Windows, com fallback para `getpass`.
+- Sessão de usuário logado com menu personalizado exibindo nome, pontos e barra de progresso.
+- Troca obrigatória de senha administrativa quando hash legado fraco é detectado no arquivo.
+- Senhas nunca armazenadas em texto plano; apenas o hash SHA-256 é salvo.
+
+### Registro de Ações Sustentáveis
+
+- **Plantio e Jardinagem** com submenu de seis ações:
+  - Plantar muda ou árvore (por unidade)
+  - Cultivar horta doméstica (por vaso/canteiro)
+  - Compostagem orgânica (por kg)
+  - Cuidar de planta existente (múltiplas ações simultâneas: regar, adubar, podar)
+  - Criar jardim para polinizadores (por flor/planta)
+  - Reaproveitar resíduos orgânicos (por kg)
+- **Reciclagem de Resíduos** (por kg reciclado)
+- **Economia de Água** (por litro economizado)
+- **Redução de Energia** com seleção múltipla simultânea de até cinco ações de economia
+- Feedback imediato após cada registro: Soul Points somados, total atual e barra de progresso `[████░░░░░░]`
+- Ações continuam sendo salvas após o encerramento do ranking, mas não somam Soul Points
+
+### Perfil e Conta
+
+- Perfil privado com nome, e-mail, Soul Points, posição no ranking, impacto ambiental completo e histórico recente
+- Opção de expandir para ver o histórico completo dentro do perfil
+- Edição de perfil: nome, e-mail e senha (troca de senha exige confirmação da senha atual)
+- Exclusão de conta com senha e confirmação textual digitando `DELETAR`
+
+### Perfil Público e Funcionalidades Sociais
+
+- Busca de usuários por nome com desambiguação automática quando múltiplos resultados são encontrados
+- Perfil público sem exposição de e-mail ou senha
+- Comparação social em tempo real: "Você está X Soul Points à frente de Y" / "Y está X Soul Points à sua frente"
+- Exibição de conquistas desbloqueadas do usuário visitado
+- Impacto ambiental resumido visível no perfil público
+- Últimas 3 ações sustentáveis exibidas no perfil público
+
+### Gamificação e Ranking
+
+- Barra de progresso textual exibida no cabeçalho do menu e após cada ação: `[████░░░░░░] 40/100`
+- Ranking mensal ordenado por Soul Points com destaque para o líder
+- Encerramento automático do ranking quando qualquer usuário atinge 100 Soul Points
+- Recalculação automática do estado do ranking ao excluir usuários
+- Status da competição: líder atual, pontos restantes para encerramento e total de participantes
+- Conquistas com barra de progresso e status: BLOQUEADA, EM PROGRESSO ou DESBLOQUEADA
+
+### Painel Administrativo
+
+- Painel separado para o administrador, sem participação no ranking
+- Ver ranking e status da competição
+- Reiniciar ciclo mensal (zera pontos, histórico e conquistas de todos os usuários), protegido por senha
+- Listar todos os usuários cadastrados com e-mail, pontos e posição
+- Consultar conta completa de qualquer usuário (conquistas, histórico, impacto)
+- Excluir conta de usuário com confirmação textual e senha administrativa
+
+### Persistência e Migração
+
+- Persistência local em `ecoscore_dados.json`
+- Migração automática de dados antigos: usuários em listas para dicionários, ações em listas para dicionários, nomes de conquistas normalizados
+- Suporte a arquivo legado na raiz do projeto e ao caminho atual em `python/`
+
+### Auditoria
+
+- Log de eventos críticos em `ecoscore_auditoria.txt`:
+  - login bem-sucedido
+  - tentativa de login inválida
+  - ação sustentável registrada
+  - exclusão de conta pelo próprio usuário
+  - exclusão feita pelo administrador
+  - reset do ranking mensal
 
 ## Tecnologias Utilizadas
 
 - Python 3.10+
 - JSON para persistência local
-- `hashlib` para hash de senha
-- `getpass` para entrada segura de senha
-- HTML5, CSS3 e JavaScript vanilla na interface web complementar do repositório
+- `hashlib` para hash SHA-256 de senhas
+- `msvcrt` para leitura de senha sem eco (Windows), com fallback `getpass`
+- HTML5, CSS3 e JavaScript vanilla na interface web complementar
+- Canvas API para animações generativas (micélio, partículas, esporos)
 
 ## Estrutura de Pastas
 
 ```text
 challenge-soulup-solcon/
 ├── README.md
+├── executar_ecoscore.bat       ← atalho para Windows
 ├── index.html
 ├── sobre.html
 ├── integrantes.html
@@ -64,9 +122,23 @@ challenge-soulup-solcon/
 ├── ecoscore.html
 ├── como-funciona.html
 ├── assets/
+│   └── imagens/
 ├── css/
+│   ├── style.css
+│   ├── componentes.css
+│   └── responsivo.css
 ├── js/
+│   ├── main.js
+│   ├── menu.js
+│   ├── micelio.js              ← animação generativa de micélio
+│   ├── micelio-divider.js
+│   ├── particulas.js
+│   ├── spores.js
+│   └── contato.js
 ├── java/
+│   └── diagrama-classes_incompleto.drawio
+├── .vscode/
+│   └── launch.json             ← configuração de debug no VS Code
 └── python/
     ├── main.py
     ├── config.py
@@ -77,7 +149,8 @@ challenge-soulup-solcon/
     ├── impacto.py
     ├── admin.py
     ├── interface.py
-    └── ecoscore_dados.json
+    ├── ecoscore_dados.json
+    └── ecoscore_auditoria.txt
 ```
 
 ## Responsabilidade dos Módulos Python
@@ -85,34 +158,32 @@ challenge-soulup-solcon/
 | Arquivo | Responsabilidade |
 |--------|-------------------|
 | `main.py` | Ponto de entrada e menu inicial |
-| `config.py` | Constantes, categorias, conquistas e caminhos |
-| `dados.py` | Persistência, migração, usuários globais e ranking |
-| `autenticacao.py` | Hash de senha, login e leitura segura |
-| `usuarios.py` | Cadastro, perfil, edição, exclusão e perfil público |
-| `gamificacao.py` | Registro de ações, EcoPoints, conquistas e ranking |
-| `impacto.py` | Cálculo e exibição do impacto ambiental |
+| `config.py` | Constantes, categorias, conquistas e caminhos de arquivo |
+| `dados.py` | Persistência, migração automática, estado global e ranking |
+| `autenticacao.py` | Hash de senha, leitura oculta, login e migração de hash legado |
+| `usuarios.py` | Cadastro, perfil privado/público, edição, exclusão e comparação social |
+| `gamificacao.py` | Registro de ações, Soul Points, conquistas, ranking e status da competição |
+| `impacto.py` | Cálculo e exibição do impacto ambiental completo e resumido |
 | `admin.py` | Painel administrativo e gestão de usuários |
-| `interface.py` | Cabeçalhos, menus e feedback visual |
+| `interface.py` | Cabeçalhos, menus, barra de progresso e feedback visual |
 
 ## Como Executar
 
-1. Clone o repositório:
+### Opção 1 — Atalho Windows
+
+Clique duas vezes em `executar_ecoscore.bat`. O script detecta automaticamente `py` ou `python` no PATH.
+
+### Opção 2 — Terminal
 
 ```bash
 git clone https://github.com/francosdev/challenge-soulup-solcon.git
-```
-
-2. Acesse a pasta Python:
-
-```bash
 cd challenge-soulup-solcon/python
-```
-
-3. Execute o sistema:
-
-```bash
 python main.py
 ```
+
+### Opção 3 — VS Code
+
+Abra o repositório no VS Code e pressione `F5`. Selecione a configuração **EcoScore - terminal externo** definida em `.vscode/launch.json`.
 
 ## Persistência JSON
 
@@ -127,68 +198,63 @@ O JSON de entrega fica limpo por padrão:
 }
 ```
 
-No primeiro uso, o sistema solicita a criação segura da senha do administrador padrão. Essa escolha evita credenciais fracas em repositório e deixa a demonstração mais profissional.
+No primeiro uso, o sistema solicita a criação segura da senha do administrador padrão. Na próxima inicialização, se o sistema detectar o hash administrativo legado fraco salvo em versões antigas, força a troca imediata da senha antes de liberar o painel.
 
 ## Regras da Gamificação
 
-| Categoria | Regra | Pontuação |
-|----------|-------|-----------|
-| Plantar muda ou árvore | quantidade de mudas | 5 pts por unidade |
-| Cultivar horta doméstica | vasos/canteiros | 4 pts por unidade |
-| Compostagem orgânica | kg compostados | 3 pts por kg |
-| Cuidar de planta existente | ações selecionadas | 2 pts por ação |
-| Jardim para polinizadores | flores/plantas | 6 pts por unidade |
-| Reaproveitar resíduos orgânicos | kg reaproveitados | 2 pts por kg |
-| Reciclagem de resíduos | kg reciclados | 3 pts por kg |
-| Economia de água | litros economizados | 0,1 pt por litro |
-| Redução de energia | ações selecionadas | 2 pts por ação |
+| Categoria | Ação | Pontuação |
+|----------|------|-----------|
+| Plantio e Jardinagem | Plantar muda ou árvore | 5 pts por muda |
+| Plantio e Jardinagem | Cultivar horta doméstica | 4 pts por vaso/canteiro |
+| Plantio e Jardinagem | Compostagem orgânica | 3 pts por kg |
+| Plantio e Jardinagem | Cuidar de planta existente | 2 pts por ação selecionada |
+| Plantio e Jardinagem | Jardim para polinizadores | 6 pts por flor/planta |
+| Plantio e Jardinagem | Reaproveitar resíduos orgânicos | 2 pts por kg |
+| Reciclagem de Resíduos | Reciclagem | 3 pts por kg |
+| Economia de Água | Economia de água | 0,1 pt por litro |
+| Redução de Energia | Ações de economia | 2 pts por ação selecionada |
 
-O ciclo mensal encerra quando um usuário comum atinge 100 EcoPoints.
+O ciclo mensal encerra quando qualquer usuário comum atinge 100 Soul Points. O vencedor recebe subsídio na conta de energia do mês pela SoulUp.
 
 ## Conquistas
 
-- 🌱 Primeiro Broto: registrar a primeira ação sustentável.
-- ♻️ Reciclador Ativo: reciclar 10kg de material.
-- 💧 Água Consciente: economizar 100 litros de água.
-- ⚡ Energia Inteligente: registrar 5 ações de energia.
-- 🌿 Mão Verde: registrar 5 ações de plantio.
-- 🏆 Campeão EcoScore: atingir 100 EcoPoints.
+| Ícone | Nome | Objetivo |
+|-------|------|----------|
+| 🌱 | Primeiro Broto | Registrar a primeira ação sustentável |
+| ♻️ | Reciclador Ativo | Reciclar 10 kg de material |
+| 💧 | Água Consciente | Economizar 100 litros de água |
+| ⚡ | Energia Inteligente | Registrar 5 ações de economia de energia |
+| 🌿 | Mão Verde | Registrar 5 ações de plantio e jardinagem |
+| 🏆 | Campeão EcoScore | Atingir 100 Soul Points |
+
+Cada conquista exibe status (BLOQUEADA, EM PROGRESSO ou DESBLOQUEADA) e progresso numérico atual em relação à meta.
 
 ## Segurança e Validações
 
-- Senhas são salvas apenas como hash SHA-256.
-- O administrador não participa do ranking.
-- O administrador possui painel separado.
+- Senhas salvas apenas como hash SHA-256; nunca em texto plano.
+- Hash administrativo legado fraco é detectado e forçado a troca na próxima entrada.
+- O administrador não participa do ranking e não pode ser excluído pelo painel normal.
 - Exclusões exigem senha e confirmação digitando `DELETAR`.
-- Entradas numéricas, e-mail, nome e senha são validados.
-- Dados antigos são migrados automaticamente para o formato atual.
+- Troca de senha exige validação da senha atual.
+- Entradas numéricas, e-mail, nome e senha são validados antes de aceitar.
+- E-mail é tratado sem diferenciação de maiúsculas e minúsculas.
+- Dados antigos são migrados automaticamente para o formato atual sem perda de informação.
 
-## Auditoria
+## Interface Web Complementar
 
-O sistema registra eventos críticos em `python/ecoscore_auditoria.txt` quando eles acontecem:
+O repositório inclui sete páginas HTML que compõem a landing page do EcoScore:
 
-- login bem-sucedido;
-- tentativa de login inválida;
-- ação sustentável registrada;
-- exclusão de conta;
-- exclusão feita pelo administrador;
-- reset do ranking mensal.
+| Página | Conteúdo |
+|--------|----------|
+| `index.html` | Hero, proposta de valor e chamada para ação |
+| `sobre.html` | Contexto do challenge e parceria com a SoulUp |
+| `ecoscore.html` | Apresentação do motor de gamificação |
+| `como-funciona.html` | Fluxo passo a passo para o usuário |
+| `faq.html` | Perguntas frequentes |
+| `integrantes.html` | Equipe do projeto |
+| `contato.html` | Formulário de contato |
 
-A proposta é manter uma auditoria simples e acadêmica, suficiente para demonstrar rastreabilidade sem adicionar banco de dados externo.
-
-## Diferenciais do Sistema
-
-- Arquitetura modular, com responsabilidades separadas.
-- Persistência local sem dependências externas.
-- Compatibilidade com dados antigos.
-- Gamificação com feedback visual e barra de progresso.
-- Perfil público para experiência social.
-- Painel administrativo para gestão real do MVP.
-- Impacto ambiental calculado automaticamente pelo histórico.
-
-## Compatibilidade com o Challenge
-
-O EcoScore demonstra escalabilidade, organização, validação, segurança e gamificação sustentável em um MVP funcional. A estrutura atual permite evoluir para uma integração maior com a SoulUp, preservando regras de negócio claras e uma separação técnica adequada entre autenticação, dados, gamificação, impacto e administração.
+A interface utiliza animações generativas em canvas (micélio, partículas e esporos), paleta visual em tons de musgo e pedra, menu hamburguer responsivo e divisores animados entre seções.
 
 ## Material de Demo
 
@@ -197,40 +263,39 @@ O EcoScore demonstra escalabilidade, organização, validação, segurança e ga
 1. Apresentar o problema: transformar ações sustentáveis em hábito, progresso e reconhecimento.
 2. Explicar que o EcoScore é o motor de gamificação sustentável da SoulUp em formato MVP.
 3. Mostrar a tela inicial com login e cadastro.
-4. Criar uma conta de usuário comum.
-5. Registrar uma ação sustentável e destacar EcoPoints, barra de progresso e histórico.
+4. Criar uma conta de usuário e demonstrar o fluxo de revisão antes de confirmar.
+5. Registrar uma ação sustentável e destacar Soul Points, barra de progresso e histórico.
 6. Abrir a tela de conquistas e mostrar o progresso gamificado.
-7. Consultar perfil para exibir impacto ambiental acumulado.
-8. Entrar no painel admin para mostrar separação entre usuário comum e gestão.
-9. Encerrar explicando evolução futura: React, API, validação por vídeo/foto, IA e banco de dados.
+7. Visitar o perfil de outro usuário e exibir a comparação social.
+8. Consultar o perfil privado para exibir impacto ambiental acumulado e posição no ranking.
+9. Entrar no painel admin para mostrar separação entre usuário comum e gestão.
+10. Encerrar explicando evolução futura: React, API, validação por vídeo/foto, IA e banco de dados.
 
 ### Sequência ideal de demonstração
 
-1. `python main.py`
-2. Configurar a senha do administrador no primeiro uso, se o JSON estiver limpo.
-3. Cadastrar um usuário comum.
+1. `python main.py` (ou clique em `executar_ecoscore.bat`)
+2. Configurar a senha do administrador se o JSON estiver limpo.
+3. Cadastrar um usuário comum e passar pela tela de revisão de dados.
 4. Registrar "Plantio e Jardinagem" ou "Reciclagem de Resíduos".
-5. Mostrar o feedback com EcoPoints e barra `[████░░░░░░]`.
-6. Consultar o perfil para exibir histórico e impacto ambiental.
+5. Mostrar o feedback com Soul Points e barra `[████░░░░░░]`.
+6. Consultar o perfil para exibir histórico, posição e impacto ambiental.
 7. Ver conquistas para explicar objetivos e progresso.
-8. Sair e entrar como admin.
-9. Mostrar ranking, status da competição e listagem de usuários.
+8. Visitar o perfil de outro usuário e mostrar a comparação de Soul Points.
+9. Sair e entrar como admin.
+10. Mostrar ranking, status da competição e listagem de usuários.
 
 ### Como explicar o diferencial
 
-O diferencial do EcoScore é transformar sustentabilidade em experiência recorrente: o usuário vê progresso, desbloqueia conquistas, compara evolução e acompanha impacto ambiental realista. A gamificação não é decorativa; ela organiza comportamento, incentivo e mensuração.
+O diferencial do EcoScore é transformar sustentabilidade em experiência recorrente: o usuário vê progresso, desbloqueia conquistas, compara evolução social e acompanha impacto ambiental realista. A gamificação não é decorativa; ela organiza comportamento, incentivo e mensuração.
 
 ### Como defender as escolhas técnicas
 
 - **Python terminal:** permite validar a regra de negócio sem depender da interface final.
 - **JSON:** suficiente para MVP acadêmico, simples de auditar e fácil de migrar.
 - **Módulos separados:** tornam o projeto mais claro para manutenção e apresentação.
-- **Hash de senha:** demonstra preocupação com segurança mesmo em ambiente acadêmico.
+- **Hash de senha + detecção de hash legado:** demonstra preocupação com segurança mesmo em ambiente acadêmico.
 - **Painel admin:** separa operação da competição e aproxima o MVP de um produto real.
-
-### Por que terminal como MVP?
-
-O terminal reduz complexidade visual e permite provar o fluxo principal: autenticação, pontuação, ranking, conquistas, impacto, auditoria e administração. Em uma próxima sprint, esse motor pode ser conectado a uma interface React/Web ou a uma API sem descartar a lógica criada.
+- **Migração automática:** garante compatibilidade com versões anteriores sem quebrar a demo.
 
 ## Futuras Melhorias
 
@@ -241,6 +306,7 @@ O terminal reduz complexidade visual e permite provar o fluxo principal: autenti
 - Recuperação de senha e autenticação multifator.
 - Dashboard administrativo com métricas agregadas.
 - Moderação social e feed de ações sustentáveis.
+- Notificações de conquistas e lembretes de ciclo mensal.
 
 ## Integrantes
 

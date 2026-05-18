@@ -110,6 +110,25 @@
                 "Primeiro Broto"
             ],
             "admin": false
+        },
+        {
+            "nome": "Carlitos",
+            "email": "carlos_hen14@gmail.com",
+            "senha": "b55ebab3d0e0f7dd7c8f5f08e9281bc0ae6459857a3477bef2b5f8c51fec5242",
+            "pontos": 24,
+            "historico": [
+                {
+                    "categoria": "Plantio",
+                    "descricao": "Criar jardim para polinizadores",
+                    "quantidade": 4.0,
+                    "pontos": 24,
+                    "data": "18/05/2026 09:06"
+                }
+            ],
+            "conquistas": [
+                "Primeiro Broto"
+            ],
+            "admin": false
         }
     ]
 }
