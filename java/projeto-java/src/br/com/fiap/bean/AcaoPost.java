@@ -14,7 +14,7 @@ public class AcaoPost extends Acao{
     public AcaoPost() {}
     public AcaoPost(String nome, int posicaoRanking, int saldoVotos) {
         super(nome);
-        this.posicaoRanking = posicaoranking;
+        this.posicaoRanking = posicaoRanking;
         this.saldoVotos = saldoVotos;
     }
 
