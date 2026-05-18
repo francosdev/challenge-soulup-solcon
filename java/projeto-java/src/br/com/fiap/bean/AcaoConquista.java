@@ -2,7 +2,12 @@ package br.com.fiap.bean;
 
 import javax.swing.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
+/**
+ * Registra uma conquista.
+ * @since Java 21
+ */
 public class AcaoConquista extends Acao {
     private int raridade;
 
@@ -29,11 +34,12 @@ public class AcaoConquista extends Acao {
 
     public int registrarPontos(int pontosGerados) {
         //Os pontos são multiplicados por 1.5 e tem um adicional dependendo da raridade
-        super.gerarPontos((int) (pontosGerados * 1.5 + raridade * 5));
+        super.registrarPontos((int) (pontosGerados * 1.5 + raridade * 5));
         return super.getSoulCoinsGerados();
     }
 
     public String detalhes() {
-        return String.format("Conquista \"%s\" foi ganha em (%s) e gerou %d Soul Coins.", super.getNome(), super.getDataRealizacao(), super.getSoulCoinsGerados());
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        return String.format("Conquista \"%s\" foi ganha em (%s) e gerou %d Soul Coins.", super.getNome(), super.getDataRealizacao().format(dtf), super.getSoulCoinsGerados());
     }
 }

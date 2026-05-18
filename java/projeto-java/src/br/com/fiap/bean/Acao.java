@@ -42,7 +42,7 @@ public class Acao {
      * @param pontosGerados o número de pontos dessa ação
      * @return O número de Soul Coins gerados
      */
-    public int gerarPontos(int pontosGerados) {
+    public int registrarPontos(int pontosGerados) {
         dataRealizacao = LocalDateTime.now();
         soulCoinsGerados = pontosGerados;
         return pontosGerados;
