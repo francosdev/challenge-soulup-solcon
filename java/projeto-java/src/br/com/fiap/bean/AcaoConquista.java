@@ -12,6 +12,9 @@ public class AcaoConquista extends Acao {
     private int raridade;
 
     public AcaoConquista(){}
+    public AcaoConquista(String nome) {
+        super(nome);
+    }
     public AcaoConquista(String nome, int raridade) {
         super(nome);
         setRaridade(raridade);
@@ -25,6 +28,8 @@ public class AcaoConquista extends Acao {
             if (raridade > 0 && raridade <= 4) {
                 this.raridade = raridade;
             } else {
+                //Valor padrão é 1
+                this.raridade = 1;
                 throw new Exception("Valor inválida, a raridade varia de 1 a 4.");
             }
         } catch (Exception e) {

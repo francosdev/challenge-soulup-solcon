@@ -38,11 +38,12 @@ public class AcaoQuiz extends Acao{
         return pontosPorQuestao;
     }
     public void setPontosPorQuestao(int pontosPorQuestao) {
-        //Regra: os pontos ganhos por questão devem variar entre 1 a 10 dependendo do quiz.
+        //Regra: os pontos ganhos por questão devem variar entre 1 a 10 dependendo do quiz, se for além vira 1 automaticamente
         try {
             if (pontosPorQuestao > 0 && pontosPorQuestao <= 10) {
                 this.pontosPorQuestao = pontosPorQuestao;
             } else {
+                this.pontosPorQuestao = 1;
                 throw new Exception("O valor de quantos pontos cada questão ganha no quiz só pode ser entre 1 e 10.");
             }
         } catch (Exception e) {

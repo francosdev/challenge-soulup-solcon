@@ -1,3 +1,5 @@
+package br.com.fiap.bean;
+
 import javax.swing.*;
 
 /**
@@ -12,14 +14,18 @@ public class Usuario {
     //Um valor "vazio" é definido para não dar erro na concatenação de strings.
     private String atividadeRecente = "";
 
-    public Usuario() {
+    public Usuario() {}
+    // Construtor para registrar apenas nome do usuário e id, pois ambos não tem validação
+    public Usuario(String nome, String id) {
+        this.nome = nome;
+        setId(id);
     }
-
-    // Construtor para registrar usuário (nome, id e confiabilidade).
-    public Usuario(String nome, String id, float confiabilidade) {
+    // Construtor para registrar usuário quas completo (nome, id, confiabilidade e soul coins).
+    public Usuario(String nome, String id, float confiabilidade, int soulCoins) {
         this.nome = nome;
         setId(id);
         setConfiabilidade(confiabilidade);
+        setSoulCoins(soulCoins);
     }
 
     public String getNome() {
@@ -49,6 +55,8 @@ public class Usuario {
             if (confiabilidade >= 0 && confiabilidade <= 100) {
                 this.confiabilidade = confiabilidade;
             } else {
+                // 50 é a confiabilidade padrão
+                setConfiabilidade(50);
                 throw new Exception("Valor inválido, digite um número de 1 a 100 para confiabilidade");
             }
         } catch (Exception e) {
@@ -61,7 +69,16 @@ public class Usuario {
     }
 
     public void setSoulCoins(int soulCoins) {
-        this.soulCoins = soulCoins;
+        try {
+            if (soulCoins >= 0) {
+                this.soulCoins = soulCoins;
+            } else {
+                //0 é a confiabilidade padrão mesmo
+                throw new Exception("O número de Soul coins não pode ser negativo");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     public String getAtividadeRecente() {
@@ -73,9 +90,11 @@ public class Usuario {
     }
 
     /**
-     * Vai registrar uma ação sustentavel para o user. * @param soulCoins recebe a quantidade de solCoins ganhos * @param descAcao é o texto descrevendo a ação realizada
+     * Vai registrar uma ação sustentavel para o user.
+     * @param soulCoins recebe a quantidade de soulCoins ganhos
+     * @param descAcao é o texto descrevendo a ação realizada
      */
-    public void registrarPontos(int soulCoins, String descAcao) {
+    public void registrarAcao(int soulCoins, String descAcao) {
         // a confiabilidade do usuário deve alterar o recebimento de pontos
         if (soulCoins <= 3) {
             // Divide pela metade os pontos recebidos e então arredonda para o inteiro mais próximo pra depois transformar em Inteiro.
@@ -88,7 +107,8 @@ public class Usuario {
     }
 
     /**
-     * Vai retornar todos os dados do perfil * @return Uma string formatada com tudo ajustado
+     * Vai retornar todos os dados do perfil
+     * @return Uma string formatada com tudo ajustado
      */
     public String detalhesPerfil() {
         return String.format("Nome: %s\nId: %s\nConfiabilidade: %.1f\nSoul Coins: %d\nAtividade recente:\n%s", nome, id, confiabilidade, soulCoins, atividadeRecente);
@@ -97,14 +117,15 @@ public class Usuario {
     /**
      * Registra uma penalidade de confiabilidade para o usuário
      * @param valorPenalidade o valor que será descontado da confiabilidade do usuário
-     * @param descOcorrido uma string que descreve o ocorrido de uma penalidade * @return uma string indicando o registro
+     * @param descOcorrido uma string que descreve o ocorrido de uma penalidade
+     * @return uma string indicando o registro
      */
     public String registrarPenalidade(float valorPenalidade, String descOcorrido) {
         //Recebe valores positivos e não pode receber negativs, por isso o try
         try {
             // 0 vai permitir que seja "cancelado"
             if (valorPenalidade >= 0) {
-                /*Se o valor da penalidade for maio que o valor atual então ele vai ser colocado como zero Isso impede que a confiablidade fique negativa, basicamente o mathmax vai pegar o maior valor, se o resultado for negativo será o 0*/
+                /*Se o valor da penalidade for maior que o valor atual então ele vai ser colocado como zero, isso impede que a confiablidade fique negativa, basicamente o mathmax vai pegar o maior valor, se o resultado for negativo será o 0*/
                 this.confiabilidade = Math.max(0, this.confiabilidade -= valorPenalidade);
             }
         } catch (Exception e) {

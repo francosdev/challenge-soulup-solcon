@@ -1,16 +1,27 @@
 package br.com.fiap.bean;
 
+import javax.swing.*;
+
 /**
  * Calcula os pontos de um tipo de ação
  * @since Java 21
  */
-public class CalcularPontos {
+public class CalculadoraPontos {
     /**
      * calcula pontos do tipo natureza (plantas, árvores...)
      * @param dificuldade recebe o valor de dificuldade da ação
      * @return retorna o número d epontos gerados dependendo da dificuldade.
      */
     public int pontosNatureza(int dificuldade) {
+        //dificuldade vai de 1 a 5, se digitar além disso vai virar 1 automáticamente.
+        try {
+            if (dificuldade < 1 || dificuldade > 5) {
+                dificuldade = 1;
+                throw new Exception("Dificuldade deve ser entre 1-5. Colocado automaticamnte como 1");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Valor Inválida!", JOptionPane.ERROR_MESSAGE);
+        }
         return dificuldade * 5;
     }
     /**

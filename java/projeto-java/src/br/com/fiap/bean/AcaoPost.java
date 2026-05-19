@@ -1,5 +1,6 @@
 package br.com.fiap.bean;
 
+import javax.swing.*;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -14,7 +15,7 @@ public class AcaoPost extends Acao{
     public AcaoPost() {}
     public AcaoPost(String nome, int posicaoRanking, int saldoVotos) {
         super(nome);
-        this.posicaoRanking = posicaoRanking;
+        setPosicaoRanking(posicaoRanking);
         this.saldoVotos = saldoVotos;
     }
 
@@ -22,7 +23,15 @@ public class AcaoPost extends Acao{
         return posicaoRanking;
     }
     public void setPosicaoRanking(int posicaoRanking) {
-        this.posicaoRanking = posicaoRanking;
+        try {
+            if (posicaoRanking > 0) {
+                this.posicaoRanking = posicaoRanking;
+            } else {
+                throw new Exception("Posição deve ser um número positivo igual ou maior que 1.");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Valor inválido!", JOptionPane.ERROR_MESSAGE);
+        }
     }
     public int getSaldoVotos() {
         return saldoVotos;
@@ -51,11 +60,13 @@ public class AcaoPost extends Acao{
         else if(posicaoRanking <= 10){
             adicional = 25;
         }
-        /*Quantidade de votos também dá pontos
+        /*  Quantidade de votos também dá pontos
         Porem vai até um limite de 100 pontos
         A cada 100 saldo de votos um ponto
-        Arredonda pra baixo, então 199 ainda é um ponto*/
-        adicional += Math.min(100, saldoVotos/100);
+        Arredonda pra baixo, então 199 ainda é um ponto
+        Porém, se o valor do saldo for negativo (muitos downvotes)
+        ele não pode tirar nenhum Soul Coin    */
+        adicional += Math.max(0, Math.min(100, saldoVotos/100));
         super.registrarPontos(pontosGerados * 2 + adicional);
         return super.getSoulCoinsGerados();
     }
