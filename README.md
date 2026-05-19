@@ -27,7 +27,7 @@ AI-powered storytelling app for children. Personalized narratives that adapt to 
 
 <br>
 
-**🌿 EcoScore — Gamificação Sustentável** &nbsp;·&nbsp; [repo](https://github.com/francosdev/challenge-soulup-solcon)
+**🌿 EcoScore — sustainable gamification** &nbsp;·&nbsp; [repo](https://github.com/francosdev/challenge-soulup-solcon)
 Functional MVP built for FIAP Challenge in partnership with SoulUp. Sustainable habit gamification system with Soul Points, achievements, monthly ranking and social profiles. Modular Python backend with SHA-256 auth, audit logging and automatic data migration — plus a generative canvas frontend with mycelium animations.
 
 `Python` `JSON` `HTML5` `CSS3` `JavaScript` `Canvas API` `SHA-256` `Generative Animation`
