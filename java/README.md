@@ -49,7 +49,7 @@ O sistema permite:
 | :---------------: | :--------: | :------: | :-----------: |
 |      [Usuario](./projeto-java/src/br/com/fiap/bean/Usuario.java)      |            |          |               |
 |        [Acao](./projeto-java/src/br/com/fiap/bean/Acao.java)       |  [AcaoQuiz](./projeto-java/src/br/com/fiap/bean/AcaoQuiz.java)  | [AcaoPost](./projeto-java/src/br/com/fiap/bean/AcaoPost.java) | [AcaoConquista](./projeto-java/src/br/com/fiap/bean/AcaoConquista.java) |
-| [CalcularPontos](./projeto-java/src/br/com/fiap/bean/CalcularPontos.java) |            |          |               |
+| [CalculadoraPontos](./projeto-java/src/br/com/fiap/bean/CalculadoraPontos.java) |            |          |               |
 
 ---
 
@@ -57,8 +57,8 @@ O sistema permite:
 
 * Usuários acumulam **SoulCoins** através de ações sustentáveis.
 * Cada ação possui uma lógica própria de pontuação.
-* Quizzes geram pontos por desempenho.
-* Posts sustentáveis podem receber bonificações por engajamento.
+* Quizzes geram pontos por desempenho e sações atreladas a eles, ou só pelo desempenho
+* Posts sustentáveis podem receber bonificações por engajamento e posição no ranking
 * Usuários mais confiáveis possuem maior peso no sistema.
 
 ---
