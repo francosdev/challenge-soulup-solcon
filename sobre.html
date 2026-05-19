@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre o Projeto — EcoScore</title>
+  <meta name="description" content="Conheça o contexto, o problema e a solução por trás do EcoScore — sistema de gamificação sustentável da SoulUp." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/componentes.css" />
+  <link rel="stylesheet" href="css/responsivo.css" />
+</head>
+<body>
+
+  <header class="header">
+    <a href="index.html" class="header__logo">
+      <div class="header__logo-icon"><i data-lucide="leaf"></i></div>
+      Eco<span>Score</span>
+    </a>
+    <button class="nav__toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <ul class="nav__lista">
+        <li><a href="index.html" class="nav__link">Início</a></li>
+        <li><a href="sobre.html" class="nav__link">Sobre</a></li>
+        <li><a href="ecoscore.html" class="nav__link">EcoScore</a></li>
+        <li><a href="como-funciona.html" class="nav__link">Como Funciona</a></li>
+        <li><a href="faq.html" class="nav__link">FAQ</a></li>
+        <li><a href="integrantes.html" class="nav__link">Equipe</a></li>
+        <li><a href="contato.html" class="nav__link nav__link--cta">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-interno">
+      <div class="hero-interno__conteudo">
+        <span class="secao__tag">Sobre o Projeto</span>
+        <h1 class="hero-interno__titulo">O problema que o <span class="texto-gradiente">EcoScore resolve</span></h1>
+        <p class="hero-interno__texto">Entenda o contexto da SoulUp, o desafio do engajamento sustentável e como o EcoScore foi concebido como solução.</p>
+      </div>
+    </section>
+
+    <!-- O PROBLEMA -->
+    <section class="secao">
+      <div class="container">
+        <div class="grid-2" style="align-items: center; gap: 4rem;">
+          <div>
+            <span class="secao__tag">O Problema</span>
+            <h2 class="secao__titulo">Engajamento esporádico não gera mudança real</h2>
+            <p style="color: var(--cor-texto-muted); line-height: 1.8; margin-bottom: 1.5rem;">
+              A SoulUp já conecta usuários a benefícios reais e impacto ambiental positivo. Mas como transformar uma interação pontual em um hábito sustentável duradouro?
+            </p>
+            <p style="color: var(--cor-texto-muted); line-height: 1.8; margin-bottom: 1.5rem;">
+              Estudos de comportamento mostram que 80% das pessoas que adotam hábitos ecológicos abandonam as práticas em menos de 3 meses quando não há reforço positivo contínuo. A motivação intrínseca existe, mas precisa de estrutura.
+            </p>
+            <div class="feature-lista">
+              <div class="feature-item">
+                <div class="feature-item__check"><i data-lucide="check"></i></div>
+                <span>Falta de feedback imediato por ações sustentáveis</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-item__check"><i data-lucide="check"></i></div>
+                <span>Ausência de comunidade e senso de pertencimento</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-item__check"><i data-lucide="check"></i></div>
+                <span>Recompensas abstratas ou distantes demais</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-item__check"><i data-lucide="check"></i></div>
+                <span>Sem progressão visível nem metas claras</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="card" style="padding: 2.5rem; background: rgba(255,107,107,0.04); border-color: rgba(255,107,107,0.2);">
+              <div style="margin-bottom: 1rem;" class="icone-lg icone-vermelho"><i data-lucide="trending-down"></i></div>
+              <h3 style="color: var(--cor-texto-claro); font-size: 1.3rem; margin-bottom: 0.25rem;">Cenário atual</h3>
+              <p style="color: var(--cor-texto-muted); font-size: 0.75rem; margin-bottom: 1rem;">Fonte: GA4 SoulUp, jan–abr 2026</p>
+              <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--cor-texto-muted); margin-bottom: 0.4rem;">
+                    <span>Queda anual em usuários ativos</span><span style="color: #FF6B6B;">−77%</span>
+                  </div>
+                  <div class="progresso"><div class="progresso__barra" data-valor="77" style="background: #FF6B6B;"></div></div>
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--cor-texto-muted); margin-bottom: 0.4rem;">
+                    <span>Sessões por usuário/mês (média)</span><span style="color: #FF6B6B;">0,4</span>
+                  </div>
+                  <div class="progresso"><div class="progresso__barra" data-valor="8" style="background: #FF6B6B;"></div></div>
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--cor-texto-muted); margin-bottom: 0.4rem;">
+                    <span>Novos usuários sobre total ativo</span><span style="color: #FF6B6B;">30%</span>
+                  </div>
+                  <div class="progresso"><div class="progresso__barra" data-valor="30" style="background: #FF6B6B;"></div></div>
+                </div>
+              </div>
+              <p style="font-size: 0.75rem; color: var(--cor-texto-muted); margin-top: 1rem; line-height: 1.6;">9.599 usuários ativos · 15.572 sessões · tempo médio 11min06s por sessão. Base retorna, mas sem frequência estruturada.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COM QUEM CONVERSAMOS -->
+    <section class="secao secao--escura">
+      <div class="container" style="max-width: 780px;">
+        <span class="secao__tag">Pesquisa</span>
+        <h2 class="secao__titulo" style="margin-bottom: 2rem;">Com quem conversamos</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <p style="color: var(--cor-texto-muted); line-height: 1.85; font-size: 1rem;">
+            Antes de definir as classes do MVP, conversamos com 7 pessoas — moradores de apartamento, em sua maioria jovens adultos de São Paulo — sobre o que as faz agir (ou não) quando o assunto é sustentabilidade. Nenhuma entrevista foi formal: foram conversas sobre rotina, hábitos e frustração.
+          </p>
+          <p style="color: var(--cor-texto-muted); line-height: 1.85; font-size: 1rem;">
+            O padrão mais comum foi <strong style="color: var(--cor-texto-claro);">fricção de contexto</strong>: a maioria quer reciclar, mas não sabe onde fica o ponto de coleta mais próximo. Quer plantar, mas não tem espaço nem vaso. A intenção existe — o que falta é um ponto de entrada pequeno o suficiente para começar agora, com o que já tem em casa. Ninguém pediu por complexidade. Pediram por um primeiro passo que não exija planejamento.
+          </p>
+          <p style="color: var(--cor-texto-muted); line-height: 1.85; font-size: 1rem;">
+            Sobre o que traz de volta, duas coisas apareceram sempre: ver que progrediu em algo concreto, e saber que alguém viu. Não necessariamente elogio — só visibilidade. A recompensa tangível foi mencionada como "seria ótimo", mas nunca como razão principal de retornar. O status dentro da comunidade importou mais do que o benefício financeiro.
+          </p>
+          <p style="color: var(--cor-primaria); font-weight: 600; font-size: 0.95rem; border-top: 1px solid var(--cor-borda); padding-top: 1.25rem;">
+            Essas conversas moldaram as 3 classes do MVP: escolhidas por acessibilidade, não por complexidade.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- A SOLUÇÃO -->
+    <section class="secao secao--escura">
+      <div class="container">
+        <div class="grid-2" style="align-items: center; gap: 4rem;">
+          <div>
+            <div class="card" style="padding: 2.5rem;">
+              <div style="margin-bottom: 1rem;" class="icone-lg"><i data-lucide="trending-up"></i></div>
+              <h3 style="color: var(--cor-texto-claro); font-size: 1.3rem; margin-bottom: 0.25rem;">Hipótese de design</h3>
+              <p style="color: var(--cor-texto-muted); font-size: 0.75rem; margin-bottom: 1rem;">Baseada em benchmarks de apps de gamificação com mecânicas similares</p>
+              <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--cor-texto-muted); margin-bottom: 0.4rem;">
+                    <span>Sessões/usuário por mês (objetivo)</span><span style="color: var(--cor-primaria);">4+</span>
+                  </div>
+                  <div class="progresso"><div class="progresso__barra" data-valor="75"></div></div>
+                  <p style="font-size: 0.7rem; color: var(--cor-texto-muted); margin-top: 0.3rem;">Duolingo reporta média de 4,3 sessões/semana para usuários com streak ativo</p>
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--cor-texto-muted); margin-bottom: 0.4rem;">
+                    <span>Retenção em 30 dias (faixa estimada)</span><span style="color: var(--cor-primaria);">35–50%</span>
+                  </div>
+                  <div class="progresso"><div class="progresso__barra" data-valor="42"></div></div>
+                  <p style="font-size: 0.7rem; color: var(--cor-texto-muted); margin-top: 0.3rem;">Apps gamificados de hábito (Habitica, Nike Run Club) reportam 2–3× a retenção de apps não-gamificados equivalentes</p>
+                </div>
+              </div>
+              <p style="font-size: 0.72rem; color: var(--cor-texto-muted); margin-top: 1.25rem; line-height: 1.6; border-top: 1px solid var(--cor-borda); padding-top: 0.75rem;">Projeções baseadas em benchmarks de sistemas de gamificação com mecânicas similares. Dados base: GA4 SoulUp, jan–abr 2026.</p>
+            </div>
+          </div>
+          <div>
+            <span class="secao__tag">A Solução</span>
+            <h2 class="secao__titulo">EcoScore: gamificação com propósito real</h2>
+            <p style="color: var(--cor-texto-muted); line-height: 1.8; margin-bottom: 1.5rem;">
+              O EcoScore é uma camada de amplificação sobre a plataforma SoulUp. Ele usa mecânicas de jogos comprovadas — progressão, recompensa, comunidade — direcionadas para hábitos sustentáveis verificáveis.
+            </p>
+            <p style="color: var(--cor-texto-muted); line-height: 1.8; margin-bottom: 1rem;">
+              O diferencial está na <strong style="color: var(--cor-primaria);">validação por metadados</strong>: a foto é capturada no app com GPS e timestamp automáticos. Isso elimina o principal vetor de fraude — reutilização de imagens antigas ou de outro contexto — sem adicionar fricção para quem está sendo honesto.
+            </p>
+            <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+              <span class="badge badge--verde">MVP · Foto + metadados no app</span>
+              <span class="badge badge--roxo">Fase 2 · Visão computacional</span>
+            </div>
+            <a href="como-funciona.html" class="btn btn--primario">Ver Como Funciona →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOULUP -->
+    <section class="secao">
+      <div class="container">
+        <div class="secao__header">
+          <span class="secao__tag">A Parceria</span>
+          <h2 class="secao__titulo">Quem é a SoulUp?</h2>
+          <p class="secao__descricao">A plataforma que inspira o EcoScore e fornece a infraestrutura de recompensas reais.</p>
+        </div>
+        <div class="destaque-box">
+          <div class="grid-2" style="gap: 3rem; align-items: center;">
+            <div>
+              <h3 style="font-size: 1.4rem; font-weight: 700; color: var(--cor-texto-claro); margin-bottom: 1rem;">SoulUp <span style="color: var(--cor-texto-muted); font-weight: 400; font-size: 1rem;">by Prospera</span></h3>
+              <p style="color: var(--cor-texto-muted); line-height: 1.8; margin-bottom: 1rem;">
+                A SoulUp identificou que engajamento pontual não gera retenção duradoura. Os dados de 2026 mostram queda de 77% em usuários ativos em relação ao ano anterior. O EcoScore nasce como resposta direta a esse desafio: criar uma razão estrutural para o usuário voltar — não por notificação, mas porque tem algo concreto a construir.
+              </p>
+              <p style="color: var(--cor-texto-muted); line-height: 1.8;">
+                A plataforma fornece a infraestrutura de pontos e benefícios. O EcoScore traz a camada de progressão, verificação e comunidade que transforma uma visita isolada em uma trajetória.
+              </p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="card" style="padding: 1.25rem 1.5rem;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div style="font-size: 1.8rem;"><i data-lucide="sprout"></i></div>
+                  <div>
+                    <div style="font-weight: 700; color: var(--cor-texto-claro); margin-bottom: 0.2rem;">Impacto Ambiental</div>
+                    <div style="font-size: 0.85rem; color: var(--cor-texto-muted);">Ações reais mensuradas e reportadas</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card" style="padding: 1.25rem 1.5rem;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div style="font-size: 1.8rem;">🇧🇷</div>
+                  <div>
+                    <div style="font-weight: 700; color: var(--cor-texto-claro); margin-bottom: 0.2rem;">Plataforma Brasileira</div>
+                    <div style="font-size: 0.85rem; color: var(--cor-texto-muted);">Desenvolvida para o contexto nacional</div>
+                  </div>
+                </div>
+              </div>
+              <div class="card" style="padding: 1.25rem 1.5rem;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div style="font-size: 1.8rem;">💡</div>
+                  <div>
+                    <div style="font-weight: 700; color: var(--cor-texto-claro); margin-bottom: 0.2rem;">Benefícios Reais</div>
+                    <div style="font-size: 0.85rem; color: var(--cor-texto-muted);">Pontos que valem energia, créditos e mais</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo"><i data-lucide="leaf"></i> Eco<span>Score</span></div>
+        <p class="footer__descricao">Sistema de gamificação sustentável desenvolvido para o Challenge FIAP 2026 em parceria com a SoulUp (by Prospera).</p>
+        <span class="footer__badge-fiap">🎓 Challenge FIAP 2026 · Turma 1TDSPH</span>
+      </div>
+      <div>
+        <p class="footer__titulo-col">Páginas</p>
+        <ul class="footer__links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="ecoscore.html">EcoScore</a></li>
+          <li><a href="como-funciona.html">Como Funciona</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__titulo-col">Projeto</p>
+        <ul class="footer__links">
+          <li><a href="integrantes.html">Equipe</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__copy">
+      <span>© 2026 EcoScore — Challenge FIAP · 1TDSPH</span>
+      <span>Desenvolvido com HTML5, CSS3 e JavaScript puro</span>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

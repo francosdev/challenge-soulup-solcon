@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoScore — Sistema de Gamificação Sustentável | SoulUp</title>
+  <meta name="description" content="EcoScore é um sistema de gamificação sustentável que transforma ações reais em pontos e recompensas. Parceria FIAP 2026 + SoulUp." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/componentes.css" />
+  <link rel="stylesheet" href="css/responsivo.css" />
+</head>
+<body>
+
+  <header class="header">
+    <a href="index.html" class="header__logo">
+      <div class="header__logo-icon"><i data-lucide="leaf"></i></div>
+      Eco<span>Score</span>
+    </a>
+    <button class="nav__toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <ul class="nav__lista">
+        <li><a href="index.html" class="nav__link">Início</a></li>
+        <li><a href="sobre.html" class="nav__link">Sobre</a></li>
+        <li><a href="ecoscore.html" class="nav__link">EcoScore</a></li>
+        <li><a href="como-funciona.html" class="nav__link">Como Funciona</a></li>
+        <li><a href="faq.html" class="nav__link">FAQ</a></li>
+        <li><a href="integrantes.html" class="nav__link">Equipe</a></li>
+        <li><a href="contato.html" class="nav__link nav__link--cta">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <canvas id="mycelium-bg"></canvas>
+      <div class="hero__conteudo">
+        <div class="hero__parceiros">
+          <span class="hero__parceiro-item">
+            <i data-lucide="graduation-cap"></i> FIAP 2026
+          </span>
+          <span class="hero__parceiro-sep">×</span>
+          <span class="hero__parceiro-item">
+            <i data-lucide="leaf"></i> SoulUp
+          </span>
+          <span class="hero__parceiro-sep">×</span>
+          <span class="hero__parceiro-item hero__parceiro-item--solcon">
+            <i data-lucide="cpu"></i> SolCon
+          </span>
+        </div>
+        <h1 class="hero__titulo">
+          Sustentabilidade que<br />
+          <span class="destaque">gera recompensas reais</span>
+        </h1>
+        <p class="hero__subtitulo">
+          O EcoScore transforma ações sustentáveis do dia a dia em progressão, selos e benefícios concretos — verificados por foto no app.
+        </p>
+        <div class="hero__acoes">
+          <a href="ecoscore.html" class="btn btn--primario btn--grande">Explorar o Sistema</a>
+          <a href="como-funciona.html" class="btn btn--contorno btn--grande">Como Funciona →</a>
+        </div>
+      </div>
+      <div class="hero__scroll">Descubra</div>
+    </section>
+
+    <!-- STATS -->
+    <section class="secao secao--escura">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-valor">4</div>
+            <div class="stat-label">Ramos de Habilidades</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-valor">3</div>
+            <div class="stat-label">Pilares do Sistema</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-valor">IA</div>
+            <div class="stat-label">Validação por Vídeo</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-valor">100</div>
+            <div class="stat-label">Soul Points encerram o ranking</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PILARES -->
+    <section class="secao">
+      <div class="container">
+        <div class="secao__header">
+          <span class="secao__tag">Os Pilares</span>
+          <h2 class="secao__titulo">Uma plataforma de 3 dimensões</h2>
+          <p class="secao__descricao">O EcoScore foi construído sobre três pilares que se reforçam mutuamente para criar engajamento sustentável e duradouro.</p>
+        </div>
+        <div class="grid-3">
+          <div class="pilar-card">
+            <div class="pilar-card__numero">01</div>
+            <div class="pilar-card__emoji"><i data-lucide="users"></i></div>
+            <h3 class="pilar-card__titulo">Pertencimento</h3>
+            <ul class="pilar-card__lista">
+              <li>Avatar com itens base gratuitos desde o início</li>
+              <li>Itens especiais desbloqueados por missão, não comprados</li>
+              <li>Feed social com up/down ponderado por reputação</li>
+            </ul>
+          </div>
+          <div class="pilar-card">
+            <div class="pilar-card__numero">02</div>
+            <div class="pilar-card__emoji"><i data-lucide="trending-up"></i></div>
+            <h3 class="pilar-card__titulo">Progressão</h3>
+            <ul class="pilar-card__lista">
+              <li>3 classes no MVP: Reciclagem, Jardinagem e Água</li>
+              <li>Quiz → Evidência (foto no app) → Selo automático</li>
+              <li>Trilhas com dificuldade crescente por comprometimento</li>
+            </ul>
+          </div>
+          <div class="pilar-card">
+            <div class="pilar-card__numero">03</div>
+            <div class="pilar-card__emoji"><i data-lucide="gift"></i></div>
+            <h3 class="pilar-card__titulo">Recompensa</h3>
+            <ul class="pilar-card__lista">
+              <li>Pontos que usam o sistema SoulUp já existente</li>
+              <li>Selos no perfil como status conquistado</li>
+              <li>Primeiro a atingir 100 Soul Points vence o ranking mensal</li>
+              <li>Vencedor recebe a conta de energia 100% subsidiada pela SoulUp</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section class="secao secao--escura">
+      <div class="container">
+        <div class="secao__header">
+          <span class="secao__tag">Por que o EcoScore?</span>
+          <h2 class="secao__titulo">Diferente de tudo que existe</h2>
+        </div>
+        <div class="grid-3">
+          <div class="card">
+            <div class="card__icone card__icone--verde"><i data-lucide="video"></i></div>
+            <h3 class="card__titulo">Evidência por foto no app</h3>
+            <p class="card__texto">Foto capturada direto no app — sem upload externo. Elimina o vetor de fraude mais óbvio sem adicionar fricção para quem está sendo honesto.</p>
+          </div>
+          <div class="card">
+            <div class="card__icone card__icone--azul"><i data-lucide="zap"></i></div>
+            <h3 class="card__titulo">Recompensas Tangíveis</h3>
+            <p class="card__texto">O primeiro usuário a atingir 100 Soul Points no mês vence e encerra o ranking para todos. Recompensa: 100% da conta de energia elétrica subsidiada pela SoulUp.</p>
+          </div>
+          <div class="card">
+            <div class="card__icone card__icone--laranja"><i data-lucide="users"></i></div>
+            <h3 class="card__titulo">Sua voz cresce com sua trajetória</h3>
+            <p class="card__texto">Ups de quem completou a trilha de Reciclagem valem mais do que os de quem criou a conta ontem. Não é algoritmo — é consequência direta de quem agiu.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="secao">
+      <div class="container">
+        <div class="destaque-box texto-centro">
+          <span class="secao__tag">Comece agora</span>
+          <h2 class="secao__titulo">Pronto para fazer a diferença?</h2>
+          <p class="secao__descricao" style="margin-bottom: 2rem;">Explore o sistema completo, entenda como funciona a validação e conheça a equipe por trás do EcoScore.</p>
+          <div class="flex-gap flex-center">
+            <a href="ecoscore.html" class="btn btn--primario">Ver o EcoScore</a>
+            <a href="sobre.html" class="btn btn--contorno">Sobre o Projeto</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo"><i data-lucide="leaf"></i> Eco<span>Score</span></div>
+        <p class="footer__descricao">Sistema de gamificação sustentável desenvolvido para o Challenge FIAP 2026 em parceria com a SoulUp (by Prospera).</p>
+        <span class="footer__badge-fiap">🎓 Challenge FIAP 2026 · Turma 1TDSPH</span>
+      </div>
+      <div>
+        <p class="footer__titulo-col">Páginas</p>
+        <ul class="footer__links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="ecoscore.html">EcoScore</a></li>
+          <li><a href="como-funciona.html">Como Funciona</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__titulo-col">Projeto</p>
+        <ul class="footer__links">
+          <li><a href="integrantes.html">Equipe</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__copy">
+      <span>© 2026 EcoScore — Challenge FIAP · 1TDSPH</span>
+      <span>Desenvolvido com HTML5, CSS3 e JavaScript puro</span>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/micelio.js"></script>
+</body>
+</html>
