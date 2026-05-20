@@ -4,6 +4,10 @@
 
 **FIAP Challenge 2026 · SoulUp × SolCon**
 
+[![Python](https://img.shields.io/badge/Python-3.x-111111?style=for-the-badge&logo=python&logoColor=8BAF6E)](https://python.org)
+[![HTML5](https://img.shields.io/badge/HTML5-Frontend-111111?style=for-the-badge&logo=html5&logoColor=8BAF6E)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-111111?style=for-the-badge&logo=javascript&logoColor=8BAF6E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Canvas API](https://img.shields.io/badge/Canvas_API-Animations-111111?style=for-the-badge&logo=html5&logoColor=8BAF6E)](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
 
 </div>
 
@@ -15,5 +19,3 @@
 ## Visão Geral
 
 **EcoScore** é um MVP de gamificação sustentável desenvolvido para o FIAP Challenge 2026, em parceria com a **SoulUp** e a **SolCon**. O sistema transforma ações ecológicas cotidianas em pontos, conquistas e ranking mensal — com o objetivo de criar engajamento duradouro em torno de hábitos sustentáveis.
-
-# Modelagem de Banco de Dados (BrModelo e Oracle Data Modeler)
