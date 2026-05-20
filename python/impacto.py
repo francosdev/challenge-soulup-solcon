@@ -125,7 +125,7 @@ def exibir_item_historico(acao):
     else:
         print(f"  {icone_categoria(categoria)} {categoria} | {descricao}")
     print(f"  Quantidade: {quantidade}{unidade}")
-    print(f"  EcoPoints: +{acao['pontos']}")
+    print(f"  Soul Points: +{acao['pontos']}")
     print(f"  Data: {acao['data']}")
 
 

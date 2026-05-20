@@ -72,7 +72,7 @@ CONQUISTAS = {
     },
     "Campeão EcoScore": {
         "icone": "🏆",
-        "objetivo": "Atingir 100 EcoPoints.",
-        "mensagem": "Você atingiu 100 EcoPoints!",
+        "objetivo": "Atingir 100 Soul Points.",
+        "mensagem": "Você atingiu 100 Soul Points!",
     },
 }

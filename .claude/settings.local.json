@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python main.py)",
+      "Bash(python main.py *)",
+      "Bash(python python/main.py)",
+      "Bash(python -c \"from autenticacao import login; from dados import carregar_dados; from interface import cabecalho, exibir_tela_inicial, pausar; from usuarios import cadastrar_usuario; print\\('Todos os imports OK'\\)\")",
+      "Bash(mkdir -p c:/FIAP/challenge-soulup-solcon/.vscode)"
+    ],
+    "additionalDirectories": [
+      "c:\\FIAP\\challenge-soulup-solcon"
+    ]
+  }
+}

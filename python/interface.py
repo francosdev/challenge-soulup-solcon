@@ -35,6 +35,7 @@ def exibir_tela_inicial():
     cabecalho("ECOSCORE")
     print("  1. Entrar")
     print("  2. Cadastrar conta")
+    print("  3. Recuperar senha")
     print("  0. Encerrar programa")
     linha()
 
@@ -43,7 +44,7 @@ def exibir_menu_usuario(usuario):
     """Mostra o menu principal para usuários comuns autenticados."""
     cabecalho("MENU ECOSCORE")
     print(f"  Usuário: {usuario['nome']}")
-    print(f"  EcoPoints: {usuario['pontos']}")
+    print(f"  Soul Points: {usuario['pontos']}")
     print(f"  Progresso: {barra_progresso(usuario['pontos'])}")
     print()
     linha("━")
@@ -89,13 +90,13 @@ def mostrar_feedback_acao(usuario, titulo, pontos, pontos_somados):
     print(f"  🌿 {titulo}")
 
     if pontos_somados:
-        print(f"  +{pontos} EcoPoints adicionados.")
+        print(f"  +{pontos} Soul Points adicionados.")
     else:
         print("  Ação salva no histórico.")
         print("  Ranking encerrado: nenhum EcoPoint foi somado.")
 
     faltam = max(0, META_PONTOS - usuario["pontos"])
-    print(f"  Total atual: {usuario['pontos']} EcoPoints")
+    print(f"  Total atual: {usuario['pontos']} Soul Points")
     print(f"  Faltam {faltam} pontos para chegar a {META_PONTOS}.")
     print(f"  {barra_progresso(usuario['pontos'])}")
     linha("━")

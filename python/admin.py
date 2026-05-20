@@ -21,7 +21,7 @@ def listar_usuarios_cadastrados_admin():
 
     for indice, usuario in enumerate(participantes, start=1):
         posicao = dados.calcular_posicao_ranking(usuario)
-        print(f"  {indice}. {usuario['nome']} - {usuario['email']} - {usuario['pontos']} EcoPoints - {posicao}º lugar")
+        print(f"  {indice}. {usuario['nome']} - {usuario['email']} - {usuario['pontos']} Soul Points - {posicao}º lugar")
 
 
 def exibir_conta_admin(usuario):
@@ -29,7 +29,7 @@ def exibir_conta_admin(usuario):
     cabecalho("CONTA DE USUÁRIO")
     print(f"  Nome: {usuario['nome']}")
     print(f"  E-mail: {usuario['email']}")
-    print(f"  EcoPoints: {usuario['pontos']}")
+    print(f"  Soul Points: {usuario['pontos']}")
     print(f"  Ranking: {dados.calcular_posicao_ranking(usuario)}º lugar")
 
     linha("━")
@@ -65,7 +65,7 @@ def deletar_conta_admin(admin_logado):
     print("  ⚠️ DELETAR CONTA DE USUÁRIO\n")
     print(f"  Nome: {usuario_alvo['nome']}")
     print(f"  E-mail: {usuario_alvo['email']}")
-    print(f"  EcoPoints: {usuario_alvo['pontos']}")
+    print(f"  Soul Points: {usuario_alvo['pontos']}")
     print("\n  Essa ação apagará permanentemente:")
     print("  - perfil")
     print("  - histórico")

@@ -5,6 +5,7 @@
 import getpass
 import hashlib
 import msvcrt
+import random
 
 from config import ADMIN_EMAIL, HASH_ADMIN_LEGADO_FRACO
 from interface import cabecalho, pausar
@@ -105,6 +106,81 @@ def trocar_senha_admin_obrigatoria(admin):
             print("\n  Senha administrativa atualizada com sucesso.")
             pausar()
             return True
+
+
+_codigos_recuperacao = {}
+
+
+def recuperar_senha():
+    """Gera código de 6 dígitos no terminal para redefinição de senha."""
+    from dados import buscar_usuario_por_email, registrar_log, salvar_dados
+
+    cabecalho("RECUPERAR SENHA")
+    print("  Digite 0 para voltar.\n")
+
+    email = input("  E-mail cadastrado: ").strip()
+    if email == "0":
+        return
+
+    usuario = buscar_usuario_por_email(email)
+
+    # Não revela se o e-mail existe (evita enumeração)
+    if usuario is None or usuario["admin"]:
+        print("\n  Se o e-mail estiver cadastrado, o código aparecerá abaixo.")
+        pausar()
+        return
+
+    codigo = str(random.randint(100000, 999999))
+    _codigos_recuperacao[email.lower()] = codigo
+
+    print(f"\n  ── SIMULAÇÃO DE E-MAIL ──────────────────────────")
+    print(f"  Para: {email}")
+    print(f"  Assunto: Recuperação de senha — EcoScore")
+    print(f"\n  Seu código de recuperação: {codigo}")
+    print(f"  ─────────────────────────────────────────────────\n")
+
+    tentativas = 3
+    while tentativas > 0:
+        digitado = input("  Digite o código recebido (0 para cancelar): ").strip()
+
+        if digitado == "0":
+            _codigos_recuperacao.pop(email.lower(), None)
+            return
+
+        if digitado == _codigos_recuperacao.get(email.lower()):
+            break
+
+        tentativas -= 1
+        if tentativas > 0:
+            print(f"  [!] Código incorreto. Tentativas restantes: {tentativas}")
+    else:
+        _codigos_recuperacao.pop(email.lower(), None)
+        print("  Muitas tentativas incorretas. Tente novamente mais tarde.")
+        registrar_log("RECUPERACAO_FALHA", f"email={email}")
+        pausar()
+        return
+
+    _codigos_recuperacao.pop(email.lower(), None)
+
+    nova_senha = ler_senha_oculta("\n  Nova senha: ").strip()
+    if nova_senha == "0":
+        return
+    if not senha_valida(nova_senha):
+        print("  [!] Senha deve ter pelo menos 6 caracteres.")
+        pausar()
+        return
+
+    confirmar = ler_senha_oculta("  Confirmar nova senha: ").strip()
+    if confirmar != nova_senha:
+        print("  [!] As senhas não conferem.")
+        pausar()
+        return
+
+    usuario["senha"] = criptografar_senha(nova_senha)
+    salvar_dados()
+    registrar_log("RECUPERACAO_SENHA", f"email={email}")
+    print("\n  Senha redefinida com sucesso!")
+    pausar()
 
 
 def login():

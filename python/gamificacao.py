@@ -23,7 +23,7 @@ def ler_quantidade(mensagem):
 
 
 def calcular_pontuacao(categoria_key, quantidade):
-    """Calcula EcoPoints pela categoria e quantidade informada."""
+    """Calcula Soul Points pela categoria e quantidade informada."""
     peso = CATEGORIAS[categoria_key]["peso"]
     pontos = min(100, int(quantidade * peso))
     return max(0, pontos)
@@ -65,7 +65,7 @@ def verificar_conquistas(usuario):
 
 
 def adicionar_pontos_usuario(usuario, pontos):
-    """Soma EcoPoints quando a competição está ativa."""
+    """Soma Soul Points quando a competição está ativa."""
     if usuario["admin"] or dados.ranking_encerrado:
         return False
 
@@ -73,7 +73,7 @@ def adicionar_pontos_usuario(usuario, pontos):
 
     if usuario["pontos"] >= META_PONTOS:
         dados.ranking_encerrado = True
-        print("\n  ⚡ PARABÉNS! Você atingiu 100 EcoPoints!")
+        print("\n  ⚡ PARABÉNS! Você atingiu 100 Soul Points!")
         print(f"  🏆 {usuario['nome']} venceu o ranking mensal!")
         print("  🌱 O ranking foi encerrado para todos os usuários.")
         print("  💡 Sua conta de energia deste mês será subsidiada pela SoulUp.")
@@ -279,12 +279,12 @@ def ver_ranking():
 
     for posicao, usuario in enumerate(ranking, start=1):
         if posicao == 1:
-            print(f"  🏆 {posicao}º {usuario['nome']} - {usuario['pontos']} EcoPoints")
+            print(f"  🏆 {posicao}º {usuario['nome']} - {usuario['pontos']} Soul Points")
             print(f"     {usuario['email']}")
             print("     🌱 Líder do ciclo sustentável.")
             linha("·")
         else:
-            print(f"  {posicao}º {usuario['nome']} ({usuario['email']}) - {usuario['pontos']} EcoPoints")
+            print(f"  {posicao}º {usuario['nome']} ({usuario['email']}) - {usuario['pontos']} Soul Points")
 
 
 def progresso_conquista(usuario, nome_conquista):
@@ -302,7 +302,7 @@ def progresso_conquista(usuario, nome_conquista):
     if nome_conquista == "Mão Verde":
         return impacto["plantio"], 5, "ações"
     if nome_conquista == "Campeão EcoScore":
-        return usuario["pontos"], META_PONTOS, "EcoPoints"
+        return usuario["pontos"], META_PONTOS, "Soul Points"
 
     return 0, 0, ""
 
@@ -349,7 +349,7 @@ def ver_status_competicao():
 
     faltam = max(0, META_PONTOS - lider["pontos"])
     print("\n  Líder atual:")
-    print(f"  {lider['nome']} - {lider['pontos']} EcoPoints")
+    print(f"  {lider['nome']} - {lider['pontos']} Soul Points")
 
     if dados.ranking_encerrado:
         print("\n  O ciclo já tem um campeão.")

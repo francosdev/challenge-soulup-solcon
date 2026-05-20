@@ -137,7 +137,7 @@ def consultar_perfil(usuario):
     cabecalho("MEU PERFIL")
     print(f"  Nome: {usuario['nome']}")
     print(f"  E-mail: {usuario['email']}")
-    print(f"  EcoPoints: {usuario['pontos']}")
+    print(f"  Soul Points: {usuario['pontos']}")
     print(f"  Progresso: {barra_progresso(usuario['pontos'])}")
 
     posicao = dados.calcular_posicao_ranking(usuario)
@@ -156,9 +156,9 @@ def selecionar_usuario_encontrado(encontrados, mostrar_email=False):
 
     for indice, usuario in enumerate(encontrados, start=1):
         if mostrar_email:
-            print(f"  {indice}. {usuario['nome']} - {usuario['email']} - {usuario['pontos']} EcoPoints")
+            print(f"  {indice}. {usuario['nome']} - {usuario['email']} - {usuario['pontos']} Soul Points")
         else:
-            print(f"  {indice}. {usuario['nome']} - {usuario['pontos']} EcoPoints")
+            print(f"  {indice}. {usuario['nome']} - {usuario['pontos']} Soul Points")
 
     print("\n  0. Cancelar")
 
@@ -215,21 +215,21 @@ def exibir_conquistas_resumidas(usuario):
 
 
 def mensagem_diferenca_pontos(usuario_logado, usuario_visitado):
-    """Compara EcoPoints entre o usuário logado e o perfil visitado."""
+    """Compara Soul Points entre o usuário logado e o perfil visitado."""
     diferenca = usuario_visitado["pontos"] - usuario_logado["pontos"]
 
     if diferenca > 0:
-        return f"{usuario_visitado['nome']} está {diferenca} EcoPoints à sua frente."
+        return f"{usuario_visitado['nome']} está {diferenca} Soul Points à sua frente."
     if diferenca < 0:
-        return f"Você está {abs(diferenca)} EcoPoints à frente de {usuario_visitado['nome']}."
-    return "Vocês estão empatados em EcoPoints."
+        return f"Você está {abs(diferenca)} Soul Points à frente de {usuario_visitado['nome']}."
+    return "Vocês estão empatados em Soul Points."
 
 
 def exibir_perfil_publico(usuario_logado, usuario_visitado):
     """Exibe perfil público sem e-mail ou senha, com comparação social."""
     cabecalho("PERFIL PÚBLICO")
     print(f"  Nome: {usuario_visitado['nome']}")
-    print(f"  EcoPoints: {usuario_visitado['pontos']}")
+    print(f"  Soul Points: {usuario_visitado['pontos']}")
     print(f"  Ranking: {dados.calcular_posicao_ranking(usuario_visitado)}º lugar")
     print(f"  Comparação: {mensagem_diferenca_pontos(usuario_logado, usuario_visitado)}")
 
@@ -310,25 +310,28 @@ def alterar_senha(usuario):
         return
     if not validar_senha_usuario(usuario, senha_atual):
         print("  Senha atual incorreta.")
+        pausar()
         return
 
-    nova_senha = ler_senha_oculta("  Nova senha: ").strip()
-    if nova_senha == "0":
-        return
-    if not senha_valida(nova_senha):
-        print("  [!] Nova senha deve ter pelo menos 6 caracteres.")
-        return
+    while True:
+        nova_senha = ler_senha_oculta("  Nova senha: ").strip()
+        if nova_senha == "0":
+            return
+        confirmar_senha = ler_senha_oculta("  Confirmar nova senha: ").strip()
+        if confirmar_senha == "0":
+            return
 
-    confirmar_senha = ler_senha_oculta("  Confirmar nova senha: ").strip()
-    if confirmar_senha == "0":
-        return
-    if confirmar_senha != nova_senha:
-        print("  [!] As senhas não conferem.")
-        return
+        if not senha_valida(nova_senha):
+            print("  [!] Nova senha deve ter pelo menos 6 caracteres.")
+        elif nova_senha != confirmar_senha:
+            print("  [!] As senhas não conferem.")
+        else:
+            break
 
     usuario["senha"] = criptografar_senha(nova_senha)
     dados.salvar_dados()
     print("  Senha atualizada com sucesso!")
+    pausar()
 
 
 def confirmar_texto_deletar():
@@ -346,7 +349,7 @@ def confirmar_exclusao_conta(usuario):
     print("  ⚠️ ATENCAO")
     print("  Essa ação irá apagar permanentemente:")
     print("  - seu perfil")
-    print("  - EcoPoints")
+    print("  - Soul Points")
     print("  - histórico de ações")
     print("  - conquistas")
     print()

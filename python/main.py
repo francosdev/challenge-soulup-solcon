@@ -2,7 +2,10 @@
 #  EcoScore - ponto de entrada
 # ============================================================
 
-from autenticacao import login
+import sys
+sys.stdout.reconfigure(encoding="utf-8")
+
+from autenticacao import login, recuperar_senha
 from dados import carregar_dados
 from interface import cabecalho, exibir_tela_inicial, pausar
 from usuarios import cadastrar_usuario
@@ -19,6 +22,8 @@ def menu_inicial():
                 login()
             case "2":
                 cadastrar_usuario()
+            case "3":
+                recuperar_senha()
             case "0":
                 cabecalho("ATE LOGO")
                 print("  Continue sendo sustentável. 🌱")
