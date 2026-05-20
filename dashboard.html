@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard de Impacto — EcoScore</title>
+  <meta name="description" content="Protótipo interativo do Dashboard de Impacto Sustentável do EcoScore. Acompanhe CO₂ evitado, árvores plantadas, água economizada e energia poupada — com o seu mascote Solzinho." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/componentes.css" />
+  <link rel="stylesheet" href="css/responsivo.css" />
+
+  <style>
+    /* ─── Estilos específicos da página dashboard ────────────────────── */
+
+    /* Frame com o protótipo — usa visual do .card mas sem padding interno */
+    .dashboard-frame {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0;
+      overflow: hidden;
+      background: var(--cor-fundo-card);
+      border: 1px solid var(--cor-borda);
+      border-radius: var(--raio-lg);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+      /* Scroll reveal (mesma técnica do main.js) */
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s cubic-bezier(.2,.7,.3,1), transform 0.7s cubic-bezier(.2,.7,.3,1);
+    }
+
+    .dashboard-frame__chrome {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1.25rem;
+      border-bottom: 1px solid var(--cor-borda);
+      background: rgba(13, 18, 9, 0.6);
+    }
+
+    .dashboard-frame__dots {
+      display: flex;
+      gap: 0.4rem;
+    }
+    .dashboard-frame__dot {
+      width: 10px; height: 10px;
+      border-radius: 999px;
+      background: var(--cor-borda);
+      border: 1px solid rgba(139, 175, 110, 0.2);
+    }
+    .dashboard-frame__dot--ativo {
+      background: var(--cor-primaria);
+      box-shadow: 0 0 6px rgba(139, 175, 110, 0.6);
+    }
+
+    .dashboard-frame__url {
+      flex: 1;
+      padding: 0.25rem 0.75rem;
+      background: var(--cor-fundo);
+      border: 1px solid var(--cor-borda);
+      border-radius: 999px;
+      font-family: var(--fonte-corpo);
+      font-size: 0.75rem;
+      color: var(--cor-texto-muted);
+      letter-spacing: 0.5px;
+    }
+
+    .dashboard-frame__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: var(--fonte-corpo);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--cor-destaque);
+      text-transform: uppercase;
+    }
+    .dashboard-frame__badge [data-lucide] {
+      width: 12px; height: 12px;
+      stroke-width: 2.5;
+    }
+
+    .dashboard-iframe {
+      display: block;
+      width: 100%;
+      height: 840px;
+      border: 0;
+      background: var(--cor-fundo);
+    }
+
+    /* Estado visível (revelado pelo IntersectionObserver) */
+    .dashboard-frame.revelado {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Indicador de instrução flutuante */
+    .dashboard-dica {
+      max-width: 1100px;
+      margin: 1.5rem auto 0;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(200, 168, 75, 0.06);
+      border: 1px solid rgba(200, 168, 75, 0.2);
+      border-radius: var(--raio);
+    }
+    .dashboard-dica [data-lucide] {
+      width: 20px;
+      height: 20px;
+      color: var(--cor-destaque);
+      flex-shrink: 0;
+    }
+    .dashboard-dica p {
+      margin: 0;
+      font-size: 0.875rem;
+      color: var(--cor-texto-muted);
+      line-height: 1.6;
+    }
+    .dashboard-dica strong {
+      color: var(--cor-texto-claro);
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .dashboard-iframe { height: 780px; }
+      .dashboard-frame__url { font-size: 0.65rem; padding: 0.2rem 0.5rem; }
+      .dashboard-frame__badge span { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <a href="index.html" class="header__logo">
+      <div class="header__logo-icon"><i data-lucide="leaf"></i></div>
+      Eco<span>Score</span><span class="header__logo-by">by:</span><span class="header__logo-solcon"><span class="header__logo-sol">Sol</span><span class="header__logo-con">Con</span></span>
+    </a>
+    <button class="nav__toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <ul class="nav__lista">
+        <li><a href="index.html" class="nav__link">Início</a></li>
+        <li><a href="sobre.html" class="nav__link">Sobre</a></li>
+        <li><a href="ecoscore.html" class="nav__link">EcoScore</a></li>
+        <li><a href="como-funciona.html" class="nav__link">Como Funciona</a></li>
+        <li><a href="dashboard.html" class="nav__link ativo">Dashboard</a></li>
+        <li><a href="faq.html" class="nav__link">FAQ</a></li>
+        <li><a href="integrantes.html" class="nav__link">Equipe</a></li>
+        <li><a href="contato.html" class="nav__link nav__link--cta">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO INTERNO -->
+    <section class="hero-interno">
+      <canvas id="mycelium-bg"></canvas>
+      <div class="hero-interno__conteudo">
+        <span class="secao__tag">Protótipo Interativo</span>
+        <h1 class="hero-interno__titulo">Visualize seu <span class="texto-gradiente">impacto real</span></h1>
+        <p class="hero-interno__texto">Cada ação registrada na plataforma vira métrica concreta — CO₂ evitado, árvores equivalentes, água economizada e resíduos reciclados. Tudo guiado pelo Solzinho, seu mascote ecológico.</p>
+      </div>
+    </section>
+
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
+
+    <!-- DASHBOARD PROTOTYPE -->
+    <section class="secao">
+      <div class="container">
+        <div class="secao__header">
+          <span class="secao__tag">Demonstração</span>
+          <h2 class="secao__titulo">Experimente o Dashboard</h2>
+          <p class="secao__descricao">Clique no Solzinho. Registre uma ação. Veja o impacto subir em tempo real. O protótipo persiste no seu navegador, então você pode voltar quando quiser.</p>
+        </div>
+
+        <div class="dashboard-frame" id="dashboardFrame">
+          <div class="dashboard-frame__chrome">
+            <div class="dashboard-frame__dots">
+              <span class="dashboard-frame__dot"></span>
+              <span class="dashboard-frame__dot"></span>
+              <span class="dashboard-frame__dot dashboard-frame__dot--ativo"></span>
+            </div>
+            <div class="dashboard-frame__url">ecoscore.soulup.app/impacto</div>
+            <span class="dashboard-frame__badge"><i data-lucide="sparkles"></i><span>EcoScore</span></span>
+          </div>
+          <iframe
+            src="petplanet-standalone.html"
+            title="Dashboard de Impacto Sustentável EcoScore"
+            class="dashboard-iframe"
+            loading="lazy"
+            allow="autoplay">
+          </iframe>
+        </div>
+
+        <div class="dashboard-dica">
+          <i data-lucide="mouse-pointer-click"></i>
+          <p><strong>Dica:</strong> o mascote rastreia o cursor com os olhos, clique nele pra reagir. O onboarding aparece no primeiro acesso — depois você pode resetar tudo pelo perfil.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
+
+    <!-- COMO USAR -->
+    <section class="secao secao--escura">
+      <div class="container">
+        <div class="secao__header">
+          <span class="secao__tag">O que esperar</span>
+          <h2 class="secao__titulo">Cada detalhe foi pensado</h2>
+          <p class="secao__descricao">O protótipo entrega o loop completo de gamificação: registrar, ser recompensado, ver o impacto crescer e voltar pra mais.</p>
+        </div>
+
+        <div class="grid-4">
+          <div class="card">
+            <div class="card__icone card__icone--verde"><i data-lucide="globe-2"></i></div>
+            <h3 class="card__titulo">Mascote vivo</h3>
+            <p class="card__texto">O Solzinho reage à sua atividade — feliz, sonolento ou triste. Os olhos seguem o cursor. Clique pra ver ele pular.</p>
+          </div>
+          <div class="card">
+            <div class="card__icone card__icone--laranja"><i data-lucide="save"></i></div>
+            <h3 class="card__titulo">Estado persistente</h3>
+            <p class="card__texto">Todas as ações ficam salvas no seu navegador. Volte amanhã, semana que vem — seu progresso continua exatamente onde parou.</p>
+          </div>
+          <div class="card">
+            <div class="card__icone card__icone--azul"><i data-lucide="bar-chart-3"></i></div>
+            <h3 class="card__titulo">Métricas reais</h3>
+            <p class="card__texto">CO₂ usa fator médio de emissão, árvores convertem absorção anual, água e energia partem de médias brasileiras de consumo doméstico.</p>
+          </div>
+          <div class="card">
+            <div class="card__icone card__icone--verde"><i data-lucide="trophy"></i></div>
+            <h3 class="card__titulo">Loop de recompensa</h3>
+            <p class="card__texto">EcoScore, moedas e streak crescem a cada ação. Confete real, números animados e o mascote festejando — feedback imediato.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
+
+    <!-- CTA FINAL -->
+    <section class="secao">
+      <div class="container">
+        <div class="destaque-box texto-centro">
+          <span class="secao__tag">Próximos passos</span>
+          <h2 class="secao__titulo">Quer entender a engenharia por trás?</h2>
+          <p class="secao__descricao" style="margin-bottom: 2rem;">Conheça os pilares, a Árvore de Habilidades, o sistema de ranking e como pretendemos sustentar as recompensas reais a longo prazo.</p>
+          <div class="flex-gap flex-center">
+            <a href="ecoscore.html" class="btn btn--primario">Ver o EcoScore completo</a>
+            <a href="como-funciona.html" class="btn btn--contorno">Como Funciona →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
+
+    <!-- PRÓXIMA PÁGINA -->
+    <section class="secao secao--escura">
+      <div class="container">
+        <div class="destaque-box texto-centro">
+          <span class="secao__tag">Próximo passo</span>
+          <h2 class="secao__titulo">Ainda tem dúvidas?</h2>
+          <p class="secao__descricao" style="margin-bottom: 2rem;">Reunimos as perguntas mais frequentes sobre validação, EcoPoints, ranking e recompensas reais.</p>
+          <div class="flex-gap flex-center">
+            <a href="faq.html" class="btn btn--primario btn--grande">Ver o FAQ →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo"><i data-lucide="leaf"></i> Eco<span>Score</span></div>
+        <p class="footer__descricao">Sistema de gamificação sustentável desenvolvido para o Challenge FIAP 2026 em parceria com a SoulUp (by Prospera).</p>
+        <span class="footer__badge-fiap">🎓 Challenge FIAP 2026 · Turma 1TDSPH</span>
+      </div>
+      <div>
+        <p class="footer__titulo-col">Páginas</p>
+        <ul class="footer__links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="ecoscore.html">EcoScore</a></li>
+          <li><a href="como-funciona.html">Como Funciona</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__titulo-col">Projeto</p>
+        <ul class="footer__links">
+          <li><a href="integrantes.html">Equipe</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__copy">
+      <span>© 2026 EcoScore — Challenge FIAP · 1TDSPH</span>
+      <span>Desenvolvido com HTML5, CSS3 e JavaScript puro</span>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/micelio.js"></script>
+
+  <script>
+    // Scroll reveal específico do dashboard frame
+    (function () {
+      var frame = document.getElementById('dashboardFrame');
+      if (!frame) return;
+      if (!('IntersectionObserver' in window)) {
+        frame.classList.add('revelado');
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            frame.classList.add('revelado');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      io.observe(frame);
+    })();
+  </script>
+</body>
+</html>

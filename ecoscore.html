@@ -14,7 +14,7 @@
   <header class="header">
     <a href="index.html" class="header__logo">
       <div class="header__logo-icon"><i data-lucide="leaf"></i></div>
-      Eco<span>Score</span>
+      Eco<span>Score</span><span class="header__logo-by">by:</span><span class="header__logo-solcon"><span class="header__logo-sol">Sol</span><span class="header__logo-con">Con</span></span>
     </a>
     <button class="nav__toggle" aria-label="Abrir menu">
       <span></span><span></span><span></span>
@@ -25,6 +25,7 @@
         <li><a href="sobre.html" class="nav__link">Sobre</a></li>
         <li><a href="ecoscore.html" class="nav__link">EcoScore</a></li>
         <li><a href="como-funciona.html" class="nav__link">Como Funciona</a></li>
+        <li><a href="dashboard.html" class="nav__link">Dashboard</a></li>
         <li><a href="faq.html" class="nav__link">FAQ</a></li>
         <li><a href="integrantes.html" class="nav__link">Equipe</a></li>
         <li><a href="contato.html" class="nav__link nav__link--cta">Contato</a></li>
@@ -34,12 +35,16 @@
 
   <main>
     <section class="hero-interno">
+      <canvas id="mycelium-bg"></canvas>
       <div class="hero-interno__conteudo">
         <span class="secao__tag">O Sistema</span>
         <h1 class="hero-interno__titulo">Conheça o <span class="texto-gradiente">EcoScore</span> em detalhe</h1>
         <p class="hero-interno__texto">A Árvore de Habilidades Sustentáveis, os pilares de engajamento e o ranking com recompensas que mudam de vida.</p>
       </div>
     </section>
+
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
 
     <!-- SKILL TREE -->
     <section class="secao">
@@ -74,7 +79,7 @@
           <div class="skill-tree__ramos" style="grid-template-columns: repeat(3, 1fr);">
 
             <div class="skill-ramo">
-              <div class="skill-ramo__emoji">♻️</div>
+              <div class="skill-ramo__emoji"><i data-lucide="recycle"></i></div>
               <div class="skill-ramo__nome">Reciclagem</div>
               <div class="skill-ramo__nos">
                 <div class="skill-no skill-no--ativo">Quiz: Separação básica</div>
@@ -116,6 +121,9 @@
         </div>
       </div>
     </section>
+
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
 
     <!-- QUESTS -->
     <section class="secao">
@@ -163,6 +171,81 @@
       </div>
     </section>
 
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
+
+    <!-- DASHBOARD CTA -->
+    <section class="secao">
+  <div class="container">
+    <div class="secao__header">
+      <span class="secao__tag">Novo</span>
+      <h2 class="secao__titulo">Já dá pra <span class="texto-gradiente">testar o Dashboard</span></h2>
+      <p class="secao__descricao">Um protótipo interativo do que o usuário vê depois de uma ação validada. Mascote vivo, métricas reais e feedback imediato.</p>
+    </div>
+
+    <a href="dashboard.html" style="display:block;text-decoration:none;color:inherit;">
+      <div class="card" style="display:grid;grid-template-columns:auto 1fr auto;gap:2rem;align-items:center;padding:2rem;cursor:pointer;transition:var(--transicao);">
+
+        <!-- Mascote Solzinho · SVG inline (sem dependência externa) -->
+        <div style="width:96px;height:96px;flex-shrink:0;filter:drop-shadow(0 6px 16px rgba(139,175,110,0.25));">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+            <circle cx="50" cy="55" r="38" fill="#B8D49A" stroke="#3D4D35" stroke-width="3"/>
+            <path d="M 22 56 q 14 -10 28 -2 q 8 6 -2 14 q -16 6 -22 -2 q -10 -6 -4 -10 Z" fill="#8BAF6E" stroke="#3D4D35" stroke-width="2"/>
+            <path d="M 54 28 q 16 -2 26 8 q 4 12 -8 14 q -10 0 -16 -8 q -8 -8 -2 -14 Z" fill="#8BAF6E" stroke="#3D4D35" stroke-width="2"/>
+            <ellipse cx="35" cy="50" rx="6" ry="7" fill="#FFFFFF" stroke="#3D4D35" stroke-width="2"/>
+            <ellipse cx="65" cy="50" rx="6" ry="7" fill="#FFFFFF" stroke="#3D4D35" stroke-width="2"/>
+            <ellipse cx="35" cy="50" rx="3" ry="4" fill="#3D4D35"/>
+            <ellipse cx="65" cy="50" rx="3" ry="4" fill="#3D4D35"/>
+            <path d="M 38 64 q 12 14 24 0" fill="#3D4D35" stroke="#3D4D35" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M 50 14 q -8 -4 -8 -12 q 8 0 12 8" fill="#8BAF6E" stroke="#3D4D35" stroke-width="2"/>
+          </svg>
+        </div>
+
+        <!-- Conteúdo -->
+        <div>
+          <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem;flex-wrap:wrap;">
+            <span class="badge badge--verde">Protótipo navegável</span>
+            <span style="font-size:0.75rem;color:var(--cor-texto-muted);letter-spacing:0.5px;">MOBILE-FIRST · MVP</span>
+          </div>
+          <h3 class="card__titulo" style="font-size:1.6rem;margin-bottom:0.5rem;">Dashboard de Impacto</h3>
+          <p class="card__texto" style="margin-bottom:1rem;">Acompanhe ao vivo o resultado das ações sustentáveis: CO₂ evitado, árvores equivalentes, água economizada e energia poupada. Tudo guiado pelo Solzinho, o mascote ecológico do EcoScore.</p>
+
+          <!-- Mini stats -->
+          <div style="display:flex;gap:1.5rem;padding-top:1rem;border-top:1px solid var(--cor-borda);flex-wrap:wrap;">
+            <div>
+              <div style="font-family:var(--fonte-titulo);font-size:1.4rem;font-weight:700;color:var(--cor-primaria);line-height:1;">47,3<span style="font-size:0.8rem;color:var(--cor-texto-muted);font-weight:400;margin-left:2px;">kg</span></div>
+              <div style="font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--cor-texto-muted);margin-top:4px;">CO₂ Evitado</div>
+            </div>
+            <div>
+              <div style="font-family:var(--fonte-titulo);font-size:1.4rem;font-weight:700;color:var(--cor-primaria);line-height:1;">3,2</div>
+              <div style="font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--cor-texto-muted);margin-top:4px;">Árvores eq.</div>
+            </div>
+            <div>
+              <div style="font-family:var(--fonte-titulo);font-size:1.4rem;font-weight:700;color:var(--cor-primaria);line-height:1;">184<span style="font-size:0.8rem;color:var(--cor-texto-muted);font-weight:400;margin-left:2px;">L</span></div>
+              <div style="font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--cor-texto-muted);margin-top:4px;">Água</div>
+            </div>
+            <div>
+              <div style="font-family:var(--fonte-titulo);font-size:1.4rem;font-weight:700;color:var(--cor-destaque);line-height:1;">1.842</div>
+              <div style="font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--cor-texto-muted);margin-top:4px;">Soul Points</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA arrow -->
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem;flex-shrink:0;">
+          <div style="width:48px;height:48px;border-radius:50%;background:var(--cor-primaria);display:flex;align-items:center;justify-content:center;color:#111610;">
+            <i data-lucide="arrow-right" style="width:22px;height:22px;stroke-width:2.5;"></i>
+          </div>
+          <span style="font-size:0.75rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--cor-primaria);font-weight:700;">Abrir</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
+
     <!-- RANKING -->
     <section class="secao secao--escura">
       <div class="container">
@@ -181,7 +264,7 @@
                 <div class="ranking-cidade">São Paulo, SP</div>
               </div>
               <div class="ranking-pontos">
-                <div class="ranking-pontos__valor">14.820</div>
+                <div class="ranking-pontos__valor">94</div>
                 <div class="ranking-pontos__label">EcoPoints</div>
               </div>
             </div>
@@ -193,7 +276,7 @@
                 <div class="ranking-cidade">Curitiba, PR</div>
               </div>
               <div class="ranking-pontos">
-                <div class="ranking-pontos__valor">13.410</div>
+                <div class="ranking-pontos__valor">87</div>
                 <div class="ranking-pontos__label">EcoPoints</div>
               </div>
             </div>
@@ -205,7 +288,7 @@
                 <div class="ranking-cidade">Florianópolis, SC</div>
               </div>
               <div class="ranking-pontos">
-                <div class="ranking-pontos__valor">11.990</div>
+                <div class="ranking-pontos__valor">71</div>
                 <div class="ranking-pontos__label">EcoPoints</div>
               </div>
             </div>
@@ -217,7 +300,7 @@
                 <div class="ranking-cidade">São Paulo, SP</div>
               </div>
               <div class="ranking-pontos">
-                <div class="ranking-pontos__valor">9.780</div>
+                <div class="ranking-pontos__valor">58</div>
                 <div class="ranking-pontos__label">EcoPoints</div>
               </div>
             </div>
@@ -229,7 +312,7 @@
                 <div class="ranking-cidade">Belo Horizonte, MG</div>
               </div>
               <div class="ranking-pontos">
-                <div class="ranking-pontos__valor">8.530</div>
+                <div class="ranking-pontos__valor">43</div>
                 <div class="ranking-pontos__label">EcoPoints</div>
               </div>
             </div>
@@ -268,6 +351,9 @@
       </div>
     </section>
 
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
+
     <!-- AVATAR / PERSONALIZAÇÃO -->
     <section class="secao">
       <div class="container">
@@ -300,6 +386,9 @@
         </div>
       </div>
     </section>
+
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
 
     <!-- REPUTAÇÃO SOCIAL -->
     <section class="secao secao--escura">
@@ -363,6 +452,23 @@
         </div>
       </div>
     </section>
+
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
+
+    <!-- PRÓXIMA PÁGINA -->
+    <section class="secao secao--escura">
+      <div class="container">
+        <div class="destaque-box texto-centro">
+          <span class="secao__tag">Próximo passo</span>
+          <h2 class="secao__titulo">Veja como o sistema funciona</h2>
+          <p class="secao__descricao" style="margin-bottom: 2rem;">Acompanhe o fluxo completo: da ação real até a validação por IA e a recompensa final.</p>
+          <div class="flex-gap flex-center">
+            <a href="como-funciona.html" class="btn btn--primario btn--grande">Como Funciona →</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
@@ -379,6 +485,7 @@
           <li><a href="sobre.html">Sobre</a></li>
           <li><a href="ecoscore.html">EcoScore</a></li>
           <li><a href="como-funciona.html">Como Funciona</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
         </ul>
       </div>
       <div>
@@ -399,5 +506,6 @@
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script src="js/menu.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/micelio.js"></script>
 </body>
 </html>

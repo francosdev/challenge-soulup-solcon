@@ -14,7 +14,7 @@
   <header class="header">
     <a href="index.html" class="header__logo">
       <div class="header__logo-icon"><i data-lucide="leaf"></i></div>
-      Eco<span>Score</span>
+      Eco<span>Score</span><span class="header__logo-by">by:</span><span class="header__logo-solcon"><span class="header__logo-sol">Sol</span><span class="header__logo-con">Con</span></span>
     </a>
     <button class="nav__toggle" aria-label="Abrir menu">
       <span></span><span></span><span></span>
@@ -25,6 +25,7 @@
         <li><a href="sobre.html" class="nav__link">Sobre</a></li>
         <li><a href="ecoscore.html" class="nav__link">EcoScore</a></li>
         <li><a href="como-funciona.html" class="nav__link">Como Funciona</a></li>
+        <li><a href="dashboard.html" class="nav__link">Dashboard</a></li>
         <li><a href="faq.html" class="nav__link">FAQ</a></li>
         <li><a href="integrantes.html" class="nav__link">Equipe</a></li>
         <li><a href="contato.html" class="nav__link nav__link--cta">Contato</a></li>
@@ -34,6 +35,7 @@
 
   <main>
     <section class="hero-interno">
+      <canvas id="mycelium-bg"></canvas>
       <div class="hero-interno__conteudo">
         <span class="secao__tag">Equipe</span>
         <h1 class="hero-interno__titulo">Quem fez o <span class="texto-gradiente">EcoScore</span></h1>
@@ -69,9 +71,9 @@
           <!-- Murilo -->
           <div class="integrante-card">
             <div class="integrante-avatar" style="border-color: rgba(124, 58, 237, 0.4);">
-              <img src="assets/imagens/murilo.jpg" alt="Murilo de Souza" />
+              <img src="assets/imagens/murilo.jpg" alt="Murilo Almeida Rodrigues de Souza" />
             </div>
-            <h2 class="integrante-nome">Murilo de Souza</h2>
+            <h2 class="integrante-nome">Murilo Almeida<br />Rodrigues de Souza</h2>
             <p class="integrante-rm">RM: 573977</p>
             <p class="integrante-curso">Análise e Desenvolvimento de Sistemas · FIAP</p>
             <div class="integrante-links">
@@ -110,6 +112,9 @@
       </div>
     </section>
 
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
+
     <!-- SOLCON -->
     <section class="secao solcon-secao">
       <div class="container">
@@ -143,6 +148,9 @@
         </div>
       </div>
     </section>
+
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
 
     <!-- SOBRE O PROJETO ACADÊMICO -->
     <section class="secao secao--escura">
@@ -183,6 +191,23 @@
         </div>
       </div>
     </section>
+
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
+
+    <!-- PRÓXIMA PÁGINA -->
+    <section class="secao secao--escura">
+      <div class="container">
+        <div class="destaque-box texto-centro">
+          <span class="secao__tag">Próximo passo</span>
+          <h2 class="secao__titulo">Quer falar com a equipe?</h2>
+          <p class="secao__descricao" style="margin-bottom: 2rem;">Entre em contato para tirar dúvidas, enviar sugestões ou propor parcerias.</p>
+          <div class="flex-gap flex-center">
+            <a href="contato.html" class="btn btn--primario btn--grande">Falar com a Equipe →</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
@@ -199,6 +224,7 @@
           <li><a href="sobre.html">Sobre</a></li>
           <li><a href="ecoscore.html">EcoScore</a></li>
           <li><a href="como-funciona.html">Como Funciona</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
         </ul>
       </div>
       <div>
@@ -219,5 +245,6 @@
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script src="js/menu.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/micelio.js"></script>
 </body>
 </html>

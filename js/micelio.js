@@ -3,7 +3,9 @@
 
 class SporeField {
   constructor(canvasId) {
-    this.canvas = document.getElementById(canvasId);
+    this.canvas = typeof canvasId === 'string'
+      ? document.getElementById(canvasId)
+      : canvasId;
     if (!this.canvas || this.canvas._sporeField) return;
     this.canvas._sporeField = this;
     this.ctx = this.canvas.getContext('2d');
@@ -155,10 +157,13 @@ class SporeField {
   }
 }
 
-// Auto-inicialização — este script é carregado pelo index.html
+// Auto-inicialização
 (function () {
   function start() {
     new SporeField('mycelium-bg');
+    document.querySelectorAll('.mycelium-divider canvas').forEach(canvas => {
+      new SporeField(canvas);
+    });
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', start);

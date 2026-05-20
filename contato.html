@@ -14,7 +14,7 @@
   <header class="header">
     <a href="index.html" class="header__logo">
       <div class="header__logo-icon"><i data-lucide="leaf"></i></div>
-      Eco<span>Score</span>
+      Eco<span>Score</span><span class="header__logo-by">by:</span><span class="header__logo-solcon"><span class="header__logo-sol">Sol</span><span class="header__logo-con">Con</span></span>
     </a>
     <button class="nav__toggle" aria-label="Abrir menu">
       <span></span><span></span><span></span>
@@ -25,6 +25,7 @@
         <li><a href="sobre.html" class="nav__link">Sobre</a></li>
         <li><a href="ecoscore.html" class="nav__link">EcoScore</a></li>
         <li><a href="como-funciona.html" class="nav__link">Como Funciona</a></li>
+        <li><a href="dashboard.html" class="nav__link">Dashboard</a></li>
         <li><a href="faq.html" class="nav__link">FAQ</a></li>
         <li><a href="integrantes.html" class="nav__link">Equipe</a></li>
         <li><a href="contato.html" class="nav__link nav__link--cta">Contato</a></li>
@@ -34,12 +35,16 @@
 
   <main>
     <section class="hero-interno">
+      <canvas id="mycelium-bg"></canvas>
       <div class="hero-interno__conteudo">
         <span class="secao__tag">Contato</span>
         <h1 class="hero-interno__titulo">Fale com a <span class="texto-gradiente">equipe</span></h1>
         <p class="hero-interno__texto">Dúvidas sobre o projeto, sugestões ou interesse em parceria? Preencha o formulário e entraremos em contato.</p>
       </div>
     </section>
+
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
 
     <section class="secao">
       <div class="container">
@@ -167,6 +172,23 @@
         </div>
       </div>
     </section>
+
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
+
+    <!-- PRÓXIMA PÁGINA -->
+    <section class="secao secao--escura">
+      <div class="container">
+        <div class="destaque-box texto-centro">
+          <span class="secao__tag">Recomeçar</span>
+          <h2 class="secao__titulo">Volte ao início</h2>
+          <p class="secao__descricao" style="margin-bottom: 2rem;">Reveja a visão completa do EcoScore e explore o projeto desde o começo.</p>
+          <div class="flex-gap flex-center">
+            <a href="index.html" class="btn btn--primario btn--grande">Voltar ao Início →</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
@@ -183,6 +205,7 @@
           <li><a href="sobre.html">Sobre</a></li>
           <li><a href="ecoscore.html">EcoScore</a></li>
           <li><a href="como-funciona.html">Como Funciona</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
         </ul>
       </div>
       <div>
@@ -204,5 +227,6 @@
   <script src="js/menu.js"></script>
   <script src="js/contato.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/micelio.js"></script>
 </body>
 </html>

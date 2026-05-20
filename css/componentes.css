@@ -235,6 +235,14 @@ div > [data-lucide="graduation-cap"] {
   overflow: hidden;
 }
 
+.pilares-grid {
+  align-items: stretch;
+}
+
+.pilares-grid .pilar-card {
+  height: 100%;
+}
+
 .pilar-card::after {
   content: '';
   position: absolute;
@@ -249,6 +257,76 @@ div > [data-lucide="graduation-cap"] {
 
 .pilar-card:hover { transform: translateY(-6px); box-shadow: var(--sombra-hover); }
 .pilar-card:hover::after { opacity: 1; }
+
+.pilar-card--vivo {
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 0%, rgba(139,175,110,0.12), transparent 62%),
+    linear-gradient(145deg, rgba(13,18,9,0.98), rgba(15,20,16,0.95));
+  border-color: rgba(139,175,110,0.22);
+  box-shadow: 0 0 34px rgba(139,175,110,0.05);
+}
+
+.pilar-card--vivo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(184,212,154,0.26) 0 1px, transparent 2px),
+    radial-gradient(circle at 82% 30%, rgba(139,175,110,0.22) 0 1px, transparent 2px),
+    radial-gradient(circle at 64% 78%, rgba(184,212,154,0.18) 0 1px, transparent 2px);
+  opacity: 0.45;
+  pointer-events: none;
+  animation: ambient-drift 8s ease-in-out infinite;
+}
+
+.pilar-card--vivo:hover {
+  border-color: rgba(184,212,154,0.32);
+  box-shadow: 0 0 42px rgba(139,175,110,0.14), 0 12px 42px rgba(0,0,0,0.18);
+  animation: vivo-breathe 3.4s ease-in-out infinite;
+}
+
+.pilar-card--vivo .pilar-card__emoji {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, rgba(184,212,154,0.22), rgba(139,175,110,0.06) 64%, transparent 70%);
+  box-shadow: 0 0 30px rgba(139,175,110,0.16);
+}
+
+.pilar-card--vivo .pilar-card__emoji [data-lucide],
+.pilar-card--vivo .pilar-card__emoji svg {
+  width: 30px;
+  height: 30px;
+  stroke-width: 1.45;
+  color: var(--cor-terciaria);
+}
+
+.pilar-card__orbita {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(139,175,110,0.16);
+  border-radius: 50%;
+  opacity: 0.65;
+  animation: slow-orbit 9s linear infinite;
+}
+
+.pilar-card__orbita::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--cor-terciaria);
+  box-shadow: 0 0 14px rgba(184,212,154,0.6);
+}
 
 .pilar-card__numero {
   font-size: 3rem;
@@ -298,6 +376,152 @@ div > [data-lucide="graduation-cap"] {
   font-size: 0.8rem;
   margin-top: 1px;
   flex-shrink: 0;
+}
+
+.dashboard-filosofia {
+  position: relative;
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid rgba(139,175,110,0.16);
+  border-radius: var(--raio-lg);
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 90% at 85% 50%, rgba(139,175,110,0.14), transparent 62%),
+    radial-gradient(ellipse 80% 55% at 18% 0%, rgba(155,127,232,0.045), transparent 64%),
+    rgba(13,18,9,0.72);
+}
+
+.dashboard-filosofia::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(184,212,154,0.07), transparent);
+  opacity: 0.45;
+  transform: translateX(-55%);
+  animation: light-sweep 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.dashboard-filosofia__conteudo {
+  position: relative;
+  z-index: 1;
+  grid-column: 2;
+  max-width: 720px;
+}
+
+.dashboard-filosofia__titulo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--cor-texto-claro);
+  margin-bottom: 0.55rem;
+  text-shadow: 0 0 28px rgba(139,175,110,0.12);
+}
+
+.dashboard-filosofia__texto {
+  color: var(--cor-texto-muted);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  margin-bottom: 0.55rem;
+}
+
+.dashboard-filosofia__texto:first-of-type {
+  color: var(--cor-texto-claro);
+  font-family: var(--fonte-corpo);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.dashboard-filosofia__planeta {
+  position: relative;
+  z-index: 1;
+  grid-column: 1;
+  grid-row: 1;
+  width: 88px;
+  height: 88px;
+  justify-self: center;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  filter: drop-shadow(0 0 22px rgba(139,175,110,0.2));
+}
+
+.dashboard-filosofia__nucleo {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 38% 30%, rgba(232,237,224,0.34), transparent 15%),
+    radial-gradient(circle at 64% 56%, rgba(107,143,71,0.64), transparent 22%),
+    linear-gradient(145deg, var(--cor-terciaria), var(--cor-primaria) 55%, #3D4D35);
+  box-shadow: inset -10px -12px 18px rgba(17,22,16,0.34), 0 0 26px rgba(139,175,110,0.24);
+  animation: planet-breathe 4.5s ease-in-out infinite;
+}
+
+.dashboard-filosofia__anel {
+  position: absolute;
+  width: 86px;
+  height: 36px;
+  border: 1px solid rgba(184,212,154,0.18);
+  border-radius: 50%;
+  transform: rotate(-16deg);
+  animation: ring-pulse 5.5s ease-in-out infinite;
+}
+
+.dashboard-filosofia__particulas span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--cor-terciaria);
+  box-shadow: 0 0 12px rgba(184,212,154,0.55);
+  opacity: 0.45;
+  animation: particle-float 6s ease-in-out infinite;
+}
+
+.dashboard-filosofia__particulas span:nth-child(1) { top: 22%; left: 12%; animation-delay: 0s; }
+.dashboard-filosofia__particulas span:nth-child(2) { top: 64%; left: 30%; animation-delay: 1.2s; }
+.dashboard-filosofia__particulas span:nth-child(3) { top: 18%; right: 18%; animation-delay: 2.1s; }
+.dashboard-filosofia__particulas span:nth-child(4) { bottom: 18%; right: 35%; animation-delay: 3.2s; }
+
+@keyframes vivo-breathe {
+  0%, 100% { box-shadow: 0 0 36px rgba(139,175,110,0.10), 0 12px 42px rgba(0,0,0,0.18); }
+  50% { box-shadow: 0 0 52px rgba(139,175,110,0.18), 0 12px 42px rgba(0,0,0,0.2); }
+}
+
+@keyframes ambient-drift {
+  0%, 100% { transform: translate3d(0,0,0); opacity: 0.34; }
+  50% { transform: translate3d(4px,-6px,0); opacity: 0.58; }
+}
+
+@keyframes slow-orbit {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes light-sweep {
+  0% { transform: translateX(-60%); opacity: 0; }
+  45%, 55% { opacity: 0.45; }
+  100% { transform: translateX(60%); opacity: 0; }
+}
+
+@keyframes planet-breathe {
+  0%, 100% { transform: scale(1); filter: saturate(1); }
+  50% { transform: scale(1.035); filter: saturate(1.16); }
+}
+
+@keyframes ring-pulse {
+  0%, 100% { opacity: 0.42; transform: rotate(-16deg) scale(1); }
+  50% { opacity: 0.72; transform: rotate(-16deg) scale(1.04); }
+}
+
+@keyframes particle-float {
+  0%, 100% { transform: translateY(0); opacity: 0.25; }
+  50% { transform: translateY(-14px); opacity: 0.7; }
 }
 
 /* ===== SKILL TREE ===== */
@@ -366,7 +590,19 @@ div > [data-lucide="graduation-cap"] {
   transform: translateY(-4px);
 }
 
-.skill-ramo__emoji { font-size: 2rem; margin-bottom: 0.6rem; }
+.skill-ramo__emoji {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.6rem;
+}
+
+.skill-ramo__emoji [data-lucide],
+.skill-ramo__emoji svg {
+  width: 28px;
+  height: 28px;
+  stroke-width: 1.75;
+  color: var(--cor-terciaria);
+}
 .skill-ramo__nome {
   font-size: 0.875rem;
   font-weight: 700;
@@ -716,6 +952,9 @@ div > [data-lucide="graduation-cap"] {
   padding: 2rem;
   text-align: center;
   transition: var(--transicao);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .integrante-card:hover {
@@ -808,6 +1047,7 @@ div > [data-lucide="graduation-cap"] {
   display: flex;
   gap: 0.6rem;
   justify-content: center;
+  margin-top: auto;
 }
 
 .integrante-link {
@@ -1028,4 +1268,90 @@ div > [data-lucide="graduation-cap"] {
   font-size: 0.7rem;
   flex-shrink: 0;
   margin-top: 1px;
+}
+
+/* ===== PULL QUOTE ===== */
+.pull-quote {
+  border-left: 3px solid var(--cor-primaria);
+  padding: 1.25rem 1.75rem;
+  margin: 2rem 0;
+  background: rgba(139,175,110,0.04);
+  border-radius: 0 var(--raio) var(--raio) 0;
+}
+
+.pull-quote p {
+  font-size: 1.08rem;
+  color: var(--cor-texto-claro);
+  line-height: 1.8;
+  font-style: italic;
+  font-family: var(--fonte-titulo);
+  margin: 0;
+}
+
+.pull-quote cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 0.72rem;
+  color: var(--cor-texto-muted);
+  font-style: normal;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* ===== ATMOSPHERIC SECTION ===== */
+.secao--atmosfera {
+  position: relative;
+  overflow: hidden;
+}
+
+.secao--atmosfera::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 55% at 50% 0%,   rgba(139,175,110,0.06) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 40% at 88% 100%, rgba(155,127,232,0.04) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+/* ===== PHILOSOPHY PILLARS ===== */
+.pillar-filosof {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid rgba(26,34,22,0.9);
+  transition: var(--transicao);
+}
+
+.pillar-filosof:last-child { border-bottom: none; }
+
+.pillar-filosof:hover .pillar-filosof__titulo { color: var(--cor-primaria); }
+
+.pillar-filosof__num {
+  font-family: var(--fonte-titulo);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  opacity: 0.45;
+  letter-spacing: 2px;
+  min-width: 28px;
+  padding-top: 4px;
+  flex-shrink: 0;
+}
+
+.pillar-filosof__titulo {
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--fonte-titulo);
+  color: var(--cor-texto-claro);
+  margin-bottom: 0.4rem;
+  transition: color 0.2s ease;
+}
+
+.pillar-filosof__texto {
+  font-size: 0.875rem;
+  color: var(--cor-texto-muted);
+  line-height: 1.8;
+  font-family: var(--fonte-corpo);
 }

@@ -14,7 +14,7 @@
   <header class="header">
     <a href="index.html" class="header__logo">
       <div class="header__logo-icon"><i data-lucide="leaf"></i></div>
-      Eco<span>Score</span>
+      Eco<span>Score</span><span class="header__logo-by">by:</span><span class="header__logo-solcon"><span class="header__logo-sol">Sol</span><span class="header__logo-con">Con</span></span>
     </a>
     <button class="nav__toggle" aria-label="Abrir menu">
       <span></span><span></span><span></span>
@@ -25,6 +25,7 @@
         <li><a href="sobre.html" class="nav__link">Sobre</a></li>
         <li><a href="ecoscore.html" class="nav__link">EcoScore</a></li>
         <li><a href="como-funciona.html" class="nav__link">Como Funciona</a></li>
+        <li><a href="dashboard.html" class="nav__link">Dashboard</a></li>
         <li><a href="faq.html" class="nav__link">FAQ</a></li>
         <li><a href="integrantes.html" class="nav__link">Equipe</a></li>
         <li><a href="contato.html" class="nav__link nav__link--cta">Contato</a></li>
@@ -34,12 +35,16 @@
 
   <main>
     <section class="hero-interno">
+      <canvas id="mycelium-bg"></canvas>
       <div class="hero-interno__conteudo">
         <span class="secao__tag">Como Funciona</span>
         <h1 class="hero-interno__titulo">Do <span class="texto-gradiente">mundo real</span> à recompensa</h1>
         <p class="hero-interno__texto">Cada ação sustentável que você faz no mundo real se transforma em EcoPoints — validada, verificada e recompensada.</p>
       </div>
     </section>
+
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
 
     <!-- FLUXO PRINCIPAL -->
     <section class="secao">
@@ -103,6 +108,9 @@
       </div>
     </section>
 
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
+
     <!-- VALIDAÇÃO -->
     <section class="secao secao--escura">
       <div class="container">
@@ -130,6 +138,9 @@
         </div>
       </div>
     </section>
+
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
 
     <!-- TIPOS DE AÇÕES -->
     <section class="secao">
@@ -178,6 +189,9 @@
       </div>
     </section>
 
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
+
     <!-- CTA -->
     <section class="secao secao--escura">
       <div class="container">
@@ -188,6 +202,23 @@
           <div class="flex-gap flex-center">
             <a href="ecoscore.html" class="btn btn--primario">Ver Skill Tree</a>
             <a href="faq.html" class="btn btn--contorno">Tem dúvidas? FAQ →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
+
+    <!-- PRÓXIMA PÁGINA -->
+    <section class="secao secao--escura">
+      <div class="container">
+        <div class="destaque-box texto-centro">
+          <span class="secao__tag">Próximo passo</span>
+          <h2 class="secao__titulo">Sinta o impacto no Dashboard</h2>
+          <p class="secao__descricao" style="margin-bottom: 2rem;">Veja em tempo real como cada ação alimenta um ecossistema vivo — com mascote, métricas e respostas emocionais.</p>
+          <div class="flex-gap flex-center">
+            <a href="dashboard.html" class="btn btn--primario btn--grande">Abrir o Dashboard →</a>
           </div>
         </div>
       </div>
@@ -208,6 +239,7 @@
           <li><a href="sobre.html">Sobre</a></li>
           <li><a href="ecoscore.html">EcoScore</a></li>
           <li><a href="como-funciona.html">Como Funciona</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
         </ul>
       </div>
       <div>
@@ -228,5 +260,6 @@
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script src="js/menu.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/micelio.js"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@
   <header class="header">
     <a href="index.html" class="header__logo">
       <div class="header__logo-icon"><i data-lucide="leaf"></i></div>
-      Eco<span>Score</span>
+      Eco<span>Score</span><span class="header__logo-by">by:</span><span class="header__logo-solcon"><span class="header__logo-sol">Sol</span><span class="header__logo-con">Con</span></span>
     </a>
     <button class="nav__toggle" aria-label="Abrir menu">
       <span></span><span></span><span></span>
@@ -25,6 +25,7 @@
         <li><a href="sobre.html" class="nav__link">Sobre</a></li>
         <li><a href="ecoscore.html" class="nav__link">EcoScore</a></li>
         <li><a href="como-funciona.html" class="nav__link">Como Funciona</a></li>
+        <li><a href="dashboard.html" class="nav__link">Dashboard</a></li>
         <li><a href="faq.html" class="nav__link">FAQ</a></li>
         <li><a href="integrantes.html" class="nav__link">Equipe</a></li>
         <li><a href="contato.html" class="nav__link nav__link--cta">Contato</a></li>
@@ -34,12 +35,16 @@
 
   <main>
     <section class="hero-interno">
+      <canvas id="mycelium-bg"></canvas>
       <div class="hero-interno__conteudo">
         <span class="secao__tag">Sobre o Projeto</span>
         <h1 class="hero-interno__titulo">O problema que o <span class="texto-gradiente">EcoScore resolve</span></h1>
         <p class="hero-interno__texto">Entenda o contexto da SoulUp, o desafio do engajamento sustentável e como o EcoScore foi concebido como solução.</p>
       </div>
     </section>
+
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
 
     <!-- O PROBLEMA -->
     <section class="secao">
@@ -105,27 +110,88 @@
       </div>
     </section>
 
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
+
     <!-- COM QUEM CONVERSAMOS -->
     <section class="secao secao--escura">
       <div class="container" style="max-width: 780px;">
-        <span class="secao__tag">Pesquisa</span>
-        <h2 class="secao__titulo" style="margin-bottom: 2rem;">Com quem conversamos</h2>
+        <span class="secao__tag">A Escuta</span>
+        <h2 class="secao__titulo" style="margin-bottom: 2rem;">O que 7 conversas reais ensinaram</h2>
         <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-          <p style="color: var(--cor-texto-muted); line-height: 1.85; font-size: 1rem;">
-            Antes de definir as classes do MVP, conversamos com 7 pessoas — moradores de apartamento, em sua maioria jovens adultos de São Paulo — sobre o que as faz agir (ou não) quando o assunto é sustentabilidade. Nenhuma entrevista foi formal: foram conversas sobre rotina, hábitos e frustração.
+          <p style="color: var(--cor-texto-muted); line-height: 1.9; font-size: 1rem;">
+            Antes de escrever uma linha de código, conversamos com 7 pessoas — moradores de apartamento, jovens adultos de São Paulo — sobre o que as faz agir ou paralisar quando o assunto é sustentabilidade. Nenhuma entrevista foi formal: foram conversas sobre rotina, hábito e frustração.
           </p>
-          <p style="color: var(--cor-texto-muted); line-height: 1.85; font-size: 1rem;">
-            O padrão mais comum foi <strong style="color: var(--cor-texto-claro);">fricção de contexto</strong>: a maioria quer reciclar, mas não sabe onde fica o ponto de coleta mais próximo. Quer plantar, mas não tem espaço nem vaso. A intenção existe — o que falta é um ponto de entrada pequeno o suficiente para começar agora, com o que já tem em casa. Ninguém pediu por complexidade. Pediram por um primeiro passo que não exija planejamento.
+          <div class="pull-quote">
+            <p>"Eu quero reciclar, mas não sei onde é o ponto de coleta. Aí fica para amanhã, e amanhã nunca chega."</p>
+            <cite>Participante da pesquisa · São Paulo, SP</cite>
+          </div>
+          <p style="color: var(--cor-texto-muted); line-height: 1.9; font-size: 1rem;">
+            O padrão era sempre <strong style="color: var(--cor-texto-claro);">fricção de contexto</strong> — não falta de vontade. A intenção existe. O que falta é um ponto de entrada pequeno o suficiente para começar agora, com o que já tem em casa. Ninguém pediu por complexidade. Pediram por clareza.
           </p>
-          <p style="color: var(--cor-texto-muted); line-height: 1.85; font-size: 1rem;">
-            Sobre o que traz de volta, duas coisas apareceram sempre: ver que progrediu em algo concreto, e saber que alguém viu. Não necessariamente elogio — só visibilidade. A recompensa tangível foi mencionada como "seria ótimo", mas nunca como razão principal de retornar. O status dentro da comunidade importou mais do que o benefício financeiro.
+          <p style="color: var(--cor-texto-muted); line-height: 1.9; font-size: 1rem;">
+            Sobre o retorno: duas coisas apareceram sempre — ver que progrediu em algo concreto, e saber que alguém viu. Não necessariamente elogio. Só visibilidade. A recompensa financeira foi mencionada como "seria ótimo" — nunca como razão principal. Status na comunidade importou mais do que benefício individual.
           </p>
-          <p style="color: var(--cor-primaria); font-weight: 600; font-size: 0.95rem; border-top: 1px solid var(--cor-borda); padding-top: 1.25rem;">
-            Essas conversas moldaram as 3 classes do MVP: escolhidas por acessibilidade, não por complexidade.
+          <p style="color: var(--cor-primaria); font-weight: 600; font-size: 0.92rem; border-top: 1px solid var(--cor-borda); padding-top: 1.25rem; font-style: italic;">
+            Essas conversas moldaram as 3 classes do MVP: escolhidas por acessibilidade urbana, não por complexidade técnica.
           </p>
         </div>
       </div>
     </section>
+
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
+
+    <!-- A FILOSOFIA -->
+    <section class="secao secao--atmosfera">
+      <div class="container">
+        <div class="grid-2" style="gap: 4rem; align-items: flex-start;">
+          <div>
+            <span class="secao__tag">A Filosofia</span>
+            <h2 class="secao__titulo">Gamificação não é infantilização.</h2>
+            <p style="color: var(--cor-texto-muted); line-height: 1.9; margin-bottom: 1.5rem; font-size: 1rem;">
+              É arquitetura de comportamento. A diferença entre um sistema que engaja e um que manipula está em se as recompensas refletem ações reais — ou apenas a ilusão delas.
+            </p>
+            <p style="color: var(--cor-texto-muted); line-height: 1.9; font-size: 1rem;">
+              O EcoScore foi construído para que cada ponto, cada selo e cada posição no ranking seja consequência direta do que o usuário fez no mundo físico — verificado, não declarado.
+            </p>
+          </div>
+          <div>
+            <div class="pillar-filosof">
+              <div class="pillar-filosof__num">01</div>
+              <div>
+                <div class="pillar-filosof__titulo">Ação precede recompensa</div>
+                <div class="pillar-filosof__texto">Nenhum ponto é concedido por intenção. A foto precisa existir. A ação precisa ter acontecido. Isso não é burocracia — é integridade.</div>
+              </div>
+            </div>
+            <div class="pillar-filosof">
+              <div class="pillar-filosof__num">02</div>
+              <div>
+                <div class="pillar-filosof__titulo">Progressão cria identidade</div>
+                <div class="pillar-filosof__texto">Quando alguém completa a trilha de Reciclagem, isso muda como ela se vê. Não é apenas um selo — é uma narrativa de si mesma que passou a existir.</div>
+              </div>
+            </div>
+            <div class="pillar-filosof">
+              <div class="pillar-filosof__num">03</div>
+              <div>
+                <div class="pillar-filosof__titulo">Comunidade amplifica impacto</div>
+                <div class="pillar-filosof__texto">Uma ação sustentável feita em silêncio tem um certo peso. A mesma ação vista por pessoas que também agiram tem outro. O EcoScore torna esse peso visível.</div>
+              </div>
+            </div>
+            <div class="pillar-filosof">
+              <div class="pillar-filosof__num">04</div>
+              <div>
+                <div class="pillar-filosof__titulo">O planeta como protagonista</div>
+                <div class="pillar-filosof__texto">O Solzinho não é mascote decorativo. É a representação emocional do estado coletivo do ecossistema — um feedback que você sente antes de ler qualquer número.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
 
     <!-- A SOLUÇÃO -->
     <section class="secao secao--escura">
@@ -173,6 +239,9 @@
         </div>
       </div>
     </section>
+
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
 
     <!-- SOULUP -->
     <section class="secao">
@@ -227,6 +296,23 @@
       </div>
     </section>
 
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
+
+    <!-- PRÓXIMA PÁGINA -->
+    <section class="secao secao--escura">
+      <div class="container">
+        <div class="destaque-box texto-centro">
+          <span class="secao__tag">Próximo passo</span>
+          <h2 class="secao__titulo">Agora veja como o sistema funciona</h2>
+          <p class="secao__descricao" style="margin-bottom: 2rem;">Conheça os pilares do EcoScore, a Árvore de Habilidades Sustentáveis e o sistema de ranking com recompensas reais.</p>
+          <div class="flex-gap flex-center">
+            <a href="ecoscore.html" class="btn btn--primario btn--grande">Conhecer o EcoScore →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">
@@ -243,6 +329,7 @@
           <li><a href="sobre.html">Sobre</a></li>
           <li><a href="ecoscore.html">EcoScore</a></li>
           <li><a href="como-funciona.html">Como Funciona</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
         </ul>
       </div>
       <div>
@@ -263,5 +350,6 @@
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script src="js/menu.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/micelio.js"></script>
 </body>
 </html>

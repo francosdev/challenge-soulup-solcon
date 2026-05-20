@@ -14,7 +14,7 @@
   <header class="header">
     <a href="index.html" class="header__logo">
       <div class="header__logo-icon"><i data-lucide="leaf"></i></div>
-      Eco<span>Score</span>
+      Eco<span>Score</span><span class="header__logo-by">by:</span><span class="header__logo-solcon"><span class="header__logo-sol">Sol</span><span class="header__logo-con">Con</span></span>
     </a>
     <button class="nav__toggle" aria-label="Abrir menu">
       <span></span><span></span><span></span>
@@ -25,6 +25,7 @@
         <li><a href="sobre.html" class="nav__link">Sobre</a></li>
         <li><a href="ecoscore.html" class="nav__link">EcoScore</a></li>
         <li><a href="como-funciona.html" class="nav__link">Como Funciona</a></li>
+        <li><a href="dashboard.html" class="nav__link">Dashboard</a></li>
         <li><a href="faq.html" class="nav__link">FAQ</a></li>
         <li><a href="integrantes.html" class="nav__link">Equipe</a></li>
         <li><a href="contato.html" class="nav__link nav__link--cta">Contato</a></li>
@@ -65,6 +66,9 @@
       <div class="hero__scroll">Descubra</div>
     </section>
 
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
+
     <!-- STATS -->
     <section class="secao secao--escura">
       <div class="container">
@@ -89,17 +93,31 @@
       </div>
     </section>
 
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
+
     <!-- PILARES -->
     <section class="secao">
       <div class="container">
         <div class="secao__header">
           <span class="secao__tag">Os Pilares</span>
-          <h2 class="secao__titulo">Uma plataforma de 3 dimensões</h2>
-          <p class="secao__descricao">O EcoScore foi construído sobre três pilares que se reforçam mutuamente para criar engajamento sustentável e duradouro.</p>
+          <h2 class="secao__titulo">Uma plataforma de 4 dimensões</h2>
+          <p class="secao__descricao">O EcoScore transforma impacto ambiental em uma experiência viva: sentida, acompanhada e construída pela comunidade.</p>
         </div>
-        <div class="grid-3">
-          <div class="pilar-card">
+        <div class="grid-4 pilares-grid">
+          <div class="pilar-card pilar-card--vivo">
             <div class="pilar-card__numero">01</div>
+            <div class="pilar-card__orbita" aria-hidden="true"></div>
+            <div class="pilar-card__emoji"><i data-lucide="globe"></i></div>
+            <h3 class="pilar-card__titulo">Dashboard Vivo</h3>
+            <ul class="pilar-card__lista">
+              <li>Planeta vivo que reage às ações da comunidade</li>
+              <li>Feedback emocional em tempo real sobre impacto ambiental</li>
+              <li>Ecossistema visual que evolui junto com os usuários</li>
+            </ul>
+          </div>
+          <div class="pilar-card">
+            <div class="pilar-card__numero">02</div>
             <div class="pilar-card__emoji"><i data-lucide="users"></i></div>
             <h3 class="pilar-card__titulo">Pertencimento</h3>
             <ul class="pilar-card__lista">
@@ -109,7 +127,7 @@
             </ul>
           </div>
           <div class="pilar-card">
-            <div class="pilar-card__numero">02</div>
+            <div class="pilar-card__numero">03</div>
             <div class="pilar-card__emoji"><i data-lucide="trending-up"></i></div>
             <h3 class="pilar-card__titulo">Progressão</h3>
             <ul class="pilar-card__lista">
@@ -119,7 +137,7 @@
             </ul>
           </div>
           <div class="pilar-card">
-            <div class="pilar-card__numero">03</div>
+            <div class="pilar-card__numero">04</div>
             <div class="pilar-card__emoji"><i data-lucide="gift"></i></div>
             <h3 class="pilar-card__titulo">Recompensa</h3>
             <ul class="pilar-card__lista">
@@ -130,8 +148,31 @@
             </ul>
           </div>
         </div>
+
+        <div class="dashboard-filosofia">
+          <div class="dashboard-filosofia__particulas" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="dashboard-filosofia__conteudo">
+            <span class="secao__tag">Interface Emocional</span>
+            <h3 class="dashboard-filosofia__titulo">Mais que métricas.</h3>
+            <p class="dashboard-filosofia__texto">
+              Cada ação move um ecossistema vivo.
+            </p>
+            <p class="dashboard-filosofia__texto">
+              O dashboard transforma CO₂ evitado, água economizada e evolução sustentável em uma presença visual que responde à comunidade.
+            </p>
+          </div>
+          <div class="dashboard-filosofia__planeta" aria-hidden="true">
+            <div class="dashboard-filosofia__anel"></div>
+            <div class="dashboard-filosofia__nucleo"></div>
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
 
     <!-- DIFERENCIAIS -->
     <section class="secao secao--escura">
@@ -160,6 +201,9 @@
       </div>
     </section>
 
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
+
     <!-- CTA FINAL -->
     <section class="secao">
       <div class="container">
@@ -170,6 +214,23 @@
           <div class="flex-gap flex-center">
             <a href="ecoscore.html" class="btn btn--primario">Ver o EcoScore</a>
             <a href="sobre.html" class="btn btn--contorno">Sobre o Projeto</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MYCELIUM -->
+    <div class="mycelium-divider"><canvas></canvas></div>
+
+    <!-- PRÓXIMA PÁGINA -->
+    <section class="secao secao--escura">
+      <div class="container">
+        <div class="destaque-box texto-centro">
+          <span class="secao__tag">Próximo passo</span>
+          <h2 class="secao__titulo">Conheça o projeto por trás</h2>
+          <p class="secao__descricao" style="margin-bottom: 2rem;">Entenda o problema, a pesquisa e a filosofia que deram origem ao EcoScore.</p>
+          <div class="flex-gap flex-center">
+            <a href="sobre.html" class="btn btn--primario btn--grande">Sobre o Projeto →</a>
           </div>
         </div>
       </div>
@@ -190,6 +251,7 @@
           <li><a href="sobre.html">Sobre</a></li>
           <li><a href="ecoscore.html">EcoScore</a></li>
           <li><a href="como-funciona.html">Como Funciona</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
         </ul>
       </div>
       <div>

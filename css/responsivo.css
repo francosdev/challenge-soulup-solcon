@@ -12,6 +12,10 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .pilares-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .skill-tree__ramos {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -122,6 +126,27 @@
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .dashboard-filosofia {
+    grid-template-columns: 82px minmax(0, 1fr);
+    padding: 1.4rem;
+    gap: 1.15rem;
+  }
+
+  .dashboard-filosofia__planeta {
+    width: 76px;
+    height: 76px;
+  }
+
+  .dashboard-filosofia__nucleo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .dashboard-filosofia__anel {
+    width: 74px;
+    height: 31px;
+  }
 }
 
 /* ===== MOBILE: até 480px ===== */
@@ -141,6 +166,21 @@
 
   .card { padding: 1.5rem; }
   .pilar-card { padding: 1.75rem 1.5rem; }
+  .dashboard-filosofia {
+    grid-template-columns: 1fr;
+    padding: 1.35rem;
+    margin-top: 2rem;
+    text-align: left;
+  }
+  .dashboard-filosofia__conteudo,
+  .dashboard-filosofia__planeta {
+    grid-column: 1;
+  }
+  .dashboard-filosofia__planeta {
+    justify-self: start;
+    margin-bottom: 0.25rem;
+  }
+  .dashboard-filosofia__texto:first-of-type { font-size: 0.92rem; }
 
   .secao__titulo { font-size: 1.6rem; }
 

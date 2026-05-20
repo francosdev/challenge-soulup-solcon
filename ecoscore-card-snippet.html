@@ -1,0 +1,83 @@
+<!--
+═══════════════════════════════════════════════════════════════════════════
+  CARD-CTA: Dashboard de Impacto
+  Onde colar: ecoscore.html, dentro de qualquer <div class="grid-3"> ou
+              como uma seção própria.
+
+  Recomendado: criar UMA NOVA SEÇÃO entre "QUESTS" e "RANKING".
+
+  O card usa as classes existentes do design system (.secao, .container,
+  .secao__header, .card, .card__icone, .badge, .btn) — não precisa
+  estilos extras. Vai herdar animação de entrada do main.js automaticamente
+  (porque é .card).
+═══════════════════════════════════════════════════════════════════════════
+-->
+
+<!-- DASHBOARD CTA -->
+<section class="secao">
+  <div class="container">
+    <div class="secao__header">
+      <span class="secao__tag">Novo</span>
+      <h2 class="secao__titulo">Já dá pra <span class="texto-gradiente">testar o Dashboard</span></h2>
+      <p class="secao__descricao">Um protótipo interativo do que o usuário vê depois de uma ação validada. Mascote vivo, métricas reais e feedback imediato.</p>
+    </div>
+
+    <a href="dashboard.html" style="display:block;text-decoration:none;color:inherit;">
+      <div class="card" style="display:grid;grid-template-columns:auto 1fr auto;gap:2rem;align-items:center;padding:2rem;cursor:pointer;transition:var(--transicao);">
+
+        <!-- Mascote Solzinho · SVG inline (sem dependência externa) -->
+        <div style="width:96px;height:96px;flex-shrink:0;filter:drop-shadow(0 6px 16px rgba(139,175,110,0.25));">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+            <circle cx="50" cy="55" r="38" fill="#B8D49A" stroke="#3D4D35" stroke-width="3"/>
+            <path d="M 22 56 q 14 -10 28 -2 q 8 6 -2 14 q -16 6 -22 -2 q -10 -6 -4 -10 Z" fill="#8BAF6E" stroke="#3D4D35" stroke-width="2"/>
+            <path d="M 54 28 q 16 -2 26 8 q 4 12 -8 14 q -10 0 -16 -8 q -8 -8 -2 -14 Z" fill="#8BAF6E" stroke="#3D4D35" stroke-width="2"/>
+            <ellipse cx="35" cy="50" rx="6" ry="7" fill="#FFFFFF" stroke="#3D4D35" stroke-width="2"/>
+            <ellipse cx="65" cy="50" rx="6" ry="7" fill="#FFFFFF" stroke="#3D4D35" stroke-width="2"/>
+            <ellipse cx="35" cy="50" rx="3" ry="4" fill="#3D4D35"/>
+            <ellipse cx="65" cy="50" rx="3" ry="4" fill="#3D4D35"/>
+            <path d="M 38 64 q 12 14 24 0" fill="#3D4D35" stroke="#3D4D35" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M 50 14 q -8 -4 -8 -12 q 8 0 12 8" fill="#8BAF6E" stroke="#3D4D35" stroke-width="2"/>
+          </svg>
+        </div>
+
+        <!-- Conteúdo -->
+        <div>
+          <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem;flex-wrap:wrap;">
+            <span class="badge badge--verde">Protótipo navegável</span>
+            <span style="font-size:0.75rem;color:var(--cor-texto-muted);letter-spacing:0.5px;">MOBILE-FIRST · MVP</span>
+          </div>
+          <h3 class="card__titulo" style="font-size:1.6rem;margin-bottom:0.5rem;">Dashboard de Impacto</h3>
+          <p class="card__texto" style="margin-bottom:1rem;">Acompanhe ao vivo o resultado das ações sustentáveis: CO₂ evitado, árvores equivalentes, água economizada e energia poupada. Tudo guiado pelo Solzinho, o mascote ecológico do EcoScore.</p>
+
+          <!-- Mini stats -->
+          <div style="display:flex;gap:1.5rem;padding-top:1rem;border-top:1px solid var(--cor-borda);flex-wrap:wrap;">
+            <div>
+              <div style="font-family:var(--fonte-titulo);font-size:1.4rem;font-weight:700;color:var(--cor-primaria);line-height:1;">47,3<span style="font-size:0.8rem;color:var(--cor-texto-muted);font-weight:400;margin-left:2px;">kg</span></div>
+              <div style="font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--cor-texto-muted);margin-top:4px;">CO₂ Evitado</div>
+            </div>
+            <div>
+              <div style="font-family:var(--fonte-titulo);font-size:1.4rem;font-weight:700;color:var(--cor-primaria);line-height:1;">3,2</div>
+              <div style="font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--cor-texto-muted);margin-top:4px;">Árvores eq.</div>
+            </div>
+            <div>
+              <div style="font-family:var(--fonte-titulo);font-size:1.4rem;font-weight:700;color:var(--cor-primaria);line-height:1;">184<span style="font-size:0.8rem;color:var(--cor-texto-muted);font-weight:400;margin-left:2px;">L</span></div>
+              <div style="font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--cor-texto-muted);margin-top:4px;">Água</div>
+            </div>
+            <div>
+              <div style="font-family:var(--fonte-titulo);font-size:1.4rem;font-weight:700;color:var(--cor-destaque);line-height:1;">1.842</div>
+              <div style="font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--cor-texto-muted);margin-top:4px;">Soul Points</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA arrow -->
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem;flex-shrink:0;">
+          <div style="width:48px;height:48px;border-radius:50%;background:var(--cor-primaria);display:flex;align-items:center;justify-content:center;color:#111610;">
+            <i data-lucide="arrow-right" style="width:22px;height:22px;stroke-width:2.5;"></i>
+          </div>
+          <span style="font-size:0.75rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--cor-primaria);font-weight:700;">Abrir</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
