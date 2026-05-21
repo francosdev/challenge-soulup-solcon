@@ -15,7 +15,6 @@ ranking_encerrado = False
 
 
 def data_atual():
-    """Retorna data e hora atuais no formato usado no histórico e logs."""
     return datetime.now().strftime("%d/%m/%Y %H:%M")
 
 
@@ -75,7 +74,6 @@ def item_antigo(sequencia, indice, padrao=None):
 
 
 def criar_acao(categoria, descricao, quantidade, pontos, data=None):
-    """Cria uma ação sustentável no formato atual do sistema."""
     if data is None or data == "":
         data = data_atual()
 
@@ -89,7 +87,6 @@ def criar_acao(categoria, descricao, quantidade, pontos, data=None):
 
 
 def criar_usuario(nome, email, senha, pontos=0, historico=None, conquistas=None, admin=False):
-    """Cria um usuário no modelo de dicionário usado pela aplicação."""
     if historico is None:
         historico = []
     if conquistas is None:
@@ -259,7 +256,6 @@ def carregar_dados():
 
 
 def salvar_dados():
-    """Persiste usuários e estado do ranking em JSON."""
     dados = {
         "ranking_encerrado": ranking_encerrado,
         "usuarios": usuarios,
@@ -307,7 +303,6 @@ def garantir_admin_padrao():
 
 
 def buscar_usuario_por_email(email):
-    """Busca usuário por e-mail sem diferenciar maiúsculas e minúsculas."""
     email = email.strip().lower()
 
     for usuario in usuarios:
@@ -346,7 +341,6 @@ def buscar_usuarios_por_nome(nome, incluir_admin=False):
 
 
 def obter_ranking():
-    """Retorna usuários comuns ordenados por Soul Points."""
     def pegar_pontos(usuario):
         return usuario["pontos"]
 

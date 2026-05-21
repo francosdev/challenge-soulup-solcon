@@ -80,7 +80,10 @@
   color: var(--cor-primaria);
 }
 
-.icone-xl { display: flex; justify-content: center; }
+.icone-xl,
+.icone-lg,
+.icone-md { display: flex; justify-content: center; }
+
 .icone-xl [data-lucide] {
   width: 72px;
   height: 72px;
@@ -88,7 +91,6 @@
   color: var(--cor-primaria);
 }
 
-.icone-lg { display: flex; justify-content: center; }
 .icone-lg [data-lucide] {
   width: 48px;
   height: 48px;
@@ -97,7 +99,6 @@
 }
 .icone-lg.icone-vermelho [data-lucide] { color: #FF6B6B; }
 
-.icone-md { display: flex; justify-content: center; }
 .icone-md [data-lucide] {
   width: 32px;
   height: 32px;
@@ -185,12 +186,6 @@ div > [data-lucide="graduation-cap"] {
   border-radius: var(--raio);
   padding: 2rem;
   transition: var(--transicao);
-}
-
-.card:hover {
-  border-color: rgba(139,175,110,0.22);
-  box-shadow: var(--sombra-hover);
-  transform: translateY(-4px);
 }
 
 .card__icone {
@@ -584,11 +579,7 @@ div > [data-lucide="graduation-cap"] {
   opacity: 0.3;
 }
 
-.skill-ramo:hover {
-  border-color: rgba(139,175,110,0.22);
-  box-shadow: 0 0 24px rgba(139,175,110,0.1);
-  transform: translateY(-4px);
-}
+.skill-ramo:hover { box-shadow: 0 0 24px rgba(139,175,110,0.1); }
 
 .skill-ramo__emoji {
   display: flex;
@@ -957,11 +948,7 @@ div > [data-lucide="graduation-cap"] {
   align-items: center;
 }
 
-.integrante-card:hover {
-  border-color: rgba(139,175,110,0.22);
-  box-shadow: var(--sombra-hover);
-  transform: translateY(-6px);
-}
+.integrante-card:hover { transform: translateY(-6px); }
 
 .integrante-avatar {
   width: 110px;

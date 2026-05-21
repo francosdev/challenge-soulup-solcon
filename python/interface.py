@@ -6,19 +6,16 @@ from config import META_PONTOS
 
 
 def linha(char="─", n=52):
-    """Exibe uma linha visual para separar blocos no terminal."""
     print(char * n)
 
 
 def cabecalho(titulo):
-    """Renderiza um cabeçalho padronizado para as telas do EcoScore."""
     linha("═")
     print(f"  {titulo}")
     linha("═")
 
 
 def pausar():
-    """Pausa a navegação até o usuário confirmar a leitura."""
     input("\n  [Enter para continuar]")
 
 
@@ -31,7 +28,6 @@ def barra_progresso(pontos):
 
 
 def exibir_tela_inicial():
-    """Mostra o menu inicial de autenticação."""
     cabecalho("ECOSCORE")
     print("  1. Entrar")
     print("  2. Cadastrar conta")
@@ -41,7 +37,6 @@ def exibir_tela_inicial():
 
 
 def exibir_menu_usuario(usuario):
-    """Mostra o menu principal para usuários comuns autenticados."""
     cabecalho("MENU ECOSCORE")
     print(f"  Usuário: {usuario['nome']}")
     print(f"  Soul Points: {usuario['pontos']}")
@@ -71,7 +66,6 @@ def exibir_menu_usuario(usuario):
 
 
 def exibir_menu_admin(admin_logado):
-    """Mostra o painel exclusivo de administração."""
     cabecalho("PAINEL ADMIN ECOSCORE")
     print(f"  Administrador: {admin_logado['nome']}\n")
     print("  1. Ver ranking")
@@ -85,7 +79,6 @@ def exibir_menu_admin(admin_logado):
 
 
 def mostrar_feedback_acao(usuario, titulo, pontos, pontos_somados):
-    """Exibe o resultado de uma ação registrada e o avanço do usuário."""
     linha("━")
     print(f"  🌿 {titulo}")
 

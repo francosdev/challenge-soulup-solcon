@@ -6,7 +6,6 @@
   --cor-fundo-card:   #0D1209;
   --cor-fundo-card2:  #0F1410;
   --cor-primaria:     #8BAF6E;
-  --cor-secundaria:   #6B8F47;
   --cor-terciaria:    #B8D49A;
   --cor-destaque:     #C8A84B;
   --cor-roxo:         #9B7FE8;
@@ -14,16 +13,13 @@
   --cor-texto-claro:  #E8EDE0;
   --cor-texto-muted:  #3D4D35;
   --cor-borda:        #1A2216;
-  --cor-borda-hover:  rgba(139,175,110,0.2);
   --sombra:           0 4px 24px rgba(139,175,110,0.05);
   --sombra-hover:     0 8px 40px rgba(139,175,110,0.12);
   --raio:             10px;
   --raio-lg:          16px;
   --transicao:        all 0.25s cubic-bezier(0.4,0,0.2,1);
-  --fonte-display:    'Fraunces', serif;
   --fonte-titulo:     'Fraunces', serif;
   --fonte-corpo:      'Inter', sans-serif;
-  --fonte-mono:       'Inter', sans-serif;
 }
 
 *, *::before, *::after {

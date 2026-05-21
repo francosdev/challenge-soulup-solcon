@@ -9,7 +9,6 @@ from interface import cabecalho, linha, mostrar_feedback_acao
 
 
 def ler_quantidade(mensagem):
-    """Lê uma quantidade positiva ou retorna None quando o usuário volta."""
     while True:
         entrada = input(mensagem).strip()
 
@@ -23,7 +22,6 @@ def ler_quantidade(mensagem):
 
 
 def calcular_pontuacao(categoria_key, quantidade):
-    """Calcula Soul Points pela categoria e quantidade informada."""
     peso = CATEGORIAS[categoria_key]["peso"]
     pontos = min(100, int(quantidade * peso))
     return max(0, pontos)
@@ -121,7 +119,6 @@ def montar_descricao_multiplas(selecionadas, opcoes):
 
 
 def registrar_plantio_jardinagem(usuario):
-    """Controla o submenu de ações de plantio e jardinagem."""
     while True:
         cabecalho("PLANTIO E JARDINAGEM")
         print("  1. Plantar muda ou árvore")
@@ -157,7 +154,6 @@ def registrar_plantio_jardinagem(usuario):
 
 
 def registrar_cuidado_planta(usuario):
-    """Registra uma ou mais ações de cuidado com plantas existentes."""
     while True:
         cabecalho("CUIDAR DE PLANTA EXISTENTE")
         print("  1. Regar corretamente")
@@ -186,7 +182,6 @@ def registrar_cuidado_planta(usuario):
 
 
 def registrar_categoria_quantidade(usuario, opcao):
-    """Registra categorias simples baseadas em quantidade."""
     prompts = {
         "2": "  Quantos kg de material você reciclou? (0 para voltar): ",
         "3": "  Quantos litros de água você economizou? (0 para voltar): ",
@@ -204,7 +199,6 @@ def registrar_categoria_quantidade(usuario, opcao):
 
 
 def registrar_energia(usuario):
-    """Registra múltiplas ações de economia de energia."""
     while True:
         cabecalho("AÇÕES DE ECONOMIA DE ENERGIA")
         for key in ACOES_ENERGIA:
@@ -233,7 +227,6 @@ def registrar_energia(usuario):
 
 
 def registrar_acao_sustentavel(usuario):
-    """Exibe as categorias e direciona o registro sustentável."""
     if usuario["admin"]:
         print("  [!] Administradores não participam da competição.")
         return
@@ -288,7 +281,6 @@ def ver_ranking():
 
 
 def progresso_conquista(usuario, nome_conquista):
-    """Retorna progresso, meta e unidade de uma conquista."""
     impacto = calcular_impacto(usuario)
 
     if nome_conquista == "Primeiro Broto":
@@ -316,7 +308,6 @@ def status_conquista(usuario, nome_conquista, progresso_atual):
 
 
 def ver_conquistas(usuario):
-    """Mostra conquistas com status, objetivo e progresso atual."""
     cabecalho("CONQUISTAS ECOSCORE")
 
     for nome_conquista in CONQUISTAS:
@@ -332,7 +323,6 @@ def ver_conquistas(usuario):
 
 
 def ver_status_competicao():
-    """Exibe situação do ciclo mensal da competição."""
     cabecalho("STATUS DA COMPETIÇÃO")
 
     if dados.ranking_encerrado:

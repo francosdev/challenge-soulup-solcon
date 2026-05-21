@@ -11,7 +11,6 @@ from usuarios import escolher_usuario_por_nome, exibir_conquistas_resumidas, con
 
 
 def listar_usuarios_cadastrados_admin():
-    """Lista contas comuns com e-mail, pontuação e posição no ranking."""
     cabecalho("USUÁRIOS CADASTRADOS")
 
     participantes = dados.usuarios_comuns()
@@ -25,7 +24,6 @@ def listar_usuarios_cadastrados_admin():
 
 
 def exibir_conta_admin(usuario):
-    """Exibe dados completos de uma conta comum sem mostrar senha."""
     cabecalho("CONTA DE USUÁRIO")
     print(f"  Nome: {usuario['nome']}")
     print(f"  E-mail: {usuario['email']}")
@@ -44,7 +42,6 @@ def exibir_conta_admin(usuario):
 
 
 def consultar_conta_admin():
-    """Permite ao admin buscar e consultar uma conta comum."""
     usuario = escolher_usuario_por_nome("CONSULTAR CONTA DE USUÁRIO", True)
 
     if usuario is not None:
@@ -149,7 +146,6 @@ def reiniciar_ranking(admin_logado):
 
 
 def menu_admin(admin_logado):
-    """Controla a navegação do painel administrativo."""
     while True:
         exibir_menu_admin(admin_logado)
         opcao = input("  Opção: ").strip()

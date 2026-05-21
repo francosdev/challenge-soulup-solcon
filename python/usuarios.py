@@ -133,7 +133,6 @@ def cadastrar_usuario():
 
 
 def consultar_perfil(usuario):
-    """Mostra dados privados, histórico e impacto do usuário logado."""
     cabecalho("MEU PERFIL")
     print(f"  Nome: {usuario['nome']}")
     print(f"  E-mail: {usuario['email']}")
@@ -151,7 +150,6 @@ def consultar_perfil(usuario):
 
 
 def selecionar_usuario_encontrado(encontrados, mostrar_email=False):
-    """Permite escolher um usuário quando a busca retorna múltiplos nomes."""
     cabecalho("USUÁRIOS ENCONTRADOS")
 
     for indice, usuario in enumerate(encontrados, start=1):
@@ -176,7 +174,6 @@ def selecionar_usuario_encontrado(encontrados, mostrar_email=False):
 
 
 def escolher_usuario_por_nome(titulo, mostrar_email=False):
-    """Busca usuários comuns por nome e retorna o perfil selecionado."""
     cabecalho(titulo)
     print("  Digite o nome do usuário que deseja procurar.")
     print("  Digite 0 para voltar.\n")
@@ -201,7 +198,6 @@ def escolher_usuario_por_nome(titulo, mostrar_email=False):
 
 
 def exibir_conquistas_resumidas(usuario):
-    """Lista apenas as conquistas desbloqueadas do usuário."""
     from config import CONQUISTAS
 
     if not usuario["conquistas"]:
@@ -215,7 +211,6 @@ def exibir_conquistas_resumidas(usuario):
 
 
 def mensagem_diferenca_pontos(usuario_logado, usuario_visitado):
-    """Compara Soul Points entre o usuário logado e o perfil visitado."""
     diferenca = usuario_visitado["pontos"] - usuario_logado["pontos"]
 
     if diferenca > 0:
@@ -226,7 +221,6 @@ def mensagem_diferenca_pontos(usuario_logado, usuario_visitado):
 
 
 def exibir_perfil_publico(usuario_logado, usuario_visitado):
-    """Exibe perfil público sem e-mail ou senha, com comparação social."""
     cabecalho("PERFIL PÚBLICO")
     print(f"  Nome: {usuario_visitado['nome']}")
     print(f"  Soul Points: {usuario_visitado['pontos']}")
@@ -256,7 +250,6 @@ def exibir_perfil_publico(usuario_logado, usuario_visitado):
 
 
 def visitar_perfil_usuario(usuario_logado):
-    """Fluxo social para visitar o perfil público de outro usuário."""
     usuario_visitado = escolher_usuario_por_nome("VISITAR PERFIL")
 
     if usuario_visitado is None:
@@ -269,7 +262,6 @@ def visitar_perfil_usuario(usuario_logado):
 
 
 def editar_perfil(usuario):
-    """Permite editar nome, e-mail e senha da conta logada."""
     while True:
         cabecalho("EDITAR PERFIL")
         print("  1. Alterar nome")
@@ -303,7 +295,6 @@ def editar_perfil(usuario):
 
 
 def alterar_senha(usuario):
-    """Altera a senha após validar a senha atual."""
     senha_atual = ler_senha_oculta("  Senha atual: ").strip()
 
     if senha_atual == "0":
@@ -400,7 +391,6 @@ def remover_usuario(usuario_alvo):
 
 
 def menu_usuario_logado(usuario):
-    """Controla a navegação da sessão de um usuário comum."""
     while True:
         exibir_menu_usuario(usuario)
         opcao = input("  Opção: ").strip()

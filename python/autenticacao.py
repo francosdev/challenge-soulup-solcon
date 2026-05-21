@@ -72,7 +72,6 @@ def senha_valida(senha):
 
 
 def validar_senha_usuario(usuario, senha_digitada):
-    """Compara a senha digitada com o hash salvo do usuário."""
     if not senha_digitada:
         return False
     return criptografar_senha(senha_digitada) == usuario["senha"]
@@ -184,7 +183,6 @@ def recuperar_senha():
 
 
 def login():
-    """Autentica usuário comum ou administrador e abre o menu correto."""
     from admin import menu_admin
     from dados import buscar_usuario_por_email, registrar_log
     from usuarios import menu_usuario_logado

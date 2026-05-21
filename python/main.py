@@ -12,7 +12,6 @@ from usuarios import cadastrar_usuario
 
 
 def menu_inicial():
-    """Exibe a tela inicial e direciona para login, cadastro ou saída."""
     while True:
         exibir_tela_inicial()
         opcao = input("  Opção: ").strip()
@@ -34,7 +33,6 @@ def menu_inicial():
 
 
 def main():
-    """Carrega dados persistidos e inicia o EcoScore."""
     carregar_dados()
     menu_inicial()
 

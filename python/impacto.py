@@ -7,7 +7,6 @@ from interface import cabecalho, linha
 
 
 def formatar_quantidade(valor):
-    """Remove casas decimais desnecessárias em quantidades."""
     if type(valor) == int:
         return str(valor)
     if type(valor) == float:
@@ -113,7 +112,6 @@ def unidade_acao(acao):
 
 
 def exibir_item_historico(acao):
-    """Exibe uma ação do histórico em formato legível."""
     categoria = acao["categoria"]
     descricao = acao["descricao"]
     quantidade = formatar_quantidade(acao["quantidade"])
@@ -130,7 +128,6 @@ def exibir_item_historico(acao):
 
 
 def exibir_historico(usuario, limite=5, permitir_ver_tudo=True):
-    """Exibe histórico recente e permite abrir o histórico completo."""
     acoes = usuario["historico"]
 
     if not acoes:
@@ -161,7 +158,6 @@ def exibir_historico(usuario, limite=5, permitir_ver_tudo=True):
 
 
 def exibir_impacto(usuario):
-    """Mostra o impacto ambiental completo do usuário."""
     impacto = calcular_impacto(usuario)
 
     cabecalho("IMPACTO AMBIENTAL")
@@ -178,7 +174,6 @@ def exibir_impacto(usuario):
 
 
 def exibir_impacto_resumido(usuario):
-    """Mostra uma versão curta do impacto ambiental para perfil público."""
     impacto = calcular_impacto(usuario)
 
     print(f"  🌱 Ações de plantio: {formatar_quantidade(impacto['plantio'])}")
@@ -189,7 +184,6 @@ def exibir_impacto_resumido(usuario):
 
 
 def resumir_acao_publica(acao):
-    """Gera uma linha compacta para últimas ações em perfil público."""
     categoria = acao["categoria"]
     descricao = acao["descricao"]
     quantidade = formatar_quantidade(acao["quantidade"])

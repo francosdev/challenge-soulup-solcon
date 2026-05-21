@@ -1,0 +1,617 @@
+<mxfile host="65bd71144e">
+    <diagram id="2aB_f6gOe22mVt0XIXbb" name="Page-1">
+        <mxGraphModel dx="95" dy="599" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram name="EcoScore - Fluxograma" id="ecoscore-main">
+        <mxGraphModel dx="3289" dy="705" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="3600" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" value="EcoScore - Fluxograma do Sistema (Python / Terminal)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=26;fontStyle=1;fontColor=#2E7D32;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="20" width="1400" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend" value="LEGENDA:&#xa;Inicio/Fim (vermelho)   Processo (branco)   Decisao (cinza)   Entrada do usuario (roxo)&#xa;Persistencia / JSON / Logs (laranja)   Fluxo Usuario Comum (verde)   Fluxo Administrador (azul)   Autenticacao (amarelo)" style="text;html=1;strokeColor=#999999;fillColor=#FAFAFA;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="75" width="1400" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="grp_boot" value="INICIALIZACAO" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#FFB300;verticalAlign=top;fontSize=14;fontStyle=1;fontColor=#E65100;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="160" width="2320" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="start" value="INICIO&#xa;main()" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="220" width="160" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="load" value="carregar_dados()&#xa;le arquivo / cria padrao" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="420" y="225" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="json_main" value="ecoscore_dados.json&#xa;(usuarios + estado)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="700" y="210" width="180" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="log_file" value="ecoscore_auditoria.txt&#xa;(logs de auditoria)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="920" y="210" width="180" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="note_persist" value="Toda alteracao de estado&#xa;chama salvar_dados()&#xa;&#xa;Acoes sensiveis chamam&#xa;registrar_log()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F57F17;dashed=1;fontSize=11;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="1140" y="200" width="240" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="goto_menu" value="menu_inicial()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="2100" y="230" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_start_load" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#333333;" parent="1" source="start" target="load" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_load_json" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=open;startArrow=open;dashed=1;strokeColor=#d79b00;" parent="1" source="load" target="json_main" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_load_menu" value="ok" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#333333;" parent="1" source="load" target="goto_menu" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="grp_menu_inicial" value="MENU INICIAL  (loop ate opcao 0)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#F9A825;verticalAlign=top;fontSize=14;fontStyle=1;fontColor=#E65100;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="390" width="2320" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="menu_inicial" value="Exibe menu&#xa;1-Entrar   2-Cadastrar   3-Recuperar senha   0-Sair" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="900" y="430" width="500" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="dec_opcao" value="Opcao?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="1075" y="510" width="150" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="opt_login" value="1 - login()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="540" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="opt_cad" value="2 - cadastrar_usuario()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="620" y="540" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="opt_rec" value="3 - recuperar_senha()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="1500" y="540" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="opt_sair" value="0 - SAIR" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="2100" y="540" width="160" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="end_program" value="FIM&#xa;Programa encerrado" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="2100" y="610" width="160" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_menu_dec" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#333333;" parent="1" source="menu_inicial" target="dec_opcao" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_goto_menu" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#333333;" parent="1" source="goto_menu" target="menu_inicial" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_dec_1" value="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#d6b656;fontStyle=1;" parent="1" source="dec_opcao" target="opt_login" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_dec_2" value="2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#d6b656;fontStyle=1;" parent="1" source="dec_opcao" target="opt_cad" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_dec_3" value="3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#d6b656;fontStyle=1;" parent="1" source="dec_opcao" target="opt_rec" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_dec_0" value="0" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#b85450;fontStyle=1;" parent="1" source="dec_opcao" target="opt_sair" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_sair_end" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#b85450;" parent="1" source="opt_sair" target="end_program" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="grp_auth" value="AUTENTICACAO" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#FBC02D;verticalAlign=top;fontSize=14;fontStyle=1;fontColor=#E65100;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="700" width="2320" height="980" as="geometry"/>
+                </mxCell>
+                <mxCell id="login_email" value="le e-mail" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="760" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="login_pwd" value="le senha (oculta com *)&#xa;ler_senha_oculta()" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="830" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="login_find" value="buscar_usuario_por_email()" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="910" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="login_valid" value="hash SHA-256 confere?&#xa;validar_senha_usuario()" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="140" y="980" width="240" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="login_fail" value="registrar_log(LOGIN_FALHO)&#xa;exibe E-mail ou senha invalidos" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8BBD0;strokeColor=#C2185B;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="1110" width="220" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="login_ok" value="registrar_log(LOGIN)&#xa;exibe boas-vindas" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#388E3C;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="1110" width="220" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="dec_admin" value="usuario.admin&#xa;== True ?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="1200" width="220" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="dec_legacy" value="senha admin legada?&#xa;senha_admin_precisa_troca()" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="1330" width="220" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="force_change" value="trocar_senha_admin_obrigatoria()&#xa;exige nova senha + salvar_dados()" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="1340" width="220" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_lemail_lpwd" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="login_email" target="login_pwd" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_lpwd_lfind" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="login_pwd" target="login_find" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_lfind_lvalid" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="login_find" target="login_valid" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_lvalid_fail" value="nao" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#C2185B;fontStyle=1;" parent="1" source="login_valid" target="login_fail" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_lvalid_ok" value="sim" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#388E3C;fontStyle=1;" parent="1" source="login_valid" target="login_ok" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_ok_admin" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="login_ok" target="dec_admin" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_admin_legacy" value="sim" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#1976D2;fontStyle=1;" parent="1" source="dec_admin" target="dec_legacy" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_legacy_force" value="sim" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#C62828;fontStyle=1;" parent="1" source="dec_legacy" target="force_change" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_fail_back" value="volta" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#C2185B;dashed=1;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="login_fail" target="menu_inicial" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-10" y="1140"/>
+                            <mxPoint x="-10" y="455"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="cad_nome" value="le nome (nao vazio)" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="620" y="760" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="cad_email" value="le e-mail&#xa;valida formato + duplicidade" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="620" y="830" width="220" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="cad_senha" value="le senha (min. 6 caracteres)&#xa;ler_senha_oculta()" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="620" y="910" width="220" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="cad_review" value="tela de revisao&#xa;exibe dados antes de confirmar" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="620" y="990" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="cad_confirm" value="confirmar?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="1060" width="180" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="cad_create" value="cria usuario&#xa;pontos: 0, conquistas: [],&#xa;historico: [], admin: false" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#388E3C;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="620" y="1170" width="220" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="cad_save" value="salvar_dados()" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="650" y="1280" width="160" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_cnome_cemail" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="cad_nome" target="cad_email" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_cemail_csenha" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="cad_email" target="cad_senha" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_csenha_creview" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="cad_senha" target="cad_review" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_creview_cconfirm" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="cad_review" target="cad_confirm" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_cconfirm_create" value="sim" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#388E3C;fontStyle=1;" parent="1" source="cad_confirm" target="cad_create" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_ccreate_csave" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="cad_create" target="cad_save" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rec_email" value="le e-mail cadastrado" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="1500" y="760" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="rec_dec_exists" value="existe e nao e admin?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1500" y="830" width="220" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="rec_generic" value="exibe mensagem generica&#xa;(anti-enumeracao)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#EF6C00;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1760" y="845" width="220" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="rec_gen_code" value="gera codigo de 6 digitos&#xa;simula envio por e-mail" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1500" y="940" width="220" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="rec_tries" value="codigo OK?&#xa;(ate 3 tentativas)" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1500" y="1020" width="220" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="rec_fail_log" value="registrar_log&#xa;RECUPERACAO_FALHA" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8BBD0;strokeColor=#C2185B;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1760" y="1040" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="rec_new_pwd" value="le nova senha + confirma&#xa;(min. 6)" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1500" y="1140" width="220" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="rec_save" value="criptografar_senha()&#xa;salvar_dados()&#xa;registrar_log(RECUPERACAO_SENHA)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#388E3C;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1500" y="1230" width="220" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_remail_rdec" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="rec_email" target="rec_dec_exists" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_rdec_generic" value="nao" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#EF6C00;fontStyle=1;" parent="1" source="rec_dec_exists" target="rec_generic" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_rdec_code" value="sim" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#388E3C;fontStyle=1;" parent="1" source="rec_dec_exists" target="rec_gen_code" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_rcode_tries" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="rec_gen_code" target="rec_tries" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_rtries_fail" value="nao (3x)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#C2185B;fontStyle=1;" parent="1" source="rec_tries" target="rec_fail_log" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_rtries_pwd" value="sim" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#388E3C;fontStyle=1;" parent="1" source="rec_tries" target="rec_new_pwd" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_rpwd_save" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="rec_new_pwd" target="rec_save" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="back_to_menu_cad" value="volta ao menu inicial" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFECB3;strokeColor=#FFA000;dashed=1;fontSize=10;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="1360" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="back_to_menu_rec" value="volta ao menu inicial" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFECB3;strokeColor=#FFA000;dashed=1;fontSize=10;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="1520" y="1340" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_csave_back" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#FFA000;" parent="1" source="cad_save" target="back_to_menu_cad" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_rsave_back" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#FFA000;" parent="1" source="rec_save" target="back_to_menu_rec" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="route_user" value="abrir MENU USUARIO COMUM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="1490" width="240" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="route_admin" value="abrir PAINEL ADMIN" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="1490" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_admin_no_user" value="nao" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#82b366;fontStyle=1;" parent="1" source="dec_admin" target="route_user" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_legacy_no_admin" value="nao" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#6c8ebf;fontStyle=1;" parent="1" source="dec_legacy" target="route_admin" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_force_admin" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#6c8ebf;" parent="1" source="force_change" target="route_admin" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="130" y="1470"/>
+                            <mxPoint x="390" y="1470"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="grp_user" value="MENU USUARIO COMUM   (loop)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#43A047;verticalAlign=top;fontSize=14;fontStyle=1;fontColor=#1B5E20;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="1720" width="1180" height="1620" as="geometry"/>
+                </mxCell>
+                <mxCell id="user_header" value="exibir_menu_usuario(usuario)&#xa;Nome - Soul Points - barra de progresso (META_PONTOS)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#388E3C;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="1770" width="700" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="user_dec" value="Opcao do menu?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="510" y="1860" width="240" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="u_1" value="1 - Registrar acao sustentavel" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="2010" width="260" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="u_2" value="2 - Ver ranking" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="2010" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="u_3" value="3 - Consultar perfil" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="2010" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="u_4" value="4 - Visitar perfil de outro" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="820" y="2010" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="u_5" value="5 - Editar perfil" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="2080" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="u_6" value="6 - Deletar minha conta" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="290" y="2080" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="u_7" value="7 - Ver conquistas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="2080" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="u_8" value="8 - Status da competicao" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="750" y="2080" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="u_0" value="0 - Sair (volta ao menu inicial)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="1000" y="2080" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_uh_udec" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#388E3C;" parent="1" source="user_header" target="user_dec" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_route_user_h" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#82b366;" parent="1" source="route_user" target="user_header" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_ud_u1" value="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#82b366;" parent="1" source="user_dec" target="u_1" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_ud_u2" value="2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#82b366;" parent="1" source="user_dec" target="u_2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_ud_u3" value="3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#82b366;" parent="1" source="user_dec" target="u_3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_ud_u4" value="4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#82b366;" parent="1" source="user_dec" target="u_4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_ud_u5" value="5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#82b366;" parent="1" source="user_dec" target="u_5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_ud_u6" value="6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#82b366;" parent="1" source="user_dec" target="u_6" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_ud_u7" value="7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#82b366;" parent="1" source="user_dec" target="u_7" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_ud_u8" value="8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#82b366;" parent="1" source="user_dec" target="u_8" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_ud_u0" value="0" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#C62828;fontStyle=1;" parent="1" source="user_dec" target="u_0" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="grp_acao" value="SUBFLUXO - Registrar acao sustentavel" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F8E9;strokeColor=#689F38;verticalAlign=top;fontSize=12;fontStyle=1;fontColor=#33691E;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="2200" width="1080" height="640" as="geometry"/>
+                </mxCell>
+                <mxCell id="ac_cat" value="escolhe categoria&#xa;plantio / cuidado / energia / reciclagem / agua" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="2240" width="320" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="ac_qtd" value="le quantidade (positiva)" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="2320" width="320" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="ac_calc" value="calcular_pontuacao()&#xa;peso da categoria x quantidade (max 100)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="2390" width="320" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="ac_dec_ranking" value="ranking mensal ativo?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="140" y="2470" width="280" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="ac_pontos_sim" value="usuario.pontos += pontos" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#388E3C;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="2580" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="ac_pontos_nao" value="apenas salva no historico&#xa;(0 pontos somados)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#EF6C00;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="2560" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="ac_hist" value="adiciona ao historico&#xa;data, categoria, quantidade, pontos" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="2390" width="280" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="ac_conq" value="verificar_conquistas()&#xa;Primeiro Broto / Reciclador Ativo&#xa;Agua Consciente / Energia Inteligente ..." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF59D;strokeColor=#F57F17;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="2470" width="280" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="ac_save" value="salvar_dados()" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="650" y="2580" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="ac_feedback" value="mostrar_feedback_acao()&#xa;+Soul Points / barra de progresso" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="2680" width="320" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_cat_qtd" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="ac_cat" target="ac_qtd" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_qtd_calc" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="ac_qtd" target="ac_calc" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_calc_dec" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="ac_calc" target="ac_dec_ranking" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_dec_sim" value="sim" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#388E3C;fontStyle=1;" parent="1" source="ac_dec_ranking" target="ac_pontos_sim" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_dec_nao" value="nao" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#EF6C00;fontStyle=1;" parent="1" source="ac_dec_ranking" target="ac_pontos_nao" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="440" y="2550"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_calc_hist" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="ac_calc" target="ac_hist" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_hist_conq" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="ac_hist" target="ac_conq" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_conq_save" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="ac_conq" target="ac_save" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_psim_save" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#388E3C;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="320" y="2630" as="sourcePoint"/>
+                        <mxPoint x="650" y="2630" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_pnao_save" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#EF6C00;" parent="1" source="ac_pontos_nao" target="ac_save" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_save_feedback" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="ac_save" target="ac_feedback" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_u1_acao" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#82b366;" parent="1" source="u_1" target="ac_cat" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="user_back" value="volta ao menu do usuario" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#388E3C;dashed=1;fontSize=11;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="2880" width="260" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_feedback_back" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#388E3C;" parent="1" source="ac_feedback" target="user_back" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_back_userdec" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#388E3C;" parent="1" source="user_back" target="user_dec" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="560" y="2980"/>
+                            <mxPoint x="60" y="2980"/>
+                            <mxPoint x="60" y="1910"/>
+                            <mxPoint x="510" y="1910"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="user_outros" value="OUTRAS OPCOES (resumo)&#xa;&#xa;2 - ver_ranking() - lista usuarios comuns ordenados por Soul Points&#xa;3 - consultar_perfil() - dados + conquistas + historico + impacto&#xa;4 - visitar_perfil(outro) - resumo publico (busca por nome)&#xa;5 - editar_perfil() - exige senha atual; salvar_dados()&#xa;6 - deletar_minha_conta() - confirmacao textual + senha; salvar_dados()&#xa;7 - ver_conquistas() - lista o que foi desbloqueado&#xa;8 - ver_status_competicao() - meta mensal e progresso global" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#388E3C;align=left;verticalAlign=top;fontSize=11;spacingLeft=10;spacingTop=8;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="2960" width="1080" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="user_exit" value="registrar_log(LOGOUT)&#xa;volta ao menu_inicial()" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="990" y="2170" width="220" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_u0_exit" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#C62828;" parent="1" source="u_0" target="user_exit" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_userexit_menu" value="loop" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#C62828;fontStyle=1;" parent="1" source="user_exit" target="menu_inicial" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1240" y="2200"/>
+                            <mxPoint x="1240" y="455"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="grp_admin" value="PAINEL ADMIN   (loop)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;verticalAlign=top;fontSize=14;fontStyle=1;fontColor=#0D47A1;" parent="1" vertex="1">
+                    <mxGeometry x="1260" y="1720" width="1100" height="1620" as="geometry"/>
+                </mxCell>
+                <mxCell id="admin_header" value="exibir_menu_admin(admin)&#xa;Administrador autenticado" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1976D2;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="1480" y="1770" width="660" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="admin_dec" value="Opcao do painel?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="1690" y="1860" width="240" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="note_admin" value="Admin NAO pontua,&#xa;NAO aparece no ranking&#xa;e NAO ganha conquistas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;dashed=1;fontSize=11;fontStyle=2;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="2160" y="1860" width="180" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="a_1" value="1 - Ver ranking" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="1300" y="2010" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="a_2" value="2 - Status da competicao" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="1520" y="2010" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="a_3" value="3 - Reiniciar ranking mensal" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="1760" y="2010" width="240" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="a_4" value="4 - Listar usuarios cadastrados" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="1300" y="2080" width="260" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="a_5" value="5 - Consultar conta de usuario" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="1580" y="2080" width="260" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="a_6" value="6 - Deletar conta de usuario" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="1860" y="2080" width="260" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="a_0" value="0 - Sair (volta ao menu inicial)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="2140" y="2080" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_ah_ad" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#1976D2;" parent="1" source="admin_header" target="admin_dec" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_route_admin_h" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#6c8ebf;" parent="1" source="route_admin" target="admin_header" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_ad_a1" value="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#6c8ebf;" parent="1" source="admin_dec" target="a_1" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_ad_a2" value="2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#6c8ebf;" parent="1" source="admin_dec" target="a_2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_ad_a3" value="3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#6c8ebf;" parent="1" source="admin_dec" target="a_3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_ad_a4" value="4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#6c8ebf;" parent="1" source="admin_dec" target="a_4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_ad_a5" value="5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#6c8ebf;" parent="1" source="admin_dec" target="a_5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_ad_a6" value="6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#6c8ebf;" parent="1" source="admin_dec" target="a_6" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_ad_a0" value="0" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#C62828;fontStyle=1;" parent="1" source="admin_dec" target="a_0" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="grp_admin_sub" value="SUBFLUXOS - operacoes destrutivas exigem confirmacao" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5FE;strokeColor=#0277BD;verticalAlign=top;fontSize=12;fontStyle=1;fontColor=#01579B;" parent="1" vertex="1">
+                    <mxGeometry x="1300" y="2200" width="1040" height="640" as="geometry"/>
+                </mxCell>
+                <mxCell id="adm_reset" value="REINICIAR RANKING MENSAL" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0D47A1;fontStyle=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="1340" y="2240" width="280" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="adm_reset_pwd" value="solicita senha do admin&#xa;ler_senha_oculta()" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1340" y="2300" width="280" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="adm_reset_dec" value="senha correta?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1380" y="2380" width="200" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="adm_reset_zera" value="zera pontos e historico&#xa;de todos os usuarios comuns" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1340" y="2480" width="280" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="adm_reset_save" value="salvar_dados()&#xa;registrar_log(RANKING_RESET)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="1340" y="2560" width="280" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_a3_reset" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#6c8ebf;" parent="1" source="a_3" target="adm_reset" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_reset_pwd" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="adm_reset" target="adm_reset_pwd" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_reset_pwd_dec" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="adm_reset_pwd" target="adm_reset_dec" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_reset_dec_zera" value="sim" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#C62828;fontStyle=1;" parent="1" source="adm_reset_dec" target="adm_reset_zera" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_reset_zera_save" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="adm_reset_zera" target="adm_reset_save" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="adm_del" value="DELETAR CONTA DE USUARIO" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0D47A1;fontStyle=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="1700" y="2240" width="280" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="adm_del_pick" value="busca usuario por nome&#xa;escolher_usuario_por_nome()" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1700" y="2300" width="280" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="adm_del_text" value="digita texto de confirmacao&#xa;confirmar_texto_deletar()" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1700" y="2380" width="280" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="adm_del_pwd" value="confirma com senha do admin" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="1700" y="2460" width="280" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="adm_del_exec" value="remove usuario da lista&#xa;salvar_dados() / registrar_log(USUARIO_REMOVIDO)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="1700" y="2530" width="280" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_a6_del" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#6c8ebf;" parent="1" source="a_6" target="adm_del" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_del_pick" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="adm_del" target="adm_del_pick" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_del_text" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="adm_del_pick" target="adm_del_text" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_del_pwd" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="adm_del_text" target="adm_del_pwd" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_del_exec" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;" parent="1" source="adm_del_pwd" target="adm_del_exec" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="admin_outros" value="OPCOES DE LEITURA (sem alterar estado)&#xa;&#xa;1 - ver_ranking() - mesma listagem do usuario&#xa;2 - ver_status_competicao() - meta mensal global&#xa;4 - listar_usuarios_cadastrados_admin() - nome, e-mail, pontos, posicao&#xa;5 - consultar_conta_admin() - perfil completo sem mostrar a senha&#xa;&#xa;Todas as opcoes acima encerram com pausar() e voltam ao painel admin." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1976D2;align=left;verticalAlign=top;fontSize=11;spacingLeft=10;spacingTop=8;" parent="1" vertex="1">
+                    <mxGeometry x="2020" y="2240" width="300" height="380" as="geometry"/>
+                </mxCell>
+                <mxCell id="admin_back" value="volta ao painel admin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;dashed=1;fontSize=11;fontStyle=2;" parent="1" vertex="1">
+                    <mxGeometry x="1620" y="2680" width="260" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_reset_back" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#1976D2;" parent="1" source="adm_reset_save" target="admin_back" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_del_back" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#1976D2;" parent="1" source="adm_del_exec" target="admin_back" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_back_admindec" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#1976D2;" parent="1" source="admin_back" target="admin_dec" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1750" y="2780"/>
+                            <mxPoint x="2240" y="2780"/>
+                            <mxPoint x="2240" y="1910"/>
+                            <mxPoint x="1930" y="1910"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="admin_exit" value="registrar_log(LOGOUT_ADMIN)&#xa;volta ao menu_inicial()" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="2140" y="2170" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_a0_exit" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#C62828;" parent="1" source="a_0" target="admin_exit" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_adminexit_menu" value="loop" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#C62828;fontStyle=1;" parent="1" source="admin_exit" target="menu_inicial" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="2360" y="2200"/>
+                            <mxPoint x="2360" y="455"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="footer" value="Fluxograma do EcoScore - Sistema Python de gamificacao ambiental&#xa;Persistencia: ecoscore_dados.json (estado) + ecoscore_auditoria.txt (logs)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=11;fontStyle=2;fontColor=#666666;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="3380" width="1200" height="50" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
