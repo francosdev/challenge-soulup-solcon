@@ -85,46 +85,35 @@ Cálculo acumulado de métricas reais:
 
 ```
 challenge-soulup-solcon/
-├── python/                      # Backend CLI
-│   ├── main.py                  # Ponto de entrada
-│   ├── autenticacao.py          # Login, recuperação de senha, hash
-│   ├── usuarios.py              # Perfis, edição, perfis públicos
-│   ├── dados.py                 # Persistência JSON + migração automática
-│   ├── gamificacao.py           # Pontos, conquistas, ações
-│   ├── impacto.py               # Cálculo de impacto ambiental
-│   ├── admin.py                 # Painel administrativo
-│   ├── interface.py             # Componentes de UI para terminal
-│   ├── config.py                # Constantes, categorias, ações
-│   └── ecoscore_dados.json      # Banco de dados (JSON)
-│
-├── HTML Pages/                  # Frontend Web
-│   ├── index.html               # Página inicial
-│   ├── ecoscore.html            # Detalhes do sistema
-│   ├── como-funciona.html       # Fluxo em 5 etapas
-│   ├── sobre.html               # Contexto e solução
-│   ├── faq.html                 # Perguntas frequentes
-│   ├── integrantes.html         # Equipe
-│   └── contato.html             # Formulário de contato
-│
-├── js/                          # Scripts do frontend
-│   ├── main.js                  # Inicialização e observers
-│   ├── micelio.js               # Sistema de partículas (Canvas)
-│   ├── micelio-divider.js       # Animações de divisores
-│   ├── spores.js                # Geração de esporos
-│   ├── particulas.js            # Efeitos de partículas
-│   ├── contato.js               # Lógica do formulário
-│   └── menu.js                  # Toggle de navegação
-│
-├── css/
-│   ├── style.css                # Estilos globais + tema dark
-│   ├── componentes.css          # Estilos de componentes
-│   └── responsivo.css           # Design responsivo
-│
-├── assets/imagens/              # Fotos da equipe + logo
-├── banco_de_dados/              # Documentação de banco de dados
-├── ia_chatbot/                  # Notas sobre integração IBM Watson
-├── executar_ecoscore.bat        # Runner para Windows
-└── .gitignore
+|-- frontend/                    # Frontend Web
+|   |-- index.html               # Pagina inicial
+|   |-- ecoscore.html            # Detalhes do sistema
+|   |-- como-funciona.html       # Fluxo em 5 etapas
+|   |-- sobre.html               # Contexto e solucao
+|   |-- faq.html                 # Perguntas frequentes
+|   |-- integrantes.html         # Equipe
+|   |-- contato.html             # Formulario de contato
+|   |-- css/                     # Estilos do frontend
+|   |-- js/                      # Scripts do frontend
+|   `-- assets/imagens/          # Fotos da equipe + logo
+|
+|-- python/                      # Backend CLI
+|   |-- main.py                  # Ponto de entrada
+|   |-- autenticacao.py          # Login, recuperacao de senha, hash
+|   |-- usuarios.py              # Perfis, edicao, perfis publicos
+|   |-- dados.py                 # Persistencia JSON + migracao automatica
+|   |-- gamificacao.py           # Pontos, conquistas, acoes
+|   |-- impacto.py               # Calculo de impacto ambiental
+|   |-- admin.py                 # Painel administrativo
+|   |-- interface.py             # Componentes de UI para terminal
+|   |-- config.py                # Constantes, categorias, acoes
+|   `-- ecoscore_dados.json      # Banco de dados (JSON)
+|
+|-- banco_de_dados/              # Documentacao de banco de dados
+|-- ia_chatbot/                  # Notas sobre integracao IBM Watson
+|-- java/                        # Projeto e diagramas Java
+|-- README.md
+`-- .gitignore
 ```
 
 ---
@@ -182,7 +171,7 @@ executar_ecoscore.bat
 
 ### Frontend Web
 
-Abra qualquer arquivo `.html` da pasta `HTML Pages/` diretamente no navegador. Nenhum servidor ou build é necessário — as animações Canvas inicializam automaticamente.
+Abra qualquer arquivo `.html` da pasta `frontend/` diretamente no navegador, por exemplo `frontend/index.html`. Nenhum servidor ou build é necessário — as animações Canvas inicializam automaticamente.
 
 ---
 
@@ -229,7 +218,11 @@ Abra qualquer arquivo `.html` da pasta `HTML Pages/` diretamente no navegador. N
 
 Projeto desenvolvido por estudantes de **Análise e Desenvolvimento de Sistemas — FIAP 2026**.
 
-> Consulte a página [integrantes.html](HTML%20Pages/integrantes.html) para ver a equipe completa.
+- Carlos Henrique De Melo Franco — RM 569868
+- Murilo Almeida Rodrigues de Souza — RM 573977
+- Henrique Bonachela de Carvalho Carabante — RM 573620
+
+> Consulte a página [integrantes.html](frontend/integrantes.html) para ver a equipe completa.
 
 ---
 

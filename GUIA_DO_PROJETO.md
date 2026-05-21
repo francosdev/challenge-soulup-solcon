@@ -14,9 +14,9 @@ O projeto tem duas frentes principais:
    - Guarda os dados em `python/ecoscore_dados.json`.
 
 2. **Site HTML/CSS/JS**
-   - Fica principalmente nos arquivos `.html` da raiz, na pasta `css/` e na pasta `js/`.
+   - Fica na pasta `frontend/`, junto com `frontend/css/`, `frontend/js/` e `frontend/assets/`.
    - E a apresentacao visual do EcoScore: explica o problema, a solucao, o funcionamento, a equipe, FAQ, dashboard demonstrativo e contato.
-   - Nao depende do Python para abrir; basta abrir os arquivos HTML no navegador.
+   - Nao depende do Python para abrir; basta abrir os arquivos HTML da pasta `frontend/` no navegador.
 
 Essas duas frentes sao independentes. O Python nao serve as paginas HTML em um servidor, e o HTML nao chama diretamente o sistema Python.
 
@@ -24,28 +24,30 @@ Essas duas frentes sao independentes. O Python nao serve as paginas HTML em um s
 
 ```text
 challenge-soulup-solcon/
-|-- index.html                  # Pagina inicial do site
-|-- sobre.html                  # Explica o problema e a proposta
-|-- ecoscore.html               # Explica o sistema EcoScore em detalhes
-|-- como-funciona.html          # Mostra o fluxo de uso
-|-- dashboard.html              # Demonstra visualmente o dashboard de impacto
-|-- faq.html                    # Perguntas frequentes
-|-- integrantes.html            # Equipe do projeto
-|-- contato.html                # Formulario de contato
-|-- petplanet-standalone.html   # Prototipo interativo independente
-|-- ecoscore-card-snippet.html  # Trecho reutilizavel de card/dashboard
-|-- css/
-|   |-- style.css               # Tema global, header, footer, hero e tokens visuais
-|   |-- componentes.css         # Cards, botoes, FAQ, ranking, forms e componentes
-|   `-- responsivo.css          # Ajustes para telas menores
-|-- js/
-|   |-- menu.js                 # Menu mobile e link ativo
-|   |-- main.js                 # FAQ, animacoes, icones e inicializacao geral
-|   |-- contato.js              # Validacao do formulario de contato
-|   |-- micelio.js              # Animacao canvas de esporos/micelio
-|   |-- micelio-divider.js      # Divisores animados de micelio
-|   |-- spores.js               # Campo de particulas/esporos
-|   `-- particulas.js           # Particulas do hero
+|-- frontend/
+|   |-- index.html                  # Pagina inicial do site
+|   |-- sobre.html                  # Explica o problema e a proposta
+|   |-- ecoscore.html               # Explica o sistema EcoScore em detalhes
+|   |-- como-funciona.html          # Mostra o fluxo de uso
+|   |-- dashboard.html              # Demonstra visualmente o dashboard de impacto
+|   |-- faq.html                    # Perguntas frequentes
+|   |-- integrantes.html            # Equipe do projeto
+|   |-- contato.html                # Formulario de contato
+|   |-- petplanet-standalone.html   # Prototipo interativo independente
+|   |-- ecoscore-card-snippet.html  # Trecho reutilizavel de card/dashboard
+|   |-- css/
+|   |   |-- style.css               # Tema global, header, footer, hero e tokens visuais
+|   |   |-- componentes.css         # Cards, botoes, FAQ, ranking, forms e componentes
+|   |   `-- responsivo.css          # Ajustes para telas menores
+|   |-- js/
+|   |   |-- menu.js                 # Menu mobile e link ativo
+|   |   |-- main.js                 # FAQ, animacoes, icones e inicializacao geral
+|   |   |-- contato.js              # Validacao do formulario de contato
+|   |   |-- micelio.js              # Animacao canvas de esporos/micelio
+|   |   |-- micelio-divider.js      # Divisores animados de micelio
+|   |   |-- spores.js               # Campo de particulas/esporos
+|   |   `-- particulas.js           # Particulas do hero
+|   `-- assets/imagens/             # Fotos da equipe e logo
 `-- python/
     |-- main.py                 # Entrada do sistema Python
     |-- config.py               # Constantes, categorias, acoes e conquistas
@@ -381,12 +383,14 @@ Esse arquivo esta no `.gitignore`, entao nao deve ir para o Git.
 Voce pode abrir diretamente qualquer arquivo HTML no navegador, por exemplo:
 
 ```text
-index.html
+frontend/index.html
 ```
 
 Nao ha build, servidor local obrigatorio ou framework principal para o site institucional.
 
 ### Paginas HTML
+
+Todas as paginas desta secao ficam dentro de `frontend/`. Os caminhos de CSS, JS e imagens citados abaixo sao relativos a essa pasta.
 
 #### `index.html`
 
@@ -701,14 +705,14 @@ Para entender o Python:
 
 Para entender o site:
 
-1. `index.html`
-2. `ecoscore.html`
-3. `como-funciona.html`
-4. `css/style.css`
-5. `css/componentes.css`
-6. `js/main.js`
-7. `js/menu.js`
-8. `js/contato.js`
+1. `frontend/index.html`
+2. `frontend/ecoscore.html`
+3. `frontend/como-funciona.html`
+4. `frontend/css/style.css`
+5. `frontend/css/componentes.css`
+6. `frontend/js/main.js`
+7. `frontend/js/menu.js`
+8. `frontend/js/contato.js`
 
 ## Glossario Rapido
 
