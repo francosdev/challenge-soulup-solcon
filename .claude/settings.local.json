@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir c:\\\\Challenge\\\\challenge-soulup-solcon)"
+    ]
+  }
+}
