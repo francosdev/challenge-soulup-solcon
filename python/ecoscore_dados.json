@@ -129,6 +129,32 @@
                 "Primeiro Broto"
             ],
             "admin": false
+        },
+        {
+            "nome": "teste@123.com.br",
+            "email": "teste@123.com.br",
+            "senha": "15bf532d22345576b4a51b96da4754c039ef3458494066d76828e893d69ebd1e",
+            "pontos": 36,
+            "historico": [
+                {
+                    "categoria": "Plantio",
+                    "descricao": "Cultivar horta doméstica",
+                    "quantidade": 4.0,
+                    "pontos": 16,
+                    "data": "22/05/2026 18:21"
+                },
+                {
+                    "categoria": "Plantio",
+                    "descricao": "Plantar muda ou árvore",
+                    "quantidade": 4.0,
+                    "pontos": 20,
+                    "data": "22/05/2026 18:21"
+                }
+            ],
+            "conquistas": [
+                "Primeiro Broto"
+            ],
+            "admin": false
         }
     ]
 }

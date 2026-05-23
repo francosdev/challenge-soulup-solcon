@@ -8,127 +8,8 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/componentes.css" />
   <link rel="stylesheet" href="css/responsivo.css" />
-
-  <style>
-    /* ─── Estilos específicos da página dashboard ────────────────────── */
-
-    /* Frame com o protótipo — usa visual do .card mas sem padding interno */
-    .dashboard-frame {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0;
-      overflow: hidden;
-      background: var(--cor-fundo-card);
-      border: 1px solid var(--cor-borda);
-      border-radius: var(--raio-lg);
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-      /* Scroll reveal (mesma técnica do main.js) */
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s cubic-bezier(.2,.7,.3,1), transform 0.7s cubic-bezier(.2,.7,.3,1);
-    }
-
-    .dashboard-frame__chrome {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.75rem 1.25rem;
-      border-bottom: 1px solid var(--cor-borda);
-      background: rgba(13, 18, 9, 0.6);
-    }
-
-    .dashboard-frame__dots {
-      display: flex;
-      gap: 0.4rem;
-    }
-    .dashboard-frame__dot {
-      width: 10px; height: 10px;
-      border-radius: 999px;
-      background: var(--cor-borda);
-      border: 1px solid rgba(139, 175, 110, 0.2);
-    }
-    .dashboard-frame__dot--ativo {
-      background: var(--cor-primaria);
-      box-shadow: 0 0 6px rgba(139, 175, 110, 0.6);
-    }
-
-    .dashboard-frame__url {
-      flex: 1;
-      padding: 0.25rem 0.75rem;
-      background: var(--cor-fundo);
-      border: 1px solid var(--cor-borda);
-      border-radius: 999px;
-      font-family: var(--fonte-corpo);
-      font-size: 0.75rem;
-      color: var(--cor-texto-muted);
-      letter-spacing: 0.5px;
-    }
-
-    .dashboard-frame__badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-family: var(--fonte-corpo);
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      color: var(--cor-destaque);
-      text-transform: uppercase;
-    }
-    .dashboard-frame__badge [data-lucide] {
-      width: 12px; height: 12px;
-      stroke-width: 2.5;
-    }
-
-    .dashboard-iframe {
-      display: block;
-      width: 100%;
-      height: 840px;
-      border: 0;
-      background: var(--cor-fundo);
-    }
-
-    /* Estado visível (revelado pelo IntersectionObserver) */
-    .dashboard-frame.revelado {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Indicador de instrução flutuante */
-    .dashboard-dica {
-      max-width: 1100px;
-      margin: 1.5rem auto 0;
-      padding: 1rem 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      background: rgba(200, 168, 75, 0.06);
-      border: 1px solid rgba(200, 168, 75, 0.2);
-      border-radius: var(--raio);
-    }
-    .dashboard-dica [data-lucide] {
-      width: 20px;
-      height: 20px;
-      color: var(--cor-destaque);
-      flex-shrink: 0;
-    }
-    .dashboard-dica p {
-      margin: 0;
-      font-size: 0.875rem;
-      color: var(--cor-texto-muted);
-      line-height: 1.6;
-    }
-    .dashboard-dica strong {
-      color: var(--cor-texto-claro);
-      font-weight: 600;
-    }
-
-    @media (max-width: 768px) {
-      .dashboard-iframe { height: 780px; }
-      .dashboard-frame__url { font-size: 0.65rem; padding: 0.2rem 0.5rem; }
-      .dashboard-frame__badge span { display: none; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/utilitarios.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
 </head>
 <body>
 
@@ -250,7 +131,7 @@
         <div class="destaque-box texto-centro">
           <span class="secao__tag">Próximos passos</span>
           <h2 class="secao__titulo">Quer entender a engenharia por trás?</h2>
-          <p class="secao__descricao" style="margin-bottom: 2rem;">Conheça os pilares, a Árvore de Habilidades, o sistema de ranking e como pretendemos sustentar as recompensas reais a longo prazo.</p>
+          <p class="secao__descricao u-mb-2">Conheça os pilares, a Árvore de Habilidades, o sistema de ranking e como pretendemos sustentar as recompensas reais a longo prazo.</p>
           <div class="flex-gap flex-center">
             <a href="ecoscore.html" class="btn btn--primario">Ver o EcoScore completo</a>
             <a href="como-funciona.html" class="btn btn--contorno">Como Funciona →</a>
@@ -268,7 +149,7 @@
         <div class="destaque-box texto-centro">
           <span class="secao__tag">Próximo passo</span>
           <h2 class="secao__titulo">Ainda tem dúvidas?</h2>
-          <p class="secao__descricao" style="margin-bottom: 2rem;">Reunimos as perguntas mais frequentes sobre validação, EcoPoints, ranking e recompensas reais.</p>
+          <p class="secao__descricao u-mb-2">Reunimos as perguntas mais frequentes sobre validação, EcoPoints, ranking e recompensas reais.</p>
           <div class="flex-gap flex-center">
             <a href="faq.html" class="btn btn--primario btn--grande">Ver o FAQ →</a>
           </div>
@@ -314,26 +195,6 @@
   <script src="js/menu.js"></script>
   <script src="js/main.js"></script>
   <script src="js/micelio.js"></script>
-
-  <script>
-    // Scroll reveal específico do dashboard frame
-    (function () {
-      var frame = document.getElementById('dashboardFrame');
-      if (!frame) return;
-      if (!('IntersectionObserver' in window)) {
-        frame.classList.add('revelado');
-        return;
-      }
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            frame.classList.add('revelado');
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.2 });
-      io.observe(frame);
-    })();
-  </script>
+  <script src="js/dashboard.js"></script>
 </body>
 </html>

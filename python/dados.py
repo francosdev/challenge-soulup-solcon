@@ -3,6 +3,7 @@
 # ============================================================
 
 import json
+import math
 import os
 from datetime import datetime
 
@@ -52,8 +53,14 @@ def normalizar_inteiro(valor):
         return max(0, valor)
     if type(valor) == float:
         return max(0, int(valor))
-    if type(valor) == str and eh_numero_positivo(valor):
-        return max(0, int(float(valor.replace(",", "."))))
+    if type(valor) == str:
+        try:
+            numero = float(valor.strip().replace(",", "."))
+            if not math.isfinite(numero):
+                return 0
+            return max(0, int(numero))
+        except (ValueError, OverflowError):
+            return 0
     return 0
 
 
@@ -62,8 +69,14 @@ def normalizar_quantidade(valor):
         return 0
     if type(valor) == int or type(valor) == float:
         return max(0, valor)
-    if type(valor) == str and eh_numero_positivo(valor):
-        return float(valor.replace(",", "."))
+    if type(valor) == str:
+        try:
+            numero = float(valor.strip().replace(",", "."))
+            if not math.isfinite(numero):
+                return 0
+            return max(0, numero)
+        except (ValueError, OverflowError):
+            return 0
     return 0
 
 

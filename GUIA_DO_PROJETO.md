@@ -374,7 +374,7 @@ Esse arquivo esta no `.gitignore`, entao nao deve ir para o Git.
 - `autenticacao.py` importa `msvcrt`, que e especifico do Windows, mas existe fallback com `getpass`.
 - O sistema usa variaveis globais em `dados.py`, principalmente `usuarios` e `ranking_encerrado`.
 - O JSON atual contem dados de usuarios. Cuidado ao compartilhar.
-- O arquivo `ListaRankingDeJogos.py` parece ser um exercicio separado de lista/ranking de jogos. Ele nao faz parte do fluxo principal do EcoScore.
+- A pasta `exercicios/` guarda exercicios separados, como `ListaRankingDeJogos.py`. Esses arquivos nao fazem parte do fluxo principal do EcoScore.
 
 ## Parte HTML/CSS/JavaScript
 

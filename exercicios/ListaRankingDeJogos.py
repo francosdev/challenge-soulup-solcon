@@ -1,7 +1,21 @@
 jogos = []
 
+def ler_quantidade_jogos():
+    while True:
+        try:
+            quantidade = int(input('Quantos jogos deseja cadastrar? '))
+        except ValueError:
+            print('Digite um numero inteiro valido.')
+            continue
+
+        if quantidade < 0:
+            print('A quantidade nao pode ser negativa.')
+            continue
+
+        return quantidade
+
 def cadastrar_jogos():
-    quantidade = int(input('Quantos jogos deseja cadastrar? '))
+    quantidade = ler_quantidade_jogos()
     for _ in range(quantidade):
         nome = input('Digite o nome do jogo: ')
         jogos.append(nome)
@@ -68,4 +82,5 @@ def menu():
         else:
             print('Opcao invalida. Tente novamente.')
 
-menu()
+if __name__ == "__main__":
+    menu()

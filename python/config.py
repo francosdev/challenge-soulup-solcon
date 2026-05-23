@@ -14,6 +14,8 @@ ARQUIVO_LOG = os.path.join(BASE_DIR, "ecoscore_auditoria.txt")
 ADMIN_EMAIL = "admin@ecoscore.com"
 META_PONTOS = 100
 HASH_ADMIN_LEGADO_FRACO = "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9"
+OPCOES_MENU_INICIAL = ("1", "2", "3", "0")
+SLUGS_CATEGORIAS = ("plantio", "reciclagem", "agua", "energia")
 
 CATEGORIAS = {
     "1": {"nome": "Plantio e Jardinagem", "slug": "plantio", "peso": 5.0},

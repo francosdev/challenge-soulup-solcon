@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/componentes.css" />
   <link rel="stylesheet" href="css/responsivo.css" />
+  <link rel="stylesheet" href="css/utilitarios.css" />
 </head>
 <body>
 
@@ -56,19 +57,19 @@
         </div>
 
         <!-- 3 CAMADAS EXPLICADAS -->
-        <div class="grid-3" style="margin-bottom: 3rem;">
+        <div class="grid-3 u-mb-3">
           <div class="card texto-centro">
-            <div class="card__icone card__icone--verde" style="margin: 0 auto 1rem;"><i data-lucide="help-circle"></i></div>
+            <div class="card__icone card__icone--verde u-m-0-auto-1"><i data-lucide="help-circle"></i></div>
             <h3 class="card__titulo">1. Quiz</h3>
             <p class="card__texto">Baixo atrito. Ativa o loop de recompensa rápida e ensina o conceito antes de exigir qualquer ação real.</p>
           </div>
           <div class="card texto-centro">
-            <div class="card__icone card__icone--azul" style="margin: 0 auto 1rem;"><i data-lucide="camera"></i></div>
+            <div class="card__icone card__icone--azul u-m-0-auto-1"><i data-lucide="camera"></i></div>
             <h3 class="card__titulo">2. Evidência</h3>
             <p class="card__texto">Foto capturada direto no app — sem upload externo. Elimina fraude sem adicionar fricção para quem está sendo honesto.</p>
           </div>
           <div class="card texto-centro">
-            <div class="card__icone card__icone--laranja" style="margin: 0 auto 1rem;"><i data-lucide="award"></i></div>
+            <div class="card__icone card__icone--laranja u-m-0-auto-1"><i data-lucide="award"></i></div>
             <h3 class="card__titulo">3. Selo</h3>
             <p class="card__texto">Concedido automaticamente ao completar a trilha. O peso do selo vem do caminho percorrido, não de votos externos.</p>
           </div>
@@ -76,7 +77,7 @@
 
         <div class="skill-tree">
           <div class="skill-tree__centro"><i data-lucide="leaf"></i> EcoScore — MVP</div>
-          <div class="skill-tree__ramos" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="skill-tree__ramos u-grid-3col">
 
             <div class="skill-ramo">
               <div class="skill-ramo__emoji"><i data-lucide="recycle"></i></div>
@@ -112,11 +113,11 @@
           </div>
         </div>
 
-        <div class="destaque-box mt-4 texto-centro" style="margin-top: 2.5rem;">
-          <p style="color: var(--cor-texto-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">Verde = desbloqueado. A progressão é por camadas de comprometimento — não de complexidade técnica.</p>
+        <div class="destaque-box mt-4 texto-centro u-mt-25">
+          <p class="u-text-muted u-fs-090 u-mb-05">Verde = desbloqueado. A progressão é por camadas de comprometimento — não de complexidade técnica.</p>
           <div class="flex-gap flex-center mt-2">
             <span class="badge badge--verde">● Desbloqueado</span>
-            <span class="badge" style="background: rgba(30,58,95,0.5); color: var(--cor-texto-muted); border: 1px solid var(--cor-borda);">● Bloqueado</span>
+            <span class="badge u-bg-glass-blue u-text-muted u-border-soft">● Bloqueado</span>
           </div>
         </div>
       </div>
@@ -135,37 +136,37 @@
         </div>
         <div class="grid-3">
           <div class="card">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+            <div class="u-row-between-start">
               <span class="badge badge--verde">Em progresso</span>
-              <span style="font-size: 0.8rem; color: var(--cor-texto-muted);">2/3 camadas</span>
+              <span class="u-fs-080 u-text-muted">2/3 camadas</span>
             </div>
             <div class="card__icone card__icone--azul"><i data-lucide="recycle"></i></div>
             <h3 class="card__titulo">Reciclagem</h3>
             <p class="card__texto">Quiz de separação básica concluído. Próximo passo: foto no ponto de descarte, capturada direto no app.</p>
             <div class="progresso mt-2"><div class="progresso__barra" data-valor="66"></div></div>
-            <p style="font-size: 0.75rem; color: var(--cor-texto-muted); margin-top: 0.4rem;">Camada atual: Evidência</p>
+            <p class="u-fs-075 u-text-muted u-mt-04">Camada atual: Evidência</p>
           </div>
           <div class="card">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+            <div class="u-row-between-start">
               <span class="badge badge--verde">Em progresso</span>
-              <span style="font-size: 0.8rem; color: var(--cor-texto-muted);">1/3 camadas</span>
+              <span class="u-fs-080 u-text-muted">1/3 camadas</span>
             </div>
             <div class="card__icone card__icone--verde"><i data-lucide="sprout"></i></div>
             <h3 class="card__titulo">Jardinagem</h3>
             <p class="card__texto">Qualquer recipiente conta: garrafa PET, copo, lata. A evidência intermediária 2 exige uma foto 14 dias após o plantio — o único ponto com tempo real obrigatório.</p>
             <div class="progresso mt-2"><div class="progresso__barra" data-valor="33"></div></div>
-            <p style="font-size: 0.75rem; color: var(--cor-texto-muted); margin-top: 0.4rem;">Camada atual: Evidência</p>
+            <p class="u-fs-075 u-text-muted u-mt-04">Camada atual: Evidência</p>
           </div>
           <div class="card">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+            <div class="u-row-between-start">
               <span class="badge badge--laranja">Não iniciada</span>
-              <span style="font-size: 0.8rem; color: var(--cor-texto-muted);">0/3 camadas</span>
+              <span class="u-fs-080 u-text-muted">0/3 camadas</span>
             </div>
             <div class="card__icone card__icone--azul"><i data-lucide="droplets"></i></div>
             <h3 class="card__titulo">Água</h3>
             <p class="card__texto">Quiz de consumo consciente disponível. Evidência: adaptações no lar fotografadas no app. Sem necessidade de fatura ou comprovante externo.</p>
             <div class="progresso mt-2"><div class="progresso__barra" data-valor="0"></div></div>
-            <p style="font-size: 0.75rem; color: var(--cor-texto-muted); margin-top: 0.4rem;">Camada atual: Quiz</p>
+            <p class="u-fs-075 u-text-muted u-mt-04">Camada atual: Quiz</p>
           </div>
         </div>
       </div>
@@ -183,12 +184,12 @@
       <p class="secao__descricao">Um protótipo interativo do que o usuário vê depois de uma ação validada. Mascote vivo, métricas reais e feedback imediato.</p>
     </div>
 
-    <a href="dashboard.html" style="display:block;text-decoration:none;color:inherit;">
-      <div class="card" style="display:grid;grid-template-columns:auto 1fr auto;gap:2rem;align-items:center;padding:2rem;cursor:pointer;transition:var(--transicao);">
+    <a href="dashboard.html" class="u-block u-no-underline u-text-inherit">
+      <div class="card u-grid u-grid-cols-auto-1fr-auto u-gap-2 u-items-center u-p-2 u-cursor-pointer u-transition">
 
         <!-- Mascote Solzinho · SVG inline (sem dependência externa) -->
-        <div style="width:96px;height:96px;flex-shrink:0;filter:drop-shadow(0 6px 16px rgba(139,175,110,0.25));">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+        <div class="u-mascote">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="u-w-full u-h-full">
             <circle cx="50" cy="55" r="38" fill="#B8D49A" stroke="#3D4D35" stroke-width="3"/>
             <path d="M 22 56 q 14 -10 28 -2 q 8 6 -2 14 q -16 6 -22 -2 q -10 -6 -4 -10 Z" fill="#8BAF6E" stroke="#3D4D35" stroke-width="2"/>
             <path d="M 54 28 q 16 -2 26 8 q 4 12 -8 14 q -10 0 -16 -8 q -8 -8 -2 -14 Z" fill="#8BAF6E" stroke="#3D4D35" stroke-width="2"/>
@@ -203,40 +204,40 @@
 
         <!-- Conteúdo -->
         <div>
-          <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem;flex-wrap:wrap;">
+          <div class="u-flex u-items-center u-gap-05 u-mb-075 u-flex-wrap">
             <span class="badge badge--verde">Protótipo navegável</span>
-            <span style="font-size:0.75rem;color:var(--cor-texto-muted);letter-spacing:0.5px;">MOBILE-FIRST · MVP</span>
+            <span class="u-fs-075 u-text-muted u-ls-05">MOBILE-FIRST · MVP</span>
           </div>
-          <h3 class="card__titulo" style="font-size:1.6rem;margin-bottom:0.5rem;">Dashboard de Impacto</h3>
-          <p class="card__texto" style="margin-bottom:1rem;">Acompanhe ao vivo o resultado das ações sustentáveis: CO₂ evitado, árvores equivalentes, água economizada e energia poupada. Tudo guiado pelo Solzinho, o mascote ecológico do EcoScore.</p>
+          <h3 class="card__titulo u-fs-160 u-mb-05">Dashboard de Impacto</h3>
+          <p class="card__texto u-mb-1">Acompanhe ao vivo o resultado das ações sustentáveis: CO₂ evitado, árvores equivalentes, água economizada e energia poupada. Tudo guiado pelo Solzinho, o mascote ecológico do EcoScore.</p>
 
           <!-- Mini stats -->
-          <div style="display:flex;gap:1.5rem;padding-top:1rem;border-top:1px solid var(--cor-borda);flex-wrap:wrap;">
+          <div class="u-flex u-gap-15 u-pt-1 u-border-t-soft u-flex-wrap">
             <div>
-              <div style="font-family:var(--fonte-titulo);font-size:1.4rem;font-weight:700;color:var(--cor-primaria);line-height:1;">47,3<span style="font-size:0.8rem;color:var(--cor-texto-muted);font-weight:400;margin-left:2px;">kg</span></div>
-              <div style="font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--cor-texto-muted);margin-top:4px;">CO₂ Evitado</div>
+              <div class="u-stat-num">47,3<span class="u-fs-080 u-text-muted u-fw-400 u-ml-2px">kg</span></div>
+              <div class="u-stat-label">CO₂ Evitado</div>
             </div>
             <div>
-              <div style="font-family:var(--fonte-titulo);font-size:1.4rem;font-weight:700;color:var(--cor-primaria);line-height:1;">3,2</div>
-              <div style="font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--cor-texto-muted);margin-top:4px;">Árvores eq.</div>
+              <div class="u-stat-num">3,2</div>
+              <div class="u-stat-label">Árvores eq.</div>
             </div>
             <div>
-              <div style="font-family:var(--fonte-titulo);font-size:1.4rem;font-weight:700;color:var(--cor-primaria);line-height:1;">184<span style="font-size:0.8rem;color:var(--cor-texto-muted);font-weight:400;margin-left:2px;">L</span></div>
-              <div style="font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--cor-texto-muted);margin-top:4px;">Água</div>
+              <div class="u-stat-num">184<span class="u-fs-080 u-text-muted u-fw-400 u-ml-2px">L</span></div>
+              <div class="u-stat-label">Água</div>
             </div>
             <div>
-              <div style="font-family:var(--fonte-titulo);font-size:1.4rem;font-weight:700;color:var(--cor-destaque);line-height:1;">1.842</div>
-              <div style="font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--cor-texto-muted);margin-top:4px;">Soul Points</div>
+              <div class="u-stat-num u-stat-num--destaque">1.842</div>
+              <div class="u-stat-label">Soul Points</div>
             </div>
           </div>
         </div>
 
         <!-- CTA arrow -->
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem;flex-shrink:0;">
-          <div style="width:48px;height:48px;border-radius:50%;background:var(--cor-primaria);display:flex;align-items:center;justify-content:center;color:#111610;">
-            <i data-lucide="arrow-right" style="width:22px;height:22px;stroke-width:2.5;"></i>
+        <div class="u-flex u-flex-col u-items-end u-gap-05 u-flex-shrink-0">
+          <div class="u-icon-btn">
+            <i data-lucide="arrow-right" class="u-w-22px u-h-22px u-stroke-2-5"></i>
           </div>
-          <span style="font-size:0.75rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--cor-primaria);font-weight:700;">Abrir</span>
+          <span class="u-fs-075 u-ls-15 u-uppercase u-text-primaria u-fw-700">Abrir</span>
         </div>
       </div>
     </a>
@@ -254,7 +255,7 @@
           <h2 class="secao__titulo">Ranking de Soul Points</h2>
           <p class="secao__descricao">O top do ranking mensal recebe a conta de energia elétrica 100% subsidiada. Competição real, recompensa real.</p>
         </div>
-        <div class="grid-2" style="gap: 3rem; align-items: flex-start;">
+        <div class="grid-2 u-gap-3 u-items-start">
           <div class="ranking-lista">
             <div class="ranking-item ranking-item--1">
               <div class="ranking-posicao ranking-posicao--1">🥇</div>
@@ -294,7 +295,7 @@
             </div>
             <div class="ranking-item">
               <div class="ranking-posicao ranking-posicao--outros">4</div>
-              <div class="ranking-avatar" style="background: var(--cor-fundo-card2); color: var(--cor-primaria); border: 2px solid rgba(0,214,143,0.3);">M</div>
+              <div class="ranking-avatar u-bg-card2 u-text-primaria u-border-primaria">M</div>
               <div class="ranking-info">
                 <div class="ranking-nome">Marina Costa</div>
                 <div class="ranking-cidade">São Paulo, SP</div>
@@ -306,7 +307,7 @@
             </div>
             <div class="ranking-item">
               <div class="ranking-posicao ranking-posicao--outros">5</div>
-              <div class="ranking-avatar" style="background: var(--cor-fundo-card2); color: var(--cor-primaria); border: 2px solid rgba(0,214,143,0.3);">J</div>
+              <div class="ranking-avatar u-bg-card2 u-text-primaria u-border-primaria">J</div>
               <div class="ranking-info">
                 <div class="ranking-nome">Julia Mendes</div>
                 <div class="ranking-cidade">Belo Horizonte, MG</div>
@@ -317,32 +318,32 @@
               </div>
             </div>
           </div>
-          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div class="u-flex u-flex-col u-gap-15">
             <div class="destaque-box--laranja destaque-box">
-              <div style="margin-bottom: 0.75rem;" class="icone-md icone-laranja"><i data-lucide="zap"></i></div>
-              <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--cor-texto-claro); margin-bottom: 0.6rem;">Recompensa do Top 1</h3>
-              <p style="color: var(--cor-texto-muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 0.75rem;">O primeiro colocado do ranking mensal recebe a conta de energia elétrica 100% subsidiada por um mês inteiro.</p>
-              <p style="color: var(--cor-texto-muted); font-size: 0.82rem; line-height: 1.7; margin-bottom: 1rem;">A viabilidade está sendo validada com um modelo de patrocínio: empresas do setor de energia e ESG cobrem o benefício em troca de visibilidade qualificada — usuários com comportamento sustentável documentado são a audiência mais valiosa que elas podem alcançar. É um modelo em teste, não uma promessa.</p>
-              <div class="badge badge--laranja" style="font-size: 0.8rem; padding: 0.4rem 1rem;">Valor médio: R$ 280/mês</div>
+              <div class="icone-md icone-laranja u-mb-075"><i data-lucide="zap"></i></div>
+              <h3 class="u-card-h3 u-mb-06">Recompensa do Top 1</h3>
+              <p class="u-text-muted u-fs-090 u-lh-170 u-mb-075">O primeiro colocado do ranking mensal recebe a conta de energia elétrica 100% subsidiada por um mês inteiro.</p>
+              <p class="u-text-muted u-fs-082 u-lh-170 u-mb-1">A viabilidade está sendo validada com um modelo de patrocínio: empresas do setor de energia e ESG cobrem o benefício em troca de visibilidade qualificada — usuários com comportamento sustentável documentado são a audiência mais valiosa que elas podem alcançar. É um modelo em teste, não uma promessa.</p>
+              <div class="badge badge--laranja u-fs-080 u-p-04-1">Valor médio: R$ 280/mês</div>
             </div>
             <div class="card">
               <h3 class="card__titulo mb-2">Como acumular Soul Points</h3>
               <div class="feature-lista">
                 <div class="feature-item">
                   <div class="feature-item__check"><i data-lucide="check"></i></div>
-                  <span><strong style="color: var(--cor-texto-claro);">Quizzes</strong> — pontos por camada de aprendizado</span>
+                  <span><strong class="u-text-claro">Quizzes</strong> — pontos por camada de aprendizado</span>
                 </div>
                 <div class="feature-item">
                   <div class="feature-item__check"><i data-lucide="check"></i></div>
-                  <span><strong style="color: var(--cor-texto-claro);">Evidências</strong> — pontos por foto validada no app</span>
+                  <span><strong class="u-text-claro">Evidências</strong> — pontos por foto validada no app</span>
                 </div>
                 <div class="feature-item">
                   <div class="feature-item__check"><i data-lucide="check"></i></div>
-                  <span><strong style="color: var(--cor-texto-claro);">Selos</strong> — bônus ao completar a trilha completa</span>
+                  <span><strong class="u-text-claro">Selos</strong> — bônus ao completar a trilha completa</span>
                 </div>
                 <div class="feature-item">
                   <div class="feature-item__check"><i data-lucide="check"></i></div>
-                  <span><strong style="color: var(--cor-texto-claro);">Jardinagem cruzada</strong> — vaso de PET conta em Reciclagem e Jardinagem simultaneamente</span>
+                  <span><strong class="u-text-claro">Jardinagem cruzada</strong> — vaso de PET conta em Reciclagem e Jardinagem simultaneamente</span>
                 </div>
               </div>
             </div>
@@ -364,23 +365,23 @@
         </div>
         <div class="grid-4">
           <div class="card texto-centro">
-            <div style="margin-bottom: 0.75rem;" class="icone-card-display"><i data-lucide="shirt"></i></div>
-            <h3 class="card__titulo" style="font-size: 1rem;">Itens Base</h3>
+            <div class="icone-card-display u-mb-075"><i data-lucide="shirt"></i></div>
+            <h3 class="card__titulo u-fs-100">Itens Base</h3>
             <p class="card__texto">Gratuitos desde o início — sem custo de pontos</p>
           </div>
           <div class="card texto-centro">
-            <div style="margin-bottom: 0.75rem;" class="icone-card-display"><i data-lucide="lock-open"></i></div>
-            <h3 class="card__titulo" style="font-size: 1rem;">Itens de Missão</h3>
+            <div class="icone-card-display u-mb-075"><i data-lucide="lock-open"></i></div>
+            <h3 class="card__titulo u-fs-100">Itens de Missão</h3>
             <p class="card__texto">Desbloqueados ao completar trilhas — não estão à venda</p>
           </div>
           <div class="card texto-centro">
-            <div style="margin-bottom: 0.75rem;" class="icone-card-display"><i data-lucide="medal"></i></div>
-            <h3 class="card__titulo" style="font-size: 1rem;">Selos no Perfil</h3>
+            <div class="icone-card-display u-mb-075"><i data-lucide="medal"></i></div>
+            <h3 class="card__titulo u-fs-100">Selos no Perfil</h3>
             <p class="card__texto">Status conquistado visível para toda a comunidade</p>
           </div>
           <div class="card texto-centro">
-            <div style="margin-bottom: 0.75rem;" class="icone-card-display"><i data-lucide="user-check"></i></div>
-            <h3 class="card__titulo" style="font-size: 1rem;">Identidade Real</h3>
+            <div class="icone-card-display u-mb-075"><i data-lucide="user-check"></i></div>
+            <h3 class="card__titulo u-fs-100">Identidade Real</h3>
             <p class="card__texto">O perfil conta sua história — não seu saldo de pontos</p>
           </div>
         </div>
@@ -393,15 +394,15 @@
     <!-- REPUTAÇÃO SOCIAL -->
     <section class="secao secao--escura">
       <div class="container">
-        <div class="grid-2" style="gap: 4rem; align-items: center;">
+        <div class="grid-2 u-gap-4 u-items-center">
           <div>
             <span class="secao__tag">Comunidade</span>
             <h2 class="secao__titulo">Reputação social e visibilidade</h2>
-            <p style="color: var(--cor-texto-muted); line-height: 1.8; margin-bottom: 1.25rem;">
+            <p class="u-text-muted u-lh-180 u-mb-125">
               Cada post pode receber ups e downs da comunidade. Conteúdo relevante sobe, conteúdo fraco some. Sem moderação manual, sem algoritmo opaco — a própria base de usuários decide o que merece atenção.
             </p>
-            <p style="color: var(--cor-texto-muted); line-height: 1.8; margin-bottom: 1.5rem;">
-              O diferencial está no <strong style="color: var(--cor-primaria);">peso da reputação acumulada</strong>: um up de quem completou a trilha de Reciclagem vale mais do que um up de quem criou a conta ontem. Isso cria um incentivo concreto para investir na própria trajetória — não só pelos selos, mas porque a voz dentro da comunidade cresce junto. Isso também é uma forma de aumentar o engajamento da plataforma e resolver um dos problemas encontrados.
+            <p class="u-card-text">
+              O diferencial está no <strong class="u-text-primaria">peso da reputação acumulada</strong>: um up de quem completou a trilha de Reciclagem vale mais do que um up de quem criou a conta ontem. Isso cria um incentivo concreto para investir na própria trajetória — não só pelos selos, mas porque a voz dentro da comunidade cresce junto. Isso também é uma forma de aumentar o engajamento da plataforma e resolver um dos problemas encontrados.
             </p>
             <div class="feature-lista">
               <div class="feature-item">
@@ -418,36 +419,36 @@
               </div>
             </div>
           </div>
-          <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div class="u-flex u-flex-col u-gap-1">
             <div class="card">
-              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem;">
-                <div class="ranking-avatar" style="width:38px;height:38px;font-size:0.9rem;">M</div>
+              <div class="u-flex u-items-center u-gap-1 u-mb-075">
+                <div class="ranking-avatar u-w-38px u-h-38px u-fs-090">M</div>
                 <div>
-                  <div style="font-size:0.9rem;font-weight:600;color:var(--cor-texto-claro);">Marina Costa</div>
-                  <div style="font-size:0.75rem;color:var(--cor-texto-muted);">Recicladora Certificada · Cultivadora Urbana</div>
+                  <div class="u-fs-090 u-fw-600 u-text-claro">Marina Costa</div>
+                  <div class="u-fs-075 u-text-muted">Recicladora Certificada · Cultivadora Urbana</div>
                 </div>
               </div>
-              <p style="font-size:0.875rem;color:var(--cor-texto-muted);margin-bottom:0.75rem;">Fiz um vaso com garrafa PET — contou nas duas trilhas ao mesmo tempo.</p>
-              <div style="display:flex;gap:0.75rem;">
-                <span style="display:flex;align-items:center;gap:0.3rem;font-size:0.8rem;color:var(--cor-primaria);font-weight:700;"><i data-lucide="thumbs-up" style="width:14px;height:14px;"></i> 142</span>
-                <span style="display:flex;align-items:center;gap:0.3rem;font-size:0.8rem;color:var(--cor-texto-muted);"><i data-lucide="thumbs-down" style="width:14px;height:14px;"></i> 3</span>
+              <p class="u-fs-0875 u-text-muted u-mb-075">Fiz um vaso com garrafa PET — contou nas duas trilhas ao mesmo tempo.</p>
+              <div class="u-flex u-gap-075">
+                <span class="u-mini-meta u-mini-meta--primaria"><i data-lucide="thumbs-up" class="u-w-14px u-h-14px"></i> 142</span>
+                <span class="u-mini-meta"><i data-lucide="thumbs-down" class="u-w-14px u-h-14px"></i> 3</span>
               </div>
             </div>
             <div class="card">
-              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem;">
-                <div class="ranking-avatar" style="width:38px;height:38px;font-size:0.9rem;background:var(--cor-fundo-card2);color:var(--cor-texto-muted);border:2px solid var(--cor-borda);">?</div>
+              <div class="u-flex u-items-center u-gap-1 u-mb-075">
+                <div class="ranking-avatar u-w-38px u-h-38px u-fs-090 u-bg-card2 u-text-muted u-border-outline">?</div>
                 <div>
-                  <div style="font-size:0.9rem;font-weight:600;color:var(--cor-texto-claro);">Usuário novo</div>
-                  <div style="font-size:0.75rem;color:var(--cor-texto-muted);">Sem selos · Sem histórico</div>
+                  <div class="u-fs-090 u-fw-600 u-text-claro">Usuário novo</div>
+                  <div class="u-fs-075 u-text-muted">Sem selos · Sem histórico</div>
                 </div>
               </div>
-              <p style="font-size:0.875rem;color:var(--cor-texto-muted);margin-bottom:0.75rem;">Sustentabilidade é importante! #verde #planeta</p>
-              <div style="display:flex;gap:0.75rem;">
-                <span style="display:flex;align-items:center;gap:0.3rem;font-size:0.8rem;color:var(--cor-texto-muted);"><i data-lucide="thumbs-up" style="width:14px;height:14px;"></i> 4</span>
-                <span style="display:flex;align-items:center;gap:0.3rem;font-size:0.8rem;color:var(--cor-texto-muted);"><i data-lucide="thumbs-down" style="width:14px;height:14px;"></i> 1</span>
+              <p class="u-fs-0875 u-text-muted u-mb-075">Sustentabilidade é importante! #verde #planeta</p>
+              <div class="u-flex u-gap-075">
+                <span class="u-mini-meta"><i data-lucide="thumbs-up" class="u-w-14px u-h-14px"></i> 4</span>
+                <span class="u-mini-meta"><i data-lucide="thumbs-down" class="u-w-14px u-h-14px"></i> 1</span>
               </div>
             </div>
-            <p style="font-size:0.78rem;color:var(--cor-texto-muted);text-align:center;">O sistema não precisa dizer que evidências valem mais. O comportamento emerge da mecânica.</p>
+            <p class="u-fs-078 u-text-muted u-text-center">O sistema não precisa dizer que evidências valem mais. O comportamento emerge da mecânica.</p>
           </div>
         </div>
       </div>
@@ -462,7 +463,7 @@
         <div class="destaque-box texto-centro">
           <span class="secao__tag">Próximo passo</span>
           <h2 class="secao__titulo">Veja como o sistema funciona</h2>
-          <p class="secao__descricao" style="margin-bottom: 2rem;">Acompanhe o fluxo completo: da ação real até a validação por IA e a recompensa final.</p>
+          <p class="secao__descricao u-mb-2">Acompanhe o fluxo completo: da ação real até a validação por IA e a recompensa final.</p>
           <div class="flex-gap flex-center">
             <a href="como-funciona.html" class="btn btn--primario btn--grande">Como Funciona →</a>
           </div>

@@ -2,7 +2,7 @@
 #  EcoScore - impacto ambiental e histórico
 # ============================================================
 
-from config import CATEGORIAS
+from config import CATEGORIAS, SLUGS_CATEGORIAS
 from interface import cabecalho, linha
 
 
@@ -21,7 +21,18 @@ def texto_normalizado(texto):
 
 
 def categoria_eh(categoria, slug):
+    if slug not in SLUGS_CATEGORIAS:
+        return False
+
     texto = texto_normalizado(categoria)
+    nomes_por_slug = []
+
+    for dados_categoria in CATEGORIAS.values():
+        if dados_categoria["slug"] == slug:
+            nomes_por_slug.append(texto_normalizado(dados_categoria["nome"]))
+
+    if texto in nomes_por_slug:
+        return True
 
     if slug == "plantio":
         return "plantio" in texto

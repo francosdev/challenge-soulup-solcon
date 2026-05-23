@@ -373,8 +373,6 @@ def confirmar_exclusao_conta(usuario):
         print("  Esperamos ver você novamente no EcoScore.")
         linha("━")
         return True
-
-        print("  [!] Não foi possível deletar a conta.")
     return False
 
 

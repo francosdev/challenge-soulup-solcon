@@ -1,0 +1,301 @@
+/* ============================================================
+   UTILITÁRIOS — classes atômicas para substituir style= inline.
+   Toda regra mapeia exatamente o que era usado no markup.
+   Para tokens, usar as variáveis CSS de style.css.
+   ============================================================ */
+
+/* ===== DISPLAY ===== */
+.u-flex             { display: flex; }
+.u-grid             { display: grid; }
+.u-block            { display: block; }
+.u-inline-flex      { display: inline-flex; }
+
+/* ===== FLEX/GRID HELPERS ===== */
+.u-flex-col         { flex-direction: column; }
+.u-flex-wrap        { flex-wrap: wrap; }
+.u-flex-shrink-0    { flex-shrink: 0; }
+.u-items-center     { align-items: center; }
+.u-items-start      { align-items: flex-start; }
+.u-items-end        { align-items: flex-end; }
+.u-justify-center   { justify-content: center; }
+.u-justify-between  { justify-content: space-between; }
+.u-grid-3col                { grid-template-columns: repeat(3, 1fr); }
+.u-grid-cols-auto-1fr-auto  { grid-template-columns: auto 1fr auto; }
+
+/* ===== GAP ===== */
+.u-gap-03           { gap: 0.3rem; }
+.u-gap-05           { gap: 0.5rem; }
+.u-gap-06           { gap: 0.6rem; }
+.u-gap-075          { gap: 0.75rem; }
+.u-gap-1            { gap: 1rem; }
+.u-gap-125          { gap: 1.25rem; }
+.u-gap-15           { gap: 1.5rem; }
+.u-gap-2            { gap: 2rem; }
+.u-gap-3            { gap: 3rem; }
+.u-gap-4            { gap: 4rem; }
+
+/* ===== MARGIN-BOTTOM ===== */
+.u-mb-0             { margin-bottom: 0; }
+.u-mb-02            { margin-bottom: 0.2rem; }
+.u-mb-025           { margin-bottom: 0.25rem; }
+.u-mb-04            { margin-bottom: 0.4rem; }
+.u-mb-05            { margin-bottom: 0.5rem; }
+.u-mb-06            { margin-bottom: 0.6rem; }
+.u-mb-075           { margin-bottom: 0.75rem; }
+.u-mb-1             { margin-bottom: 1rem; }
+.u-mb-125           { margin-bottom: 1.25rem; }
+.u-mb-15            { margin-bottom: 1.5rem; }
+.u-mb-2             { margin-bottom: 2rem; }
+.u-mb-3             { margin-bottom: 3rem; }
+
+/* ===== MARGIN-TOP ===== */
+.u-mt-03            { margin-top: 0.3rem; }
+.u-mt-04            { margin-top: 0.4rem; }
+.u-mt-1             { margin-top: 1rem; }
+.u-mt-125           { margin-top: 1.25rem; }
+.u-mt-25            { margin-top: 2.5rem; }
+.u-mt-3             { margin-top: 3rem; }
+.u-mt-4px           { margin-top: 4px; }
+
+/* ===== MARGIN OUTROS ===== */
+.u-m-0              { margin: 0; }
+.u-m-0-auto-1       { margin: 0 auto 1rem; }
+.u-mx-auto          { margin-left: auto; margin-right: auto; }
+.u-ml-2px           { margin-left: 2px; }
+
+/* ===== PADDING ===== */
+.u-p-2              { padding: 2rem; }
+.u-p-15             { padding: 1.5rem; }
+.u-p-25             { padding: 2.5rem; }
+.u-p-125-15         { padding: 1.25rem 1.5rem; }
+.u-p-0875-125       { padding: 0.875rem 1.25rem; }
+.u-p-04-1           { padding: 0.4rem 1rem; }
+.u-pt-075           { padding-top: 0.75rem; }
+.u-pt-1             { padding-top: 1rem; }
+.u-pt-125           { padding-top: 1.25rem; }
+
+/* ===== DIMENSÕES ===== */
+.u-w-full           { width: 100%; }
+.u-h-full           { height: 100%; }
+.u-w-14px           { width: 14px; }
+.u-h-14px           { height: 14px; }
+.u-w-22px           { width: 22px; }
+.u-h-22px           { height: 22px; }
+.u-w-38px           { width: 38px; }
+.u-h-38px           { height: 38px; }
+.u-w-42px           { width: 42px; }
+.u-h-42px           { height: 42px; }
+.u-max-w-700        { max-width: 700px; }
+.u-max-w-780        { max-width: 780px; }
+.u-max-w-800        { max-width: 800px; }
+
+/* ===== TIPOGRAFIA — família ===== */
+.u-ff-titulo        { font-family: var(--fonte-titulo); }
+
+/* ===== TIPOGRAFIA — tamanho ===== */
+.u-fs-070           { font-size: 0.7rem; }
+.u-fs-072           { font-size: 0.72rem; }
+.u-fs-075           { font-size: 0.75rem; }
+.u-fs-078           { font-size: 0.78rem; }
+.u-fs-080           { font-size: 0.8rem; }
+.u-fs-082           { font-size: 0.82rem; }
+.u-fs-085           { font-size: 0.85rem; }
+.u-fs-0875          { font-size: 0.875rem; }
+.u-fs-090           { font-size: 0.9rem; }
+.u-fs-092           { font-size: 0.92rem; }
+.u-fs-100           { font-size: 1rem; }
+.u-fs-110           { font-size: 1.1rem; }
+.u-fs-120           { font-size: 1.2rem; }
+.u-fs-130           { font-size: 1.3rem; }
+.u-fs-140           { font-size: 1.4rem; }
+.u-fs-160           { font-size: 1.6rem; }
+.u-fs-175           { font-size: 1.75rem; }
+.u-fs-180           { font-size: 1.8rem; }
+.u-fs-250           { font-size: 2.5rem; }
+
+/* ===== TIPOGRAFIA — peso ===== */
+.u-fw-400           { font-weight: 400; }
+.u-fw-600           { font-weight: 600; }
+.u-fw-700           { font-weight: 700; }
+
+/* ===== TIPOGRAFIA — estilo ===== */
+.u-fst-italic       { font-style: italic; }
+
+/* ===== LINE-HEIGHT ===== */
+.u-lh-1             { line-height: 1; }
+.u-lh-160           { line-height: 1.6; }
+.u-lh-170           { line-height: 1.7; }
+.u-lh-180           { line-height: 1.8; }
+.u-lh-185           { line-height: 1.85; }
+.u-lh-190           { line-height: 1.9; }
+
+/* ===== LETTER-SPACING ===== */
+.u-ls-05            { letter-spacing: 0.5px; }
+.u-ls-1             { letter-spacing: 1px; }
+.u-ls-15            { letter-spacing: 1.5px; }
+.u-ls-2             { letter-spacing: 2px; }
+
+/* ===== TEXTO ===== */
+.u-uppercase        { text-transform: uppercase; }
+.u-text-center      { text-align: center; }
+.u-no-underline     { text-decoration: none; }
+
+/* ===== COR DE TEXTO ===== */
+.u-text-inherit     { color: inherit; }
+.u-text-claro       { color: var(--cor-texto-claro); }
+.u-text-muted       { color: var(--cor-texto-muted); }
+.u-text-primaria    { color: var(--cor-primaria); }
+.u-text-destaque    { color: var(--cor-destaque); }
+.u-text-white       { color: #fff; }
+.u-text-red         { color: #FF6B6B; }
+.u-text-lime        { color: #B2DD00; }
+.u-text-linkedin    { color: #0A66C2; }
+.u-text-dark        { color: #4A4A4A; }
+.u-text-card-bg     { color: #060E1A; }
+.u-text-fundo       { color: #111610; }
+
+/* ===== BACKGROUND ===== */
+.u-bg-red           { background: #FF6B6B; }
+.u-bg-card2         { background: var(--cor-fundo-card2); }
+.u-bg-red-soft      { background: rgba(255,107,107,0.04); }
+.u-bg-glass-blue    { background: rgba(30,58,95,0.5); }
+.u-bg-primaria      { background: var(--cor-primaria); }
+
+/* ===== BORDA ===== */
+.u-border-soft       { border: 1px solid var(--cor-borda); }
+.u-border-t-soft     { border-top: 1px solid var(--cor-borda); }
+.u-border-primaria   { border: 2px solid rgba(0,214,143,0.3); }
+.u-border-laranja    { border-color: rgba(244,162,97,0.4); }
+.u-border-roxo       { border-color: rgba(124,58,237,0.4); }
+.u-border-red-soft   { border-color: rgba(255,107,107,0.2); }
+.u-border-outline    { border: 2px solid var(--cor-borda); }
+
+/* ===== EFEITOS ===== */
+.u-opacity-80       { opacity: 0.8; }
+.u-cursor-pointer   { cursor: pointer; }
+.u-transition       { transition: var(--transicao); }
+.u-rounded-full     { border-radius: 50%; }
+.u-stroke-2-5       { stroke-width: 2.5; }
+
+/* ============================================================
+   COMPOSTOS NOMEADOS — padrões reincidentes que ficam
+   verbosos demais quebrados em utilitários atômicos.
+   ============================================================ */
+
+/* Linha label+valor da barra de progresso (5x) */
+.u-row-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--cor-texto-muted);
+  margin-bottom: 0.4rem;
+}
+
+/* Header de quest/stat (3x) */
+.u-row-between-start {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+/* Cabeçalho com ícone + título de seção (5x) */
+.u-icon-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.u-icon-row--sm {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* Texto de descrição padrão de card (4x) */
+.u-card-text {
+  color: var(--cor-texto-muted);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* Titulo médio padrão de card (5x: font-size:1.2 + 700 + claro) */
+.u-card-h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--cor-texto-claro);
+}
+
+/* Stat label uppercase pequeno (4x) */
+.u-stat-label {
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--cor-texto-muted);
+  margin-top: 4px;
+}
+
+/* Stat número Fraunces 1.4rem primária (3x) */
+.u-stat-num {
+  font-family: var(--fonte-titulo);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  line-height: 1;
+}
+.u-stat-num--destaque { color: var(--cor-destaque); }
+
+/* Item de menu de cards com ícone (3x) */
+.u-menu-link {
+  padding: 0.875rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+/* Mini badge ícone + texto-muted (3x flex+items+gap03+fs08+muted) */
+.u-mini-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--cor-texto-muted);
+}
+
+/* Mascote container 96x96 com drop-shadow */
+.u-mascote {
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 6px 16px rgba(139,175,110,0.25));
+}
+
+/* Botão circular de ícone (avatar de ação 48x48 com fundo primário) */
+.u-icon-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--cor-primaria);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111610;
+}
+
+/* Avatar circular 32x32 com gradiente (3 variações) */
+.u-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.u-avatar--primaria { background: linear-gradient(135deg, var(--cor-primaria), var(--cor-terciaria)); color: #060E1A; }
+.u-avatar--laranja  { background: linear-gradient(135deg, #F4A261, #E8894A); color: #060E1A; }
+.u-avatar--roxo     { background: linear-gradient(135deg, #7C3AED, #A78BFA); color: #fff; }

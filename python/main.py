@@ -3,9 +3,11 @@
 # ============================================================
 
 import sys
+
 sys.stdout.reconfigure(encoding="utf-8")
 
 from autenticacao import login, recuperar_senha
+from config import OPCOES_MENU_INICIAL
 from dados import carregar_dados
 from interface import cabecalho, exibir_tela_inicial, pausar
 from usuarios import cadastrar_usuario
@@ -15,6 +17,11 @@ def menu_inicial():
     while True:
         exibir_tela_inicial()
         opcao = input("  Opção: ").strip()
+
+        if opcao not in OPCOES_MENU_INICIAL:
+            print("  [!] Opção inválida. Tente novamente.")
+            pausar()
+            continue
 
         match opcao:
             case "1":
@@ -27,9 +34,6 @@ def menu_inicial():
                 cabecalho("ATE LOGO")
                 print("  Continue sendo sustentável. 🌱")
                 break
-            case _:
-                print("  [!] Opção inválida. Tente novamente.")
-                pausar()
 
 
 def main():
