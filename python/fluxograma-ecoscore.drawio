@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="EcoScore - Fluxograma" id="ecoscore-main">
-        <mxGraphModel dx="3092" dy="509" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="3600" math="0" shadow="0">
+        <mxGraphModel dx="3831" dy="1197" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="3600" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -86,7 +86,7 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="grp_auth" value="AUTENTICACAO" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#FBC02D;verticalAlign=top;fontSize=14;fontStyle=1;fontColor=#E65100;" parent="1" vertex="1">
-                    <mxGeometry x="145" y="700" width="2320" height="980" as="geometry"/>
+                    <mxGeometry x="40" y="720" width="2320" height="980" as="geometry"/>
                 </mxCell>
                 <mxCell id="login_email" value="le e-mail" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" parent="1" vertex="1">
                     <mxGeometry x="304" y="760" width="200" height="50" as="geometry"/>
@@ -183,16 +183,16 @@
                 <mxCell id="e_cconfirm_create" value="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#388E3C;fontStyle=1;" parent="1" source="cad_confirm" target="cad_create" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="cad_corrigir" value="corrigir campo&#xa;(novo nome / e-mail / senha)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;dashed=1;" vertex="1" parent="1">
+                <mxCell id="cad_corrigir" value="corrigir campo&#xa;(novo nome / e-mail / senha)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;dashed=1;" parent="1" vertex="1">
                     <mxGeometry x="1005" y="1070" width="220" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="e_cconfirm_corrigir" value="2/3/4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#666666;fontStyle=1;" edge="1" parent="1" source="cad_confirm" target="cad_corrigir">
+                <mxCell id="e_cconfirm_corrigir" value="2/3/4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#666666;fontStyle=1;" parent="1" source="cad_confirm" target="cad_corrigir" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="e_corrigir_loop" value="volta a revisao" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#666666;" edge="1" parent="1" source="cad_corrigir" target="cad_review">
+                <mxCell id="e_corrigir_loop" value="volta a revisao" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#666666;" parent="1" source="cad_corrigir" target="cad_review" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="e_cconfirm_cancel" value="0" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#FFA000;fontStyle=1;dashed=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="cad_confirm" target="back_to_menu_cad">
+                <mxCell id="e_cconfirm_cancel" value="0" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#FFA000;fontStyle=1;dashed=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="cad_confirm" target="back_to_menu_cad" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="560" y="1100"/>
@@ -254,7 +254,7 @@
                 <mxCell id="back_to_menu_rec" value="volta ao menu inicial" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFECB3;strokeColor=#FFA000;dashed=1;fontSize=10;fontStyle=2;" parent="1" vertex="1">
                     <mxGeometry x="1614" y="1340" width="180" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="e_csave_route" value="login automatico" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#82b366;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cad_save" target="route_user">
+                <mxCell id="e_csave_route" value="login automatico" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#82b366;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="cad_save" target="route_user" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="960" y="1305"/>
@@ -467,7 +467,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="grp_admin" value="PAINEL ADMIN   (loop)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;verticalAlign=top;fontSize=14;fontStyle=1;fontColor=#0D47A1;" parent="1" vertex="1">
-                    <mxGeometry x="1260" y="1720" width="1100" height="1620" as="geometry"/>
+                    <mxGeometry x="1260" y="1720" width="1100" height="1240" as="geometry"/>
                 </mxCell>
                 <mxCell id="admin_header" value="exibir_menu_admin(admin)&#xa;Administrador autenticado" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1976D2;fontSize=12;" parent="1" vertex="1">
                     <mxGeometry x="1480" y="1770" width="660" height="60" as="geometry"/>
@@ -625,30 +625,30 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="e_backcad_menu" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#FFA000;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="back_to_menu_cad" target="menu_inicial">
+                <mxCell id="e_backcad_menu" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#FFA000;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="back_to_menu_cad" target="menu_inicial" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="730" y="500"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="e_backrec_menu" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#FFA000;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="back_to_menu_rec" target="menu_inicial">
+                <mxCell id="e_backrec_menu" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#FFA000;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="back_to_menu_rec" target="menu_inicial" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="1610" y="500"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="e_rgeneric_back" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#EF6C00;" edge="1" parent="1" source="rec_generic" target="back_to_menu_rec">
+                <mxCell id="e_rgeneric_back" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#EF6C00;" parent="1" source="rec_generic" target="back_to_menu_rec" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="e_rfail_back" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#C2185B;" edge="1" parent="1" source="rec_fail_log" target="back_to_menu_rec">
+                <mxCell id="e_rfail_back" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#C2185B;" parent="1" source="rec_fail_log" target="back_to_menu_rec" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="adm_reset_fail" value="senha incorreta&#xa;cancela operacao" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8BBD0;strokeColor=#C2185B;fontSize=11;" vertex="1" parent="1">
+                <mxCell id="adm_reset_fail" value="senha incorreta&#xa;cancela operacao" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8BBD0;strokeColor=#C2185B;fontSize=11;" parent="1" vertex="1">
                     <mxGeometry x="1340" y="2680" width="240" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="e_reset_dec_fail" value="nao" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#C2185B;fontStyle=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="adm_reset_dec" target="adm_reset_fail">
+                <mxCell id="e_reset_dec_fail" value="nao" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#C2185B;fontStyle=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="adm_reset_dec" target="adm_reset_fail" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="1320" y="2420"/>
@@ -656,13 +656,13 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="e_reset_fail_back" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#C2185B;" edge="1" parent="1" source="adm_reset_fail" target="admin_back">
+                <mxCell id="e_reset_fail_back" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#C2185B;" parent="1" source="adm_reset_fail" target="admin_back" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="footer" value="Fluxograma do EcoScore - Sistema Python de gamificacao ambiental&#xa;Persistencia: ecoscore_dados.json (estado) + ecoscore_auditoria.txt (logs)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=11;fontStyle=2;fontColor=#666666;" parent="1" vertex="1">
                     <mxGeometry x="600" y="3380" width="1200" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="PxBXHWmxi0o6mzUw5Znu-1" style="edgeStyle=none;html=1;" edge="1" parent="1" source="login_fail" target="login_fail">
+                <mxCell id="PxBXHWmxi0o6mzUw5Znu-1" style="edgeStyle=none;html=1;" parent="1" source="login_fail" target="login_fail" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
             </root>
