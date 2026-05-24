@@ -35,7 +35,7 @@ Ser a vitrine pública do EcoScore: explicar o sistema de pontuação, demonstra
 | Camada | Tecnologia | Uso |
 |--------|-----------|-----|
 | Estrutura | **HTML5 semântico** | Marcação acessível das 8 páginas do site |
-| Estilo | **CSS3 (metodologia BEM)** | 4 folhas modulares: `style`, `componentes`, `responsivo`, `utilitarios` |
+| Estilo | **CSS3 (metodologia BEM)** | 5 folhas modulares: `style`, `componentes`, `dashboard`, `responsivo`, `utilitarios` |
 | Interatividade | **JavaScript ES6+ vanilla** | Menu mobile, dashboard simulado, validação do formulário |
 | Animações | **Canvas API** | Sistema de partículas estilo PS5 + rede de micélio orgânica |
 | Tipografia | **Fraunces** (serif) + **Inter** (sans-serif) | Via Google Fonts |
@@ -62,6 +62,13 @@ frontend/
 ├── ecoscore-card-snippet.html    # Componente isolado de card (referência)
 ├── petplanet-standalone.html     # Protótipo extra (referência)
 │
+├── css/
+│   ├── style.css                 # Tokens, layout base e tipografia
+│   ├── componentes.css           # Botões, cards, navbar, formulários
+│   ├── dashboard.css             # Estilos exclusivos do dashboard simulado
+│   ├── responsivo.css            # Breakpoints e ajustes mobile
+│   └── utilitarios.css           # Helpers e classes utilitárias
+│
 ├── js/
 │   ├── main.js                   # Inicialização geral (Lucide, scroll, etc.)
 │   ├── menu.js                   # Menu hambúrguer mobile
@@ -73,15 +80,14 @@ frontend/
 │   └── spores.js                 # Esporos flutuantes (camada de fundo)
 │
 └── assets/
-    ├── imagens/
-    │   ├── carlos.jpg            # Foto — Carlos
-    │   ├── henrique.jpg          # Foto — Henrique
-    │   ├── murilo.jpg            # Foto — Murilo
-    │   └── logo-solcon.png       # Logo da startup
-    └── icons/                    # Espaço reservado para ícones extras
+    └── imagens/
+        ├── carlos.jpg            # Foto — Carlos
+        ├── henrique.jpg          # Foto — Henrique
+        ├── murilo.jpg            # Foto — Murilo
+        └── logo-solcon.png       # Logo da startup
 ```
 
-> 💡 As folhas de estilo (`css/style.css`, `css/componentes.css`, `css/responsivo.css`, `css/utilitarios.css`) são consumidas pelas páginas a partir de uma pasta `css/` irmã.
+> 💡 Todas as folhas de estilo agora vivem dentro de `frontend/css/` — o projeto é autocontido e pode ser movido/distribuído sem dependências externas.
 
 ---
 
