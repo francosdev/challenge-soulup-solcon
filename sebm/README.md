@@ -14,3 +14,7 @@
 ## Visão Geral
 
 **EcoScore** é um MVP de gamificação sustentável desenvolvido para o FIAP Challenge 2026, em parceria com a **SoulUp** e a **SolCon**. O sistema transforma ações ecológicas cotidianas em pontos, conquistas e ranking mensal — com o objetivo de criar engajamento duradouro em torno de hábitos sustentáveis.
+
+## Software Engineering & Business Model
+
+A documentação base do nosso projeto, que mostra nosso objetivo, todos o nossos diferenciais, nossas ideias e funcionalidades o sistema estão na Documentação SEBM, [aqui](./documentacao-sebm.pdf). Nele está contido nosso modelo de negócios e um vídeo pitch de 3 minutos apresentando o EcoScore.
