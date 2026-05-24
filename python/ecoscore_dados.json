@@ -14,78 +14,45 @@
             "nome": "Franco",
             "email": "francosdevs@gmail.com",
             "senha": "e9d29f55bb4512a145185a30da514ea57941e5f0f08acdbd449a08b7043044c7",
-            "pontos": 17,
-            "historico": [
-                {
-                    "categoria": "Plantio",
-                    "descricao": "Plantar muda ou árvore",
-                    "quantidade": 3.0,
-                    "pontos": 15,
-                    "data": "23/05/2026 23:25"
-                },
-                {
-                    "categoria": "Economia de Água",
-                    "descricao": "Economia de Água",
-                    "quantidade": 20.0,
-                    "pontos": 2,
-                    "data": "23/05/2026 23:25"
-                }
-            ],
-            "conquistas": [
-                "Primeiro Broto"
-            ],
+            "pontos": 0,
+            "historico": [],
+            "conquistas": [],
             "admin": false
         },
         {
             "nome": "Henrique",
             "email": "henriquebona@gmail.com",
             "senha": "98f387b829b732323ae4699236364ef5e23d7c7118828a4e689290365ac0d54e",
-            "pontos": 14,
-            "historico": [
-                {
-                    "categoria": "Redução de Energia",
-                    "descricao": "Lavei roupa com agua fria",
-                    "quantidade": 1,
-                    "pontos": 2,
-                    "data": "23/05/2026 23:26"
-                },
-                {
-                    "categoria": "Reciclagem de Resíduos",
-                    "descricao": "Reciclagem de Resíduos",
-                    "quantidade": 4.0,
-                    "pontos": 12,
-                    "data": "23/05/2026 23:26"
-                }
-            ],
-            "conquistas": [
-                "Primeiro Broto"
-            ],
+            "pontos": 0,
+            "historico": [],
+            "conquistas": [],
             "admin": false
         },
         {
             "nome": "Murilo",
             "email": "murilodesouza@gmail.com",
             "senha": "98f387b829b732323ae4699236364ef5e23d7c7118828a4e689290365ac0d54e",
-            "pontos": 18,
-            "historico": [
-                {
-                    "categoria": "Plantio",
-                    "descricao": "Adubar naturalmente",
-                    "quantidade": 1,
-                    "pontos": 2,
-                    "data": "23/05/2026 23:27"
-                },
-                {
-                    "categoria": "Plantio",
-                    "descricao": "Cultivar horta doméstica",
-                    "quantidade": 4.0,
-                    "pontos": 16,
-                    "data": "23/05/2026 23:27"
-                }
-            ],
-            "conquistas": [
-                "Primeiro Broto"
-            ],
+            "pontos": 0,
+            "historico": [],
+            "conquistas": [],
+            "admin": false
+        },
+        {
+            "nome": "Fernando",
+            "email": "fernando@fiap.com",
+            "senha": "98f387b829b732323ae4699236364ef5e23d7c7118828a4e689290365ac0d54e",
+            "pontos": 0,
+            "historico": [],
+            "conquistas": [],
+            "admin": false
+        },
+        {
+            "nome": "Prof Fernando",
+            "email": "proffernando@fiap.com",
+            "senha": "98f387b829b732323ae4699236364ef5e23d7c7118828a4e689290365ac0d54e",
+            "pontos": 0,
+            "historico": [],
+            "conquistas": [],
             "admin": false
         }
     ]
