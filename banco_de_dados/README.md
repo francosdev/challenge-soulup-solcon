@@ -44,7 +44,7 @@ Este repositório apresenta a entrega da disciplina de **Banco de Dados**, respo
 
 ## 🎯 Objetivo da Entrega
 
-O objetivo da entrega de **Banco de Dados** foi criar uma modelagem relacional capaz de representar a jornada principal do usuário dentro do **EcoScore by SolCon**.
+O objetivo da entrega de **Banco de Dados** foi criar uma modelagem capaz de representar a jornada principal do usuário dentro do **EcoScore by SolCon**, passando da ideia do projeto para uma estrutura organizada em banco de dados.
 
 A estrutura foi pensada para armazenar e relacionar informações essenciais da solução, como:
 
@@ -112,8 +112,9 @@ Essa jornada conecta sustentabilidade, tecnologia e gamificação em uma única 
 | **Oracle Database** | Banco relacional utilizado para a modelagem |
 | **SQL / DDL** | Criação das tabelas, chaves e restrições |
 | **Oracle SQL Developer** | Execução e validação do script SQL |
-| **Oracle Data Modeler** | Representação visual do modelo relacional |
+| **Oracle Data Modeler** | Representação visual das modelagens |
 | **MER / Modelo Relacional** | Organização das entidades e relacionamentos |
+| **PDF Documentação** | Registro formal da entrega e explicação da modelagem |
 
 ---
 
@@ -133,6 +134,21 @@ O banco foi organizado em tabelas que representam os principais elementos do **E
 | `T_ECO_USUARIO_CONQUISTA` | Conquistas desbloqueadas por usuários |
 | `T_ECO_RANKING_USUARIO` | Ranking por temporada |
 | `T_ECO_IMPACTO` | Impacto ambiental consolidado |
+
+---
+
+## 🖼️ Modelagens Entregues
+
+A pasta de Banco de Dados contém as representações visuais da estrutura criada para o EcoScore by SolCon.
+
+| Arquivo | Descrição |
+|--------|-----------|
+| `modelagem-logica.png` | Imagem da modelagem lógica do banco |
+| `modelagem-relacional.png` | Imagem da modelagem relacional/física |
+| `eco_score_ddl.ddl` | Script DDL para criação das tabelas e restrições |
+| `documentacao-banco-de-dados.pdf` | Documento explicativo da modelagem e da entrega |
+
+Esses arquivos ajudam professores, avaliadores e visitantes do repositório a compreenderem a organização do banco e a relação entre as entidades do projeto.
 
 ---
 
@@ -222,9 +238,14 @@ Essa organização torna o banco mais claro, legível e preparado para futuras i
 
 ```text
 banco_de_dados/
-├── eco_score_ddl.sql          # Script SQL de criação do banco
-└── README.md                  # Apresentação da entrega de Banco de Dados
+├── eco_score_ddl.ddl                  # Script DDL de criação do banco
+├── documentacao-banco-de-dados.pdf    # Documentação da modelagem
+├── modelagem-logica.png               # Imagem da modelagem lógica
+├── modelagem-relacional.png           # Imagem da modelagem relacional
+└── README.md                          # Apresentação da entrega de Banco de Dados
 ```
+
+> Caso os arquivos estejam com nomes diferentes no repositório, basta renomear no GitHub ou ajustar esta seção para manter tudo igual aos arquivos enviados.
 
 ---
 
@@ -237,7 +258,7 @@ Para executar o script do banco:
 3. Abra o arquivo:
 
 ```text
-eco_score_ddl.sql
+eco_score_ddl.ddl
 ```
 
 4. Execute o script completo.
@@ -258,10 +279,12 @@ ORDER BY table_name;
 
 Nesta etapa de **Banco de Dados**, foram desenvolvidos:
 
+- modelagem lógica do banco;
 - modelagem relacional do EcoScore by SolCon;
 - criação das principais entidades do sistema;
 - definição dos relacionamentos entre as tabelas;
 - script DDL em Oracle SQL;
+- documentação em PDF;
 - uso de chaves primárias e estrangeiras;
 - uso de restrições de integridade;
 - estrutura para usuários, ações, evidências, validações, ranking, conquistas e impacto ambiental.
