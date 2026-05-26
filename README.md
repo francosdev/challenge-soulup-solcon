@@ -110,7 +110,7 @@ frontend/
 
 <div align="center">
 
-<img src="assets/imagens/logo-solcon.png" alt="Logo SolCon — Conectamos hoje. Construímos o futuro." width="220" />
+<img src="frontend/assets/imagens/logo-solcon.png" alt="Logo SolCon — Conectamos hoje. Construímos o futuro." width="220" />
 
 </div>
 
@@ -118,7 +118,7 @@ frontend/
 
 <div align="center">
 
-| <img src="assets/imagens/carlos.jpg" alt="Carlos Franco" width="140" /> | <img src="assets/imagens/murilo.jpg" alt="Murilo Souza" width="140" /> | <img src="assets/imagens/henrique.jpg" alt="Henrique Bonachela" width="140" /> |
+| <img src="frontend/assets/imagens/carlos.jpg" alt="Carlos Franco" width="140" /> | <img src="frontend/assets/imagens/murilo.jpg" alt="Murilo Souza" width="140" /> | <img src="frontend/assets/imagens/henrique.jpg" alt="Henrique Bonachela" width="140" /> |
 |:--:|:--:|:--:|
 | **Carlos Franco** | **Murilo Souza** | **Henrique Bonachela** |
 
