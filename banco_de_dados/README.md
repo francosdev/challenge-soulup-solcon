@@ -113,7 +113,7 @@ Essa jornada conecta sustentabilidade, tecnologia e gamificação em uma única 
 | **Modelo Lógico** | Representação das entidades, atributos e relacionamentos do EcoScore |
 | **Modelo Relacional** | Estruturação das tabelas, chaves e relações do banco |
 | **DDL** | Arquivo gerado a partir da modelagem para representar o modelo físico |
-| **PDF de Documentação** | Registro formal da entrega, com contextualização do projeto, requisitos funcionais e não funcionais, regras de negócio, imagens das modelagens e conclusão |
+| **PDF de Documentação** | Registro formal da entrega, com contextualização do projeto, requisitos funcionais e não funcionais, regras de negócio, modelagens desenvolvidas e conclusão |
 | **GitHub** | Organização, versionamento e apresentação dos arquivos da disciplina |
 
 ---
