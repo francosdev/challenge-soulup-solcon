@@ -25,7 +25,7 @@
 
 A proposta do projeto é transformar ações ecológicas cotidianas em pontos, conquistas, ranking e indicadores de impacto ambiental. Dessa forma, o EcoScore busca incentivar hábitos sustentáveis por meio de uma experiência mais interativa, motivadora e contínua.
 
-Este repositório apresenta a entrega da disciplina de **Banco de Dados**, responsável por estruturar a base relacional do projeto. A modelagem foi criada para organizar as informações principais da solução, como usuários, ações sustentáveis, evidências, validações, temporadas, conquistas, ranking e impacto ambiental.
+Este repositório apresenta a entrega da disciplina de **Banco de Dados**, responsável por estruturar a base de dados do projeto. A modelagem foi criada para organizar as informações principais da solução, como usuários, ações sustentáveis, evidências, validações, temporadas, conquistas, ranking e impacto ambiental.
 
 ---
 
@@ -33,9 +33,9 @@ Este repositório apresenta a entrega da disciplina de **Banco de Dados**, respo
 
 <div align="center">
 
-[![Oracle](https://img.shields.io/badge/Oracle-Database-111111?style=for-the-badge&logo=oracle&logoColor=8BAF6E)](https://www.oracle.com/database/)
-[![SQL](https://img.shields.io/badge/SQL-DDL-111111?style=for-the-badge&logo=sqlite&logoColor=8BAF6E)](#-tecnologias-utilizadas)
-[![MER](https://img.shields.io/badge/MER-Modelagem_Relacional-111111?style=for-the-badge&logo=diagramsdotnet&logoColor=8BAF6E)](#-modelagem-relacional)
+[![Oracle](https://img.shields.io/badge/Oracle-Data_Modeler-111111?style=for-the-badge&logo=oracle&logoColor=8BAF6E)](https://www.oracle.com/database/technologies/appdev/datamodeler.html)
+[![DDL](https://img.shields.io/badge/DDL-Modelo_F%C3%ADsico-111111?style=for-the-badge&logo=databricks&logoColor=8BAF6E)](#-arquivos-da-entrega)
+[![Modelagem](https://img.shields.io/badge/Modelagem-L%C3%B3gica_%26_Relacional-111111?style=for-the-badge&logo=diagramsdotnet&logoColor=8BAF6E)](#-modelagem-relacional)
 [![Sustentabilidade](https://img.shields.io/badge/Sustentabilidade-Gamificada-111111?style=for-the-badge&logo=leaflet&logoColor=8BAF6E)](#-sustentabilidade-no-banco-de-dados)
 
 </div>
@@ -105,16 +105,16 @@ Essa jornada conecta sustentabilidade, tecnologia e gamificação em uma única 
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias e Materiais Utilizados
 
-| Tecnologia | Uso no projeto |
-|-----------|----------------|
-| **Oracle Database** | Banco relacional utilizado para a modelagem |
-| **SQL / DDL** | Criação das tabelas, chaves e restrições |
-| **Oracle SQL Developer** | Execução e validação do script SQL |
-| **Oracle Data Modeler** | Representação visual das modelagens |
-| **MER / Modelo Relacional** | Organização das entidades e relacionamentos |
-| **PDF Documentação** | Registro formal da entrega e explicação da modelagem |
+| Recurso | Uso no projeto |
+|--------|----------------|
+| **Oracle Data Modeler** | Criação e organização das modelagens lógica e relacional |
+| **Modelo Lógico** | Representação das entidades, atributos e relacionamentos do EcoScore |
+| **Modelo Relacional** | Estruturação das tabelas, chaves e relações do banco |
+| **DDL** | Arquivo gerado a partir da modelagem para representar o modelo físico |
+| **PDF de Documentação** | Registro formal da entrega, com contextualização do projeto, requisitos funcionais e não funcionais, regras de negócio, imagens das modelagens e conclusão |
+| **GitHub** | Organização, versionamento e apresentação dos arquivos da disciplina |
 
 ---
 
@@ -137,18 +137,18 @@ O banco foi organizado em tabelas que representam os principais elementos do **E
 
 ---
 
-## 🖼️ Modelagens Entregues
+## 🖼️ Arquivos da Entrega
 
-A pasta de Banco de Dados contém as representações visuais da estrutura criada para o EcoScore by SolCon.
+A pasta de Banco de Dados contém os principais arquivos produzidos para representar a estrutura de dados do **EcoScore by SolCon**.
 
 | Arquivo | Descrição |
 |--------|-----------|
-| `modelagem-logica.png` | Imagem da modelagem lógica do banco |
-| `modelagem-relacional.png` | Imagem da modelagem relacional/física |
-| `eco_score_ddl.ddl` | Script DDL para criação das tabelas e restrições |
-| `documentacao-banco-de-dados.pdf` | Documento explicativo da modelagem e da entrega |
+| `modelagem-logica.png` | Imagem da modelagem lógica criada no Oracle Data Modeler |
+| `modelagem-relacional.png` | Imagem da modelagem relacional/física do banco |
+| `eco_score_modelagem_solcon_.ddl` | Arquivo DDL gerado a partir da modelagem |
+| `solcon-documentacao-banco-de-dados.pdf` | Documentação em PDF da entrega de Banco de Dados |
 
-Esses arquivos ajudam professores, avaliadores e visitantes do repositório a compreenderem a organização do banco e a relação entre as entidades do projeto.
+Esses arquivos permitem que professores, avaliadores, programadores e visitantes do repositório compreendam como a estrutura do banco foi planejada para sustentar o funcionamento do EcoScore by SolCon.
 
 ---
 
@@ -210,14 +210,14 @@ Essa estrutura ajuda a manter o usuário engajado, incentivando a continuidade d
 
 ## 🔐 Integridade e Organização
 
-Para garantir consistência nos dados, a modelagem utiliza:
+Para garantir consistência nos dados, a modelagem considera:
 
 - chaves primárias;
 - chaves estrangeiras;
-- restrições `UNIQUE`;
-- restrições `CHECK`;
+- relacionamentos entre entidades;
 - padronização de nomes;
-- separação entre entidades principais, associativas e consolidadas.
+- separação entre entidades principais, associativas e consolidadas;
+- estrutura compatível com evolução futura para integração com backend, frontend e chatbot.
 
 Também foi adotado o prefixo `T_ECO_` para identificar as tabelas do projeto.
 
@@ -238,40 +238,25 @@ Essa organização torna o banco mais claro, legível e preparado para futuras i
 
 ```text
 banco_de_dados/
-├── eco_score_ddl.ddl                  # Script DDL de criação do banco
-├── documentacao-banco-de-dados.pdf    # Documentação da modelagem
-├── modelagem-logica.png               # Imagem da modelagem lógica
-├── modelagem-relacional.png           # Imagem da modelagem relacional
-└── README.md                          # Apresentação da entrega de Banco de Dados
+├── eco_score_modelagem_solcon_.ddl        # Arquivo DDL gerado pela modelagem
+├── modelagem-logica.png                   # Imagem da modelagem lógica
+├── modelagem-relacional.png               # Imagem da modelagem relacional
+├── solcon-documentacao-banco-de-dados.pdf # Documentação da entrega
+└── README.md                              # Apresentação da entrega de Banco de Dados
 ```
-
-> Caso os arquivos estejam com nomes diferentes no repositório, basta renomear no GitHub ou ajustar esta seção para manter tudo igual aos arquivos enviados.
 
 ---
 
-## 🚀 Como Executar
+## 🚀 Como Visualizar a Entrega
 
-Para executar o script do banco:
+Para analisar a entrega de Banco de Dados, acesse os arquivos disponíveis nesta pasta:
 
-1. Abra o **Oracle SQL Developer**.
-2. Conecte-se ao banco Oracle.
-3. Abra o arquivo:
+1. Abra `modelagem-logica.png` para visualizar a modelagem lógica.
+2. Abra `modelagem-relacional.png` para visualizar a modelagem relacional/física.
+3. Consulte `eco_score_modelagem_solcon_.ddl` para verificar o arquivo DDL gerado a partir da modelagem.
+4. Abra `solcon-documentacao-banco-de-dados.pdf` para ler a documentação completa da entrega.
 
-```text
-eco_score_ddl.ddl
-```
-
-4. Execute o script completo.
-5. Verifique se as tabelas foram criadas corretamente.
-
-Consulta simples para validação:
-
-```sql
-SELECT table_name
-FROM user_tables
-WHERE table_name LIKE 'T_ECO_%'
-ORDER BY table_name;
-```
+> A modelagem foi desenvolvida com foco acadêmico no **Oracle Data Modeler**, representando a estrutura de dados necessária para o funcionamento do EcoScore by SolCon.
 
 ---
 
@@ -283,11 +268,10 @@ Nesta etapa de **Banco de Dados**, foram desenvolvidos:
 - modelagem relacional do EcoScore by SolCon;
 - criação das principais entidades do sistema;
 - definição dos relacionamentos entre as tabelas;
-- script DDL em Oracle SQL;
+- arquivo DDL gerado a partir da modelagem;
 - documentação em PDF;
-- uso de chaves primárias e estrangeiras;
-- uso de restrições de integridade;
-- estrutura para usuários, ações, evidências, validações, ranking, conquistas e impacto ambiental.
+- estrutura para usuários, ações, evidências, validações, ranking, conquistas e impacto ambiental;
+- apresentação organizada dos arquivos no GitHub.
 
 ---
 
@@ -297,12 +281,13 @@ A modelagem criada permite futuras melhorias, como:
 
 - integração com o backend em Python ou Java;
 - conexão com o frontend;
+- integração com o EcoBot SolCon;
 - dashboard com dados reais;
 - ranking em tempo real;
 - relatórios de impacto ambiental;
 - envio real de evidências;
 - análise de participação por temporada;
-- integração com o EcoBot SolCon.
+- validação automatizada de ações sustentáveis.
 
 ---
 
