@@ -1,6 +1,9 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:111610,100:2d4a1e&height=180&section=header&text=EcoScore&fontSize=60&fontColor=8BAF6E&fontAlignY=38&desc=Intelig%C3%AAncia%20Artificial%20%26%20Chatbot&descSize=16&descAlignY=58&descColor=B8D49A" />
+<img 
+  src="https://capsule-render.vercel.app/api?type=waving&color=0:111610,100:2d4a1e&height=180&section=header&text=EcoScore&fontSize=60&fontColor=8BAF6E&fontAlignY=38&desc=IA%20%26%20Chatbot&descSize=16&descAlignY=58&descColor=B8D49A" 
+  alt="EcoScore - IA & Chatbot"
+/>
 
 **FIAP Challenge 2026 · SoulUp × SolCon · Turma 1TDSPH**
 
