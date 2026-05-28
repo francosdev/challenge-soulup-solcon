@@ -1,0 +1,68 @@
+Nome da equipe: EcoScore by SolCon
+Projeto: EcoBot SolCon
+
+INTEGRANTES:
+- Henrique Bonachela de Carvalho Carabante | RM: 573620
+- Murilo Almeida Rodrigues de Souza        | RM: 573977
+- Carlos Henrique de Melo Franco           | RM: 569869
+
+PROJETO:
+EcoBot SolCon - Chatbot do EcoScore by SolCon
+
+DESCRIÇÃO:
+O EcoBot SolCon é o chatbot desenvolvido para auxiliar usuários na compreensão e utilização do EcoScore by SolCon.
+Ele orienta sobre ações sustentáveis, envio de evidências, validação, pontuação, ranking, conquistas, temporadas e impacto ambiental.
+
+LINK DO VÍDEO DEMONSTRATIVO NO YOUTUBE: https://youtu.be/Qr2LM5ZbyxA
+
+SERVIÇOS UTILIZADOS:
+
+1. IBM Watson Assistant
+Finalidade: criação do chatbot com intenções, entidades, diálogos, variáveis de contexto e integração Webchat.
+Nome do Assistant: EcoBot SolCon
+Nome da Skill/Habilidade: EcoBot SolCon - Diálogo
+Observação: API Key, Assistant ID, URLs internas e dados sensíveis foram removidos por segurança.
+
+2. IBM Speech to Text
+Finalidade: converter áudio enviado pelo Telegram em texto.
+Modelo utilizado: pt-BR_BroadbandModel
+Observação: API Key e URL do serviço foram removidas por segurança.
+
+3. IBM Text to Speech
+Finalidade: converter respostas textuais do chatbot em áudio.
+Voz utilizada: pt-BR_IsabelaV3Voice
+Observação: API Key e URL do serviço foram removidas por segurança.
+
+4. Telegram Bot
+Finalidade: canal de comunicação do chatbot por texto e áudio.
+Nome do bot: EcoBot SolCon
+Username do bot: @EcoBotSolCon_bot
+Observação: token do BotFather foi removido por segurança.
+
+5. Node-RED
+Finalidade: integração entre Telegram, Watson Assistant, Speech to Text e Text to Speech.
+Ambiente utilizado: Node-RED local
+Arquivo do fluxo: EcoBot_SolCon_NodeRED_Telegram_Watson_STT_TTS.json
+Observação: credenciais e tokens não devem ser publicados no GitHub.
+
+6. Webchat Watson Assistant
+Finalidade: integração do chatbot via chat na web.
+Nome da integração: EcoBot SolCon Webchat
+Observação: IDs de integração, service instance e dados sensíveis foram removidos por segurança.
+
+ARQUIVOS ENTREGUES:
+- Dialog Skill JSON do Watson Assistant
+- Fluxo JSON do Node-RED
+- Imagens do Watson Assistant
+- Imagens do Node-RED
+- Arquivo TXT com integrantes, credenciais dos serviços utilizados e link do vídeo explicativo do YouTube
+- README da entrega de IA & Chatbot
+- LINK DO VÍDEO DEMONSTRATIVO NO YOUTUBE: https://youtu.be/Qr2LM5ZbyxA
+
+OBSERVAÇÃO DE SEGURANÇA:
+Este arquivo foi preparado para ser publicado no GitHub.
+Todas as credenciais privadas, tokens, API Keys, Assistant IDs, URLs internas e identificadores sensíveis foram removidos.
+As credenciais reais devem ser mantidas apenas em ambiente privado, variáveis de ambiente ou arquivos locais ignorados pelo Git.
+
+IMPORTANTE:
+Caso alguma chave privada, token ou API Key tenha sido exposta anteriormente em prints, arquivos, mensagens ou commits, recomenda-se revogar e gerar novas credenciais nos respectivos serviços.
