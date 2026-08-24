@@ -90,10 +90,11 @@ challenge-soulup-solcon/
 |   |-- tailwind.config.ts       # Tokens da identidade SoulUp
 |   |-- public/assets/imagens/   # Fotos da equipe + logo
 |   `-- src/
-|       |-- pages/               # Home, Sobre, Solucao, Integrantes, Faq, Contato
+|       |-- pages/               # Home, Sobre, EcoScore, ComoFunciona, Dashboard, Faq, Integrantes, Contato
 |       |-- components/ui/       # Button, Card, CircleBadge, StatCard, ...
 |       |-- components/layout/   # Header, Footer, Layout
 |       |-- components/mascot/   # Solzinho (SVG inline)
+|       |-- components/petplanet/ # Protótipo do planetinha
 |       `-- data/                # Mocks tipados
 |
 |-- python/                      # Backend CLI

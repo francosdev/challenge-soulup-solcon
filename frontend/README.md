@@ -22,9 +22,15 @@ Front-end do **EcoScore**, a camada de gamificação sustentável construída so
 **SoulUp** (by Prospera). O usuário registra ações ecológicas reais, ganha **Soul Points** e, ao
 fechar o ciclo com 100 pontos, concorre a ter a conta de energia subsidiada (limite de R$ 500/mês).
 
-Esta versão substitui o site estático anterior (HTML/CSS/JS) por uma SPA em React com a identidade
-visual da SoulUp. O site estático continua recuperável no histórico do Git, no commit
-`chore(frontend): snapshot do site estático antes do redesign`.
+Esta versão é o **porte fiel** do site estático anterior (HTML/CSS/JS) para React: as mesmas 8
+páginas, com o mesmo conteúdo, as mesmas seções e a mesma ordem. O que muda é a paleta — agora a
+identidade da SoulUp — e a tecnologia.
+
+O protótipo interativo do **Pet Planet** (o "planetinha") veio junto: antes era um bundle de 1,8 MB
+carregado num iframe, agora é um conjunto de componentes React tipados dentro do próprio app.
+
+O site estático continua recuperável no histórico do Git, no commit
+`chore(frontend): snapshot do site estático antes do redesign` da branch `redesign/soulup-visual`.
 
 ---
 
@@ -122,30 +128,40 @@ frontend/
     │   │   └── Logo.tsx           # Palavra + selo circular "UP"
     │   ├── mascot/
     │   │   └── Solzinho.tsx       # Mascote em SVG inline, animável
+    │   ├── petplanet/             # Protótipo interativo do planetinha
+    │   │   ├── palette.ts         # Paleta e tipografia da superfície gamificada
+    │   │   ├── primitives.tsx     # Sticker, Coin, GameBar, TreasureChest, ...
+    │   │   └── PetPlanetApp.tsx   # Telas, mascote interativo e estado local
     │   └── ui/
     │       ├── Accordion.tsx      # Acordeão controlado
-    │       ├── ActionChip.tsx     # Chip de registro de ação
+    │       ├── Badge.tsx          # verde | laranja | roxo | azul | neutro
     │       ├── Button.tsx         # primary | secondary | ghost
     │       ├── Card.tsx           # light | dark | wash
     │       ├── CircleBadge.tsx    # outline | solid | wash | sun · sm | md | lg
-    │       ├── IconeAcao.tsx      # Resolve ícone lucide por categoria
+    │       ├── FeatureList.tsx    # Lista com marcador circular
+    │       ├── MetricRow.tsx      # Rótulo + valor + barra
+    │       ├── NextStep.tsx       # Bloco "Próximo passo" entre páginas
+    │       ├── PageHero.tsx       # Hero das páginas internas
     │       ├── ProgressBar.tsx    # Trilho light/dark
-    │       ├── SectionHeading.tsx # Tag + título + descrição
-    │       └── StatCard.tsx       # Métrica com selo circular
+    │       ├── PullQuote.tsx      # Citação destacada
+    │       └── SectionHeading.tsx # Tag + título + descrição
     │
     ├── data/                      # Mocks tipados (sem consumo de API)
-    │   ├── acoes.ts               # Categorias e pesos de pontuação
-    │   ├── dashboard.ts           # Resumo, ranking, histórico, conquistas
+    │   ├── como-funciona.ts       # As 5 etapas do fluxo
+    │   ├── ecoscore.ts            # Skill tree, trilhas, ranking, avatar
     │   ├── faq.ts                 # Perguntas por categoria
-    │   ├── impacto.ts             # Métricas agregadas e pilares
-    │   └── integrantes.ts         # Equipe 1TDSPH
+    │   ├── home.ts                # Números e pilares da home
+    │   ├── integrantes.ts         # Equipe 1TDSPH
+    │   └── sobre.ts               # Pilares da filosofia
     │
     └── pages/
-        ├── Home.tsx               # Hero + pontuação + pilares + impacto
-        ├── Sobre.tsx              # Problema, fluxo em 5 passos, diferenciais
-        ├── Solucao.tsx            # Dashboard escuro
-        ├── Integrantes.tsx        # Equipe + SolCon + contexto acadêmico
+        ├── Home.tsx               # Hero, números, pilares, diferenciais
+        ├── Sobre.tsx              # Problema, escuta, filosofia, solução, SoulUp
+        ├── EcoScore.tsx           # Skill tree, trilhas, ranking, avatar, feed
+        ├── ComoFunciona.tsx       # Fluxo em 5 etapas, validação, 3 classes
+        ├── Dashboard.tsx          # Protótipo do planetinha
         ├── Faq.tsx                # Acordeão por categoria
+        ├── Integrantes.tsx        # Equipe + SolCon + contexto acadêmico
         └── Contato.tsx            # Formulário com react-hook-form
 ```
 
@@ -153,16 +169,18 @@ frontend/
 
 ## Rotas
 
+As rotas usam os mesmos nomes dos arquivos do site anterior.
+
 | Rota | Página | Origem no site antigo |
 |------|--------|----------------------|
-| `/` | Home | `index.html` |
+| `/` | Início | `index.html` |
 | `/sobre` | Sobre | `sobre.html` |
-| `/solucao` | Solução | `ecoscore.html` + `dashboard.html` |
-| `/integrantes` | Integrantes | `integrantes.html` |
+| `/ecoscore` | EcoScore | `ecoscore.html` |
+| `/como-funciona` | Como Funciona | `como-funciona.html` |
+| `/dashboard` | Dashboard | `dashboard.html` + `petplanet-standalone.html` |
 | `/faq` | FAQ | `faq.html` |
+| `/integrantes` | Integrantes | `integrantes.html` |
 | `/contato` | Contato | `contato.html` |
-
-`/ecoscore` e `/dashboard` redirecionam para `/solucao`; `/como-funciona` redireciona para `/sobre`.
 
 ---
 
