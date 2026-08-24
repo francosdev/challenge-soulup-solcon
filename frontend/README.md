@@ -1,162 +1,213 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:111610,100:2d4a1e&height=180&section=header&text=EcoScore&fontSize=60&fontColor=8BAF6E&fontAlignY=38&desc=Frontend%20Web&descSize=16&descAlignY=58&descColor=B8D49A" />
+# EcoScore — front-end
 
 **FIAP Challenge 2026 · SoulUp × SolCon · Turma 1TDSPH**
 
-[![HTML5](https://img.shields.io/badge/HTML5-Semântico-111111?style=for-the-badge&logo=html5&logoColor=8BAF6E)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/CSS3-BEM-111111?style=for-the-badge&logo=css3&logoColor=8BAF6E)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-111111?style=for-the-badge&logo=javascript&logoColor=8BAF6E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Canvas API](https://img.shields.io/badge/Canvas_API-Animations-111111?style=for-the-badge&logo=html5&logoColor=8BAF6E)](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
+React · TypeScript · Vite · TailwindCSS
 
 </div>
 
 ---
 
 ## Índice
-[![Front-end](https://img.shields.io/badge/Front--end-007ACC?style=for-the-badge&logo=html5&logoColor=white)](../frontend/)[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](../python/)[![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)](../java/)[![IA & Chatbot](https://img.shields.io/badge/IA_%26_Chatbot-8E44AD?style=for-the-badge&logo=probot&logoColor=white)](../ia_chatbot/)[![Banco de Dados](https://img.shields.io/badge/Banco_de_Dados-336791?style=for-the-badge&logo=postgresql&logoColor=white)](../banco_de_dados/)[![Software Engineering & Business Model](https://img.shields.io/badge/Software_Engineering_%26_Business_Model-2C3E50?style=for-the-badge&logo=diagrams.net&logoColor=white)](../sebm/)
+
+[![Front-end](https://img.shields.io/badge/Front--end-007ACC?style=for-the-badge&logo=react&logoColor=white)](../frontend/)[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](../python/)[![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)](../java/)[![IA & Chatbot](https://img.shields.io/badge/IA_%26_Chatbot-8E44AD?style=for-the-badge&logo=probot&logoColor=white)](../ia_chatbot/)[![Banco de Dados](https://img.shields.io/badge/Banco_de_Dados-336791?style=for-the-badge&logo=postgresql&logoColor=white)](../banco_de_dados/)[![Business Model](https://img.shields.io/badge/Business_Model-2C3E50?style=for-the-badge&logo=diagrams.net&logoColor=white)](../sebm/)
 
 ---
 
-## 🌱 EcoScore — Frontend Web
+## Sobre
 
-O **EcoScore** é um MVP de **gamificação sustentável** desenvolvido para o **FIAP Challenge 2026** em parceria com a **SoulUp** e a startup **SolCon**. A plataforma transforma ações ecológicas cotidianas (plantio, reciclagem, economia de água e energia) em **Soul Points**, conquistas e ranking mensal — com o objetivo de criar engajamento duradouro em torno de hábitos sustentáveis.
+Front-end do **EcoScore**, a camada de gamificação sustentável construída sobre a plataforma
+**SoulUp** (by Prospera). O usuário registra ações ecológicas reais, ganha **Soul Points** e, ao
+fechar o ciclo com 100 pontos, concorre a ter a conta de energia subsidiada (limite de R$ 500/mês).
 
-Este módulo de **frontend** é o site institucional do EcoScore: apresenta o conceito, explica o funcionamento, mostra a equipe e oferece um dashboard simulado. Foi construído com **HTML semântico, CSS modular (BEM)** e **JavaScript vanilla**, sem nenhuma dependência de framework ou build tool — basta abrir no navegador.
-
-### 🎯 Objetivo
-
-Ser a vitrine pública do EcoScore: explicar o sistema de pontuação, demonstrar o impacto ambiental gerado, apresentar a startup SolCon e dar contexto à banca avaliadora antes da experiência hands-on com o backend CLI.
-
----
-
-## 🛠️ Tecnologias Utilizadas
-
-| Camada | Tecnologia | Uso |
-|--------|-----------|-----|
-| Estrutura | **HTML5 semântico** | Marcação acessível das 8 páginas do site |
-| Estilo | **CSS3 (metodologia BEM)** | 5 folhas modulares: `style`, `componentes`, `dashboard`, `responsivo`, `utilitarios` |
-| Interatividade | **JavaScript ES6+ vanilla** | Menu mobile, dashboard simulado, validação do formulário |
-| Animações | **Canvas API** | Sistema de partículas estilo PS5 + rede de micélio orgânica |
-| Tipografia | **Fraunces** (serif) + **Inter** (sans-serif) | Via Google Fonts |
-| Ícones | **Lucide Icons** | SVG inline carregado por CDN |
-| Imagens | JPG / PNG otimizados | Fotos da equipe e logo da SolCon |
-| Performance | **IntersectionObserver** | Ativa animações Canvas só quando visíveis no viewport |
-
-> Sem build, sem `npm install`, sem servidor — é só abrir o `index.html` no navegador.
+Esta versão substitui o site estático anterior (HTML/CSS/JS) por uma SPA em React com a identidade
+visual da SoulUp. O site estático continua recuperável no histórico do Git, no commit
+`chore(frontend): snapshot do site estático antes do redesign`.
 
 ---
 
-## 📁 Estrutura de Pastas
+## Stack
+
+| Camada | Tecnologia |
+|--------|-----------|
+| UI | React 18 + TypeScript (strict) |
+| Build | Vite 5 |
+| Estilo | TailwindCSS 3 — utilitários e tokens, **sem CSS externo** |
+| Rotas | react-router-dom (HashRouter) |
+| Formulários | react-hook-form |
+| Ícones | lucide-react |
+| Tipografia | Poppins (500/600) + Inter (400/500), via Google Fonts |
+
+> Não há Bootstrap, Material UI, Chakra, Axios ou template pronto. O único arquivo `.css` do
+> projeto é `src/index.css`, contendo apenas as três diretivas `@tailwind`.
+
+---
+
+## Paleta
+
+Tokens extraídos dos materiais oficiais da SoulUp e declarados em `tailwind.config.ts`.
+
+### Marca
+
+| Token | Hex | Uso |
+|-------|-----|-----|
+| `soul.DEFAULT` | `#29B4B7` | Marca, CTAs primários, links, séries de dados principais |
+| `soul.light` | `#A4DBDE` | Fills secundários, fundo de barra de progresso, borda de chip |
+| `soul.wash` | `#E8F6F6` | Superfície clara de apoio, selos circulares |
+| `soul.deep` | `#0F5F61` | Hover de CTA, texto sobre `soul.wash` |
+
+### Estrutura
+
+| Token | Hex | Uso |
+|-------|-----|-----|
+| `navy.DEFAULT` | `#16486B` | Títulos e cards escuros de destaque |
+| `navy.dark` | `#0E3550` | Trilho de progresso e cards do dashboard |
+| `ink.DEFAULT` | `#000000` | Fundo das telas da Solução |
+| `ink.muted` | `#6B7A85` | Texto secundário |
+| `line` | `#E3E7EA` | Hairlines — sempre 1px, nunca 2px |
+| `surf` | `#F5F5F5` | Superfície alternada das seções institucionais |
+
+### Gamificação — uso exclusivo
+
+`sun.*` aparece **apenas** em mascote, conquistas e streaks. Nunca em UI comum.
+
+| Token | Hex | Uso |
+|-------|-----|-----|
+| `sun.DEFAULT` | `#C8A84B` | Halo do Solzinho, texto de conquista |
+| `sun.wash` | `#FBF6E8` | Fundo de selo conquistado |
+| `sun.line` | `#EBD9A8` | Borda de selo conquistado |
+| `sun.text` | `#7A6320` | Texto sobre `sun.wash` |
+
+### Duas superfícies
+
+- **Institucional** (Home, Sobre, Integrantes, FAQ, Contato) — fundo branco, seções alternando
+  `bg-white` e `bg-surf`, texto `text-navy`.
+- **Solução** (dashboard) — fundo `bg-ink`, cards `bg-navy-dark`, texto branco, acentos em `soul`.
+
+### Outros tokens
+
+- `fontFamily`: `display` = Poppins · `sans` = Inter
+- `borderRadius`: `card` = 12px · `pill` = 9999px
+- `keyframes`: `breathe` (4s, escala 1 → 1.03) e `orbit` (24s, 360°), ambos sob `motion-safe:`
+
+---
+
+## Estrutura de pastas
 
 ```
 frontend/
-├── index.html                    # Página inicial (hero + visão geral)
-├── sobre.html                    # Contexto, problema e solução
-├── ecoscore.html                 # Detalhes do sistema de pontuação
-├── como-funciona.html            # Fluxo em 5 etapas
-├── dashboard.html                # Simulação visual do app
-├── faq.html                      # Perguntas frequentes
-├── integrantes.html              # Equipe + SolCon
-├── contato.html                  # Formulário de contato
-├── ecoscore-card-snippet.html    # Componente isolado de card (referência)
-├── petplanet-standalone.html     # Protótipo extra (referência)
+├── index.html                     # Entrada Vite + Google Fonts (Poppins/Inter)
+├── package.json
+├── vite.config.ts
+├── tailwind.config.ts             # Tokens da identidade SoulUp
+├── postcss.config.js
+├── tsconfig.json / .app.json / .node.json
 │
-├── css/
-│   ├── style.css                 # Tokens, layout base e tipografia
-│   ├── componentes.css           # Botões, cards, navbar, formulários
-│   ├── dashboard.css             # Estilos exclusivos do dashboard simulado
-│   ├── responsivo.css            # Breakpoints e ajustes mobile
-│   └── utilitarios.css           # Helpers e classes utilitárias
+├── public/
+│   ├── favicon.svg
+│   └── assets/imagens/            # Fotos da equipe + logo SolCon
 │
-├── js/
-│   ├── main.js                   # Inicialização geral (Lucide, scroll, etc.)
-│   ├── menu.js                   # Menu hambúrguer mobile
-│   ├── dashboard.js              # Lógica do dashboard simulado
-│   ├── contato.js                # Validação do formulário de contato
-│   ├── particulas.js             # Sistema de partículas (Canvas)
-│   ├── micelio.js                # Rede de micélio do hero
-│   ├── micelio-divider.js        # Divisores animados entre seções
-│   └── spores.js                 # Esporos flutuantes (camada de fundo)
-│
-└── assets/
-    └── imagens/
-        ├── carlos.jpg            # Foto — Carlos
-        ├── henrique.jpg          # Foto — Henrique
-        ├── murilo.jpg            # Foto — Murilo
-        └── logo-solcon.png       # Logo da startup
+└── src/
+    ├── main.tsx                   # Bootstrap do React
+    ├── App.tsx                    # Rotas (HashRouter)
+    ├── index.css                  # Apenas @tailwind base/components/utilities
+    │
+    ├── components/
+    │   ├── layout/
+    │   │   ├── Header.tsx         # Nav + menu mobile (useState)
+    │   │   ├── Footer.tsx         # Rodapé em colunas
+    │   │   ├── Layout.tsx         # Shell com <Outlet />
+    │   │   └── Logo.tsx           # Palavra + selo circular "UP"
+    │   ├── mascot/
+    │   │   └── Solzinho.tsx       # Mascote em SVG inline, animável
+    │   └── ui/
+    │       ├── Accordion.tsx      # Acordeão controlado
+    │       ├── ActionChip.tsx     # Chip de registro de ação
+    │       ├── Button.tsx         # primary | secondary | ghost
+    │       ├── Card.tsx           # light | dark | wash
+    │       ├── CircleBadge.tsx    # outline | solid | wash | sun · sm | md | lg
+    │       ├── IconeAcao.tsx      # Resolve ícone lucide por categoria
+    │       ├── ProgressBar.tsx    # Trilho light/dark
+    │       ├── SectionHeading.tsx # Tag + título + descrição
+    │       └── StatCard.tsx       # Métrica com selo circular
+    │
+    ├── data/                      # Mocks tipados (sem consumo de API)
+    │   ├── acoes.ts               # Categorias e pesos de pontuação
+    │   ├── dashboard.ts           # Resumo, ranking, histórico, conquistas
+    │   ├── faq.ts                 # Perguntas por categoria
+    │   ├── impacto.ts             # Métricas agregadas e pilares
+    │   └── integrantes.ts         # Equipe 1TDSPH
+    │
+    └── pages/
+        ├── Home.tsx               # Hero + pontuação + pilares + impacto
+        ├── Sobre.tsx              # Problema, fluxo em 5 passos, diferenciais
+        ├── Solucao.tsx            # Dashboard escuro
+        ├── Integrantes.tsx        # Equipe + SolCon + contexto acadêmico
+        ├── Faq.tsx                # Acordeão por categoria
+        └── Contato.tsx            # Formulário com react-hook-form
 ```
 
-> 💡 Todas as folhas de estilo agora vivem dentro de `frontend/css/` — o projeto é autocontido e pode ser movido/distribuído sem dependências externas.
+---
+
+## Rotas
+
+| Rota | Página | Origem no site antigo |
+|------|--------|----------------------|
+| `/` | Home | `index.html` |
+| `/sobre` | Sobre | `sobre.html` |
+| `/solucao` | Solução | `ecoscore.html` + `dashboard.html` |
+| `/integrantes` | Integrantes | `integrantes.html` |
+| `/faq` | FAQ | `faq.html` |
+| `/contato` | Contato | `contato.html` |
+
+`/ecoscore` e `/dashboard` redirecionam para `/solucao`; `/como-funciona` redireciona para `/sobre`.
 
 ---
 
-## 🖼️ Imagens e Representação do Projeto
+## Sistema de pontuação
 
-### Páginas principais
+| Categoria | Soul Points | Unidade |
+|-----------|-------------|---------|
+| Plantio | 5 | por muda |
+| Reciclagem | 3 | por kg |
+| Energia | 2 | por ação |
+| Água | 0,1 | por litro |
 
-| Página | O que mostra | Link |
-|--------|--------------|------|
-| 🏠 Início | Hero com canvas de micélio e CTA principal | [index.html](index.html) |
-| 📖 Sobre | Problema, solução e parceria SoulUp × SolCon | [sobre.html](sobre.html) |
-| 🌿 EcoScore | Sistema de pontos, categorias e pesos | [ecoscore.html](ecoscore.html) |
-| 🔄 Como Funciona | Fluxo em 5 etapas, do cadastro à recompensa | [como-funciona.html](como-funciona.html) |
-| 📊 Dashboard | Simulação visual do app do usuário | [dashboard.html](dashboard.html) |
-| ❓ FAQ | Perguntas frequentes | [faq.html](faq.html) |
-| 👥 Equipe | Integrantes do grupo + SolCon | [integrantes.html](integrantes.html) |
-| ✉️ Contato | Formulário com validação | [contato.html](contato.html) |
-
-### Identidade Visual
-
-<div align="center">
-
-<img src="assets/imagens/logo-solcon.png" alt="Logo SolCon — Conectamos hoje. Construímos o futuro." width="220" />
-
-</div>
-
-### Equipe — fotos do site
-
-<div align="center">
-
-| <img src="assets/imagens/carlos.jpg" alt="Carlos Franco" width="140" /> | <img src="assets/imagens/murilo.jpg" alt="Murilo Souza" width="140" /> | <img src="assets/imagens/henrique.jpg" alt="Henrique Bonachela" width="140" /> |
-|:--:|:--:|:--:|
-| **Carlos Franco** | **Murilo Souza** | **Henrique Bonachela** |
-
-</div>
-
-### Paleta de Cores (tema dark)
-
-| Token | Cor | Uso |
-|-------|-----|-----|
-| Primary | `#8BAF6E` 🟢 | Verde sálvia — ações e destaques |
-| Secondary | `#6B8F47` 🟢 | Verde escuro — hover e bordas |
-| Tertiary | `#B8D49A` 🟢 | Verde claro — textos secundários |
-| Accent | `#C8A84B` 🟡 | Dourado — conquistas e CTA |
-| Background | `#111610` ⚫ | Quase preto — fundo base |
+Meta do ciclo: **100 Soul Points**. Terminologia oficial: *Soul Points* e *Pontos Soul* — o
+projeto não tem economia dupla.
 
 ---
 
-## 🚀 Como Executar
+## Como executar
 
-**Pré-requisito:** apenas um navegador moderno (Chrome, Edge, Firefox, Safari).
+**Pré-requisito:** Node.js 18+.
 
 ```bash
-# Opção 1 — abrir direto
-Clique duas vezes em frontend/index.html
-
-# Opção 2 — servidor local simples (opcional, recomendado)
 cd frontend
-python -m http.server 8000
-# Acesse http://localhost:8000
+npm install
+
+npm run dev       # servidor de desenvolvimento
+npm run build     # checagem de tipos + build de produção em dist/
+npm run preview   # serve o build de produção
+npm run lint      # tsc --noEmit
 ```
 
-> As animações Canvas inicializam automaticamente via `IntersectionObserver`, garantindo performance mesmo em páginas longas.
+O build usa `base: './'` e `HashRouter`, então `dist/index.html` também abre direto do disco,
+sem servidor.
 
 ---
 
-## 👨‍💻 Autores e Créditos
+## Responsividade
 
-**Turma 1TDSPH — Análise e Desenvolvimento de Sistemas · FIAP 2026**
+Mobile-first, validado em **480px**, **768px** e **1280px**. Nenhum grid passa de 2 colunas até
+768px (colunas extras só em `lg:`, 1024px). Menu vira hambúrguer abaixo de `md`, e o shell aplica
+`overflow-x-hidden` para garantir zero scroll horizontal.
+
+---
+
+## Equipe
 
 | Integrante | RM | LinkedIn | GitHub |
 |------------|-----|----------|--------|
@@ -164,35 +215,7 @@ python -m http.server 8000
 | Murilo Almeida Rodrigues de Souza | 573977 | [murilo-a-souza](https://linkedin.com/in/murilo-a-souza) | [@murilo-a-souza](https://github.com/murilo-a-souza) |
 | Henrique Bonachela de Carvalho Carabante | 573620 | [henrique-bonachela](https://linkedin.com/in/henrique-bonachela) | [@henriquebonachela](https://github.com/henriquebonachela) |
 
-**Parceria acadêmica:** FIAP × SoulUp × SolCon
-**Coordenação:** Prof. Fernando — FIAP
-
----
-
-## 🔗 Link do Repositório
-
-> 📦 **Código-fonte público no GitHub:**
-> [**github.com/francosdev/challenge-soulup-solcon**](https://github.com/francosdev/challenge-soulup-solcon)
-
-```bash
-git clone https://github.com/francosdev/challenge-soulup-solcon.git
-cd challenge-soulup-solcon/frontend
-```
-
----
-
-## 📬 Contato
-
-Dúvidas, sugestões ou interesse em colaborar? Fale com a equipe:
-
-| Canal | Endereço |
-|-------|----------|
-| 📧 **E-mail principal** | [francosdevs@gmail.com](mailto:francosdevs@gmail.com) |
-| 💬 **Formulário no site** | [contato.html](contato.html) |
-| 🐙 **Issues no GitHub** | [Abrir uma issue](https://github.com/francosdev/challenge-soulup-solcon/issues) |
-| 🔗 **LinkedIn (Carlos)** | [linkedin.com/in/carlos-franco-devs](https://linkedin.com/in/carlos-franco-devs) |
-| 🔗 **LinkedIn (Murilo)** | [linkedin.com/in/murilo-a-souza](https://linkedin.com/in/murilo-a-souza) |
-| 🔗 **LinkedIn (Henrique)** | [linkedin.com/in/henrique-bonachela](https://linkedin.com/in/henrique-bonachela) |
+**Contato:** [francosdevs@gmail.com](mailto:francosdevs@gmail.com)
 
 ---
 
@@ -200,8 +223,6 @@ Dúvidas, sugestões ou interesse em colaborar? Fale com a equipe:
 
 **FIAP Challenge 2026** — Parceria **SoulUp** × **SolCon**
 
-_Conectamos hoje. Construímos o futuro._ 🌱
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2d4a1e,100:111610&height=100&section=footer" />
+_Conectamos hoje. Construímos o futuro._
 
 </div>

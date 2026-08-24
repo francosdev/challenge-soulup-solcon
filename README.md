@@ -5,9 +5,9 @@
 **FIAP Challenge 2026 · SoulUp × SolCon**
 
 [![Python](https://img.shields.io/badge/Python-3.x-111111?style=for-the-badge&logo=python&logoColor=8BAF6E)](https://python.org)
-[![HTML5](https://img.shields.io/badge/HTML5-Frontend-111111?style=for-the-badge&logo=html5&logoColor=8BAF6E)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-111111?style=for-the-badge&logo=javascript&logoColor=8BAF6E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Canvas API](https://img.shields.io/badge/Canvas_API-Animations-111111?style=for-the-badge&logo=html5&logoColor=8BAF6E)](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
+[![React](https://img.shields.io/badge/React-18-111111?style=for-the-badge&logo=react&logoColor=29B4B7)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-111111?style=for-the-badge&logo=typescript&logoColor=29B4B7)](https://www.typescriptlang.org)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-111111?style=for-the-badge&logo=tailwindcss&logoColor=29B4B7)](https://tailwindcss.com)
 
 </div>
 1'
@@ -23,7 +23,7 @@
 O projeto é composto por dois módulos independentes:
 
 - **Backend CLI (Python)** — sistema funcional de gamificação com autenticação, perfis, ranking e painel admin, operado via terminal
-- **Frontend Web (HTML/CSS/JS)** — site de apresentação com animações generativas em Canvas, explicando o sistema para novos usuários
+- **Frontend Web (React + Vite + TypeScript + TailwindCSS)** — SPA com a identidade visual da SoulUp, apresentando o produto e o dashboard da solução
 
 ---
 
@@ -85,17 +85,16 @@ Cálculo acumulado de métricas reais:
 
 ```
 challenge-soulup-solcon/
-|-- frontend/                    # Frontend Web
-|   |-- index.html               # Pagina inicial
-|   |-- ecoscore.html            # Detalhes do sistema
-|   |-- como-funciona.html       # Fluxo em 5 etapas
-|   |-- sobre.html               # Contexto e solucao
-|   |-- faq.html                 # Perguntas frequentes
-|   |-- integrantes.html         # Equipe
-|   |-- contato.html             # Formulario de contato
-|   |-- css/                     # Estilos do frontend
-|   |-- js/                      # Scripts do frontend
-|   `-- assets/imagens/          # Fotos da equipe + logo
+|-- frontend/                    # Frontend Web (React + Vite + TS + Tailwind)
+|   |-- index.html               # Entrada Vite
+|   |-- tailwind.config.ts       # Tokens da identidade SoulUp
+|   |-- public/assets/imagens/   # Fotos da equipe + logo
+|   `-- src/
+|       |-- pages/               # Home, Sobre, Solucao, Integrantes, Faq, Contato
+|       |-- components/ui/       # Button, Card, CircleBadge, StatCard, ...
+|       |-- components/layout/   # Header, Footer, Layout
+|       |-- components/mascot/   # Solzinho (SVG inline)
+|       `-- data/                # Mocks tipados
 |
 |-- python/                      # Backend CLI
 |   |-- main.py                  # Ponto de entrada
@@ -171,7 +170,16 @@ executar_ecoscore.bat
 
 ### Frontend Web
 
-Abra qualquer arquivo `.html` da pasta `frontend/` diretamente no navegador, por exemplo `frontend/index.html`. Nenhum servidor ou build é necessário — as animações Canvas inicializam automaticamente.
+**Pré-requisito:** Node.js 18+.
+
+```bash
+cd frontend
+npm install
+npm run dev       # desenvolvimento
+npm run build     # checagem de tipos + build em dist/
+```
+
+O build usa `base: './'` e `HashRouter`, então `frontend/dist/index.html` também abre direto do disco.
 
 ---
 
@@ -182,26 +190,40 @@ Abra qualquer arquivo `.html` da pasta `frontend/` diretamente no navegador, por
 | Backend | Python 3.x (CLI) |
 | Autenticação | SHA-256 (hashlib) |
 | Persistência | JSON (file-based) |
-| Frontend | HTML5, CSS3, JavaScript ES6+ |
-| Animações | Canvas API (partículas e micélio) |
-| Tipografia | Fraunces (serif) + Inter (sans-serif) |
-| Ícones | Lucide SVG |
+| Frontend | React 18 + TypeScript + Vite |
+| Estilo | TailwindCSS 3 (sem CSS externo) |
+| Rotas / Formulários | react-router-dom · react-hook-form |
+| Tipografia | Poppins (display) + Inter (sans-serif) |
+| Ícones | lucide-react |
 
 ---
 
 ## Design System
 
-**Paleta (tema dark):**
+Identidade visual da **SoulUp**, com tokens declarados em `frontend/tailwind.config.ts`.
 
 | Token | Cor | Uso |
 |-------|-----|-----|
-| Primary | `#8BAF6E` | Verde sálvia — ações, destaques |
-| Secondary | `#6B8F47` | Verde escuro — hover, bordas |
-| Tertiary | `#B8D49A` | Verde claro — textos secundários |
-| Accent | `#C8A84B` | Dourado — conquistas, CTA |
-| Background | `#111610` | Quase preto — fundo base |
+| `soul.DEFAULT` | `#29B4B7` | Marca, CTAs primários, links |
+| `soul.light` | `#A4DBDE` | Fills secundários, fundo de progresso |
+| `soul.wash` | `#E8F6F6` | Superfície clara de apoio |
+| `soul.deep` | `#0F5F61` | Hover de CTA |
+| `navy.DEFAULT` | `#16486B` | Títulos e cards escuros de destaque |
+| `navy.dark` | `#0E3550` | Trilho de progresso, cards do dashboard |
+| `sun.*` | `#C8A84B` e derivados | **Exclusivo** de mascote, conquistas e streaks |
+| `ink.DEFAULT` | `#000000` | Fundo das telas da Solução |
+| `line` / `surf` | `#E3E7EA` / `#F5F5F5` | Hairlines de 1px e superfícies alternadas |
 
-**Animações:** sistema de partículas estilo PS5 com rede de micélio nos divisores de seção, controlado por IntersectionObserver para ativar conforme o scroll.
+**Duas superfícies:** páginas institucionais em fundo claro alternando `bg-white`/`bg-surf`;
+telas da Solução em `bg-ink` com cards `bg-navy-dark`.
+
+**Device circular:** o selo redondo com "UP" da marca SoulUp aparece em badges de pontuação,
+ícones de ação, avatares e conquistas, via o componente `CircleBadge`.
+
+**Mascote:** o Solzinho é SVG inline com esfera em gradiente radial, anel orbital e halo âmbar.
+As animações `breathe` e `orbit` rodam sob `motion-safe:`, respeitando `prefers-reduced-motion`.
+
+> Detalhes completos da paleta e da estrutura de pastas: [frontend/README.md](frontend/README.md)
 
 ---
 
@@ -222,7 +244,7 @@ Projeto desenvolvido por estudantes de **Análise e Desenvolvimento de Sistemas 
 - Murilo Almeida Rodrigues de Souza — RM 573977
 - Henrique Bonachela de Carvalho Carabante — RM 573620
 
-> Consulte a página [integrantes.html](frontend/integrantes.html) para ver a equipe completa.
+> Consulte a rota `/integrantes` do front-end, ou o [README do módulo](frontend/README.md), para ver a equipe completa.
 
 ---
 
