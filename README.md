@@ -91,7 +91,7 @@ challenge-soulup-solcon/
 |   |-- public/assets/imagens/   # Fotos da equipe + logo
 |   `-- src/
 |       |-- pages/               # Home, Sobre, EcoScore, ComoFunciona, Dashboard, Faq, Integrantes, Contato
-|       |-- components/ui/       # Button, Card, CircleBadge, StatCard, ...
+|       |-- components/ui/       # Button, Card, CircleBadge, Badge, NextStep, ...
 |       |-- components/layout/   # Header, Footer, Layout
 |       |-- components/mascot/   # Solzinho (SVG inline)
 |       |-- components/petplanet/ # Protótipo do planetinha
