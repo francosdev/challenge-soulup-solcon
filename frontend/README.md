@@ -70,7 +70,7 @@ Tokens extraídos dos materiais oficiais da SoulUp e declarados em `tailwind.con
 |-------|-----|-----|
 | `navy.DEFAULT` | `#16486B` | Títulos e cards escuros de destaque |
 | `navy.dark` | `#0E3550` | Trilho de progresso e cards do dashboard |
-| `ink.DEFAULT` | `#000000` | Fundo das telas da Solução |
+| `ink.DEFAULT` | `#000000` | Fundo da tela do protótipo Pet Planet |
 | `ink.muted` | `#6B7A85` | Texto secundário |
 | `line` | `#E3E7EA` | Hairlines — sempre 1px, nunca 2px |
 | `surf` | `#F5F5F5` | Superfície alternada das seções institucionais |
@@ -81,22 +81,24 @@ Tokens extraídos dos materiais oficiais da SoulUp e declarados em `tailwind.con
 
 | Token | Hex | Uso |
 |-------|-----|-----|
-| `sun.DEFAULT` | `#C8A84B` | Halo do Solzinho, texto de conquista |
+| `sun.DEFAULT` | `#C8A84B` | Streak, moedas e selos do protótipo |
 | `sun.wash` | `#FBF6E8` | Fundo de selo conquistado |
 | `sun.line` | `#EBD9A8` | Borda de selo conquistado |
 | `sun.text` | `#7A6320` | Texto sobre `sun.wash` |
 
 ### Duas superfícies
 
-- **Institucional** (Home, Sobre, Integrantes, FAQ, Contato) — fundo branco, seções alternando
-  `bg-white` e `bg-surf`, texto `text-navy`.
-- **Solução** (dashboard) — fundo `bg-ink`, cards `bg-navy-dark`, texto branco, acentos em `soul`.
+- **Institucional** (todas as 8 páginas) — fundo claro, seções alternando `bg-white` e `bg-surf`,
+  texto `text-navy`, com um campo de esporos em canvas atrás dos heros.
+- **Protótipo Pet Planet** — a única superfície escura, apresentada como um aparelho dentro de uma
+  moldura clara na página Dashboard: `ink` no corpo, painéis `navy` e `navy.dark`, acentos em
+  `soul` e `sun`.
 
 ### Outros tokens
 
 - `fontFamily`: `display` = Poppins · `sans` = Inter
 - `borderRadius`: `card` = 12px · `pill` = 9999px
-- `keyframes`: `breathe` (4s, escala 1 → 1.03) e `orbit` (24s, 360°), ambos sob `motion-safe:`
+- `keyframes`: as 12 animações do protótipo Pet Planet (`pp-bob`, `pp-celebrate`, `pp-confetti-fly`, …), todas sob `motion-safe:`
 
 ---
 
@@ -126,8 +128,8 @@ frontend/
     │   │   ├── Footer.tsx         # Rodapé em colunas
     │   │   ├── Layout.tsx         # Shell com <Outlet />
     │   │   └── Logo.tsx           # Palavra + selo circular "UP"
-    │   ├── mascot/
-    │   │   └── Solzinho.tsx       # Mascote em SVG inline, animável
+    │   ├── visual/
+    │   │   └── Spores.tsx         # Campo de esporos em canvas, atrás dos heros
     │   ├── petplanet/             # Protótipo interativo do planetinha
     │   │   ├── palette.ts         # Paleta e tipografia da superfície gamificada
     │   │   ├── primitives.tsx     # Sticker, Coin, GameBar, TreasureChest, ...

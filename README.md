@@ -93,7 +93,7 @@ challenge-soulup-solcon/
 |       |-- pages/               # Home, Sobre, EcoScore, ComoFunciona, Dashboard, Faq, Integrantes, Contato
 |       |-- components/ui/       # Button, Card, CircleBadge, Badge, NextStep, ...
 |       |-- components/layout/   # Header, Footer, Layout
-|       |-- components/mascot/   # Solzinho (SVG inline)
+|       |-- components/visual/   # Campo de esporos (canvas)
 |       |-- components/petplanet/ # Protótipo do planetinha
 |       `-- data/                # Mocks tipados
 |
@@ -221,8 +221,9 @@ telas da Solução em `bg-ink` com cards `bg-navy-dark`.
 **Device circular:** o selo redondo com "UP" da marca SoulUp aparece em badges de pontuação,
 ícones de ação, avatares e conquistas, via o componente `CircleBadge`.
 
-**Mascote:** o Solzinho é SVG inline com esfera em gradiente radial, anel orbital e halo âmbar.
-As animações `breathe` e `orbit` rodam sob `motion-safe:`, respeitando `prefers-reduced-motion`.
+**Mascote:** o Solzinho vive dentro do protótipo Pet Planet, com expressões que reagem ao tempo sem
+ação e olhos que seguem o cursor. Atrás dos heros roda um campo de esporos em canvas, portado do
+site anterior e recolorido. Todas as animações respeitam `prefers-reduced-motion`.
 
 > Detalhes completos da paleta e da estrutura de pastas: [frontend/README.md](frontend/README.md)
 
