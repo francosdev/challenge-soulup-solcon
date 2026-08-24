@@ -140,12 +140,13 @@ export interface LinhaRanking {
   pontos: string
 }
 
+/** O ciclo mensal vai até 100 Soul Points, então nenhuma posição passa disso. */
 export const RANKING_ECOSCORE: readonly LinhaRanking[] = [
-  { posicao: 1, medalha: '🥇', inicial: 'C', nome: 'Carlos Franco', cidade: 'São Paulo, SP', pontos: '14.820' },
-  { posicao: 2, medalha: '🥈', inicial: 'M', nome: 'Murilo Almeida', cidade: 'São Paulo, SP', pontos: '13.410' },
-  { posicao: 3, medalha: '🥉', inicial: 'H', nome: 'Henrique Bonachela', cidade: 'São Paulo, SP', pontos: '11.990' },
-  { posicao: 4, medalha: '4', inicial: 'M', nome: 'Marina Costa', cidade: 'São Paulo, SP', pontos: '9.780' },
-  { posicao: 5, medalha: '5', inicial: 'J', nome: 'Julia Mendes', cidade: 'Belo Horizonte, MG', pontos: '8.530' },
+  { posicao: 1, medalha: '🥇', inicial: 'C', nome: 'Carlos Franco', cidade: 'São Paulo, SP', pontos: '98' },
+  { posicao: 2, medalha: '🥈', inicial: 'M', nome: 'Murilo Almeida', cidade: 'São Paulo, SP', pontos: '94' },
+  { posicao: 3, medalha: '🥉', inicial: 'H', nome: 'Henrique Bonachela', cidade: 'São Paulo, SP', pontos: '87' },
+  { posicao: 4, medalha: '4', inicial: 'M', nome: 'Marina Costa', cidade: 'São Paulo, SP', pontos: '79' },
+  { posicao: 5, medalha: '5', inicial: 'J', nome: 'Julia Mendes', cidade: 'Belo Horizonte, MG', pontos: '71' },
 ] as const
 
 export interface ItemAvatar {
