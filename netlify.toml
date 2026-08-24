@@ -1,0 +1,23 @@
+# Deploy do front-end React do EcoScore.
+# O repositório tem vários módulos (python, java, ...); o site é só frontend/.
+
+[build]
+  base = "frontend"
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA: qualquer rota desconhecida devolve o index.html em vez de 404.
+# Hoje a navegação usa HashRouter e não depende disso, mas a regra deixa
+# o site pronto caso o roteamento mude para BrowserRouter.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
