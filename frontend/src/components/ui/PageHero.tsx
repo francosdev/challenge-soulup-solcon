@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { Spores } from '../visual/Spores'
 
 export interface PageHeroProps {
   tag: string
@@ -9,8 +10,12 @@ export interface PageHeroProps {
 /** Hero das páginas internas — equivalente ao `.hero-interno` do site anterior. */
 export function PageHero({ tag, titulo, texto }: PageHeroProps) {
   return (
-    <section className="border-b border-line bg-surf">
-      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-20">
+    <section className="relative overflow-hidden border-b border-line bg-surf">
+      <div className="pointer-events-none absolute inset-0">
+        <Spores />
+      </div>
+
+      <div className="relative mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-20">
         <span className="inline-flex items-center rounded-pill border border-soul-light bg-white px-3 py-1 font-sans text-xs font-medium text-soul-deep">
           {tag}
         </span>

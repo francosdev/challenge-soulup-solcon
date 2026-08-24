@@ -22,15 +22,6 @@ const config: Config = {
       },
       borderRadius: { card: '12px', pill: '9999px' },
       keyframes: {
-        breathe: {
-          '0%, 100%': { transform: 'scale(1)' },
-          '50%': { transform: 'scale(1.03)' },
-        },
-        orbit: {
-          from: { transform: 'rotate(0deg)' },
-          to: { transform: 'rotate(360deg)' },
-        },
-
         // Protótipo Pet Planet — portadas do standalone, que declarava CSS solto.
         'pp-bob': {
           '0%, 100%': { transform: 'translateY(0) rotate(-2deg)' },
@@ -90,9 +81,6 @@ const config: Config = {
         },
       },
       animation: {
-        breathe: 'breathe 4s ease-in-out infinite',
-        orbit: 'orbit 24s linear infinite',
-
         'pp-bob': 'pp-bob 3.2s ease-in-out infinite',
         'pp-celebrate': 'pp-celebrate 1.4s ease-in-out infinite',
         'pp-sad': 'pp-sad 4s ease-in-out infinite',

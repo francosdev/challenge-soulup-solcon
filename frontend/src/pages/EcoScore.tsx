@@ -25,7 +25,7 @@ import { NextStep } from '../components/ui/NextStep'
 import { PageHero, Realce } from '../components/ui/PageHero'
 import { ProgressBar } from '../components/ui/ProgressBar'
 import { Button } from '../components/ui/Button'
-import { Solzinho } from '../components/mascot/Solzinho'
+import { Spores } from '../components/visual/Spores'
 import { AVATAR_ITENS, QUESTS, RANKING_ECOSCORE, SKILL_TREE } from '../data/ecoscore'
 
 const ICONES_TRILHA: Record<'recycle' | 'sprout' | 'droplets', LucideIcon> = {
@@ -237,12 +237,12 @@ export function EcoScore() {
             </p>
           </div>
 
-          <div className="mt-8 grid items-center gap-6 rounded-card border border-line bg-surf p-6 sm:p-8 lg:grid-cols-[auto_1fr_auto]">
-            <div className="flex justify-center">
-              <Solzinho size={120} animated className="h-auto max-w-full" />
+          <div className="relative mt-8 grid items-center gap-6 overflow-hidden rounded-card border border-line bg-surf p-6 sm:p-8 lg:grid-cols-[1fr_auto]">
+            <div className="pointer-events-none absolute inset-0">
+              <Spores />
             </div>
 
-            <div>
+            <div className="relative">
               <div className="flex flex-wrap items-center gap-2">
                 <Badge tone="verde">Protótipo navegável</Badge>
                 <span className="font-sans text-xs uppercase tracking-wide text-ink-muted">
@@ -260,7 +260,7 @@ export function EcoScore() {
                   { valor: '47,3', unidade: 'kg', label: 'CO₂ evitado', destaque: false },
                   { valor: '3,2', unidade: '', label: 'Árvores eq.', destaque: false },
                   { valor: '184', unidade: 'L', label: 'Água', destaque: false },
-                  { valor: '1.842', unidade: '', label: 'Soul Points', destaque: true },
+                  { valor: '68', unidade: '/100', label: 'Soul Points', destaque: true },
                 ].map((stat) => (
                   <div key={stat.label}>
                     <p
@@ -279,7 +279,7 @@ export function EcoScore() {
               </div>
             </div>
 
-            <div className="flex justify-center lg:justify-end">
+            <div className="relative flex justify-center lg:justify-end">
               <Button to="/dashboard" size="lg">
                 Abrir →
               </Button>
@@ -323,7 +323,10 @@ export function EcoScore() {
                     <p className="font-sans text-xs text-ink-muted">{linha.cidade}</p>
                   </div>
                   <div className="text-right">
-                    <p className="font-display text-base font-semibold text-soul">{linha.pontos}</p>
+                    <p className="font-display text-base font-semibold text-soul">
+                      {linha.pontos}
+                      <span className="font-sans text-xs font-normal text-ink-muted">/100</span>
+                    </p>
                     <p className="font-sans text-xs text-ink-muted">Soul Points</p>
                   </div>
                 </li>

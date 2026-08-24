@@ -1,5 +1,5 @@
 import { Camera, Cpu, GraduationCap, Leaf, Users, Zap } from 'lucide-react'
-import { Solzinho } from '../components/mascot/Solzinho'
+import { Spores } from '../components/visual/Spores'
 import { Button } from '../components/ui/Button'
 import { SectionHeading } from '../components/ui/SectionHeading'
 import { Card } from '../components/ui/Card'
@@ -11,9 +11,13 @@ export function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="bg-white">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:py-24">
-          <div className="flex flex-col items-start gap-6">
+      <section className="relative overflow-hidden bg-white">
+        <div className="pointer-events-none absolute inset-0">
+          <Spores />
+        </div>
+
+        <div className="relative mx-auto flex max-w-3xl flex-col items-center px-4 py-20 text-center sm:px-6 lg:py-28">
+          <div className="flex flex-col items-center gap-6">
             <div className="flex flex-wrap items-center gap-2 font-sans text-xs text-ink-muted">
               <span className="inline-flex items-center gap-1.5">
                 <GraduationCap size={14} aria-hidden /> FIAP 2026
@@ -34,12 +38,12 @@ export function Home() {
               <span className="text-soul">gera recompensas reais</span>
             </h1>
 
-            <p className="max-w-md font-sans text-base leading-relaxed text-ink-muted">
+            <p className="max-w-xl font-sans text-base leading-relaxed text-ink-muted">
               O EcoScore transforma ações sustentáveis do dia a dia em progressão, selos e benefícios concretos
               — verificados por foto no app.
             </p>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap justify-center gap-3">
               <Button to="/ecoscore" size="lg">
                 Explorar a solução
               </Button>
@@ -47,10 +51,6 @@ export function Home() {
                 Como funciona →
               </Button>
             </div>
-          </div>
-
-          <div className="flex justify-center lg:justify-end">
-            <Solzinho size={280} animated className="h-auto max-w-full" />
           </div>
         </div>
       </section>
@@ -97,8 +97,12 @@ export function Home() {
           </div>
 
           {/* Interface emocional */}
-          <div className="mt-12 grid items-center gap-8 rounded-card bg-navy p-8 sm:p-12 lg:grid-cols-[1fr_auto]">
-            <div>
+          <div className="relative mt-12 overflow-hidden rounded-card bg-navy p-8 sm:p-12">
+            <div className="pointer-events-none absolute inset-0 opacity-60">
+              <Spores />
+            </div>
+
+            <div className="relative">
               <span className="inline-flex items-center rounded-pill border border-soul/40 bg-soul/10 px-3 py-1 font-sans text-xs font-medium text-soul-light">
                 Interface emocional
               </span>
@@ -113,9 +117,6 @@ export function Home() {
                 visual que responde à comunidade.
               </p>
             </div>
-            <div className="flex justify-center">
-              <Solzinho size={180} animated className="h-auto max-w-full" />
-            </div>
           </div>
         </div>
       </section>
@@ -125,7 +126,8 @@ export function Home() {
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
           <SectionHeading
             tag="Por que o EcoScore?"
-            titulo="Diferente de tudo que existe"
+            titulo="Feito para durar, não para viralizar"
+            descricao="Três decisões de projeto sustentam o sistema — e todas elas partem do mesmo princípio: recompensa só existe depois da ação."
           />
 
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
