@@ -1452,11 +1452,11 @@ export function PetPlanetApp() {
     body = <DashboardScreen pal={pal} state={state} onNavigate={setScreen} />
   }
 
+  // O fundo fica a cargo da página que hospeda o protótipo.
   return (
     <div
       style={{
         width: '100%',
-        background: pal.bg,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -1466,7 +1466,7 @@ export function PetPlanetApp() {
       <div
         key={screen}
         className="motion-safe:animate-pp-screen-in"
-        style={{ filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.5))' }}
+        style={{ filter: 'drop-shadow(0 18px 40px rgba(14,53,80,0.22))' }}
       >
         {body}
       </div>

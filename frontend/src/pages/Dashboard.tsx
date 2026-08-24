@@ -30,17 +30,17 @@ export function Dashboard() {
           />
 
           {/* Moldura do protótipo */}
-          <div className="mt-10 overflow-hidden rounded-card border border-line bg-ink">
-            <div className="flex items-center gap-3 border-b border-white/10 bg-navy-dark px-4 py-2.5">
+          <div className="mt-10 overflow-hidden rounded-card border border-line bg-surf">
+            <div className="flex items-center gap-3 border-b border-line bg-white px-4 py-2.5">
               <div className="flex gap-1.5">
-                <span className="h-2.5 w-2.5 rounded-pill bg-white/20" />
-                <span className="h-2.5 w-2.5 rounded-pill bg-white/20" />
+                <span className="h-2.5 w-2.5 rounded-pill bg-line" />
+                <span className="h-2.5 w-2.5 rounded-pill bg-line" />
                 <span className="h-2.5 w-2.5 rounded-pill bg-soul" />
               </div>
-              <span className="flex-1 truncate rounded-pill border border-white/10 px-3 py-1 font-sans text-xs text-white/50">
+              <span className="flex-1 truncate rounded-pill border border-line px-3 py-1 font-sans text-xs text-ink-muted">
                 ecoscore.soulup.app/impacto
               </span>
-              <span className="hidden shrink-0 font-sans text-xs text-soul-light sm:inline">EcoScore</span>
+              <span className="hidden shrink-0 font-sans text-xs text-soul-deep sm:inline">EcoScore</span>
             </div>
 
             <PetPlanetApp />
