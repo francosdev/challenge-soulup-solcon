@@ -9,18 +9,20 @@ interface ColunaFooter {
 
 const COLUNAS: readonly ColunaFooter[] = [
   {
-    titulo: 'Produto',
+    titulo: 'Páginas',
     links: [
       { to: '/', label: 'Início' },
-      { to: '/solucao', label: 'Solução' },
       { to: '/sobre', label: 'Sobre' },
+      { to: '/ecoscore', label: 'EcoScore' },
+      { to: '/como-funciona', label: 'Como Funciona' },
+      { to: '/dashboard', label: 'Dashboard' },
     ],
   },
   {
     titulo: 'Projeto',
     links: [
-      { to: '/integrantes', label: 'Integrantes' },
       { to: '/faq', label: 'FAQ' },
+      { to: '/integrantes', label: 'Integrantes' },
       { to: '/contato', label: 'Contato' },
     ],
   },

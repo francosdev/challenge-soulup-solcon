@@ -11,9 +11,11 @@ interface ItemNav {
 const NAV: readonly ItemNav[] = [
   { to: '/', label: 'Início' },
   { to: '/sobre', label: 'Sobre' },
-  { to: '/solucao', label: 'Solução' },
-  { to: '/integrantes', label: 'Integrantes' },
+  { to: '/ecoscore', label: 'EcoScore' },
+  { to: '/como-funciona', label: 'Como Funciona' },
+  { to: '/dashboard', label: 'Dashboard' },
   { to: '/faq', label: 'FAQ' },
+  { to: '/integrantes', label: 'Integrantes' },
 ] as const
 
 export function Header() {
@@ -31,8 +33,8 @@ export function Header() {
         </Link>
 
         {/* Desktop */}
-        <nav aria-label="Principal" className="hidden md:block">
-          <ul className="flex items-center gap-7">
+        <nav aria-label="Principal" className="hidden lg:block">
+          <ul className="flex items-center gap-5">
             {NAV.map((item) => (
               <li key={item.to}>
                 <NavLink to={item.to} end={item.to === '/'} className={linkClasses}>
@@ -60,14 +62,14 @@ export function Header() {
           aria-expanded={aberto}
           aria-controls="menu-mobile"
           aria-label={aberto ? 'Fechar menu' : 'Abrir menu'}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-pill border border-line text-navy transition-colors hover:border-soul hover:text-soul md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-pill border border-line text-navy transition-colors hover:border-soul hover:text-soul lg:hidden"
         >
           {aberto ? <X size={20} aria-hidden /> : <Menu size={20} aria-hidden />}
         </button>
       </div>
 
       {aberto ? (
-        <nav id="menu-mobile" aria-label="Principal (mobile)" className="border-t border-line bg-white md:hidden">
+        <nav id="menu-mobile" aria-label="Principal (mobile)" className="border-t border-line bg-white lg:hidden">
           <ul className="mx-auto flex max-w-6xl flex-col px-4 py-2 sm:px-6">
             {[...NAV, { to: '/contato', label: 'Contato' }].map((item) => (
               <li key={item.to}>
