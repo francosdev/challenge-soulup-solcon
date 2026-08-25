@@ -30,8 +30,8 @@ export const PILARES_HOME: readonly PilarHome[] = [
     numero: '02',
     titulo: 'Pertencimento',
     itens: [
-      'Avatar com itens base gratuitos desde o início',
-      'Itens especiais desbloqueados por missão, não comprados',
+      'Selos no perfil conquistados por trilha concluída',
+      'Nada à venda: o que é especial se desbloqueia agindo',
       'Feed social com up/down ponderado por reputação',
     ],
   },

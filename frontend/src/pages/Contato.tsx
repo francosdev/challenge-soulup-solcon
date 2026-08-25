@@ -26,7 +26,7 @@ const ASSUNTOS: readonly { value: string; label: string }[] = [
 const CAMPO =
   'w-full rounded-card border bg-white px-4 py-3 font-sans text-sm text-navy transition-colors placeholder:text-ink-muted focus:outline-none focus:ring-2 focus:ring-soul'
 
-/** Iniciais do integrante para o avatar circular da lista lateral. */
+/** Iniciais do integrante para o selo circular da lista lateral. */
 function iniciais(nome: string): string {
   const partes = nome.split(' ').filter(Boolean)
   const primeira = partes[0]?.charAt(0) ?? ''

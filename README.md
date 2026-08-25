@@ -219,7 +219,7 @@ Identidade visual da **SoulUp**, com tokens declarados em `frontend/tailwind.con
 telas da Solução em `bg-ink` com cards `bg-navy-dark`.
 
 **Device circular:** o selo redondo com "UP" da marca SoulUp aparece em badges de pontuação,
-ícones de ação, avatares e conquistas, via o componente `CircleBadge`.
+ícones de ação, iniciais de perfil e conquistas, via o componente `CircleBadge`.
 
 **Mascote:** o Solzinho vive dentro do protótipo Pet Planet, com expressões que reagem ao tempo sem
 ação e olhos que seguem o cursor. Atrás dos heros roda um campo de esporos em canvas, portado do

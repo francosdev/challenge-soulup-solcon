@@ -52,7 +52,7 @@ export const FAQ: readonly CategoriaFaq[] = [
         id: 'pontos-2',
         pergunta: 'Os Soul Points têm prazo de validade?',
         resposta:
-          'Para fins do ranking mensal, os pontos são zerados no início de cada mês — um ranking novo começa. Porém, os pontos acumulados no perfil (para desbloqueio de itens do avatar, skill tree e jardim) são permanentes e não expiram.',
+          'Para fins do ranking mensal, os pontos são zerados no início de cada mês — um ranking novo começa. Porém, os pontos acumulados no perfil (para a skill tree e os selos de cada trilha) são permanentes e não expiram.',
       },
       {
         id: 'pontos-3',
@@ -102,7 +102,7 @@ export const FAQ: readonly CategoriaFaq[] = [
         id: 'recompensa-2',
         pergunta: 'Quais outras recompensas existem além do top 1?',
         resposta:
-          'O top 10 recebe itens exclusivos para o avatar, desbloqueio antecipado de quests sazonais e badges especiais no perfil. Todos os usuários acumulam Soul Points que servem para desbloquear roupas, acessórios, pets e novos espaços no jardim virtual.',
+          'O top 10 recebe desbloqueio antecipado de quests sazonais e selos especiais no perfil. Todos os usuários acumulam Soul Points que valem para o ranking do ciclo e para os selos permanentes de cada trilha concluída.',
       },
       {
         id: 'recompensa-3',

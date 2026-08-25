@@ -150,7 +150,7 @@ frontend/
     │
     ├── data/                      # Mocks tipados (sem consumo de API)
     │   ├── como-funciona.ts       # As 5 etapas do fluxo
-    │   ├── ecoscore.ts            # Skill tree, trilhas, ranking, avatar
+    │   ├── ecoscore.ts            # Skill tree, trilhas e ranking            
     │   ├── faq.ts                 # Perguntas por categoria
     │   ├── home.ts                # Números e pilares da home
     │   ├── integrantes.ts         # Equipe 1TDSPH
@@ -159,7 +159,7 @@ frontend/
     └── pages/
         ├── Home.tsx               # Hero, números, pilares, diferenciais
         ├── Sobre.tsx              # Problema, escuta, filosofia, solução, SoulUp
-        ├── EcoScore.tsx           # Skill tree, trilhas, ranking, avatar, feed
+        ├── EcoScore.tsx           # Skill tree, trilhas, ranking, feed social
         ├── ComoFunciona.tsx       # Fluxo em 5 etapas, validação, 3 classes
         ├── Dashboard.tsx          # Protótipo do planetinha
         ├── Faq.tsx                # Acordeão por categoria

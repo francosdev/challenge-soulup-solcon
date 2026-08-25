@@ -149,15 +149,3 @@ export const RANKING_ECOSCORE: readonly LinhaRanking[] = [
   { posicao: 5, medalha: '5', inicial: 'J', nome: 'Julia Mendes', cidade: 'Belo Horizonte, MG', pontos: '71' },
 ] as const
 
-export interface ItemAvatar {
-  titulo: string
-  texto: string
-  icone: 'shirt' | 'unlock' | 'medal' | 'user-check'
-}
-
-export const AVATAR_ITENS: readonly ItemAvatar[] = [
-  { titulo: 'Itens base', texto: 'Gratuitos desde o início — sem custo de pontos', icone: 'shirt' },
-  { titulo: 'Itens de missão', texto: 'Desbloqueados ao completar trilhas — não estão à venda', icone: 'unlock' },
-  { titulo: 'Selos no perfil', texto: 'Status conquistado visível para toda a comunidade', icone: 'medal' },
-  { titulo: 'Identidade real', texto: 'O perfil conta sua história — não seu saldo de pontos', icone: 'user-check' },
-] as const

@@ -3,7 +3,7 @@ import { PET_FONT, PET_PALETTE, type PetPalette } from './palette'
 import {
   Coin,
   ConfettiStrip,
-  GameAvatar,
+  GameInitials,
   GameBar,
   GameCard,
   LevelPill,
@@ -634,7 +634,7 @@ function DashboardScreen({ pal, state, onNavigate }: ScreenProps) {
       <ScreenScroll>
         <div style={{ padding: '10px 14px 6px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <GameAvatar pal={pal} size={32} label="MR" color={pal.eco} />
+            <GameInitials pal={pal} size={32} label="MR" color={pal.eco} />
             <div style={{ lineHeight: 1.1 }}>
               <div style={{ fontFamily: PET_FONT.mono, fontSize: 8, color: pal.muted }}>OI,</div>
               <div style={{ fontFamily: PET_FONT.game, fontSize: 14, fontWeight: 700 }}>Mariana</div>

@@ -5,14 +5,10 @@ import {
   Droplets,
   HelpCircle,
   Leaf,
-  Medal,
   Recycle,
-  Shirt,
   Sprout,
   ThumbsDown,
   ThumbsUp,
-  Unlock,
-  UserCheck,
   Zap,
   type LucideIcon,
 } from 'lucide-react'
@@ -26,19 +22,12 @@ import { PageHero, Realce } from '../components/ui/PageHero'
 import { ProgressBar } from '../components/ui/ProgressBar'
 import { Button } from '../components/ui/Button'
 import { Spores } from '../components/visual/Spores'
-import { AVATAR_ITENS, QUESTS, RANKING_ECOSCORE, SKILL_TREE } from '../data/ecoscore'
+import { QUESTS, RANKING_ECOSCORE, SKILL_TREE } from '../data/ecoscore'
 
 const ICONES_TRILHA: Record<'recycle' | 'sprout' | 'droplets', LucideIcon> = {
   recycle: Recycle,
   sprout: Sprout,
   droplets: Droplets,
-}
-
-const ICONES_AVATAR: Record<'shirt' | 'unlock' | 'medal' | 'user-check', LucideIcon> = {
-  shirt: Shirt,
-  unlock: Unlock,
-  medal: Medal,
-  'user-check': UserCheck,
 }
 
 /** Placar de votos do feed ilustrativo — funciona, mas não é persistido. */
@@ -381,34 +370,8 @@ export function EcoScore() {
         </div>
       </section>
 
-      {/* AVATAR */}
-      <section className="border-t border-line bg-white">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
-          <SectionHeading
-            tag="Pertencimento"
-            titulo="Avatar como registro de trajetória"
-            descricao="Personalize seu avatar e leve-o para a comunidade. Missões contínuas desbloqueiam novos itens — e nas temporadas, missões especiais liberam customizações exclusivas que só existem por tempo limitado."
-          />
-
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {AVATAR_ITENS.map((item) => {
-              const Icone = ICONES_AVATAR[item.icone]
-              return (
-                <Card key={item.titulo} className="text-center">
-                  <CircleBadge variant="wash" size="md" className="mx-auto">
-                    <Icone size={20} aria-hidden />
-                  </CircleBadge>
-                  <h3 className="mt-4 font-display text-base font-semibold text-navy">{item.titulo}</h3>
-                  <p className="mt-2 font-sans text-sm leading-relaxed text-ink-muted">{item.texto}</p>
-                </Card>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* REPUTAÇÃO SOCIAL */}
-      <section className="border-t border-line bg-surf">
+      <section className="border-t border-line bg-white">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-20">
           <div>
             <span className="inline-flex items-center rounded-pill border border-soul-light bg-white px-3 py-1 font-sans text-xs font-medium text-soul-deep">

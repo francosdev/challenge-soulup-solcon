@@ -32,14 +32,14 @@ export function GameCard({ pal, color, style, children }: GameCardProps) {
   )
 }
 
-export interface GameAvatarProps extends PalProps {
+export interface GameInitialsProps extends PalProps {
   size?: number
   label?: string
   color?: string
   style?: CSSProperties
 }
 
-export function GameAvatar({ pal, size = 32, label = '?', color, style }: GameAvatarProps) {
+export function GameInitials({ pal, size = 32, label = '?', color, style }: GameInitialsProps) {
   return (
     <div
       style={{

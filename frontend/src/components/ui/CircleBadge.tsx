@@ -27,7 +27,7 @@ const TAMANHOS: Record<CircleBadgeSize, string> = {
 
 /**
  * Selo circular da marca SoulUp — o "UP" dentro do círculo.
- * Usado em pontuações, ícones de ação, avatares e conquistas.
+ * Usado em pontuações, ícones de ação, iniciais de perfil e conquistas.
  */
 export function CircleBadge({
   children,
