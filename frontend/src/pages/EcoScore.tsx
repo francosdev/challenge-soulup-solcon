@@ -241,7 +241,7 @@ export function EcoScore() {
               <h3 className="mt-3 font-display text-xl font-semibold text-navy">Dashboard de impacto</h3>
               <p className="mt-2 font-sans text-sm leading-relaxed text-ink-muted">
                 Acompanhe ao vivo o resultado das ações sustentáveis: CO₂ evitado, árvores equivalentes, água
-                economizada e energia poupada. Tudo guiado pelo Solzinho, o mascote ecológico do EcoScore.
+                economizada e energia poupada. Tudo guiado pelo Planetinha, o mascote ecológico do EcoScore.
               </p>
 
               <div className="mt-5 flex flex-wrap gap-6 border-t border-line pt-4">

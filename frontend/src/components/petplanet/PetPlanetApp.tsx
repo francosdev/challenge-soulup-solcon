@@ -505,7 +505,7 @@ function ScreenScroll({ children }: { children: ReactNode }) {
 
 function OnboardingScreen({ pal, onDone }: { pal: PetPalette; onDone: () => void }) {
   const steps: { mood: Mood; title: string; body: string }[] = [
-    { mood: 'happy', title: 'olá, eu sou o Solzinho 🌍', body: 'tô aqui pra crescer com você. cada ação sustentável me alimenta!' },
+    { mood: 'happy', title: 'olá, eu sou o Planetinha 🌍', body: 'tô aqui pra crescer com você. cada ação sustentável me alimenta!' },
     { mood: 'celebrating', title: 'registre, ganhe, festeje', body: 'tira foto da sua ação, valido por IA, vc ganha pontos e moedas. ✦' },
     { mood: 'sleepy', title: 'mas cuidado: se sumir…', body: 'fico triste e perco saúde. seu streak também! bora?' },
   ]

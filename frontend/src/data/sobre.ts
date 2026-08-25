@@ -27,6 +27,6 @@ export const FILOSOFIA: readonly PilarFilosofia[] = [
     numero: '04',
     titulo: 'O planeta como protagonista',
     texto:
-      'O Solzinho não é mascote decorativo. É a representação emocional do estado coletivo do ecossistema — um feedback que você sente antes de ler qualquer número.',
+      'O Planetinha não é mascote decorativo. É a representação emocional do estado coletivo do ecossistema — um feedback que você sente antes de ler qualquer número.',
   },
 ] as const

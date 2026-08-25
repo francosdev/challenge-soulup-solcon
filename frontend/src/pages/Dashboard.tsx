@@ -17,7 +17,7 @@ export function Dashboard() {
             Visualize seu <Realce>impacto real</Realce>
           </>
         }
-        texto="Cada ação registrada na plataforma vira métrica concreta — CO₂ evitado, árvores equivalentes, água economizada e resíduos reciclados. Tudo guiado pelo Solzinho, seu mascote ecológico. Temos o objetivo de mostrar ao usuário que ele está fazendo a diferença."
+        texto="Cada ação registrada na plataforma vira métrica concreta — CO₂ evitado, árvores equivalentes, água economizada e resíduos reciclados. Tudo guiado pelo Planetinha, seu mascote ecológico. Temos o objetivo de mostrar ao usuário que ele está fazendo a diferença."
       />
 
       {/* PROTÓTIPO */}
@@ -26,7 +26,7 @@ export function Dashboard() {
           <SectionHeading
             tag="Demonstração"
             titulo="Experimente o Dashboard"
-            descricao="Clique no Solzinho. Registre uma ação. Veja o impacto subir em tempo real. O protótipo persiste no seu navegador, então você pode voltar quando quiser."
+            descricao="Clique no Planetinha. Registre uma ação. Veja o impacto subir em tempo real. O protótipo persiste no seu navegador, então você pode voltar quando quiser."
           />
 
           {/* Moldura do protótipo */}
@@ -75,7 +75,7 @@ export function Dashboard() {
               </CircleBadge>
               <h3 className="mt-4 font-display text-base font-semibold text-navy">Mascote vivo</h3>
               <p className="mt-2 font-sans text-sm leading-relaxed text-ink-muted">
-                O Solzinho reage à sua atividade — feliz, sonolento ou triste. Os olhos seguem o cursor. Clique
+                O Planetinha reage à sua atividade — feliz, sonolento ou triste. Os olhos seguem o cursor. Clique
                 pra ver ele pular.
               </p>
             </Card>

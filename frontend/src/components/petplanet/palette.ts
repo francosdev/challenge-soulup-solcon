@@ -38,17 +38,17 @@ export interface PetPalette {
 }
 
 export const PET_PALETTE: PetPalette = {
-  bg: '#000000',
-  paper: '#0E3550',
+  bg: '#0E3550',
+  paper: '#16486B',
   ink: '#FFFFFF',
   inkSoft: '#A4DBDE',
-  muted: '#6B7A85',
+  muted: '#8FA3B0',
   line: '#0F5F61',
   lineSoft: 'rgba(255,255,255,0.12)',
-  shadow: 'rgba(0,0,0,0.55)',
+  shadow: 'rgba(0,0,0,0.35)',
   eco: '#29B4B7',
   ecoDeep: '#A4DBDE',
-  ecoSoft: '#16486B',
+  ecoSoft: 'rgba(41,180,183,0.14)',
   sun: '#C8A84B',
   sunDeep: '#C8A84B',
   coin: '#C8A84B',
