@@ -23,6 +23,7 @@ import { ProgressBar } from '../components/ui/ProgressBar'
 import { Button } from '../components/ui/Button'
 import { Spores } from '../components/visual/Spores'
 import { QUESTS, RANKING_ECOSCORE, SKILL_TREE } from '../data/ecoscore'
+import { FORMATOS_PATROCINIO, LIMITES_PATROCINIO } from '../data/sponsorship'
 
 const ICONES_TRILHA: Record<'recycle' | 'sprout' | 'droplets', LucideIcon> = {
   recycle: Recycle,
@@ -370,8 +371,66 @@ export function EcoScore() {
         </div>
       </section>
 
-      {/* REPUTAÇÃO SOCIAL */}
+      {/* MONETIZAÇÃO */}
       <section className="border-t border-line bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
+          <SectionHeading
+            tag="Monetização"
+            titulo="Patrocine a jornada. Não o banner."
+            descricao="A publicidade não é colada por cima do produto: ela vira uma peça da própria mecânica. O parceiro banca uma missão, um desafio sazonal ou uma habilidade inteira — e entrega um benefício a quem concluir."
+          />
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {FORMATOS_PATROCINIO.map((formato, i) => (
+              <Card key={formato.id}>
+                <CircleBadge variant="outline" size="sm">
+                  {`0${i + 1}`}
+                </CircleBadge>
+                <h3 className="mt-4 font-display text-lg font-semibold text-navy">{formato.titulo}</h3>
+                <p className="mt-2 font-sans text-sm leading-relaxed text-ink-muted">{formato.texto}</p>
+                <p className="mt-4 border-t border-line pt-3 font-sans text-xs leading-relaxed text-soul-deep">
+                  {formato.exemplo}
+                </p>
+              </Card>
+            ))}
+          </div>
+
+          <div className="mt-10 grid items-start gap-6 lg:grid-cols-2">
+            <div className="rounded-card bg-navy p-8 sm:p-10">
+              <h3 className="font-display text-xl font-semibold leading-snug text-white sm:text-2xl">
+                A marca não paga para aparecer. Paga para participar de uma jornada que já entrega
+                valor a quem está do outro lado.
+              </h3>
+              <p className="mt-4 font-sans text-base leading-relaxed text-white/75">
+                É a diferença entre interromper alguém e ser útil para alguém. O usuário aprende,
+                pratica e comprova uma ação real — e o parceiro é quem viabiliza isso.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-display text-lg font-semibold text-navy">
+                O que o patrocínio nunca compra
+              </h3>
+              <p className="mt-2 font-sans text-sm leading-relaxed text-ink-muted">
+                O modelo só se sustenta se a confiança na validação continuar de pé. Por isso ele tem
+                limites declarados.
+              </p>
+              <FeatureList className="mt-5">
+                {LIMITES_PATROCINIO.map((limite) => (
+                  <FeatureItem key={limite}>{limite}</FeatureItem>
+                ))}
+              </FeatureList>
+              <p className="mt-5 font-sans text-xs leading-relaxed text-ink-muted">
+                No protótipo os parceiros são marcadores — não há acordo firmado com nenhuma empresa,
+                e nenhum pagamento é processado.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* REPUTAÇÃO SOCIAL */}
+      <section className="border-t border-line bg-surf">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-20">
           <div>
             <span className="inline-flex items-center rounded-pill border border-soul-light bg-white px-3 py-1 font-sans text-xs font-medium text-soul-deep">

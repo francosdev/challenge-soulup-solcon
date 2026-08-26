@@ -1,4 +1,5 @@
 import type { Skill } from '../types/ecoscore';
+import { PARCEIRO_AGUA } from './sponsorship';
 
 export const SKILLS: Skill[] = [
   {
@@ -24,6 +25,7 @@ export const SKILLS: Skill[] = [
     tagline: 'Reduza o consumo onde ele é invisível.',
     pointsPerAction: 3,
     missionReward: 12,
+    sponsor: PARCEIRO_AGUA,
   },
   {
     id: 'energia',

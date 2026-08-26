@@ -1,6 +1,7 @@
 import type { Mission, Skill, SkillId, SkillState } from '../../../types/ecoscore';
 import { TrailNode } from './TrailNode';
 import { SponsoredSlot } from './SponsoredSlot';
+import { DESAFIO_PATROCINADO } from '../../../data/sponsorship';
 
 interface TrailScreenProps {
   skills: Skill[];
@@ -52,6 +53,10 @@ export function TrailScreen({
         </div>
       ) : null}
 
+      <div className="mb-7">
+        <SponsoredSlot challenge={DESAFIO_PATROCINADO} />
+      </div>
+
       {skills.map((skill, i) => {
         const state = stateFor(skill.order);
         const openable = state === 'available' || state === 'in_progress';
@@ -66,8 +71,6 @@ export function TrailScreen({
           />
         );
       })}
-
-      <SponsoredSlot />
     </div>
   );
 }

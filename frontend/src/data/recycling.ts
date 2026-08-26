@@ -1,4 +1,5 @@
 import type { LearnContent, Mission, Quiz } from '../types/ecoscore';
+import { RECICLAGEM_PARTNER_REWARD } from './sponsorship';
 
 export const RECYCLING_LEARN: LearnContent = {
   skillId: 'reciclagem',
@@ -148,6 +149,7 @@ export const RECYCLING_MISSION: Mission = {
   difficulty: 'Iniciante',
   reward: 12,
   estimatedCo2eKg: 1.8,
+  partnerReward: RECICLAGEM_PARTNER_REWARD,
   checklist: [
     { id: 'papel', label: 'Papel' },
     { id: 'plastico', label: 'Plástico' },

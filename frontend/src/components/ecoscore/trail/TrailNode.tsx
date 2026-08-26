@@ -90,6 +90,11 @@ export function TrailNode({ skill, state, currentStage, isLast = false, onOpen }
         >
           {skill.name}
         </div>
+        {skill.sponsor ? (
+          <div className="mt-1 text-[11px] leading-relaxed text-ink-muted">
+            Em parceria com {skill.sponsor.name} · {skill.sponsor.segment}
+          </div>
+        ) : null}
         <p className="mt-1.5 text-sm leading-relaxed text-ink-muted">{detail}</p>
         {done ? <StageChecklist className="mt-3.5" /> : null}
         {onOpen ? (

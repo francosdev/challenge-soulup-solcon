@@ -5,6 +5,41 @@ export type SkillState = 'locked' | 'available' | 'in_progress' | 'completed';
 /** As quatro etapas da jornada de uma habilidade. */
 export type StageId = 'learn' | 'validate' | 'practice' | 'conquer';
 
+/**
+ * Parceiro comercial. No protótipo os nomes são marcadores — não existe
+ * acordo firmado com nenhuma empresa.
+ */
+export interface Sponsor {
+  name: string;
+  /** Segmento do parceiro, ex. 'Energia'. */
+  segment: string;
+}
+
+/**
+ * Benefício entregue pelo parceiro ao concluir uma jornada.
+ * Não é moeda e não entra no saldo: a única moeda é Soul Points.
+ */
+export interface PartnerReward {
+  /** Nome curto do benefício, ex. 'Cupom de 20% na conta de luz'. */
+  label: string;
+  description: string;
+  sponsor: Sponsor;
+}
+
+/** Desafio sazonal de um parceiro, exibido no topo da trilha. */
+export interface SponsoredChallenge {
+  id: string;
+  title: string;
+  description: string;
+  durationDays: number;
+  /** Quantas missões precisam ser concluídas. */
+  missionCount: number;
+  /** Recompensa em Soul Points — soma à mesma moeda de sempre. */
+  reward: number;
+  partnerReward: string;
+  sponsor: Sponsor;
+}
+
 export interface Skill {
   id: SkillId;
   /** Posição na trilha, 1-indexada. */
@@ -18,6 +53,8 @@ export interface Skill {
   missionReward: number;
   /** O nó final da trilha é destacado em sun. */
   isFinal?: boolean;
+  /** Habilidade inteira bancada por um parceiro. */
+  sponsor?: Sponsor;
 }
 
 export interface ContentRow {
@@ -79,6 +116,8 @@ export interface Mission {
   checklist: MissionCheckItem[];
   /** Impacto estimado ao concluir, em kg de CO2e evitado. */
   estimatedCo2eKg: number;
+  /** Presente quando a missão é bancada por um parceiro. */
+  partnerReward?: PartnerReward;
 }
 
 export interface JourneyProgress {

@@ -1,4 +1,4 @@
-import { ShoppingBasket, Trophy } from 'lucide-react';
+import { Gift, ShoppingBasket, Trophy } from 'lucide-react';
 import type { Mission, Skill } from '../../../types/ecoscore';
 import { Label } from '../ui/Label';
 import { StatRow, StatTable } from '../ui/StatRow';
@@ -53,6 +53,31 @@ export function AchievementScreen({
         <div className="mb-5 mt-2 text-xs text-ink-muted">
           estimativa com base em fatores de emissão médios
         </div>
+
+        {mission.partnerReward ? (
+          <div className="mb-3 rounded-card border border-sun-line bg-sun-wash px-[18px] py-4">
+            <div className="flex items-center gap-3.5">
+              <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full border border-sun-line bg-white">
+                <Gift size={22} strokeWidth={1.5} className="text-sun" />
+              </span>
+              <div className="min-w-0">
+                <div className="text-[11px] font-medium uppercase tracking-[0.06em] text-sun-text">
+                  Recompensa de parceiro desbloqueada
+                </div>
+                <div className="mt-0.5 font-display text-base font-medium leading-tight text-navy">
+                  {mission.partnerReward.label}
+                </div>
+              </div>
+            </div>
+            <p className="mt-2.5 text-[13px] leading-relaxed text-sun-text">
+              {mission.partnerReward.description}
+            </p>
+            <p className="mt-2 border-t border-sun-line pt-2.5 text-[11px] text-sun-text">
+              Oferecido por {mission.partnerReward.sponsor.name} ·{' '}
+              {mission.partnerReward.sponsor.segment}
+            </p>
+          </div>
+        ) : null}
 
         {nextSkill ? (
           <div className="flex items-center gap-3.5 rounded-card border border-soul bg-soul-wash px-[18px] py-4">
