@@ -19,6 +19,9 @@ const config: Config = {
       fontFamily: {
         display: ['Poppins', 'sans-serif'],
         sans: ['Inter', 'sans-serif'],
+        // Já carregada para o protótipo; `font-mono` passa a usá-la em vez da
+        // pilha monoespaçada padrão do sistema.
+        mono: ['JetBrains Mono', 'monospace'],
       },
       borderRadius: { card: '12px', pill: '9999px' },
       keyframes: {
