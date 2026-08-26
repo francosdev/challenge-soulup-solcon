@@ -21,8 +21,11 @@ export function Layout() {
     window.scrollTo(0, 0)
   }, [pathname])
 
+  // `overflow-x-clip` e não `hidden`: os dois barram o scroll horizontal, mas
+  // `hidden` cria um contexto de rolagem no ancestral e mata o `sticky` do
+  // Header. `clip` não cria.
   return (
-    <div className="flex min-h-screen flex-col overflow-x-hidden bg-white font-sans text-navy antialiased">
+    <div className="flex min-h-screen flex-col overflow-x-clip bg-white font-sans text-navy antialiased">
       <Header />
       <main className="flex-1">
         <Suspense fallback={<Carregando />}>
