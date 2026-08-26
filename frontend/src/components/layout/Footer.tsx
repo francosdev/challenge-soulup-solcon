@@ -16,6 +16,7 @@ const COLUNAS: readonly ColunaFooter[] = [
       { to: '/ecoscore', label: 'EcoScore' },
       { to: '/como-funciona', label: 'Como Funciona' },
       { to: '/dashboard', label: 'Dashboard' },
+      { to: '/trilha', label: 'Trilha' },
     ],
   },
   {

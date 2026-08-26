@@ -1,7 +1,17 @@
-import { useEffect } from 'react'
+import { Suspense, useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { Header } from './Header'
 import { Footer } from './Footer'
+
+/** Reserva a altura da dobra enquanto o chunk da rota chega. */
+function Carregando() {
+  return (
+    <div className="flex min-h-[60vh] items-center justify-center" role="status" aria-live="polite">
+      <span className="h-8 w-8 animate-spin rounded-pill border border-line border-t-soul" />
+      <span className="sr-only">Carregando página</span>
+    </div>
+  )
+}
 
 export function Layout() {
   const { pathname } = useLocation()
@@ -15,7 +25,9 @@ export function Layout() {
     <div className="flex min-h-screen flex-col overflow-x-hidden bg-white font-sans text-navy antialiased">
       <Header />
       <main className="flex-1">
-        <Outlet />
+        <Suspense fallback={<Carregando />}>
+          <Outlet />
+        </Suspense>
       </main>
       <Footer />
     </div>

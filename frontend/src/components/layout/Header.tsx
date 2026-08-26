@@ -14,6 +14,7 @@ const NAV: readonly ItemNav[] = [
   { to: '/ecoscore', label: 'EcoScore' },
   { to: '/como-funciona', label: 'Como Funciona' },
   { to: '/dashboard', label: 'Dashboard' },
+  { to: '/trilha', label: 'Trilha' },
   { to: '/faq', label: 'FAQ' },
   { to: '/integrantes', label: 'Integrantes' },
 ] as const

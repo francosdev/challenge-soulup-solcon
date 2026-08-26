@@ -9,6 +9,11 @@ interface ButtonBaseProps {
   variant?: ButtonVariant
   size?: ButtonSize
   className?: string
+  /**
+   * Esmaece o botão primário quando a ação ainda não está liberada, sem
+   * removê-lo do fluxo de foco — use quando o próprio handler tem a guarda.
+   */
+  muted?: boolean
   /** Renderiza como <Link> do react-router quando informado. */
   to?: string
   /** Renderiza como âncora externa quando informado. */
@@ -37,11 +42,16 @@ export function Button({
   variant = 'primary',
   size = 'md',
   className = '',
+  muted = false,
   to,
   href,
   ...rest
 }: ButtonProps) {
-  const classes = `${BASE} ${VARIANTES[variant]} ${TAMANHOS[size]} ${className}`
+  const tom =
+    muted && variant === 'primary'
+      ? 'bg-soul-light text-white border border-soul-light'
+      : VARIANTES[variant]
+  const classes = `${BASE} ${tom} ${TAMANHOS[size]} ${className}`
 
   if (to) {
     return (
