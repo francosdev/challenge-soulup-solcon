@@ -1,11 +1,12 @@
 import { Building2, Cpu, GraduationCap, Github, Handshake, Lightbulb, Linkedin, Sprout, Target } from 'lucide-react'
-import { Badge } from '../components/ui/Badge'
-import { SectionHeading } from '../components/ui/SectionHeading'
-import { Card } from '../components/ui/Card'
-import { CircleBadge } from '../components/ui/CircleBadge'
-import { NextStep } from '../components/ui/NextStep'
-import { PageHero, Realce } from '../components/ui/PageHero'
-import { INTEGRANTES, TURMA } from '../data/integrantes'
+import { Badge } from '../../components/ui/Badge'
+import { SectionHeading } from '../../components/ui/SectionHeading'
+import { Card } from '../../components/ui/Card'
+import { CircleBadge } from '../../components/ui/CircleBadge'
+import { NextStep } from '../../components/ui/NextStep'
+import { PageHero } from '../../components/ui/PageHero'
+import { Realce } from '../../components/ui/Realce'
+import { INTEGRANTES, TURMA } from '../../data/integrantes'
 
 const DISCIPLINAS: readonly string[] = [
   'Artificial Intelligence & Chat Bot',
@@ -16,7 +17,7 @@ const DISCIPLINAS: readonly string[] = [
   'Software Engineering and Business Model',
 ] as const
 
-export function Integrantes() {
+export default function Integrantes() {
   return (
     <>
       <PageHero
@@ -99,9 +100,9 @@ export function Integrantes() {
           </div>
 
           <div>
-            <span className="inline-flex items-center rounded-pill border border-soul-light bg-white px-3 py-1 font-sans text-xs font-medium text-soul-deep">
+            <Badge tone="azul">
               Nossa startup
-            </span>
+            </Badge>
             <h2 className="mt-4 font-display text-2xl font-semibold text-navy sm:text-3xl">
               <Realce>Sol</Realce>Con
             </h2>

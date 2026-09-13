@@ -2,7 +2,7 @@ import type { JourneyProgress, Mission, Skill } from '../../../types/ecoscore';
 import { Label } from '../ui/Label';
 import { StageRow, type StageStatus } from './StageRow';
 
-interface SkillOverviewProps {
+type SkillOverviewProps = {
   skill: Skill;
   mission: Mission;
   progress: JourneyProgress;

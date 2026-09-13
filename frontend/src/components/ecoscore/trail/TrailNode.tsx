@@ -5,7 +5,7 @@ import { Card } from '../../ui/Card';
 import { Button } from '../../ui/Button';
 import { StageChecklist } from './StageChecklist';
 
-interface TrailNodeProps {
+type TrailNodeProps = {
   skill: Skill;
   state: SkillState;
   /** Etapa atual da jornada quando `state === 'in_progress'`, 1-indexada. */

@@ -1,16 +1,18 @@
 import { Lightbulb, Sprout, TrendingDown, TrendingUp } from 'lucide-react'
-import { Badge } from '../components/ui/Badge'
-import { SectionHeading } from '../components/ui/SectionHeading'
-import { Button } from '../components/ui/Button'
-import { CircleBadge } from '../components/ui/CircleBadge'
-import { FeatureItem, FeatureList } from '../components/ui/FeatureList'
-import { MetricRow } from '../components/ui/MetricRow'
-import { NextStep } from '../components/ui/NextStep'
-import { PageHero, Realce } from '../components/ui/PageHero'
-import { PullQuote } from '../components/ui/PullQuote'
-import { FILOSOFIA } from '../data/sobre'
+import { Badge } from '../../components/ui/Badge'
+import { SectionHeading } from '../../components/ui/SectionHeading'
+import { Button } from '../../components/ui/Button'
+import { CircleBadge } from '../../components/ui/CircleBadge'
+import { FeatureItem } from '../../components/ui/FeatureItem'
+import { FeatureList } from '../../components/ui/FeatureList'
+import { MetricRow } from '../../components/ui/MetricRow'
+import { NextStep } from '../../components/ui/NextStep'
+import { PageHero } from '../../components/ui/PageHero'
+import { Realce } from '../../components/ui/Realce'
+import { PullQuote } from '../../components/ui/PullQuote'
+import { FILOSOFIA } from '../../data/sobre'
 
-export function Sobre() {
+export default function Sobre() {
   return (
     <>
       <PageHero
@@ -73,9 +75,9 @@ export function Sobre() {
       {/* A ESCUTA */}
       <section className="border-t border-line bg-surf">
         <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:py-20">
-          <span className="inline-flex items-center rounded-pill border border-soul-light bg-white px-3 py-1 font-sans text-xs font-medium text-soul-deep">
+          <Badge tone="azul">
             A escuta
-          </span>
+          </Badge>
           <h2 className="mt-4 font-display text-2xl font-semibold text-navy sm:text-3xl">
             O que 7 conversas reais ensinaram
           </h2>
@@ -185,9 +187,9 @@ export function Sobre() {
           </div>
 
           <div>
-            <span className="inline-flex items-center rounded-pill border border-soul-light bg-white px-3 py-1 font-sans text-xs font-medium text-soul-deep">
+            <Badge tone="azul">
               A solução
-            </span>
+            </Badge>
             <h2 className="mt-4 font-display text-2xl font-semibold text-navy sm:text-3xl">
               EcoScore: gamificação com propósito real
             </h2>

@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { ChevronLeft } from 'lucide-react';
 
-interface AppShellProps {
+type AppShellProps = {
   soulPoints: number;
   onBack?: () => void;
   footer?: ReactNode;

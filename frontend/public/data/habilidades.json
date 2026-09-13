@@ -1,0 +1,89 @@
+[
+  {
+    "id": 1,
+    "slug": "reciclagem",
+    "ordem": 1,
+    "nome": "Reciclagem",
+    "chamada": "Separe sem contaminar o material.",
+    "pontosPorAcao": 3,
+    "recompensaMissao": 12,
+    "final": false,
+    "conteudo": "completo",
+    "objetivo": "Identificar corretamente o que pode e o que não pode ser reciclado, e separar resíduos sem contaminar o material.",
+    "parceiro": null,
+    "missao": {
+      "titulo": "Separe os recicláveis da sua casa",
+      "descricao": "Durante 3 dias, separe corretamente papel, plástico, metal e vidro do resíduo da sua casa. Registre cada separação no app.",
+      "objetivo": "Criar o hábito de separar na origem — o ponto onde a reciclagem realmente começa.",
+      "duracaoDias": 3,
+      "dificuldade": "Iniciante",
+      "co2eEstimadoKg": 1.8
+    },
+    "etapas": [
+      { "nome": "Aprender", "detalhe": "Artigo + vídeo · 4 min" },
+      { "nome": "Validar", "detalhe": "5 perguntas. Acerte 4 para avançar." },
+      { "nome": "Praticar", "detalhe": "Missão de 3 dias · 4 registros" },
+      { "nome": "Conquistar", "detalhe": "Habilidade desbloqueada · +12 SP" }
+    ]
+  },
+  {
+    "id": 2,
+    "slug": "consumo",
+    "ordem": 2,
+    "nome": "Consumo Consciente",
+    "chamada": "Compre menos, escolha melhor, descarte certo.",
+    "pontosPorAcao": 3,
+    "recompensaMissao": 12,
+    "final": false,
+    "conteudo": "em-producao",
+    "objetivo": null,
+    "parceiro": null,
+    "missao": null,
+    "etapas": [
+      { "nome": "Aprender", "detalhe": "Artigo + vídeo · 4 min" },
+      { "nome": "Validar", "detalhe": "Abre na sequência." },
+      { "nome": "Praticar", "detalhe": "Abre na sequência." },
+      { "nome": "Conquistar", "detalhe": "Abre na sequência." }
+    ]
+  },
+  {
+    "id": 3,
+    "slug": "agua",
+    "ordem": 3,
+    "nome": "Água",
+    "chamada": "Reduza o consumo onde ele é invisível.",
+    "pontosPorAcao": 3,
+    "recompensaMissao": 12,
+    "final": false,
+    "conteudo": "em-producao",
+    "objetivo": null,
+    "parceiro": { "nome": "Parceiro exemplo", "segmento": "Saneamento" },
+    "missao": null,
+    "etapas": [
+      { "nome": "Aprender", "detalhe": "Artigo + vídeo · 4 min" },
+      { "nome": "Validar", "detalhe": "Abre na sequência." },
+      { "nome": "Praticar", "detalhe": "Abre na sequência." },
+      { "nome": "Conquistar", "detalhe": "Abre na sequência." }
+    ]
+  },
+  {
+    "id": 4,
+    "slug": "energia",
+    "ordem": 4,
+    "nome": "Energia",
+    "chamada": "Última habilidade da trilha.",
+    "pontosPorAcao": 3,
+    "recompensaMissao": 12,
+    "final": true,
+    "conteudo": "em-producao",
+    "objetivo": null,
+    "parceiro": null,
+    "missao": null,
+    "etapas": [
+      { "nome": "Aprender", "detalhe": "Artigo + vídeo · 4 min" },
+      { "nome": "Validar", "detalhe": "Abre na sequência." },
+      { "nome": "Praticar", "detalhe": "Abre na sequência." },
+      { "nome": "Conquistar", "detalhe": "Abre na sequência." }
+    ]
+  }
+]

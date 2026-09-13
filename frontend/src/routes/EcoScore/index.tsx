@@ -1,29 +1,19 @@
-import { useState } from 'react'
-import {
-  Award,
-  Camera,
-  Droplets,
-  HelpCircle,
-  Leaf,
-  Recycle,
-  Sprout,
-  ThumbsDown,
-  ThumbsUp,
-  Zap,
-  type LucideIcon,
-} from 'lucide-react'
-import { Badge } from '../components/ui/Badge'
-import { SectionHeading } from '../components/ui/SectionHeading'
-import { Card } from '../components/ui/Card'
-import { CircleBadge } from '../components/ui/CircleBadge'
-import { FeatureItem, FeatureList } from '../components/ui/FeatureList'
-import { NextStep } from '../components/ui/NextStep'
-import { PageHero, Realce } from '../components/ui/PageHero'
-import { ProgressBar } from '../components/ui/ProgressBar'
-import { Button } from '../components/ui/Button'
-import { Spores } from '../components/visual/Spores'
-import { QUESTS, RANKING_ECOSCORE, SKILL_TREE } from '../data/ecoscore'
-import { FORMATOS_PATROCINIO, LIMITES_PATROCINIO } from '../data/sponsorship'
+import { Award, Camera, Droplets, HelpCircle, Leaf, Recycle, Sprout, Zap, type LucideIcon } from 'lucide-react'
+import { Badge } from '../../components/ui/Badge'
+import { SectionHeading } from '../../components/ui/SectionHeading'
+import { Card } from '../../components/ui/Card'
+import { CircleBadge } from '../../components/ui/CircleBadge'
+import { FeatureItem } from '../../components/ui/FeatureItem'
+import { FeatureList } from '../../components/ui/FeatureList'
+import { NextStep } from '../../components/ui/NextStep'
+import { PageHero } from '../../components/ui/PageHero'
+import { Realce } from '../../components/ui/Realce'
+import { ProgressBar } from '../../components/ui/ProgressBar'
+import { Button } from '../../components/ui/Button'
+import { VotoGrupo } from '../../components/ui/VotoGrupo'
+import { Spores } from '../../components/visual/Spores'
+import { QUESTS, RANKING_ECOSCORE, SKILL_TREE } from '../../data/ecoscore'
+import { FORMATOS_PATROCINIO, LIMITES_PATROCINIO } from '../../data/sponsorship'
 
 const ICONES_TRILHA: Record<'recycle' | 'sprout' | 'droplets', LucideIcon> = {
   recycle: Recycle,
@@ -31,38 +21,7 @@ const ICONES_TRILHA: Record<'recycle' | 'sprout' | 'droplets', LucideIcon> = {
   droplets: Droplets,
 }
 
-/** Placar de votos do feed ilustrativo — funciona, mas não é persistido. */
-function VotoGrupo({ up, down, ativo = false }: { up: number; down: number; ativo?: boolean }) {
-  const [voto, setVoto] = useState<'up' | 'down' | null>(ativo ? 'up' : null)
-
-  const base =
-    'inline-flex items-center gap-1.5 rounded-pill border px-3 py-1.5 font-sans text-xs transition-colors'
-
-  return (
-    <div className="flex gap-2">
-      <button
-        type="button"
-        aria-pressed={voto === 'up'}
-        onClick={() => setVoto(voto === 'up' ? null : 'up')}
-        className={`${base} ${voto === 'up' ? 'border-soul bg-soul text-white' : 'border-line text-ink-muted hover:border-soul'}`}
-      >
-        <ThumbsUp size={13} aria-hidden />
-        {up + (voto === 'up' && !ativo ? 1 : 0)}
-      </button>
-      <button
-        type="button"
-        aria-pressed={voto === 'down'}
-        onClick={() => setVoto(voto === 'down' ? null : 'down')}
-        className={`${base} ${voto === 'down' ? 'border-navy bg-navy text-white' : 'border-line text-ink-muted hover:border-navy'}`}
-      >
-        <ThumbsDown size={13} aria-hidden />
-        {down + (voto === 'down' ? 1 : 0)}
-      </button>
-    </div>
-  )
-}
-
-export function EcoScore() {
+export default function EcoScore() {
   return (
     <>
       <PageHero
@@ -282,9 +241,9 @@ export function EcoScore() {
       <section className="border-t border-line bg-surf">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
           <div className="max-w-3xl">
-            <span className="inline-flex items-center rounded-pill border border-soul-light bg-white px-3 py-1 font-sans text-xs font-medium text-soul-deep">
+            <Badge tone="azul">
               Competição
-            </span>
+            </Badge>
             <h2 className="mt-4 font-display text-2xl font-semibold text-navy sm:text-3xl">
               Ranking de Soul Points
             </h2>
@@ -433,9 +392,9 @@ export function EcoScore() {
       <section className="border-t border-line bg-surf">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-20">
           <div>
-            <span className="inline-flex items-center rounded-pill border border-soul-light bg-white px-3 py-1 font-sans text-xs font-medium text-soul-deep">
+            <Badge tone="azul">
               Comunidade
-            </span>
+            </Badge>
             <h2 className="mt-4 font-display text-2xl font-semibold text-navy sm:text-3xl">
               Reputação social e visibilidade
             </h2>

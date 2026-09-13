@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 export type CircleBadgeVariant = 'outline' | 'solid' | 'wash' | 'sun'
 export type CircleBadgeSize = 'sm' | 'md' | 'lg'
 
-export interface CircleBadgeProps {
+export type CircleBadgeProps = {
   children: ReactNode
   variant?: CircleBadgeVariant
   size?: CircleBadgeSize

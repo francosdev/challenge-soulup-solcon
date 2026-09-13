@@ -1,7 +1,7 @@
 export type SectionHeadingTone = 'light' | 'dark'
 export type SectionHeadingAlign = 'left' | 'center'
 
-export interface SectionHeadingProps {
+export type SectionHeadingProps = {
   /** Etiqueta curta acima do título. */
   tag?: string
   /** Título no imperativo, sentence case, frases curtas separadas por ponto. */

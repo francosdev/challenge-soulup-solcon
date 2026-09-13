@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react'
 import { Spores } from '../visual/Spores'
+import { Badge } from './Badge'
 
-export interface PageHeroProps {
+export type PageHeroProps = {
   tag: string
   titulo: ReactNode
   texto: string
@@ -16,9 +17,9 @@ export function PageHero({ tag, titulo, texto }: PageHeroProps) {
       </div>
 
       <div className="relative mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-20">
-        <span className="inline-flex items-center rounded-pill border border-soul-light bg-white px-3 py-1 font-sans text-xs font-medium text-soul-deep">
+        <Badge tone="azul">
           {tag}
-        </span>
+        </Badge>
         <h1 className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight text-navy sm:text-4xl lg:text-5xl">
           {titulo}
         </h1>
@@ -26,9 +27,4 @@ export function PageHero({ tag, titulo, texto }: PageHeroProps) {
       </div>
     </section>
   )
-}
-
-/** Destaque em `soul` dentro de um título — substitui `.texto-gradiente`. */
-export function Realce({ children }: { children: ReactNode }) {
-  return <span className="text-soul">{children}</span>
 }

@@ -1,8 +1,9 @@
 import type { Mission } from '../../../types/ecoscore';
 import { Label } from '../ui/Label';
-import { StatRow, StatTable } from '../ui/StatRow';
+import { StatRow } from '../ui/StatRow';
+import { StatTable } from '../ui/StatTable';
 
-interface MissionOfferProps {
+type MissionOfferProps = {
   mission: Mission;
 }
 

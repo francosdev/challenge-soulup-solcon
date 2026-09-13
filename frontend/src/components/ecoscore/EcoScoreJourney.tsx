@@ -15,7 +15,7 @@ import { SKILLS } from '../../data/skills';
 import { RECYCLING_LEARN, RECYCLING_MISSION, RECYCLING_QUIZ } from '../../data/recycling';
 import type { ProofCapture, SkillId } from '../../types/ecoscore';
 
-interface EcoScoreJourneyProps {
+type EcoScoreJourneyProps = {
   /** Saldo inicial em Soul Points. */
   initialSoulPoints?: number;
 }

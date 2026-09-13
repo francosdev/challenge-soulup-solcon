@@ -1,8 +1,4 @@
-export interface PilarFilosofia {
-  numero: string
-  titulo: string
-  texto: string
-}
+import type { PilarFilosofia } from '../types/sobre'
 
 export const FILOSOFIA: readonly PilarFilosofia[] = [
   {

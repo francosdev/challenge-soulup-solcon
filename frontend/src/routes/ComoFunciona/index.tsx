@@ -1,12 +1,14 @@
 import { Award, Camera, Clock, Droplets, Globe, MapPin, Recycle, Rocket, Smartphone, Sprout, Star } from 'lucide-react'
-import { Button } from '../components/ui/Button'
-import { SectionHeading } from '../components/ui/SectionHeading'
-import { Card } from '../components/ui/Card'
-import { CircleBadge } from '../components/ui/CircleBadge'
-import { FeatureItem, FeatureList } from '../components/ui/FeatureList'
-import { NextStep } from '../components/ui/NextStep'
-import { PageHero, Realce } from '../components/ui/PageHero'
-import { ETAPAS } from '../data/como-funciona'
+import { Button } from '../../components/ui/Button'
+import { SectionHeading } from '../../components/ui/SectionHeading'
+import { Card } from '../../components/ui/Card'
+import { CircleBadge } from '../../components/ui/CircleBadge'
+import { FeatureItem } from '../../components/ui/FeatureItem'
+import { FeatureList } from '../../components/ui/FeatureList'
+import { NextStep } from '../../components/ui/NextStep'
+import { PageHero } from '../../components/ui/PageHero'
+import { Realce } from '../../components/ui/Realce'
+import { ETAPAS } from '../../data/como-funciona'
 
 const ICONES_ETAPA = {
   globe: Globe,
@@ -16,7 +18,7 @@ const ICONES_ETAPA = {
   award: Award,
 } as const
 
-export function ComoFunciona() {
+export default function ComoFunciona() {
   return (
     <>
       <PageHero

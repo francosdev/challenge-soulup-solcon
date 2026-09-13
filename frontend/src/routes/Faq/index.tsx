@@ -1,10 +1,12 @@
 import { Bot, CircleHelp, Settings2, Star, Trophy, type LucideIcon } from 'lucide-react'
-import { Accordion } from '../components/ui/Accordion'
-import { Button } from '../components/ui/Button'
-import { CircleBadge } from '../components/ui/CircleBadge'
-import { NextStep } from '../components/ui/NextStep'
-import { PageHero, Realce } from '../components/ui/PageHero'
-import { FAQ, type CategoriaFaq } from '../data/faq'
+import { Accordion } from '../../components/ui/Accordion'
+import { Button } from '../../components/ui/Button'
+import { CircleBadge } from '../../components/ui/CircleBadge'
+import { NextStep } from '../../components/ui/NextStep'
+import { PageHero } from '../../components/ui/PageHero'
+import { Realce } from '../../components/ui/Realce'
+import { FAQ } from '../../data/faq'
+import type { CategoriaFaq } from '../../types/faq'
 
 const ICONES: Record<CategoriaFaq['icone'], LucideIcon> = {
   'circle-help': CircleHelp,
@@ -14,7 +16,7 @@ const ICONES: Record<CategoriaFaq['icone'], LucideIcon> = {
   settings: Settings2,
 }
 
-export function Faq() {
+export default function Faq() {
   return (
     <>
       <PageHero

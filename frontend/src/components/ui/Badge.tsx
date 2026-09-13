@@ -6,7 +6,7 @@ import type { ReactNode } from 'react'
  */
 export type BadgeTone = 'verde' | 'laranja' | 'roxo' | 'azul' | 'neutro'
 
-export interface BadgeProps {
+export type BadgeProps = {
   tone?: BadgeTone
   children: ReactNode
   className?: string

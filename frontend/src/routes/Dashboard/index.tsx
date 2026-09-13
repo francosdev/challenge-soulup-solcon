@@ -1,13 +1,15 @@
 import { BarChart3, Globe2, MousePointerClick, Save, Trophy } from 'lucide-react'
-import { PetPlanetApp } from '../components/petplanet/PetPlanetApp'
-import { Card } from '../components/ui/Card'
-import { SectionHeading } from '../components/ui/SectionHeading'
-import { CircleBadge } from '../components/ui/CircleBadge'
-import { NextStep } from '../components/ui/NextStep'
-import { PageHero, Realce } from '../components/ui/PageHero'
-import { Button } from '../components/ui/Button'
+import { PetPlanetApp } from '../../components/petplanet/PetPlanetApp'
+import { Card } from '../../components/ui/Card'
+import { SectionHeading } from '../../components/ui/SectionHeading'
+import { CircleBadge } from '../../components/ui/CircleBadge'
+import { NextStep } from '../../components/ui/NextStep'
+import { PageHero } from '../../components/ui/PageHero'
+import { Realce } from '../../components/ui/Realce'
+import { Button } from '../../components/ui/Button'
+import { Badge } from '../../components/ui/Badge'
 
-export function Dashboard() {
+export default function Dashboard() {
   return (
     <>
       <PageHero
@@ -117,9 +119,9 @@ export function Dashboard() {
       <section className="border-t border-line bg-white">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
           <div className="rounded-card border border-line bg-surf p-8 text-center sm:p-10">
-            <span className="inline-flex items-center rounded-pill border border-soul-light bg-white px-3 py-1 font-sans text-xs font-medium text-soul-deep">
+            <Badge tone="azul">
               Próximos passos
-            </span>
+            </Badge>
             <h2 className="mt-4 font-display text-2xl font-semibold text-navy sm:text-3xl">
               Quer entender a engenharia por trás?
             </h2>

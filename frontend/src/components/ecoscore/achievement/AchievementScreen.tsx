@@ -1,10 +1,11 @@
 import { Gift, ShoppingBasket, Trophy } from 'lucide-react';
 import type { Mission, Skill } from '../../../types/ecoscore';
 import { Label } from '../ui/Label';
-import { StatRow, StatTable } from '../ui/StatRow';
+import { StatRow } from '../ui/StatRow';
+import { StatTable } from '../ui/StatTable';
 import { pointsToReais } from '../../../data/skills';
 
-interface AchievementScreenProps {
+type AchievementScreenProps = {
   skill: Skill;
   mission: Mission;
   /** Saldo antes de creditar a recompensa. */

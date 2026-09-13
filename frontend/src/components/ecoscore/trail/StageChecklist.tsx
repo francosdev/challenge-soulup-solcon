@@ -2,11 +2,15 @@ import { Check } from 'lucide-react';
 
 const STAGES = ['Aprender', 'Validar', 'Praticar', 'Conquistar'] as const;
 
+type StageChecklistProps = {
+  className?: string;
+};
+
 /**
  * As quatro batidas da jornada, todas concluídas.
  * Marcas nomeadas, não uma barra — o desbloqueio não vem de acúmulo.
  */
-export function StageChecklist({ className = '' }: { className?: string }) {
+export function StageChecklist({ className = '' }: StageChecklistProps) {
   return (
     <div className={`flex flex-wrap gap-x-3.5 gap-y-2 ${className}`}>
       {STAGES.map((stage) => (

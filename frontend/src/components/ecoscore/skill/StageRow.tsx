@@ -3,7 +3,7 @@ import { Button } from '../../ui/Button';
 
 export type StageStatus = 'locked' | 'active' | 'done';
 
-interface StageRowProps {
+type StageRowProps = {
   index: number;
   title: string;
   detail: string;

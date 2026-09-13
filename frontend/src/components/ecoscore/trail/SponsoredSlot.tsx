@@ -1,7 +1,7 @@
 import { CalendarClock } from 'lucide-react';
 import type { SponsoredChallenge } from '../../../types/ecoscore';
 
-interface SponsoredSlotProps {
+type SponsoredSlotProps = {
   challenge: SponsoredChallenge;
 }
 

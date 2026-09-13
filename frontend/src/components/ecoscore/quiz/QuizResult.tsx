@@ -1,7 +1,7 @@
 import { Check } from 'lucide-react';
 import { Button } from '../../ui/Button';
 
-interface QuizResultProps {
+type QuizResultProps = {
   passed: boolean;
   score: number;
   total: number;

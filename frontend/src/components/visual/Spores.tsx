@@ -86,7 +86,7 @@ function criarEsporo(w: number, h: number, vidaAleatoria: boolean): Esporo {
   }
 }
 
-export interface SporesProps {
+export type SporesProps = {
   className?: string
 }
 

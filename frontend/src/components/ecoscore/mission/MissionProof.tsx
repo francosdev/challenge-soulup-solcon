@@ -4,7 +4,7 @@ import { Label } from '../ui/Label';
 import { Button } from '../../ui/Button';
 import { MediaPlaceholder } from '../ui/MediaPlaceholder';
 
-interface MissionProofProps {
+type MissionProofProps = {
   mission: Mission;
   /** Índice do item que está sendo comprovado, 0-indexado. */
   itemIndex: number;

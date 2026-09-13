@@ -1,21 +1,15 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { GraduationCap, Mail, Monitor } from 'lucide-react'
-import { Button } from '../components/ui/Button'
-import { CircleBadge } from '../components/ui/CircleBadge'
-import { NextStep } from '../components/ui/NextStep'
-import { PageHero, Realce } from '../components/ui/PageHero'
-import { INTEGRANTES, TURMA } from '../data/integrantes'
+import { Button } from '../../components/ui/Button'
+import { CircleBadge } from '../../components/ui/CircleBadge'
+import { NextStep } from '../../components/ui/NextStep'
+import { PageHero } from '../../components/ui/PageHero'
+import { Realce } from '../../components/ui/Realce'
+import { INTEGRANTES, TURMA } from '../../data/integrantes'
+import type { AssuntoContato, ContatoFormData } from '../../types/contato'
 
-/** Campos do formulário de contato. */
-export interface ContatoFormData {
-  nome: string
-  email: string
-  assunto: string
-  mensagem: string
-}
-
-const ASSUNTOS: readonly { value: string; label: string }[] = [
+const ASSUNTOS: readonly { value: AssuntoContato; label: string }[] = [
   { value: 'duvida', label: 'Dúvida sobre o projeto' },
   { value: 'sugestao', label: 'Sugestão de melhoria' },
   { value: 'parceria', label: 'Interesse em parceria' },
@@ -24,7 +18,16 @@ const ASSUNTOS: readonly { value: string; label: string }[] = [
 ] as const
 
 const CAMPO =
-  'w-full rounded-card border bg-white px-4 py-3 font-sans text-sm text-navy transition-colors placeholder:text-ink-muted focus:outline-none focus:ring-2 focus:ring-soul'
+  'w-full rounded-card border px-4 py-3 font-sans text-sm text-navy transition-colors placeholder:text-ink-muted focus:outline-none focus:ring-2'
+
+/** Campo válido: borda neutra e foco teal. Campo com erro: borda, fundo e foco em vermelho. */
+const DESTAQUE_CAMPO = {
+  normal: 'border-line bg-white focus:ring-soul',
+  erro: 'border-red-600 bg-red-50 focus:ring-red-600',
+} as const
+
+const LINK_FOCO =
+  'rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-soul focus-visible:ring-offset-2'
 
 /** Iniciais do integrante para o selo circular da lista lateral. */
 function iniciais(nome: string): string {
@@ -34,8 +37,9 @@ function iniciais(nome: string): string {
   return `${primeira}${ultima}`.toUpperCase()
 }
 
-export function Contato() {
-  const [enviado, setEnviado] = useState<boolean>(false)
+export default function Contato() {
+  // Sem consumo de API nesta sprint: o último envio fica guardado e a tela mostra a confirmação.
+  const [ultimoEnvio, setUltimoEnvio] = useState<ContatoFormData | null>(null)
 
   const {
     register,
@@ -44,16 +48,15 @@ export function Contato() {
     formState: { errors, isSubmitting },
   } = useForm<ContatoFormData>({
     defaultValues: { nome: '', email: '', assunto: '', mensagem: '' },
+    mode: 'onBlur',
   })
 
-  // Sem consumo de API nesta etapa: o envio apenas confirma na interface.
-  const onSubmit = (dados: ContatoFormData): void => {
-    console.info('Contato recebido:', dados)
-    setEnviado(true)
+  function enviarContato(dados: ContatoFormData): void {
+    setUltimoEnvio(dados)
     reset()
   }
 
-  const borda = (erro: boolean): string => (erro ? 'border-red-600' : 'border-line')
+  const borda = (erro: boolean): string => (erro ? DESTAQUE_CAMPO.erro : DESTAQUE_CAMPO.normal)
 
   return (
     <>
@@ -71,7 +74,7 @@ export function Contato() {
         <div className="mx-auto grid max-w-6xl items-start gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:py-20">
           {/* FORMULÁRIO */}
           <div>
-            {enviado ? (
+            {ultimoEnvio ? (
               <div role="status" className="rounded-card border border-soul-light bg-soul-wash p-8 text-center">
                 <p className="font-display text-4xl">✅</p>
                 <p className="mt-3 font-display text-xl font-semibold text-navy">Mensagem enviada!</p>
@@ -80,14 +83,14 @@ export function Contato() {
                 </p>
                 <button
                   type="button"
-                  onClick={() => setEnviado(false)}
-                  className="mt-5 font-sans text-sm font-medium text-soul underline underline-offset-4"
+                  onClick={() => setUltimoEnvio(null)}
+                  className={`mt-5 font-sans text-sm font-medium text-soul underline underline-offset-4 ${LINK_FOCO}`}
                 >
                   Enviar outra mensagem
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-5">
+              <form onSubmit={handleSubmit(enviarContato)} noValidate className="flex flex-col gap-5">
                 <div className="grid gap-5 sm:grid-cols-2">
                   {/* NOME */}
                   <div>
@@ -108,7 +111,7 @@ export function Contato() {
                       })}
                     />
                     {errors.nome ? (
-                      <p id="erro-nome" className="mt-2 font-sans text-xs text-red-600">
+                      <p id="erro-nome" role="alert" className="mt-2 font-sans text-xs text-red-600">
                         {errors.nome.message}
                       </p>
                     ) : null}
@@ -136,7 +139,7 @@ export function Contato() {
                       })}
                     />
                     {errors.email ? (
-                      <p id="erro-email" className="mt-2 font-sans text-xs text-red-600">
+                      <p id="erro-email" role="alert" className="mt-2 font-sans text-xs text-red-600">
                         {errors.email.message}
                       </p>
                     ) : null}
@@ -163,7 +166,7 @@ export function Contato() {
                     ))}
                   </select>
                   {errors.assunto ? (
-                    <p id="erro-assunto" className="mt-2 font-sans text-xs text-red-600">
+                    <p id="erro-assunto" role="alert" className="mt-2 font-sans text-xs text-red-600">
                       {errors.assunto.message}
                     </p>
                   ) : null}
@@ -187,7 +190,7 @@ export function Contato() {
                     })}
                   />
                   {errors.mensagem ? (
-                    <p id="erro-mensagem" className="mt-2 font-sans text-xs text-red-600">
+                    <p id="erro-mensagem" role="alert" className="mt-2 font-sans text-xs text-red-600">
                       {errors.mensagem.message}
                     </p>
                   ) : null}
@@ -212,7 +215,7 @@ export function Contato() {
                 <p className="font-sans text-xs text-ink-muted">E-mail do projeto</p>
                 <a
                   href="mailto:ecoscore@fiap.com.br"
-                  className="font-sans text-sm font-medium text-soul underline underline-offset-4"
+                  className={`font-sans text-sm font-medium text-soul underline underline-offset-4 ${LINK_FOCO}`}
                 >
                   ecoscore@fiap.com.br
                 </a>
@@ -229,7 +232,7 @@ export function Contato() {
                   href="https://github.com/francosdev/challenge-soulup-solcon"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-sans text-sm font-medium text-soul underline underline-offset-4"
+                  className={`font-sans text-sm font-medium text-soul underline underline-offset-4 ${LINK_FOCO}`}
                 >
                   challenge-soulup-solcon
                 </a>
@@ -264,7 +267,7 @@ export function Contato() {
                     href={integrante.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 rounded-card border border-line bg-white p-4 transition-colors hover:border-soul"
+                    className="flex items-center gap-3 rounded-card border border-line bg-white p-4 transition-colors hover:border-soul focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-soul focus-visible:ring-offset-2"
                   >
                     <CircleBadge variant="wash" size="md">
                       {iniciais(integrante.nome)}

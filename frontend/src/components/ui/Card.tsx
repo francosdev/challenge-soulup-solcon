@@ -6,7 +6,7 @@ import type { ReactNode } from 'react'
  */
 export type CardTone = 'light' | 'dark' | 'wash' | 'accent' | 'reward'
 
-export interface CardProps {
+export type CardProps = {
   children: ReactNode
   /** `light` para superfícies institucionais, `dark` para as telas da solução. */
   tone?: CardTone

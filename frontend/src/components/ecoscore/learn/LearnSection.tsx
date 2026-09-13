@@ -1,7 +1,7 @@
 import { Check, Minus, Plus } from 'lucide-react';
 import type { ContentSection } from '../../../types/ecoscore';
 
-interface LearnSectionProps {
+type LearnSectionProps = {
   section: ContentSection;
   index: number;
   open: boolean;

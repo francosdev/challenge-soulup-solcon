@@ -1,15 +1,4 @@
-export interface NoTrilha {
-  label: string
-  detalhe: string
-  ativo: boolean
-}
-
-export interface RamoTrilha {
-  id: string
-  nome: string
-  icone: 'recycle' | 'sprout' | 'droplets'
-  nos: readonly NoTrilha[]
-}
+import type { LinhaRanking, Quest, RamoTrilha } from '../types/ecoscore'
 
 export const SKILL_TREE: readonly RamoTrilha[] = [
   {
@@ -85,17 +74,6 @@ export const SKILL_TREE: readonly RamoTrilha[] = [
   },
 ] as const
 
-export interface Quest {
-  id: string
-  titulo: string
-  status: 'Em progresso' | 'Não iniciada'
-  camadas: string
-  texto: string
-  progresso: number
-  camadaAtual: string
-  icone: 'recycle' | 'sprout' | 'droplets'
-}
-
 export const QUESTS: readonly Quest[] = [
   {
     id: 'reciclagem',
@@ -130,15 +108,6 @@ export const QUESTS: readonly Quest[] = [
     icone: 'droplets',
   },
 ] as const
-
-export interface LinhaRanking {
-  posicao: number
-  medalha: string
-  inicial: string
-  nome: string
-  cidade: string
-  pontos: string
-}
 
 /** O ciclo mensal vai até 100 Soul Points, então nenhuma posição passa disso. */
 export const RANKING_ECOSCORE: readonly LinhaRanking[] = [

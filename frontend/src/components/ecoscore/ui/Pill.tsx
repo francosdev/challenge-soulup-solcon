@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-interface PillProps {
+type PillProps = {
   children: ReactNode;
   /** Destaque em teal wash, para o valor corrente. */
   active?: boolean;

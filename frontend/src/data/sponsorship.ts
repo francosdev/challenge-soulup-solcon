@@ -1,4 +1,4 @@
-import type { PartnerReward, Sponsor, SponsoredChallenge } from '../types/ecoscore'
+import type { FormatoPatrocinio, PartnerReward, Sponsor, SponsoredChallenge } from '../types/ecoscore'
 
 /**
  * Monetização do EcoScore: o parceiro não compra espaço, ele banca uma jornada.
@@ -42,13 +42,6 @@ export const DESAFIO_PATROCINADO: SponsoredChallenge = {
 }
 
 /** Os três formatos, para a página institucional. */
-export interface FormatoPatrocinio {
-  id: string
-  titulo: string
-  texto: string
-  exemplo: string
-}
-
 export const FORMATOS_PATROCINIO: readonly FormatoPatrocinio[] = [
   {
     id: 'missao',

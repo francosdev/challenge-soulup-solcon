@@ -1,4 +1,4 @@
-export interface PullQuoteProps {
+export type PullQuoteProps = {
   quote: string
   cite: string
 }

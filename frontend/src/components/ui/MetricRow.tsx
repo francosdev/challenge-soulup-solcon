@@ -1,6 +1,6 @@
 import { ProgressBar } from './ProgressBar'
 
-export interface MetricRowProps {
+export type MetricRowProps = {
   label: string
   valor: string
   /** Percentual preenchido da barra, de 0 a 100. */

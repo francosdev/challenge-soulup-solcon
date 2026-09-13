@@ -1,13 +1,14 @@
 import { Camera, Cpu, GraduationCap, Leaf, Users, Zap } from 'lucide-react'
-import { Spores } from '../components/visual/Spores'
-import { Button } from '../components/ui/Button'
-import { SectionHeading } from '../components/ui/SectionHeading'
-import { Card } from '../components/ui/Card'
-import { CircleBadge } from '../components/ui/CircleBadge'
-import { NextStep } from '../components/ui/NextStep'
-import { PILARES_HOME, STATS_HOME } from '../data/home'
+import { Spores } from '../../components/visual/Spores'
+import { Button } from '../../components/ui/Button'
+import { SectionHeading } from '../../components/ui/SectionHeading'
+import { Card } from '../../components/ui/Card'
+import { CircleBadge } from '../../components/ui/CircleBadge'
+import { NextStep } from '../../components/ui/NextStep'
+import { PILARES_HOME, STATS_HOME } from '../../data/home'
+import { Badge } from '../../components/ui/Badge'
 
-export function Home() {
+export default function Home() {
   return (
     <>
       {/* HERO */}
@@ -174,9 +175,9 @@ export function Home() {
       <section className="border-t border-line bg-white">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
           <div className="rounded-card border border-line bg-surf p-8 text-center sm:p-10">
-            <span className="inline-flex items-center rounded-pill border border-soul-light bg-white px-3 py-1 font-sans text-xs font-medium text-soul-deep">
+            <Badge tone="azul">
               Comece agora
-            </span>
+            </Badge>
             <h2 className="mt-4 font-display text-2xl font-semibold text-navy sm:text-3xl">
               Pronto para fazer a diferença?
             </h2>

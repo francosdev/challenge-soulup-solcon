@@ -1,10 +1,11 @@
 import { MousePointerClick } from 'lucide-react'
-import { EcoScoreJourney } from '../components/ecoscore/EcoScoreJourney'
-import { CircleBadge } from '../components/ui/CircleBadge'
-import { NextStep } from '../components/ui/NextStep'
-import { PageHero, Realce } from '../components/ui/PageHero'
+import { EcoScoreJourney } from '../../components/ecoscore/EcoScoreJourney'
+import { CircleBadge } from '../../components/ui/CircleBadge'
+import { NextStep } from '../../components/ui/NextStep'
+import { PageHero } from '../../components/ui/PageHero'
+import { Realce } from '../../components/ui/Realce'
 
-export function Trilha() {
+export default function Trilha() {
   return (
     <>
       <PageHero

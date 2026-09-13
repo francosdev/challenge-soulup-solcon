@@ -3,7 +3,7 @@ import type { Mission } from '../../../types/ecoscore';
 import { Label } from '../ui/Label';
 import { Pill } from '../ui/Pill';
 
-interface MissionProgressProps {
+type MissionProgressProps = {
   mission: Mission;
   registeredIds: string[];
   daysLeft: number;

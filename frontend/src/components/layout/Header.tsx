@@ -11,6 +11,7 @@ interface ItemNav {
 const NAV: readonly ItemNav[] = [
   { to: '/', label: 'Início' },
   { to: '/sobre', label: 'Sobre' },
+  { to: '/solucao', label: 'Solução' },
   { to: '/ecoscore', label: 'EcoScore' },
   { to: '/como-funciona', label: 'Como Funciona' },
   { to: '/dashboard', label: 'Dashboard' },

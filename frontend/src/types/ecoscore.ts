@@ -146,3 +146,46 @@ export interface ProofCapture {
   capturedAt: string;
   coords: { lat: number; lng: number };
 }
+
+/* Contratos da página institucional EcoScore. */
+
+export interface NoTrilha {
+  label: string;
+  detalhe: string;
+  ativo: boolean;
+}
+
+export interface RamoTrilha {
+  id: string;
+  nome: string;
+  icone: 'recycle' | 'sprout' | 'droplets';
+  nos: readonly NoTrilha[];
+}
+
+export interface Quest {
+  id: string;
+  titulo: string;
+  status: 'Em progresso' | 'Não iniciada';
+  camadas: string;
+  texto: string;
+  progresso: number;
+  camadaAtual: string;
+  icone: 'recycle' | 'sprout' | 'droplets';
+}
+
+export interface LinhaRanking {
+  posicao: number;
+  medalha: string;
+  inicial: string;
+  nome: string;
+  cidade: string;
+  pontos: string;
+}
+
+/** Formato de patrocínio exibido na página institucional. */
+export interface FormatoPatrocinio {
+  id: string;
+  titulo: string;
+  texto: string;
+  exemplo: string;
+}

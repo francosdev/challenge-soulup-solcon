@@ -7,7 +7,7 @@ export interface AccordionItem {
   resposta: string
 }
 
-export interface AccordionProps {
+export type AccordionProps = {
   itens: readonly AccordionItem[]
   className?: string
 }

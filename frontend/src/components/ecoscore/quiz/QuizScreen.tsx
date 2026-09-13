@@ -4,7 +4,7 @@ import { Label } from '../ui/Label';
 import { StagePips } from '../ui/StagePips';
 import { QuizOption } from './QuizOption';
 
-interface QuizScreenProps {
+type QuizScreenProps = {
   quiz: Quiz;
   /** Chamado no fim das perguntas com as respostas na ordem original. */
   onFinish: (answers: number[]) => void;

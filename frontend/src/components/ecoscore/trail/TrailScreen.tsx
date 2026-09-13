@@ -3,7 +3,7 @@ import { TrailNode } from './TrailNode';
 import { SponsoredSlot } from './SponsoredSlot';
 import { DESAFIO_PATROCINADO } from '../../../data/sponsorship';
 
-interface TrailScreenProps {
+type TrailScreenProps = {
   skills: Skill[];
   stateFor: (order: number) => SkillState;
   /** Etapa em curso da habilidade ativa, 1-indexada. */

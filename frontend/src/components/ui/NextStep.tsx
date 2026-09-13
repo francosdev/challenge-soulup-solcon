@@ -1,6 +1,6 @@
 import { Button } from './Button'
 
-export interface NextStepProps {
+export type NextStepProps = {
   tag?: string
   titulo: string
   descricao: string

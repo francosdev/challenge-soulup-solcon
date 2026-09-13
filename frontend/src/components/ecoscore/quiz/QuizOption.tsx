@@ -1,4 +1,4 @@
-interface QuizOptionProps {
+type QuizOptionProps = {
   letter: string;
   text: string;
   /** Nulo enquanto a pergunta não foi respondida. */

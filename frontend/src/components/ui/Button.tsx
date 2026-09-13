@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export type ButtonVariant = 'primary' | 'secondary' | 'ghost'
 export type ButtonSize = 'md' | 'lg'
 
-interface ButtonBaseProps {
+type ButtonBaseProps = {
   children: ReactNode
   variant?: ButtonVariant
   size?: ButtonSize

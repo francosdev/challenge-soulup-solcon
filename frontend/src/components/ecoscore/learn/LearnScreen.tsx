@@ -5,7 +5,7 @@ import { Pill } from '../ui/Pill';
 import { MediaPlaceholder } from '../ui/MediaPlaceholder';
 import { LearnSection } from './LearnSection';
 
-interface LearnScreenProps {
+type LearnScreenProps = {
   skill: Skill;
   content: LearnContent;
   sectionsSeen: boolean[];

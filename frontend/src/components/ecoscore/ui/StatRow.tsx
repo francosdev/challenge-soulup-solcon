@@ -1,6 +1,4 @@
-import type { ReactNode } from 'react';
-
-interface StatRowProps {
+type StatRowProps = {
   label: string;
   value: string;
   /** Valor em sun — reservado a recompensa. */
@@ -20,14 +18,6 @@ export function StatRow({ label, value, reward = false }: StatRowProps) {
       >
         {value}
       </span>
-    </div>
-  );
-}
-
-export function StatTable({ children }: { children: ReactNode }) {
-  return (
-    <div className="flex flex-col gap-px overflow-hidden rounded-card border border-line bg-line">
-      {children}
     </div>
   );
 }

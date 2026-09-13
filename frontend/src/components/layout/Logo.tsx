@@ -1,4 +1,4 @@
-export interface LogoProps {
+export type LogoProps = {
   /** `dark` inverte para uso sobre fundo ink/navy. */
   tone?: 'light' | 'dark'
   className?: string

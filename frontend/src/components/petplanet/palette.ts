@@ -1,42 +1,13 @@
+import type { PetPalette } from '../../types/petplanet'
+
 /**
  * Paleta do protótipo Pet Planet.
  *
- * O protótipo original desenhava tudo com estilos inline a partir de um objeto
- * de cores. Aqui os papéis foram mantidos e os valores trocados pelos tokens
- * da SoulUp — `sun.*` aparece à vontade porque esta superfície é, por
- * definição, gamificação.
+ * Estes valores alimentam só os atributos dos desenhos em SVG (`fill`, `stroke`).
+ * O visual dos elementos HTML usa as classes do Tailwind com os mesmos tokens da
+ * SoulUp (`bg-navy`, `border-soul-deep`, `text-soul-light`...). `sun.*` aparece à
+ * vontade porque esta superfície é, por definição, gamificação.
  */
-export interface PetPalette {
-  /** Fundo da página e da moldura do telefone. */
-  bg: string
-  /** Superfície de cartão. */
-  paper: string
-  /** Texto principal. */
-  ink: string
-  /** Texto secundário claro. */
-  inkSoft: string
-  /** Texto de apoio. */
-  muted: string
-  /** Contorno de 2px e texto sobre chips claros. */
-  line: string
-  lineSoft: string
-  shadow: string
-  /** Acento de marca. */
-  eco: string
-  /** Variante clara do acento, usada como texto brilhante. */
-  ecoDeep: string
-  /** Painel de destaque atrás do mascote. */
-  ecoSoft: string
-  sun: string
-  sunDeep: string
-  coin: string
-  /** Tonalidade do corpo do planeta. */
-  sky: string
-  coral: string
-  coralDeep: string
-  plum: string
-}
-
 export const PET_PALETTE: PetPalette = {
   bg: '#0E3550',
   paper: '#16486B',
@@ -58,10 +29,5 @@ export const PET_PALETTE: PetPalette = {
   plum: '#29B4B7',
 }
 
-/** Tipografia lúdica, exclusiva desta superfície. */
-export const PET_FONT = {
-  game: "'Fredoka', system-ui, sans-serif",
-  ui: "'Fredoka', system-ui, sans-serif",
-  mono: "'JetBrains Mono', monospace",
-  hand: "'Caveat', cursive",
-} as const
+/** Fonte usada no atributo `fontFamily` do texto desenhado em SVG. */
+export const PET_FONT_SVG = "'Fredoka', system-ui, sans-serif"

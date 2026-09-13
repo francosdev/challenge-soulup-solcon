@@ -1,10 +1,4 @@
-export interface Etapa {
-  numero: string
-  tag: string
-  icone: 'globe' | 'smartphone' | 'camera' | 'star' | 'award'
-  titulo: string
-  texto: string
-}
+import type { Etapa } from '../types/como-funciona'
 
 export const ETAPAS: readonly Etapa[] = [
   {

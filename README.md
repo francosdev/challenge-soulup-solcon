@@ -98,10 +98,10 @@ challenge-soulup-solcon/
 |       `-- data/                # Mocks tipados
 |
 |-- python/                      # Backend CLI
-|   |-- main.py                  # Ponto de entrada
-|   |-- autenticacao.py          # Login, recuperacao de senha, hash
-|   |-- usuarios.py              # Perfis, edicao, perfis publicos
-|   |-- dados.py                 # Persistencia JSON + migracao automatica
+|   |-- main.py                  # Ponto de entrada, login e menu inicial
+|   |-- autenticacao.py          # Hash SHA-256 e leitura de senha
+|   |-- usuarios.py              # Cadastro, perfis, edicao, recuperacao de senha
+|   |-- dados.py                 # Persistencia JSON + matriz do ranking
 |   |-- gamificacao.py           # Pontos, conquistas, acoes
 |   |-- impacto.py               # Calculo de impacto ambiental
 |   |-- admin.py                 # Painel administrativo
@@ -133,9 +133,11 @@ Persistência local via JSON (`python/ecoscore_dados.json`):
       "pontos": 0,
       "historico": [
         {
-          "categoria": "string",
+          "categoria": "plantio | reciclagem | agua | energia",
+          "tipo": "string",
           "descricao": "string",
           "quantidade": 0,
+          "unidade": "string",
           "pontos": 0,
           "data": "DD/MM/YYYY HH:MM"
         }
@@ -147,7 +149,9 @@ Persistência local via JSON (`python/ecoscore_dados.json`):
 }
 ```
 
-O módulo `dados.py` inclui migração automática para normalizar formatos legados ao carregar o arquivo.
+O ranking é montado em `dados.py` como uma **matriz** (`[posicao, nome, email, pontos]`), que alimenta o
+ranking do usuário, a listagem do admin e o cálculo de posição. Se o JSON estiver corrompido, o sistema
+avisa e começa vazio em vez de quebrar.
 
 ---
 
@@ -158,12 +162,15 @@ O módulo `dados.py` inclui migração automática para normalizar formatos lega
 **Pré-requisito:** Python 3.x instalado.
 
 ```bash
-# Linux / macOS
-python python/main.py
+# Linux / macOS / Windows
+cd python
+python main.py
 
-# Windows
-executar_ecoscore.bat
+# Windows: também dá para clicar duas vezes em
+python/executar_ecoscore.bat
 ```
+
+A saída é toda ASCII e a leitura de senha usa `getpass`, então o CLI roda igual nos três sistemas.
 
 **Conta admin padrão:**
 - Email: `admin@ecoscore.com`
@@ -233,8 +240,12 @@ site anterior e recolorido. Todas as animações respeitam `prefers-reduced-moti
 
 - Senhas armazenadas exclusivamente como hash SHA-256
 - Nenhum dado sensível em texto plano
+- Login com mensagem única para e-mail inexistente e senha errada
+- Exclusão de conta protegida por confirmação textual (`DELETAR`) e senha
 - Log de auditoria para ações críticas (criação/exclusão de contas, reinício de ranking)
-- Migração automática de credenciais legadas ao iniciar
+
+> SHA-256 sem *salt* atende ao requisito acadêmico de não guardar senha em texto plano, mas um sistema
+> em produção usaria `bcrypt` ou `argon2`.
 
 ---
 

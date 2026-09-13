@@ -1,7 +1,4 @@
-export interface StatHome {
-  valor: string
-  label: string
-}
+import type { PilarHome, StatHome } from '../types/home'
 
 export const STATS_HOME: readonly StatHome[] = [
   { valor: '3', label: 'Classes no MVP' },
@@ -9,12 +6,6 @@ export const STATS_HOME: readonly StatHome[] = [
   { valor: '0–100', label: 'Score de impacto por ação' },
   { valor: 'R$ 500', label: 'Benefício mensal máximo' },
 ] as const
-
-export interface PilarHome {
-  numero: string
-  titulo: string
-  itens: readonly string[]
-}
 
 export const PILARES_HOME: readonly PilarHome[] = [
   {

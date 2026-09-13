@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 type Tone = 'soul' | 'muted' | 'sun';
 
-interface LabelProps {
+type LabelProps = {
   children: ReactNode;
   tone?: Tone;
 }
