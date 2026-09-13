@@ -5,9 +5,9 @@
 **FIAP Challenge 2026 · SoulUp × SolCon**
 
 [![Python](https://img.shields.io/badge/Python-3.x-111111?style=for-the-badge&logo=python&logoColor=8BAF6E)](https://python.org)
-[![HTML5](https://img.shields.io/badge/HTML5-Frontend-111111?style=for-the-badge&logo=html5&logoColor=8BAF6E)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-111111?style=for-the-badge&logo=javascript&logoColor=8BAF6E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Canvas API](https://img.shields.io/badge/Canvas_API-Animations-111111?style=for-the-badge&logo=html5&logoColor=8BAF6E)](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
+[![React](https://img.shields.io/badge/React-18-111111?style=for-the-badge&logo=react&logoColor=29B4B7)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-111111?style=for-the-badge&logo=typescript&logoColor=29B4B7)](https://www.typescriptlang.org)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-111111?style=for-the-badge&logo=tailwindcss&logoColor=29B4B7)](https://tailwindcss.com)
 
 </div>
 
@@ -26,7 +26,12 @@ Este módulo de **frontend** é o site institucional do EcoScore: apresenta o co
 
 ### 🎯 Objetivo
 
+<<<<<<< HEAD
+- **Backend CLI (Python)** — sistema funcional de gamificação com autenticação, perfis, ranking e painel admin, operado via terminal
+- **Frontend Web (React + Vite + TypeScript + TailwindCSS)** — SPA com a identidade visual da SoulUp, apresentando o produto e o dashboard da solução
+=======
 Ser a vitrine pública do EcoScore: explicar o sistema de pontuação, demonstrar o impacto ambiental gerado, apresentar a startup SolCon e dar contexto à banca avaliadora antes da experiência hands-on com o backend CLI.
+>>>>>>> origin/main
 
 ---
 
@@ -50,6 +55,76 @@ Ser a vitrine pública do EcoScore: explicar o sistema de pontuação, demonstra
 ## 📁 Estrutura de Pastas
 
 ```
+<<<<<<< HEAD
+challenge-soulup-solcon/
+|-- frontend/                    # Frontend Web (React + Vite + TS + Tailwind)
+|   |-- index.html               # Entrada Vite
+|   |-- tailwind.config.ts       # Tokens da identidade SoulUp
+|   |-- public/assets/imagens/   # Fotos da equipe + logo
+|   `-- src/
+|       |-- pages/               # Home, Sobre, EcoScore, ComoFunciona, Dashboard, Faq, Integrantes, Contato
+|       |-- components/ui/       # Button, Card, CircleBadge, Badge, NextStep, ...
+|       |-- components/layout/   # Header, Footer, Layout
+|       |-- components/visual/   # Campo de esporos (canvas)
+|       |-- components/petplanet/ # Protótipo do planetinha
+|       `-- data/                # Mocks tipados
+|
+|-- python/                      # Backend CLI
+|   |-- main.py                  # Ponto de entrada, login e menu inicial
+|   |-- autenticacao.py          # Hash SHA-256 e leitura de senha
+|   |-- usuarios.py              # Cadastro, perfis, edicao, recuperacao de senha
+|   |-- dados.py                 # Persistencia JSON + matriz do ranking
+|   |-- gamificacao.py           # Pontos, conquistas, acoes
+|   |-- impacto.py               # Calculo de impacto ambiental
+|   |-- admin.py                 # Painel administrativo
+|   |-- interface.py             # Componentes de UI para terminal
+|   |-- config.py                # Constantes, categorias, acoes
+|   `-- ecoscore_dados.json      # Banco de dados (JSON)
+|
+|-- banco_de_dados/              # Documentacao de banco de dados
+|-- ia_chatbot/                  # Notas sobre integracao IBM Watson
+|-- java/                        # Projeto e diagramas Java
+|-- README.md
+`-- .gitignore
+```
+
+---
+
+## Banco de Dados
+
+Persistência local via JSON (`python/ecoscore_dados.json`):
+
+```json
+{
+  "ranking_encerrado": false,
+  "usuarios": [
+    {
+      "nome": "string",
+      "email": "string",
+      "senha": "string (SHA-256)",
+      "pontos": 0,
+      "historico": [
+        {
+          "categoria": "plantio | reciclagem | agua | energia",
+          "tipo": "string",
+          "descricao": "string",
+          "quantidade": 0,
+          "unidade": "string",
+          "pontos": 0,
+          "data": "DD/MM/YYYY HH:MM"
+        }
+      ],
+      "conquistas": ["string"],
+      "admin": false
+    }
+  ]
+}
+```
+
+O ranking é montado em `dados.py` como uma **matriz** (`[posicao, nome, email, pontos]`), que alimenta o
+ranking do usuário, a listagem do admin e o cálculo de posição. Se o JSON estiver corrompido, o sistema
+avisa e começa vazio em vez de quebrar.
+=======
 frontend/
 ├── index.html                    # Página inicial (hero + visão geral)
 ├── sobre.html                    # Contexto, problema e solução
@@ -88,6 +163,7 @@ frontend/
 ```
 
 > 💡 Todas as folhas de estilo agora vivem dentro de `frontend/css/` — o projeto é autocontido e pode ser movido/distribuído sem dependências externas.
+>>>>>>> origin/main
 
 ---
 
@@ -106,15 +182,45 @@ frontend/
 | 👥 Equipe | Integrantes do grupo + SolCon | [integrantes.html](integrantes.html) |
 | ✉️ Contato | Formulário com validação | [contato.html](contato.html) |
 
+<<<<<<< HEAD
+```bash
+# Linux / macOS / Windows
+cd python
+python main.py
+
+# Windows: também dá para clicar duas vezes em
+python/executar_ecoscore.bat
+```
+
+A saída é toda ASCII e a leitura de senha usa `getpass`, então o CLI roda igual nos três sistemas.
+
+**Conta admin padrão:**
+- Email: `admin@ecoscore.com`
+- Senha: definida no primeiro acesso
+=======
 ### Identidade Visual
 
 <div align="center">
 
 <img src="frontend/assets/imagens/logo-solcon.png" alt="Logo SolCon — Conectamos hoje. Construímos o futuro." width="220" />
+>>>>>>> origin/main
 
 </div>
 
+<<<<<<< HEAD
+**Pré-requisito:** Node.js 18+.
+
+```bash
+cd frontend
+npm install
+npm run dev       # desenvolvimento
+npm run build     # checagem de tipos + build em dist/
+```
+
+O build usa `base: './'` e `HashRouter`, então `frontend/dist/index.html` também abre direto do disco.
+=======
 ### Equipe — fotos do site
+>>>>>>> origin/main
 
 <div align="center">
 
@@ -122,6 +228,48 @@ frontend/
 |:--:|:--:|:--:|
 | **Carlos Franco** | **Murilo Souza** | **Henrique Bonachela** |
 
+<<<<<<< HEAD
+| Camada | Tecnologia |
+|--------|-----------|
+| Backend | Python 3.x (CLI) |
+| Autenticação | SHA-256 (hashlib) |
+| Persistência | JSON (file-based) |
+| Frontend | React 18 + TypeScript + Vite |
+| Estilo | TailwindCSS 3 (sem CSS externo) |
+| Rotas / Formulários | react-router-dom · react-hook-form |
+| Tipografia | Poppins (display) + Inter (sans-serif) |
+| Ícones | lucide-react |
+
+---
+
+## Design System
+
+Identidade visual da **SoulUp**, com tokens declarados em `frontend/tailwind.config.ts`.
+
+| Token | Cor | Uso |
+|-------|-----|-----|
+| `soul.DEFAULT` | `#29B4B7` | Marca, CTAs primários, links |
+| `soul.light` | `#A4DBDE` | Fills secundários, fundo de progresso |
+| `soul.wash` | `#E8F6F6` | Superfície clara de apoio |
+| `soul.deep` | `#0F5F61` | Hover de CTA |
+| `navy.DEFAULT` | `#16486B` | Títulos e cards escuros de destaque |
+| `navy.dark` | `#0E3550` | Trilho de progresso, cards do dashboard |
+| `sun.*` | `#C8A84B` e derivados | **Exclusivo** de mascote, conquistas e streaks |
+| `ink.DEFAULT` | `#000000` | Fundo das telas da Solução |
+| `line` / `surf` | `#E3E7EA` / `#F5F5F5` | Hairlines de 1px e superfícies alternadas |
+
+**Duas superfícies:** páginas institucionais em fundo claro alternando `bg-white`/`bg-surf`;
+telas da Solução em `bg-ink` com cards `bg-navy-dark`.
+
+**Device circular:** o selo redondo com "UP" da marca SoulUp aparece em badges de pontuação,
+ícones de ação, iniciais de perfil e conquistas, via o componente `CircleBadge`.
+
+**Mascote:** o Planetinha vive dentro do protótipo Pet Planet, com expressões que reagem ao tempo sem
+ação e olhos que seguem o cursor. Atrás dos heros roda um campo de esporos em canvas, portado do
+site anterior e recolorido. Todas as animações respeitam `prefers-reduced-motion`.
+
+> Detalhes completos da paleta e da estrutura de pastas: [frontend/README.md](frontend/README.md)
+=======
 </div>
 
 ### Paleta de Cores (tema dark)
@@ -133,11 +281,22 @@ frontend/
 | Tertiary | `#B8D49A` 🟢 | Verde claro — textos secundários |
 | Accent | `#C8A84B` 🟡 | Dourado — conquistas e CTA |
 | Background | `#111610` ⚫ | Quase preto — fundo base |
+>>>>>>> origin/main
 
 ---
 
 ## 🚀 Como Executar
 
+<<<<<<< HEAD
+- Senhas armazenadas exclusivamente como hash SHA-256
+- Nenhum dado sensível em texto plano
+- Login com mensagem única para e-mail inexistente e senha errada
+- Exclusão de conta protegida por confirmação textual (`DELETAR`) e senha
+- Log de auditoria para ações críticas (criação/exclusão de contas, reinício de ranking)
+
+> SHA-256 sem *salt* atende ao requisito acadêmico de não guardar senha em texto plano, mas um sistema
+> em produção usaria `bcrypt` ou `argon2`.
+=======
 **Pré-requisito:** apenas um navegador moderno (Chrome, Edge, Firefox, Safari).
 
 ```bash
@@ -151,6 +310,7 @@ python -m http.server 8000
 ```
 
 > As animações Canvas inicializam automaticamente via `IntersectionObserver`, garantindo performance mesmo em páginas longas.
+>>>>>>> origin/main
 
 ---
 
@@ -164,6 +324,9 @@ python -m http.server 8000
 | Murilo Almeida Rodrigues de Souza | 573977 | [murilo-a-souza](https://linkedin.com/in/murilo-a-souza) | [@murilo-a-souza](https://github.com/murilo-a-souza) |
 | Henrique Bonachela de Carvalho Carabante | 573620 | [henrique-bonachela](https://linkedin.com/in/henrique-bonachela) | [@henriquebonachela](https://github.com/henriquebonachela) |
 
+<<<<<<< HEAD
+> Consulte a rota `/integrantes` do front-end, ou o [README do módulo](frontend/README.md), para ver a equipe completa.
+=======
 **Parceria acadêmica:** FIAP × SoulUp × SolCon
 **Coordenação:** Prof. Fernando — FIAP
 
@@ -193,6 +356,7 @@ Dúvidas, sugestões ou interesse em colaborar? Fale com a equipe:
 | 🔗 **LinkedIn (Carlos)** | [linkedin.com/in/carlos-franco-devs](https://linkedin.com/in/carlos-franco-devs) |
 | 🔗 **LinkedIn (Murilo)** | [linkedin.com/in/murilo-a-souza](https://linkedin.com/in/murilo-a-souza) |
 | 🔗 **LinkedIn (Henrique)** | [linkedin.com/in/henrique-bonachela](https://linkedin.com/in/henrique-bonachela) |
+>>>>>>> origin/main
 
 ---
 

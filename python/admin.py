@@ -1,172 +1,180 @@
-# ============================================================
-#  EcoScore - painel administrativo
-# ============================================================
+#EcoScore - painel do administrador
 
 import dados
-from autenticacao import ler_senha_oculta, validar_senha_usuario
+from autenticacao import ler_senha, senha_confere
 from gamificacao import ver_ranking, ver_status_competicao
 from impacto import exibir_historico, exibir_impacto
-from interface import cabecalho, exibir_menu_admin, linha, pausar
-from usuarios import escolher_usuario_por_nome, exibir_conquistas_resumidas, confirmar_texto_deletar
+from interface import cabecalho, erro, ler_opcao, linha, menu_admin
+from interface import mostrar_matriz, pausar
+from usuarios import confirmar_palavra_deletar, escolher_usuario_por_nome
+from usuarios import exibir_conquistas_resumidas
 
 
-def listar_usuarios_cadastrados_admin():
+def listar_usuarios():
+    """Imprime todos os participantes com posição, e-mail e pontos."""
     cabecalho("USUÁRIOS CADASTRADOS")
 
-    participantes = dados.usuarios_comuns()
-    if not participantes:
-        print("  Nenhum usuário comum cadastrado.")
+    matriz = dados.montar_matriz_ranking()
+    if len(matriz) == 0:
+        print("  Nenhum participante cadastrado.")
         return
 
-    for indice, usuario in enumerate(participantes, start=1):
-        posicao = dados.calcular_posicao_ranking(usuario)
-        print(f"  {indice}. {usuario['nome']} - {usuario['email']} - {usuario['pontos']} Soul Points - {posicao}º lugar")
+    mostrar_matriz(matriz, ["POS", "NOME", "E-MAIL", "PONTOS"], [6, 20, 30, 8])
+
+    linha()
+    print("  Total de participantes: " + str(len(matriz)))
 
 
-def exibir_conta_admin(usuario):
+def exibir_conta(usuario):
+    """Imprime todos os dados de uma conta: pontos, conquistas, impacto e histórico."""
     cabecalho("CONTA DE USUÁRIO")
-    print(f"  Nome: {usuario['nome']}")
-    print(f"  E-mail: {usuario['email']}")
-    print(f"  Soul Points: {usuario['pontos']}")
-    print(f"  Ranking: {dados.calcular_posicao_ranking(usuario)}º lugar")
+    print("  Nome: " + usuario["nome"])
+    print("  E-mail: " + usuario["email"])
+    print("  Soul Points: " + str(usuario["pontos"]))
 
-    linha("━")
-    print("  🏆 CONQUISTAS")
+    if usuario["admin"]:
+        print("  Tipo de conta: administrador")
+    else:
+        print("  Posição no ranking: " + str(dados.posicao_no_ranking(usuario)) + "º lugar")
+
+    linha()
+    print("  CONQUISTAS")
     exibir_conquistas_resumidas(usuario)
 
-    linha("━")
-    exibir_historico(usuario, None, False)
-
-    print()
+    linha()
+    print("  IMPACTO AMBIENTAL")
     exibir_impacto(usuario)
 
+    linha()
+    print("  HISTÓRICO")
+    exibir_historico(usuario)
 
-def consultar_conta_admin():
-    usuario = escolher_usuario_por_nome("CONSULTAR CONTA DE USUÁRIO", True)
+
+def consultar_conta():
+    """Procura uma conta pelo nome e mostra os dados dela, inclusive de administradores."""
+    usuario = escolher_usuario_por_nome("CONSULTAR CONTA", True, True)
 
     if usuario is not None:
-        exibir_conta_admin(usuario)
+        exibir_conta(usuario)
 
 
-def deletar_conta_admin(admin_logado):
-    """Exclui uma conta comum após confirmação textual e senha do admin."""
-    usuario_alvo = escolher_usuario_por_nome("DELETAR CONTA DE USUÁRIO", True)
+def deletar_conta_usuario(admin_logado):
+    """Apaga a conta de um participante depois de três confirmações do administrador."""
+    alvo = escolher_usuario_por_nome("DELETAR CONTA DE USUÁRIO", True)
 
-    if usuario_alvo is None:
-        return
-    if usuario_alvo["admin"] or usuario_alvo is admin_logado:
-        print("  [!] Administradores não podem ser deletados por essa função.")
+    if alvo is None:
         return
 
-    linha("━")
-    print("  ⚠️ DELETAR CONTA DE USUÁRIO\n")
-    print(f"  Nome: {usuario_alvo['nome']}")
-    print(f"  E-mail: {usuario_alvo['email']}")
-    print(f"  Soul Points: {usuario_alvo['pontos']}")
-    print("\n  Essa ação apagará permanentemente:")
-    print("  - perfil")
-    print("  - histórico")
-    print("  - conquistas")
-    print("  - participação no ranking")
-    print()
+    linha()
+    print("  ATENÇÃO: você vai apagar a conta abaixo.\n")
+    print("  Nome: " + alvo["nome"])
+    print("  E-mail: " + alvo["email"])
+    print("  Soul Points: " + str(alvo["pontos"]))
+    print("\n  Isso apaga o perfil, o histórico, as conquistas e a")
+    print("  participação dessa pessoa no ranking.\n")
     print("  1. Confirmar exclusão")
     print("  0. Cancelar")
 
-    opcao = input("\n  Opção: ").strip()
-    if opcao == "0":
-        return
-    if opcao != "1":
-        print("  [!] Opção inválida.")
+    if ler_opcao() != "1":
+        print("\n  Exclusão cancelada.")
         return
 
-    if not confirmar_texto_deletar():
-        print("  Exclusão cancelada.")
+    if not confirmar_palavra_deletar():
+        print("\n  Exclusão cancelada.")
         return
 
-    senha = ler_senha_oculta("  Digite a senha do administrador para confirmar: ").strip()
-    if not validar_senha_usuario(admin_logado, senha):
-        print("  Senha incorreta.")
+    senha = ler_senha("  Digite a senha do administrador para confirmar: ")
+    if not senha_confere(admin_logado, senha):
+        erro("Senha incorreta. A conta não foi deletada.")
         return
 
-    nome_deletado = usuario_alvo["nome"]
-    email_deletado = usuario_alvo["email"]
-    if remover_usuario_comum(usuario_alvo):
-        dados.registrar_log("EXCLUSAO_ADMIN", f"admin={admin_logado['email']} usuario={email_deletado}")
-        print(f"\n  🗑️ Conta de {nome_deletado} deletada com sucesso.")
+    nome = alvo["nome"]
+    email = alvo["email"]
+
+    try:
+        #se não salvar, o remover_usuario já devolve o usuário para a lista
+        if not dados.remover_usuario(alvo):
+            raise OSError("o arquivo de dados não foi salvo")
+    except OSError:
+        erro("Não foi possível deletar a conta.")
     else:
-        print("  [!] Não foi possível deletar a conta.")
-
-
-def remover_usuario_comum(usuario_alvo):
-    """Remove apenas contas comuns, preservando administradores."""
-    for indice, usuario in enumerate(dados.usuarios):
-        if usuario is usuario_alvo and not usuario["admin"]:
-            dados.usuarios.pop(indice)
-            dados.recalcular_ranking_encerrado()
-            dados.salvar_dados()
-            return True
-
-    return False
+        dados.registrar_log("EXCLUSAO_ADMIN", "admin=" + admin_logado["email"] + " usuario=" + email)
+        print("\n  Conta de " + nome + " deletada com sucesso.")
+    finally:
+        linha()
 
 
 def reiniciar_ranking(admin_logado):
-    """Reinicia o ciclo mensal depois de validar a senha do admin."""
-    if not admin_logado["admin"]:
-        print("  [!] Apenas administradores podem reiniciar o ranking.")
-        return
-
+    """Zera pontos, histórico e conquistas de todos os participantes para começar um novo mês."""
     cabecalho("REINICIAR RANKING MENSAL")
-    print("  ⚠️ Área administrativa\n")
-    senha = ler_senha_oculta("  Digite sua senha para continuar: ").strip()
+    print("  Isso zera os pontos, o histórico e as conquistas")
+    print("  de todos os participantes, começando um novo ciclo.\n")
 
-    if not validar_senha_usuario(admin_logado, senha):
-        print("  Senha incorreta.")
+    senha = ler_senha("  Digite sua senha para continuar: ")
+    if not senha_confere(admin_logado, senha):
+        erro("Senha incorreta.")
         return
 
     print("\n  Deseja realmente reiniciar o ranking mensal?\n")
-    print("  1. Sim")
+    print("  1. Sim, iniciar um novo ciclo")
     print("  0. Cancelar")
 
-    opcao = input("\n  Opção: ").strip()
-    if opcao == "0":
-        return
-    if opcao != "1":
-        print("  [!] Opção inválida.")
+    if ler_opcao() != "1":
+        print("\n  Reinício cancelado.")
         return
 
-    for usuario in dados.usuarios_comuns():
-        usuario["pontos"] = 0
-        usuario["historico"] = []
-        usuario["conquistas"] = []
+    participantes = dados.usuarios_comuns()
 
-    dados.recalcular_ranking_encerrado()
-    dados.salvar_dados()
-    dados.registrar_log("RESET_RANKING", f"admin={admin_logado['email']}")
-    print("\n  Novo ciclo mensal iniciado com sucesso!")
+    #guarda os dados de cada um para desfazer se não salvar
+    copia = []
+    for usuario in participantes:
+        copia.append([usuario["pontos"], usuario["historico"], usuario["conquistas"]])
+
+    try:
+        for usuario in participantes:
+            usuario["pontos"] = 0
+            usuario["historico"] = []
+            usuario["conquistas"] = []
+
+        if not dados.salvar_dados():
+            raise OSError("o arquivo de dados não foi salvo")
+    except OSError:
+        for i in range(len(participantes)):
+            participantes[i]["pontos"] = copia[i][0]
+            participantes[i]["historico"] = copia[i][1]
+            participantes[i]["conquistas"] = copia[i][2]
+        erro("O ranking não foi reiniciado.")
+    else:
+        dados.registrar_log("RESET_RANKING", "admin=" + admin_logado["email"])
+        print("\n  Novo ciclo mensal iniciado!")
+        print("  " + str(len(participantes)) + " participantes voltaram a zero ponto.")
+    finally:
+        linha()
 
 
-def menu_admin(admin_logado):
+def menu_administrador(admin_logado):
+    """Mostra o painel do administrador e executa a opção escolhida."""
     while True:
-        exibir_menu_admin(admin_logado)
-        opcao = input("  Opção: ").strip()
+        menu_admin(admin_logado)
+        opcao = ler_opcao("  Opção: ")
 
-        match opcao:
-            case "1":
-                ver_ranking()
-            case "2":
-                ver_status_competicao()
-            case "3":
-                reiniciar_ranking(admin_logado)
-            case "4":
-                listar_usuarios_cadastrados_admin()
-            case "5":
-                consultar_conta_admin()
-            case "6":
-                deletar_conta_admin(admin_logado)
-            case "0":
-                print("\n  Você saiu do painel administrativo.")
-                break
-            case _:
-                print("  [!] Opção inválida. Tente novamente.")
+        if opcao == "1":
+            ver_ranking()
+        elif opcao == "2":
+            ver_status_competicao()
+        elif opcao == "3":
+            listar_usuarios()
+        elif opcao == "4":
+            consultar_conta()
+        elif opcao == "5":
+            deletar_conta_usuario(admin_logado)
+        elif opcao == "6":
+            reiniciar_ranking(admin_logado)
+        elif opcao == "0":
+            print("\n  Você saiu do painel administrativo.")
+            pausar()
+            return
+        else:
+            erro("Opção inválida. Tente novamente.")
 
         pausar()
