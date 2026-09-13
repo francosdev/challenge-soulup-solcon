@@ -1,0 +1,723 @@
+[
+    {
+        "id": "flow_110b3de4",
+        "type": "tab",
+        "label": "EcoBot SolCon - Telegram + Watson + STT/TTS",
+        "disabled": false,
+        "info": "Fluxo Node-RED para o projeto EcoScore by SolCon: Telegram texto/áudio, Watson Assistant, Speech to Text e Text to Speech."
+    },
+    {
+        "id": "telegram_bot_config_2e7c0457",
+        "type": "telegram bot",
+        "botname": "EcoBot SolCon",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksport": "6667",
+        "socksusername": "",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "inject_d39eb02a",
+        "type": "inject",
+        "z": "flow_110b3de4",
+        "name": "1) Clique aqui para CONFIGURAR CREDENCIAIS",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 100,
+        "wires": [
+            [
+                "function_28641419"
+            ]
+        ]
+    },
+    {
+        "id": "function_28641419",
+        "type": "function",
+        "z": "flow_110b3de4",
+        "name": "CONFIGURAR CREDENCIAIS - edite este nó",
+        "func": "// ======================================================\n// ECOBOT SOLCON - CONFIGURAÇÕES\n// Editar os valores abaixo antes de usar o fluxo.\n// ======================================================\n\nconst config = {\n    // Telegram BotFather\n    telegramToken: \"8862631001:AAG7iCG_U7YHhNVjnLtPaZgiX67Ejm1hSS8\",\n\n    // Watson Assistant v2\n    assistantApiKey: \"XCIU4Rb89TQQSrf0CKQsUUA6_w_3VJrine4Ue7ZrjaQ9\",\n    assistantUrl: \"https://api.us-south.assistant.watson.cloud.ibm.com/instances/d7967282-8d3a-4b1d-b60a-42928b0d6eb6\",\n    assistantId: \"c09c9c75-03de-4549-9358-1aa84de5b921\",\n\n    // IBM Speech to Text\n    sttApiKey: \"N20ClYCdUkocf9mTMOIg5r0yi7r2mI5m-T8AKw9q6L0Z\",\n    sttUrl: \"https://api.au-syd.speech-to-text.watson.cloud.ibm.com/instances/216c5954-e3a0-48ad-a56c-cafced2448b9\",\n    sttModel: \"pt-BR_BroadbandModel\",\n\n    // IBM Text to Speech\n    ttsApiKey: \"1JKQpvBSn4DO4nNGUTSLogz4DKx-XUyVBcEDovv1Hzz8\",\n    ttsUrl: \"https://api.au-syd.text-to-speech.watson.cloud.ibm.com/instances/15710039-473d-486e-8049-75bb8a026f12\",\n    ttsVoice: \"pt-BR_IsabelaV3Voice\",\n\n    // Sessão do Assistant: renova após 25 minutos\n    sessionTtlMs: 25 * 60 * 1000\n};\n\nglobal.set(\"ECOBOT_SOLCON_CONFIG\", config);\nglobal.set(\"ECOBOT_SOLCON_WA_SESSIONS\", {});\n\nmsg.payload = \"Configurações do EcoBot SolCon salvas no contexto global. Agora fazer Deploy e testar no Telegram.\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 100,
+        "wires": [
+            [
+                "debug_5efe107e"
+            ]
+        ]
+    },
+    {
+        "id": "debug_5efe107e",
+        "type": "debug",
+        "z": "flow_110b3de4",
+        "name": "Confirmação da configuração",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "telegram_receiver_3102c59c",
+        "type": "telegram receiver",
+        "z": "flow_110b3de4",
+        "name": "Telegram - recebe texto ou áudio",
+        "bot": "telegram_bot_config_2e7c0457",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "hasinput": false,
+        "inputs": 0,
+        "handleallupdates": false,
+        "handleprocessupdates": false,
+        "x": 180,
+        "y": 200,
+        "wires": [
+            [
+                "function_4732d9d1"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "function_4732d9d1",
+        "type": "function",
+        "z": "flow_110b3de4",
+        "name": "Identificar mensagem: texto ou áudio",
+        "func": "const p = msg.payload || {};\nconst original = msg.originalMessage || {};\nconst chatId = p.chatId || (p.chat && p.chat.id) || (original.chat && original.chat.id) || (original.message && original.message.chat && original.message.chat.id);\n\nmsg.ecobot = {\n    chatId: chatId,\n    originalPayload: p,\n    replyAsAudio: false\n};\n\n// Texto normal\nif (typeof p.content === \"string\" && p.content.trim() !== \"\") {\n    msg.userText = p.content.trim();\n    msg.ecobot.replyAsAudio = false;\n    return [msg, null, null];\n}\n\nif (typeof p.text === \"string\" && p.text.trim() !== \"\") {\n    msg.userText = p.text.trim();\n    msg.ecobot.replyAsAudio = false;\n    return [msg, null, null];\n}\n\n// Áudio/voz do Telegram\nlet fileId = null;\n\nif (p.content && typeof p.content === \"object\") {\n    fileId = p.content.file_id || (p.content.voice && p.content.voice.file_id) || (p.content.audio && p.content.audio.file_id);\n}\n\nfileId = fileId\n    || (p.voice && p.voice.file_id)\n    || (p.audio && p.audio.file_id)\n    || (original.voice && original.voice.file_id)\n    || (original.audio && original.audio.file_id)\n    || (original.message && original.message.voice && original.message.voice.file_id)\n    || (original.message && original.message.audio && original.message.audio.file_id);\n\nif (fileId) {\n    msg.ecobot.fileId = fileId;\n    msg.ecobot.replyAsAudio = true;\n    return [null, msg, null];\n}\n\nreturn [null, null, msg];",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 200,
+        "wires": [
+            [
+                "function_ed8583b8"
+            ],
+            [
+                "function_84a799f1"
+            ],
+            [
+                "function_8664570b"
+            ]
+        ]
+    },
+    {
+        "id": "function_8664570b",
+        "type": "function",
+        "z": "flow_110b3de4",
+        "name": "Resposta para tipo não suportado",
+        "func": "msg.payload = {\n    chatId: msg.ecobot && msg.ecobot.chatId,\n    type: \"message\",\n    content: \"No momento eu consigo entender mensagens de texto e áudio. Envie sua dúvida sobre ações sustentáveis, evidências, pontos, ranking ou impacto ambiental.\"\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 800,
+        "y": 260,
+        "wires": [
+            [
+                "telegram_sender_98489d45"
+            ]
+        ]
+    },
+    {
+        "id": "telegram_sender_98489d45",
+        "type": "telegram sender",
+        "z": "flow_110b3de4",
+        "name": "Telegram - enviar resposta",
+        "bot": "telegram_bot_config_2e7c0457",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1260,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "function_84a799f1",
+        "type": "function",
+        "z": "flow_110b3de4",
+        "name": "Áudio: preparar getFile Telegram",
+        "func": "const cfg = global.get(\"ECOBOT_SOLCON_CONFIG\") || {};\nif (!cfg.telegramToken || cfg.telegramToken.includes(\"COLE_AQUI\")) {\n    node.error(\"Configure telegramToken no nó CONFIGURAR CREDENCIAIS.\", msg);\n    return null;\n}\nmsg.method = \"GET\";\nmsg.url = `https://api.telegram.org/bot${cfg.telegramToken}/getFile?file_id=${msg.ecobot.fileId}`;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 790,
+        "y": 220,
+        "wires": [
+            [
+                "http_ed7565c7"
+            ]
+        ]
+    },
+    {
+        "id": "http_ed7565c7",
+        "type": "http request",
+        "z": "flow_110b3de4",
+        "name": "Telegram getFile",
+        "method": "use",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1030,
+        "y": 220,
+        "wires": [
+            [
+                "function_7aadefa8"
+            ]
+        ]
+    },
+    {
+        "id": "function_7aadefa8",
+        "type": "function",
+        "z": "flow_110b3de4",
+        "name": "Áudio: preparar download",
+        "func": "const cfg = global.get(\"ECOBOT_SOLCON_CONFIG\") || {};\nconst filePath = msg.payload && msg.payload.result && msg.payload.result.file_path;\nif (!filePath) {\n    msg.payload = { chatId: msg.ecobot.chatId, type: \"message\", content: \"Não consegui baixar o áudio do Telegram. Tente enviar novamente em formato de voz.\" };\n    return [null, msg];\n}\nmsg.method = \"GET\";\nmsg.url = `https://api.telegram.org/file/bot${cfg.telegramToken}/${filePath}`;\nreturn [msg, null];",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 1260,
+        "y": 220,
+        "wires": [
+            [
+                "http_4e09bdc9"
+            ],
+            [
+                "telegram_sender_98489d45"
+            ]
+        ]
+    },
+    {
+        "id": "http_4e09bdc9",
+        "type": "http request",
+        "z": "flow_110b3de4",
+        "name": "Download áudio Telegram",
+        "method": "use",
+        "ret": "bin",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1500,
+        "y": 220,
+        "wires": [
+            [
+                "function_4268abc4"
+            ]
+        ]
+    },
+    {
+        "id": "function_4268abc4",
+        "type": "function",
+        "z": "flow_110b3de4",
+        "name": "STT: pedir token IAM",
+        "func": "const cfg = global.get(\"ECOBOT_SOLCON_CONFIG\") || {};\nif (!cfg.sttApiKey || cfg.sttApiKey.includes(\"COLE_AQUI\")) { node.error(\"Configure sttApiKey no nó CONFIGURAR CREDENCIAIS.\", msg); return null; }\nmsg.audioBuffer = msg.payload;\nmsg.method = \"POST\";\nmsg.url = \"https://iam.cloud.ibm.com/identity/token\";\nmsg.headers = {\"Content-Type\": \"application/x-www-form-urlencoded\"};\nmsg.payload = \"grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=\" + encodeURIComponent(cfg.sttApiKey);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1740,
+        "y": 220,
+        "wires": [
+            [
+                "http_910cc15f"
+            ]
+        ]
+    },
+    {
+        "id": "http_910cc15f",
+        "type": "http request",
+        "z": "flow_110b3de4",
+        "name": "IBM IAM Token - STT",
+        "method": "use",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1970,
+        "y": 220,
+        "wires": [
+            [
+                "function_c8030299"
+            ]
+        ]
+    },
+    {
+        "id": "function_c8030299",
+        "type": "function",
+        "z": "flow_110b3de4",
+        "name": "STT: reconhecer fala",
+        "func": "const cfg = global.get(\"ECOBOT_SOLCON_CONFIG\") || {};\nconst token = msg.payload && msg.payload.access_token;\nif (!token) { msg.payload = { chatId: msg.ecobot.chatId, type: \"message\", content: \"Não consegui autenticar o Speech to Text. Confira a API Key do serviço.\" }; return [null, msg]; }\nmsg.method = \"POST\";\nmsg.url = `${cfg.sttUrl}/v1/recognize?model=${encodeURIComponent(cfg.sttModel || \"pt-BR_BroadbandModel\")}`;\nmsg.headers = { \"Authorization\": \"Bearer \" + token, \"Content-Type\": \"audio/ogg;codecs=opus\", \"Accept\": \"application/json\" };\nmsg.payload = msg.audioBuffer;\nreturn [msg, null];",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 2210,
+        "y": 220,
+        "wires": [
+            [
+                "http_dbd3f0ea"
+            ],
+            [
+                "telegram_sender_98489d45"
+            ]
+        ]
+    },
+    {
+        "id": "http_dbd3f0ea",
+        "type": "http request",
+        "z": "flow_110b3de4",
+        "name": "IBM Speech to Text",
+        "method": "use",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 2460,
+        "y": 220,
+        "wires": [
+            [
+                "function_080af4a4"
+            ]
+        ]
+    },
+    {
+        "id": "function_080af4a4",
+        "type": "function",
+        "z": "flow_110b3de4",
+        "name": "Extrair texto do STT",
+        "func": "const results = msg.payload && msg.payload.results ? msg.payload.results : [];\nconst text = results.map(r => r.alternatives && r.alternatives[0] && r.alternatives[0].transcript).filter(Boolean).join(\" \").trim();\nif (!text) { msg.payload = { chatId: msg.ecobot.chatId, type: \"message\", content: \"Não consegui entender o áudio. Tente falar mais perto do microfone ou envie por texto.\" }; return [null, msg]; }\nmsg.userText = text;\nmsg.ecobot.replyAsAudio = true;\nreturn [msg, null];",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 2690,
+        "y": 220,
+        "wires": [
+            [
+                "function_ed8583b8"
+            ],
+            [
+                "telegram_sender_98489d45"
+            ]
+        ]
+    },
+    {
+        "id": "function_ed8583b8",
+        "type": "function",
+        "z": "flow_110b3de4",
+        "name": "Assistant: pedir token IAM",
+        "func": "const cfg = global.get(\"ECOBOT_SOLCON_CONFIG\") || {};\nif (!cfg.assistantApiKey || cfg.assistantApiKey.includes(\"COLE_AQUI\")) { node.error(\"Configure assistantApiKey no nó CONFIGURAR CREDENCIAIS.\", msg); return null; }\nmsg.method = \"POST\";\nmsg.url = \"https://iam.cloud.ibm.com/identity/token\";\nmsg.headers = {\"Content-Type\": \"application/x-www-form-urlencoded\"};\nmsg.payload = \"grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=\" + encodeURIComponent(cfg.assistantApiKey);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 820,
+        "y": 420,
+        "wires": [
+            [
+                "http_a0ac8875"
+            ]
+        ]
+    },
+    {
+        "id": "http_a0ac8875",
+        "type": "http request",
+        "z": "flow_110b3de4",
+        "name": "IBM IAM Token - Assistant",
+        "method": "use",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1070,
+        "y": 420,
+        "wires": [
+            [
+                "function_36ba0f1d"
+            ]
+        ]
+    },
+    {
+        "id": "function_36ba0f1d",
+        "type": "function",
+        "z": "flow_110b3de4",
+        "name": "Assistant: verificar/criar sessão por chat",
+        "func": "const cfg = global.get(\"ECOBOT_SOLCON_CONFIG\") || {};\nconst token = msg.payload && msg.payload.access_token;\nif (!token) { msg.payload = { chatId: msg.ecobot.chatId, type: \"message\", content: \"Não consegui autenticar o Watson Assistant. Confira a API Key.\" }; return [null, null, msg]; }\nmsg.waToken = token;\nconst chatId = String(msg.ecobot.chatId || \"default\");\nconst sessions = global.get(\"ECOBOT_SOLCON_WA_SESSIONS\") || {};\nconst current = sessions[chatId];\nconst ttl = cfg.sessionTtlMs || (25 * 60 * 1000);\nif (current && current.sessionId && (Date.now() - current.createdAt) < ttl) { msg.sessionId = current.sessionId; return [null, msg, null]; }\nmsg.method = \"POST\";\nmsg.url = `${cfg.assistantUrl}/v2/assistants/${cfg.assistantId}/sessions?version=2021-06-14`;\nmsg.headers = { \"Authorization\": \"Bearer \" + msg.waToken, \"Content-Type\": \"application/json\" };\nmsg.payload = {};\nreturn [msg, null, null];",
+        "outputs": 3,
+        "noerr": 0,
+        "x": 1350,
+        "y": 420,
+        "wires": [
+            [
+                "http_fb09664f"
+            ],
+            [
+                "function_36f58327"
+            ],
+            [
+                "telegram_sender_98489d45"
+            ]
+        ]
+    },
+    {
+        "id": "http_fb09664f",
+        "type": "http request",
+        "z": "flow_110b3de4",
+        "name": "Watson Assistant - criar sessão",
+        "method": "use",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1640,
+        "y": 400,
+        "wires": [
+            [
+                "function_de18902f"
+            ]
+        ]
+    },
+    {
+        "id": "function_de18902f",
+        "type": "function",
+        "z": "flow_110b3de4",
+        "name": "Assistant: salvar sessão",
+        "func": "const sessionId = msg.payload && msg.payload.session_id;\nif (!sessionId) { msg.payload = { chatId: msg.ecobot.chatId, type: \"message\", content: \"Não consegui criar sessão no Watson Assistant. Confira Assistant ID e URL.\" }; return [null, msg]; }\nmsg.sessionId = sessionId;\nconst chatId = String(msg.ecobot.chatId || \"default\");\nconst sessions = global.get(\"ECOBOT_SOLCON_WA_SESSIONS\") || {};\nsessions[chatId] = { sessionId: sessionId, createdAt: Date.now() };\nglobal.set(\"ECOBOT_SOLCON_WA_SESSIONS\", sessions);\nreturn [msg, null];",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 1900,
+        "y": 400,
+        "wires": [
+            [
+                "function_36f58327"
+            ],
+            [
+                "telegram_sender_98489d45"
+            ]
+        ]
+    },
+    {
+        "id": "function_36f58327",
+        "type": "function",
+        "z": "flow_110b3de4",
+        "name": "Assistant: enviar texto do usuário",
+        "func": "const cfg = global.get(\"ECOBOT_SOLCON_CONFIG\") || {};\nconst text = (msg.userText || \"\").trim();\nif (!text) { msg.payload = { chatId: msg.ecobot.chatId, type: \"message\", content: \"Envie uma mensagem sobre EcoScore, ações sustentáveis, evidências, pontos, ranking ou impacto ambiental.\" }; return [null, msg]; }\nmsg.method = \"POST\";\nmsg.url = `${cfg.assistantUrl}/v2/assistants/${cfg.assistantId}/sessions/${msg.sessionId}/message?version=2021-06-14`;\nmsg.headers = { \"Authorization\": \"Bearer \" + msg.waToken, \"Content-Type\": \"application/json\" };\nmsg.payload = { input: { message_type: \"text\", text: text, options: { return_context: true } } };\nreturn [msg, null];",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 2160,
+        "y": 420,
+        "wires": [
+            [
+                "http_51c4314a"
+            ],
+            [
+                "telegram_sender_98489d45"
+            ]
+        ]
+    },
+    {
+        "id": "http_51c4314a",
+        "type": "http request",
+        "z": "flow_110b3de4",
+        "name": "Watson Assistant - message",
+        "method": "use",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 2420,
+        "y": 420,
+        "wires": [
+            [
+                "function_66440e81"
+            ]
+        ]
+    },
+    {
+        "id": "function_66440e81",
+        "type": "function",
+        "z": "flow_110b3de4",
+        "name": "Extrair resposta do Assistant",
+        "func": "const generic = msg.payload && msg.payload.output && msg.payload.output.generic ? msg.payload.output.generic : [];\nlet texts = generic.filter(item => item.response_type === \"text\" && item.text).map(item => item.text);\nif (texts.length === 0) { texts = [\"Não entendi totalmente. Posso ajudar com ações sustentáveis, evidências, validação, pontos, ranking, conquistas e impacto ambiental.\"]; }\nmsg.botText = texts.join(\"\\n\\n\");\nif (msg.botText.length > 900) { msg.botText = msg.botText.substring(0, 897) + \"...\"; }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2680,
+        "y": 420,
+        "wires": [
+            [
+                "switch_9060dd1d"
+            ]
+        ]
+    },
+    {
+        "id": "switch_9060dd1d",
+        "type": "switch",
+        "z": "flow_110b3de4",
+        "name": "Responder: texto ou texto+áudio",
+        "property": "ecobot.replyAsAudio",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 2940,
+        "y": 420,
+        "wires": [
+            [
+                "function_765f29ce",
+                "function_af0119ab"
+            ],
+            [
+                "function_40eb403c"
+            ]
+        ]
+    },
+    {
+        "id": "function_40eb403c",
+        "type": "function",
+        "z": "flow_110b3de4",
+        "name": "Telegram: preparar texto",
+        "func": "msg.payload = { chatId: msg.ecobot.chatId, type: \"message\", content: msg.botText };\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3230,
+        "y": 480,
+        "wires": [
+            [
+                "telegram_sender_98489d45"
+            ]
+        ]
+    },
+    {
+        "id": "function_765f29ce",
+        "type": "function",
+        "z": "flow_110b3de4",
+        "name": "Telegram: enviar texto junto do áudio",
+        "func": "msg.payload = { chatId: msg.ecobot.chatId, type: \"message\", content: msg.botText };\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3250,
+        "y": 380,
+        "wires": [
+            [
+                "telegram_sender_98489d45"
+            ]
+        ]
+    },
+    {
+        "id": "function_af0119ab",
+        "type": "function",
+        "z": "flow_110b3de4",
+        "name": "TTS: pedir token IAM",
+        "func": "const cfg = global.get(\"ECOBOT_SOLCON_CONFIG\") || {};\nif (!cfg.ttsApiKey || cfg.ttsApiKey.includes(\"COLE_AQUI\")) { node.error(\"Configure ttsApiKey no nó CONFIGURAR CREDENCIAIS.\", msg); return null; }\nmsg.method = \"POST\";\nmsg.url = \"https://iam.cloud.ibm.com/identity/token\";\nmsg.headers = {\"Content-Type\": \"application/x-www-form-urlencoded\"};\nmsg.payload = \"grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=\" + encodeURIComponent(cfg.ttsApiKey);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3240,
+        "y": 300,
+        "wires": [
+            [
+                "http_36e77679"
+            ]
+        ]
+    },
+    {
+        "id": "http_36e77679",
+        "type": "http request",
+        "z": "flow_110b3de4",
+        "name": "IBM IAM Token - TTS",
+        "method": "use",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 3480,
+        "y": 300,
+        "wires": [
+            [
+                "function_41ae6e2a"
+            ]
+        ]
+    },
+    {
+        "id": "function_41ae6e2a",
+        "type": "function",
+        "z": "flow_110b3de4",
+        "name": "TTS: sintetizar resposta",
+        "func": "const cfg = global.get(\"ECOBOT_SOLCON_CONFIG\") || {};\nconst token = msg.payload && msg.payload.access_token;\nif (!token) { msg.payload = { chatId: msg.ecobot.chatId, type: \"message\", content: \"Não consegui autenticar o Text to Speech. Confira a API Key.\" }; return [null, msg]; }\nmsg.method = \"POST\";\nmsg.url = `${cfg.ttsUrl}/v1/synthesize?voice=${encodeURIComponent(cfg.ttsVoice || \"pt-BR_IsabelaV3Voice\")}`;\nmsg.headers = { \"Authorization\": \"Bearer \" + token, \"Content-Type\": \"application/json\", \"Accept\": \"audio/ogg;codecs=opus\" };\nmsg.payload = { text: msg.botText };\nreturn [msg, null];",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 3720,
+        "y": 300,
+        "wires": [
+            [
+                "http_4b7f470c"
+            ],
+            [
+                "telegram_sender_98489d45"
+            ]
+        ]
+    },
+    {
+        "id": "http_4b7f470c",
+        "type": "http request",
+        "z": "flow_110b3de4",
+        "name": "IBM Text to Speech",
+        "method": "use",
+        "ret": "bin",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 3960,
+        "y": 300,
+        "wires": [
+            [
+                "function_a8bad35a"
+            ]
+        ]
+    },
+    {
+        "id": "function_a8bad35a",
+        "type": "function",
+        "z": "flow_110b3de4",
+        "name": "Telegram: preparar áudio TTS",
+        "func": "// Envia resposta sintetizada como áudio/voz.\n// Se seu Telegram Sender não aceitar type \"voice\", troque para type \"audio\".\nmsg.payload = { chatId: msg.ecobot.chatId, type: \"voice\", content: msg.payload };\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 4200,
+        "y": 300,
+        "wires": [
+            [
+                "telegram_sender_98489d45"
+            ]
+        ]
+    },
+    {
+        "id": "inject_b22d2de8",
+        "type": "inject",
+        "z": "flow_110b3de4",
+        "name": "Teste local sem Telegram: O que é o EcoScore?",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "O que é o EcoScore?",
+        "payloadType": "str",
+        "x": 220,
+        "y": 520,
+        "wires": [
+            [
+                "function_686edce7"
+            ]
+        ]
+    },
+    {
+        "id": "function_686edce7",
+        "type": "function",
+        "z": "flow_110b3de4",
+        "name": "Converter teste local para fluxo Assistant",
+        "func": "msg.ecobot = { chatId: \"teste_local\", replyAsAudio: false };\nmsg.userText = msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 540,
+        "y": 520,
+        "wires": [
+            [
+                "function_ed8583b8"
+            ]
+        ]
+    },
+    {
+        "id": "a8b369e59c77e1ef",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-telegrambot": "17.4.12"
+        }
+    }
+]

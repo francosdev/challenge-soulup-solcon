@@ -1,0 +1,15 @@
+Código Embedder - Assistente EcoBot SolCon - WebChat
+
+<script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "70350b32-3b68-42f5-9fdc-9c39fae1b16e", // The ID of this integration.
+    region: "https://integrations.us-south.assistant.watson.appdomain.cloud", // The region your integration is hosted in.
+    serviceInstanceID: "d7967282-8d3a-4b1d-b60a-42928b0d6eb6", // The ID of your service instance.
+    onLoad: async (instance) => { await instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
+</script>

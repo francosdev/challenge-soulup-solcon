@@ -1,0 +1,2315 @@
+{
+  "intents": [
+    {
+      "intent": "apresentar_ecoscore_ajuda",
+      "examples": [
+        {
+          "text": "Boa noite"
+        },
+        {
+          "text": "Boa tarde"
+        },
+        {
+          "text": "Bom dia"
+        },
+        {
+          "text": "Como começo a usar o EcoScore?"
+        },
+        {
+          "text": "Como funciona o EcoScore?"
+        },
+        {
+          "text": "Como o EcoBot pode me ajudar?"
+        },
+        {
+          "text": "Como você pode me ajudar?"
+        },
+        {
+          "text": "Eai"
+        },
+        {
+          "text": "Eai, como esta ?"
+        },
+        {
+          "text": "Eai, tudo bem ?"
+        },
+        {
+          "text": "Esse chatbot serve para quê?"
+        },
+        {
+          "text": "Me explique o EcoScore"
+        },
+        {
+          "text": "Me oriente sobre o projeto"
+        },
+        {
+          "text": "Oi"
+        },
+        {
+          "text": "Oi, tudo bem?"
+        },
+        {
+          "text": "Olá"
+        },
+        {
+          "text": "Olá, tudo bem ?"
+        },
+        {
+          "text": "O que é o EcoScore?"
+        },
+        {
+          "text": "O que posso fazer aqui?"
+        },
+        {
+          "text": "O que você faz?"
+        },
+        {
+          "text": "Para que serve o EcoScore?"
+        },
+        {
+          "text": "Preciso de ajuda"
+        },
+        {
+          "text": "Quais dúvidas você consegue responder?"
+        },
+        {
+          "text": "Quais funções existem no EcoScore?"
+        },
+        {
+          "text": "Quero entender o EcoScore by SolCon"
+        },
+        {
+          "text": "Quero saber como usar a plataforma"
+        },
+        {
+          "text": "Você pode explicar o EcoScore?"
+        },
+        {
+          "text": "Você pode me ajudar?"
+        }
+      ]
+    },
+    {
+      "intent": "consultar_conquistas_impacto",
+      "examples": [
+        {
+          "text": "Como acompanho meu progresso sustentável?"
+        },
+        {
+          "text": "Como desbloqueio um badge?"
+        },
+        {
+          "text": "Como desbloqueio um selo?"
+        },
+        {
+          "text": "Como funciona o impacto ambiental?"
+        },
+        {
+          "text": "Como ganho uma conquista?"
+        },
+        {
+          "text": "Como o EcoScore calcula meu impacto?"
+        },
+        {
+          "text": "Como vejo meu impacto ambiental?"
+        },
+        {
+          "text": "Ganhei alguma conquista?"
+        },
+        {
+          "text": "Meu impacto aparece por temporada?"
+        },
+        {
+          "text": "Minhas ações geram quais resultados ambientais?"
+        },
+        {
+          "text": "O que são badges?"
+        },
+        {
+          "text": "O que são conquistas no EcoScore?"
+        },
+        {
+          "text": "O que são recompensas sustentáveis?"
+        },
+        {
+          "text": "Quais conquistas posso desbloquear?"
+        },
+        {
+          "text": "Quais recompensas posso receber?"
+        },
+        {
+          "text": "Qual foi meu resultado sustentável?"
+        },
+        {
+          "text": "Quanta energia economizei?"
+        },
+        {
+          "text": "Quanto ajudei o planeta?"
+        },
+        {
+          "text": "Quanto impacto minhas ações geraram?"
+        },
+        {
+          "text": "Quanto material eu reciclei?"
+        },
+        {
+          "text": "Quantos litros de água economizei?"
+        },
+        {
+          "text": "Quero consultar meu histórico de impacto"
+        },
+        {
+          "text": "Quero consultar meu impacto ambiental"
+        },
+        {
+          "text": "Quero ver meu impacto da temporada"
+        },
+        {
+          "text": "Quero ver meu progresso no EcoScore"
+        },
+        {
+          "text": "Quero ver minhas conquistas"
+        }
+      ]
+    },
+    {
+      "intent": "consultar_pontos_ranking",
+      "examples": [
+        {
+          "text": "Como acumulo pontos?"
+        },
+        {
+          "text": "Como está meu ranking este mês?"
+        },
+        {
+          "text": "Como faço para pontuar mais?"
+        },
+        {
+          "text": "Como funciona a meta de pontos?"
+        },
+        {
+          "text": "Como funciona a pontuação?"
+        },
+        {
+          "text": "Como funciona a temporada atual?"
+        },
+        {
+          "text": "Como funciona o ranking?"
+        },
+        {
+          "text": "Como ganho pontos no EcoScore?"
+        },
+        {
+          "text": "Como os pontos são calculados?"
+        },
+        {
+          "text": "Como subo na classificação?"
+        },
+        {
+          "text": "Como subo no ranking?"
+        },
+        {
+          "text": "Minha ação vale quantos pontos?"
+        },
+        {
+          "text": "O que é uma temporada no EcoScore?"
+        },
+        {
+          "text": "O ranking é por temporada?"
+        },
+        {
+          "text": "Os pontos dependem da categoria da ação?"
+        },
+        {
+          "text": "Qual é minha posição no ranking?"
+        },
+        {
+          "text": "Quantos pontos eu ganho?"
+        },
+        {
+          "text": "Quantos pontos eu tenho?"
+        },
+        {
+          "text": "Quantos pontos fiz esta semana?"
+        },
+        {
+          "text": "Quantos pontos preciso fazer na temporada?"
+        },
+        {
+          "text": "Quantos SoulPoints eu tenho?"
+        },
+        {
+          "text": "Quero consultar meu ranking da temporada"
+        },
+        {
+          "text": "Quero consultar minha pontuação"
+        },
+        {
+          "text": "Quero saber meus pontos da SoulUp"
+        },
+        {
+          "text": "Quero saber meus pontos no EcoScore"
+        },
+        {
+          "text": "Quero ver meu ranking"
+        },
+        {
+          "text": "Quero ver meus pontos"
+        }
+      ]
+    },
+    {
+      "intent": "orientar_evidencia_validacao",
+      "examples": [
+        {
+          "text": "A foto serve para validar a ação?"
+        },
+        {
+          "text": "A localização ajuda na validação?"
+        },
+        {
+          "text": "A validação é automática?"
+        },
+        {
+          "text": "A validação é feita por IA?"
+        },
+        {
+          "text": "Como comprovo minha ação?"
+        },
+        {
+          "text": "Como envio uma evidência?"
+        },
+        {
+          "text": "Como escaneio o QR Code da ação?"
+        },
+        {
+          "text": "Como funciona a validação?"
+        },
+        {
+          "text": "Como sei se minha ação foi validada?"
+        },
+        {
+          "text": "Gravei a ação, posso mandar o vídeo?"
+        },
+        {
+          "text": "Minha ação ainda está em análise"
+        },
+        {
+          "text": "Minha ação foi aprovada?"
+        },
+        {
+          "text": "Minha evidência está pendente"
+        },
+        {
+          "text": "Minha evidência foi recusada"
+        },
+        {
+          "text": "O que acontece depois que envio a evidência?"
+        },
+        {
+          "text": "O que serve como evidência?"
+        },
+        {
+          "text": "Por que minha ação foi recusada?"
+        },
+        {
+          "text": "Posso anexar um arquivo?"
+        },
+        {
+          "text": "Posso enviar uma foto como prova?"
+        },
+        {
+          "text": "Posso enviar um documento como prova?"
+        },
+        {
+          "text": "Posso enviar vídeo como comprovação?"
+        },
+        {
+          "text": "Posso usar QR Code como evidência?"
+        },
+        {
+          "text": "Preciso informar o local da ação?"
+        },
+        {
+          "text": "Preciso mandar foto da ação?"
+        },
+        {
+          "text": "Quem valida minha evidência?"
+        },
+        {
+          "text": "Tenho um comprovante da ação"
+        },
+        {
+          "text": "Um administrador valida minha ação?"
+        }
+      ]
+    },
+    {
+      "intent": "registrar_acao_sustentavel",
+      "examples": [
+        {
+          "text": "Como cadastro uma ação sustentável?"
+        },
+        {
+          "text": "Como faço para registrar uma ação?"
+        },
+        {
+          "text": "Cuidei da horta da escola"
+        },
+        {
+          "text": "Desliguei aparelhos da tomada"
+        },
+        {
+          "text": "Economizei água hoje"
+        },
+        {
+          "text": "Economizei luz esta semana"
+        },
+        {
+          "text": "Fiz coleta seletiva"
+        },
+        {
+          "text": "Fiz compostagem em casa"
+        },
+        {
+          "text": "Fiz jardinagem e quero pontuar"
+        },
+        {
+          "text": "Fiz reciclagem hoje"
+        },
+        {
+          "text": "Fiz uma ação ambiental e quero registrar"
+        },
+        {
+          "text": "Fiz uma ação sustentável e quero pontuar"
+        },
+        {
+          "text": "Plantei uma árvore hoje"
+        },
+        {
+          "text": "Plantei uma muda"
+        },
+        {
+          "text": "Quais ações sustentáveis posso registrar?"
+        },
+        {
+          "text": "Quero adicionar uma ação no EcoScore"
+        },
+        {
+          "text": "Quero cadastrar uma ação ecológica"
+        },
+        {
+          "text": "Quero informar uma ação ecológica"
+        },
+        {
+          "text": "Quero registrar reciclagem"
+        },
+        {
+          "text": "Quero registrar uma ação sustentável"
+        },
+        {
+          "text": "Quero registrar um plantio"
+        },
+        {
+          "text": "Reduzi o consumo de energia"
+        },
+        {
+          "text": "Reutilizei água para regar plantas"
+        },
+        {
+          "text": "Separei materiais recicláveis"
+        },
+        {
+          "text": "Tomei banho mais curto para economizar água"
+        },
+        {
+          "text": "Transformei resíduos orgânicos em adubo"
+        },
+        {
+          "text": "Usei a composteira"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "entity": "consulta_gamificacao",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "conquista",
+          "synonyms": [
+            "badge",
+            "badge sustentável",
+            "conquista desbloqueada",
+            "conquistas",
+            "desbloqueio",
+            "distintivo",
+            "insígnia",
+            "marco",
+            "marco sustentável",
+            "medalha",
+            "meta alcançada",
+            "nível",
+            "objetivo alcançado",
+            "prêmio",
+            "recompensa",
+            "recompensa sustentável",
+            "selo sustentável",
+            "troféu"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "impacto",
+          "synonyms": [
+            "água economizada",
+            "benefício ambiental",
+            "contribuição ambiental",
+            "contribuição sustentável",
+            "economia de recursos",
+            "efeito no planeta",
+            "energia economizada",
+            "impacto ambiental",
+            "indicadores ambientais",
+            "métricas ambientais",
+            "progresso sustentável",
+            "resultado ambiental",
+            "resultados sustentáveis",
+            "resultado sustentável"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "pontos",
+          "synonyms": [
+            "acumular pontos",
+            "ganhar pontos",
+            "meus pontos",
+            "meus SoulPoints",
+            "minha pontuação",
+            "points",
+            "pontos",
+            "pontos acumulados",
+            "pontos da ação",
+            "pontos da SoulUp",
+            "pontos gerados",
+            "pontos SoulUp",
+            "pontos sustentáveis",
+            "pontuação",
+            "pontuação sustentável",
+            "pontuar",
+            "quantidade de pontos",
+            "saldo de pontos",
+            "score",
+            "SoulPoints",
+            "total de pontos"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "ranking",
+          "synonyms": [
+            "classificação da temporada",
+            "classificação geral",
+            "colocação",
+            "colocado",
+            "leaderboard",
+            "líderes",
+            "lista de colocação",
+            "lugar na colocação",
+            "melhores colocados",
+            "minha posição",
+            "placar",
+            "placar sustentável",
+            "posição no ranking",
+            "ranking",
+            "ranking geral",
+            "ranking mensal",
+            "tabela de classificação",
+            "tabela de ranking",
+            "top usuários"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "temporada",
+          "synonyms": [
+            "campanha",
+            "campanha ambiental",
+            "campanha especial",
+            "ciclo",
+            "ciclo de competição",
+            "ciclo mensal",
+            "competição",
+            "data ambiental",
+            "desafio ambiental",
+            "evento ambiental",
+            "evento sustentável",
+            "período de competição",
+            "rodada",
+            "temporada",
+            "temporada atual",
+            "temporada especial"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "periodo",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "historico",
+          "synonyms": [
+            "ações anteriores",
+            "ações antigas",
+            "acumulado",
+            "anteriores",
+            "campanhas passadas",
+            "consultar histórico",
+            "desde o começo",
+            "desde o inicio",
+            "desde o início",
+            "historico",
+            "histórico",
+            "histórico completo",
+            "histórico de ações",
+            "histórico de impacto",
+            "histórico de pontos",
+            "impacto acumulado",
+            "meu histórico",
+            "pontos antigos",
+            "registro antigo",
+            "registros antigos",
+            "resultados anteriores",
+            "temporadas passadas",
+            "todas as ações",
+            "todos os registros",
+            "ver histórico"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "hoje",
+          "synonyms": [
+            "ação de hoje",
+            "agora",
+            "dia de hoje",
+            "durante o dia",
+            "hoje",
+            "hoje à noite",
+            "hoje à tarde",
+            "hoje cedo",
+            "impacto de hoje",
+            "neste dia",
+            "neste momento",
+            "no dia de hoje",
+            "no momento",
+            "pontos de hoje",
+            "ranking de hoje"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "mes",
+          "synonyms": [
+            "30 dias",
+            "ações do mês",
+            "durante o mês",
+            "este mês",
+            "impacto mensal",
+            "mensal",
+            "mes",
+            "mês",
+            "mês atual",
+            "mês passado",
+            "nesse mês",
+            "no mês",
+            "período mensal",
+            "pontos do mês",
+            "pontuação mensal",
+            "ranking do mês",
+            "resultado mensal",
+            "trinta dias",
+            "últimos 30 dias",
+            "últimos trinta dias"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "semana",
+          "synonyms": [
+            "7 dias",
+            "ações da semana",
+            "durante a semana",
+            "esta semana",
+            "impacto semanal",
+            "na semana",
+            "nessa semana",
+            "nos últimos dias",
+            "período semanal",
+            "pontos da semana",
+            "ranking da semana",
+            "resultado semanal",
+            "semana",
+            "semana atual",
+            "semanal",
+            "semana passada",
+            "sete dias",
+            "últimos dias",
+            "últimos sete dias"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "temporada",
+          "synonyms": [
+            "ações da temporada",
+            "campanha ambiental",
+            "campanha atual",
+            "campanha do Dia da Água",
+            "campanha do Dia da Terra",
+            "campanha do Meio Ambiente",
+            "campanha especial",
+            "ciclo",
+            "ciclo atual",
+            "ciclo de competição",
+            "competição atual",
+            "data ambiental",
+            "datas ambientais",
+            "desafio ambiental",
+            "desafio atual",
+            "desafio sustentável",
+            "Dia da Água",
+            "Dia da Terra",
+            "Dia do Meio Ambiente",
+            "evento ambiental",
+            "impacto da temporada",
+            "nessa temporada",
+            "nesta temporada",
+            "período de competição",
+            "pontos da temporada",
+            "ranking da temporada",
+            "resultado da temporada",
+            "rodada",
+            "rodada atual",
+            "Semana do Meio Ambiente",
+            "temporada",
+            "temporada atual",
+            "temporada especial"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "status_validacao",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "aprovada",
+          "synonyms": [
+            "aceita",
+            "aprovaram",
+            "confirmada",
+            "foi aprovada",
+            "válida",
+            "validada"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "automatica",
+          "synonyms": [
+            "analisada automaticamente",
+            "análise automática",
+            "análise sistematizada",
+            "automatica",
+            "automática",
+            "inteligência artificial",
+            "por IA",
+            "por sistema",
+            "validação automática"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "manual",
+          "synonyms": [
+            "análise humana",
+            "manual",
+            "por administrador",
+            "por avaliador",
+            "por pessoa",
+            "usuário validador",
+            "validação humana"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "pendente",
+          "synonyms": [
+            "aguardando",
+            "aguardando validação",
+            "ainda não aprovada",
+            "em análise",
+            "em avaliação",
+            "em processamento",
+            "em revisão",
+            "esperando validação",
+            "não validada"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "recusada",
+          "synonyms": [
+            "inválida",
+            "não aceita",
+            "não aprovada",
+            "negada",
+            "recusaram",
+            "rejeitada",
+            "reprovada"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "tipo_acao",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "compostagem",
+          "synonyms": [
+            "adubo orgânico",
+            "compostagem doméstica",
+            "compostar",
+            "compostei",
+            "composteira",
+            "composto",
+            "lixo orgânico",
+            "resíduo orgânico",
+            "resíduos orgânicos"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "economia_agua",
+          "synonyms": [
+            "água economizada",
+            "água poupada",
+            "água reutilizada",
+            "banho curto",
+            "banho mais curto",
+            "conservar água",
+            "conservei água",
+            "economia d'água",
+            "economia de água",
+            "economizar água",
+            "economizei agua",
+            "economizei água",
+            "evitei desperdicio de agua",
+            "evitei desperdício de água",
+            "fechei a torneira",
+            "gastei menos agua",
+            "gastei menos água",
+            "litros de água",
+            "poupei água",
+            "reaproveitamento de água",
+            "reaproveitei água",
+            "reduzi consumo de agua",
+            "reduzi consumo de água",
+            "reduzi o consumo de agua",
+            "reduzi o consumo de água",
+            "reduzir consumo de água",
+            "reutilizei agua",
+            "reutilizei água",
+            "tomei banho curto"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "plantio_jardinagem",
+          "synonyms": [
+            "árvore",
+            "cuidar de planta",
+            "cuidei da planta",
+            "cultivar",
+            "cultivo",
+            "horta",
+            "jardim",
+            "jardinagem",
+            "muda",
+            "plantação",
+            "plantar",
+            "plantar arvore",
+            "plantar muda",
+            "plantei",
+            "plantei árvore",
+            "plantei muda",
+            "plantio",
+            "semeadura",
+            "semear"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "reciclagem",
+          "synonyms": [
+            "coleta seletiva",
+            "conteúdo reciclado",
+            "lixo reciclável",
+            "material reaproveitado",
+            "material reciclado",
+            "reaproveitamento de material",
+            "reaproveitei materiais",
+            "reaproveitei material",
+            "reaproveitei recicláveis",
+            "reciclar",
+            "recicláveis",
+            "reciclei",
+            "resíduos recicláveis",
+            "reutilização de material",
+            "reutilizei material",
+            "separação de lixo",
+            "separei recicláveis"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "reducao_energia",
+          "synonyms": [
+            "apaguei a luz",
+            "aparelhos desligados",
+            "consumo de energia",
+            "desconectei da tomada",
+            "desliguei a luz",
+            "diminuir o consumo de energia",
+            "economia de energia",
+            "economizar energia",
+            "economizei luz",
+            "eficiência energética",
+            "energia economizada",
+            "luzes apagadas",
+            "racionalizar energia",
+            "reduzi energia",
+            "reduzir energia",
+            "tirei da tomada"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "tipo_evidencia",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "arquivo_documento",
+          "synonyms": [
+            "anexo",
+            "arquivo",
+            "compartilhar arquivo",
+            "compartilhar comprovante",
+            "comprovante",
+            "comprovante digital",
+            "declaração",
+            "documento",
+            "encaminhar arquivo",
+            "encaminhar comprovante",
+            "enviar anexo",
+            "enviar arquivo",
+            "enviar declaração",
+            "mandar arquivo",
+            "mandar comprovante",
+            "PDF"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "foto",
+          "synonyms": [
+            "câmera",
+            "enviar fotografia",
+            "enviar imagem",
+            "enviar print",
+            "foto",
+            "foto da ação",
+            "fotografia",
+            "imagem",
+            "imagem da ação",
+            "mandar foto",
+            "mandar imagem",
+            "print",
+            "registrar imagem",
+            "tirar foto"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "localizacao",
+          "synonyms": [
+            "coordenada",
+            "endereço da ação",
+            "enviar localização",
+            "geolocalização",
+            "GPS",
+            "informar local",
+            "local da ação",
+            "localizacao",
+            "localização",
+            "local onde fiz a ação",
+            "minha localização",
+            "ponto no mapa"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "qr_code",
+          "synonyms": [
+            "análise do QR Code",
+            "código QR",
+            "escanear QR Code",
+            "leitura de QR Code",
+            "QR Code",
+            "qrcode",
+            "QR da ação",
+            "validar por QR"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "video",
+          "synonyms": [
+            "clipe",
+            "enviar vídeo",
+            "filmagem",
+            "filmou a ação",
+            "gravação",
+            "gravar ação",
+            "gravar vídeo",
+            "mandar vídeo",
+            "registro em vídeo",
+            "video",
+            "vídeo",
+            "vídeo da ação"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Boas-vindas",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Olá! Eu sou o EcoBot SolCon, assistente do EcoScore.\n\nPosso te orientar sobre ações sustentáveis, evidências, validação, pontos, ranking, conquistas, temporadas e impacto ambiental."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "tipo_acao": null,
+        "tipo_evidencia": null,
+        "tipo_acao_label": null,
+        "ultima_intencao": "boas_vindas",
+        "periodo_consulta": null,
+        "status_validacao": null,
+        "aguardando_tipo_acao": false,
+        "consulta_gamificacao": null
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "welcome",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "00_boas_vindas",
+      "digress_out": "allow_returning"
+    },
+    {
+      "type": "standard",
+      "title": "Agradecimento e encerramento",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Eu que agradeço! Quando quiser, posso ajudar com ações sustentáveis, evidências, validação, pontos, ranking, conquistas e impacto ambiental. Até logo!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "ultima_intencao": "agradecimento_encerramento"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "input.text.contains(\"obrigado\") || input.text.contains(\"Obrigado\") || input.text.contains(\"OBRIGADO\") || input.text.contains(\"obrigada\") || input.text.contains(\"Obrigada\") || input.text.contains(\"OBRIGADA\") || input.text.contains(\"muito obrigado\") || input.text.contains(\"Muito obrigado\") || input.text.contains(\"muito obrigada\") || input.text.contains(\"Muito obrigada\") || input.text.contains(\"valeu\") || input.text.contains(\"Valeu\") || input.text.contains(\"VLW\") || input.text.contains(\"vlw\") || input.text.contains(\"tchau\") || input.text.contains(\"Tchau\") || input.text.contains(\"TCHAU\") || input.text.contains(\"até mais\") || input.text.contains(\"Até mais\") || input.text.contains(\"ate mais\") || input.text.contains(\"Ate mais\") || input.text.contains(\"até logo\") || input.text.contains(\"Até logo\") || input.text.contains(\"ate logo\") || input.text.contains(\"Ate logo\") || input.text.contains(\"encerrar\") || input.text.contains(\"Encerrar\") || input.text.contains(\"finalizar\") || input.text.contains(\"Finalizar\")",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "01_agradecimento_encerramento",
+      "digress_out": "allow_returning",
+      "previous_sibling": "00_boas_vindas"
+    },
+    {
+      "type": "standard",
+      "title": "Apresentar EcoScore e ajuda",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "O EcoScore by SolCon é uma solução de gamificação sustentável.\n\nEle ajuda o usuário a registrar ações ecológicas, enviar evidências, acompanhar validações, ganhar pontos, participar do ranking, desbloquear conquistas e visualizar seu impacto ambiental."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "ultima_intencao": "apresentar_ecoscore_ajuda",
+        "aguardando_tipo_acao": false
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#apresentar_ecoscore_ajuda",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "02_apresentar_ecoscore_ajuda",
+      "digress_out": "allow_returning",
+      "previous_sibling": "node_7_1779668277094"
+    },
+    {
+      "type": "standard",
+      "title": "Confirmar ação - economia de água",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Perfeito, vou considerar sua ação como economia de água.\n\nRegistre a prática realizada e, se possível, informe a quantidade aproximada economizada."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "tipo_acao": "economia_agua",
+        "tipo_acao_label": "economia de água",
+        "ultima_intencao": "registrar_acao_sustentavel",
+        "aguardando_tipo_acao": false
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "@tipo_acao:economia_agua && $aguardando_tipo_acao == true",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "03_confirmar_tipo_agua",
+      "digress_out": "allow_returning",
+      "previous_sibling": "03_confirmar_tipo_plantio"
+    },
+    {
+      "type": "standard",
+      "title": "Confirmar ação - compostagem",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Perfeito, vou considerar sua ação como compostagem.\n\nEnvie uma evidência da composteira, dos resíduos orgânicos separados ou do composto produzido."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "tipo_acao": "compostagem",
+        "tipo_acao_label": "compostagem",
+        "ultima_intencao": "registrar_acao_sustentavel",
+        "aguardando_tipo_acao": false
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "@tipo_acao:compostagem && $aguardando_tipo_acao == true",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "03_confirmar_tipo_compostagem",
+      "digress_out": "allow_returning",
+      "previous_sibling": "03_confirmar_tipo_energia"
+    },
+    {
+      "type": "standard",
+      "title": "Confirmar ação - redução de energia",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Perfeito, vou considerar sua ação como redução de energia.\n\nVocê pode registrar o que foi feito e enviar uma evidência que ajude na validação."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "tipo_acao": "reducao_energia",
+        "tipo_acao_label": "redução de energia",
+        "ultima_intencao": "registrar_acao_sustentavel",
+        "aguardando_tipo_acao": false
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "@tipo_acao:reducao_energia && $aguardando_tipo_acao == true",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "03_confirmar_tipo_energia",
+      "digress_out": "allow_returning",
+      "previous_sibling": "03_confirmar_tipo_agua"
+    },
+    {
+      "type": "standard",
+      "title": "Confirmar ação - plantio ou jardinagem",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Perfeito, vou considerar sua ação como plantio ou jardinagem.\n\nAgora envie uma evidência que mostre a muda, árvore, horta ou cuidado com o espaço verde."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "tipo_acao": "plantio_jardinagem",
+        "tipo_acao_label": "plantio ou jardinagem",
+        "ultima_intencao": "registrar_acao_sustentavel",
+        "aguardando_tipo_acao": false
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "@tipo_acao:plantio_jardinagem && $aguardando_tipo_acao == true",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "03_confirmar_tipo_plantio",
+      "digress_out": "allow_returning",
+      "previous_sibling": "03_confirmar_tipo_reciclagem"
+    },
+    {
+      "type": "standard",
+      "title": "Confirmar ação - reciclagem",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Perfeito, vou considerar sua ação como reciclagem.\n\nAgora informe a quantidade aproximada e envie uma evidência clara, como foto, vídeo ou comprovante."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "tipo_acao": "reciclagem",
+        "tipo_acao_label": "reciclagem",
+        "ultima_intencao": "registrar_acao_sustentavel",
+        "aguardando_tipo_acao": false
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "@tipo_acao:reciclagem && $aguardando_tipo_acao == true",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "03_confirmar_tipo_reciclagem",
+      "digress_out": "allow_returning",
+      "previous_sibling": "02_apresentar_ecoscore_ajuda"
+    },
+    {
+      "type": "standard",
+      "title": "Registrar ação - compostagem",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Compostagem é uma ação sustentável ligada ao reaproveitamento de resíduos orgânicos.\n\nVocê pode registrar a prática e enviar uma evidência da composteira, dos resíduos separados ou do adubo produzido."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "tipo_acao": "compostagem",
+        "tipo_acao_label": "compostagem",
+        "ultima_intencao": "registrar_acao_sustentavel",
+        "aguardando_tipo_acao": false
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#registrar_acao_sustentavel && @tipo_acao:compostagem",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "04_registrar_compostagem",
+      "digress_out": "allow_returning",
+      "previous_sibling": "04_registrar_reducao_energia"
+    },
+    {
+      "type": "standard",
+      "title": "Registrar ação - economia de água",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Economia de água é uma ação importante no EcoScore.\n\nRegistre a prática realizada, como reaproveitamento de água, banho curto ou redução de desperdício."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "tipo_acao": "economia_agua",
+        "tipo_acao_label": "economia de água",
+        "ultima_intencao": "registrar_acao_sustentavel",
+        "aguardando_tipo_acao": false
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#registrar_acao_sustentavel && @tipo_acao:economia_agua",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "04_registrar_economia_agua",
+      "digress_out": "allow_returning",
+      "previous_sibling": "04_registrar_plantio"
+    },
+    {
+      "type": "standard",
+      "title": "Registrar ação - plantio ou jardinagem",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Plantio ou jardinagem conta como ação sustentável.\n\nVocê pode registrar uma muda, árvore, horta ou cuidado com áreas verdes. A evidência ajuda na validação."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "tipo_acao": "plantio_jardinagem",
+        "tipo_acao_label": "plantio ou jardinagem",
+        "ultima_intencao": "registrar_acao_sustentavel",
+        "aguardando_tipo_acao": false
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#registrar_acao_sustentavel && @tipo_acao:plantio_jardinagem",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "04_registrar_plantio",
+      "digress_out": "allow_returning",
+      "previous_sibling": "04_registrar_reciclagem"
+    },
+    {
+      "type": "standard",
+      "title": "Registrar ação - reciclagem",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Reciclagem é uma ação válida no EcoScore.\n\nRegistre a quantidade de material reciclado e envie uma evidência clara, como foto, vídeo ou comprovante."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "tipo_acao": "reciclagem",
+        "tipo_acao_label": "reciclagem",
+        "ultima_intencao": "registrar_acao_sustentavel",
+        "aguardando_tipo_acao": false
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#registrar_acao_sustentavel && @tipo_acao:reciclagem",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "04_registrar_reciclagem",
+      "digress_out": "allow_returning",
+      "previous_sibling": "03_confirmar_tipo_compostagem"
+    },
+    {
+      "type": "standard",
+      "title": "Registrar ação - redução de energia",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Redução de energia também pode ser registrada.\n\nA ação pode envolver apagar luzes, desligar aparelhos, reduzir consumo ou usar energia de forma mais eficiente."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "tipo_acao": "reducao_energia",
+        "tipo_acao_label": "redução de energia",
+        "ultima_intencao": "registrar_acao_sustentavel",
+        "aguardando_tipo_acao": false
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#registrar_acao_sustentavel && @tipo_acao:reducao_energia",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "04_registrar_reducao_energia",
+      "digress_out": "allow_returning",
+      "previous_sibling": "04_registrar_economia_agua"
+    },
+    {
+      "type": "standard",
+      "title": "Registrar ação sem tipo informado",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Claro. Qual ação sustentável você quer registrar?\n\nPode ser reciclagem, plantio ou jardinagem, economia de água, redução de energia ou compostagem."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "ultima_intencao": "registrar_acao_sustentavel",
+        "aguardando_tipo_acao": true
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#registrar_acao_sustentavel",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "05_registrar_acao_sem_tipo",
+      "digress_out": "allow_returning",
+      "previous_sibling": "04_registrar_compostagem"
+    },
+    {
+      "type": "standard",
+      "title": "Evidência usando ação lembrada",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Para sua ação de $tipo_acao_label, envie uma evidência clara, como foto, vídeo, QR Code ou arquivo.\n\nA localização pode complementar a análise, mas não deve ser tratada como prova obrigatória."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "ultima_intencao": "orientar_evidencia_validacao"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#orientar_evidencia_validacao && $tipo_acao_label != null",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "06_evidencia_contexto_acao",
+      "digress_out": "allow_returning",
+      "previous_sibling": "06_evidencia_contexto_e_tipo"
+    },
+    {
+      "type": "standard",
+      "title": "Evidência usando ação lembrada e tipo de evidência",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Para sua ação de $tipo_acao_label, esse tipo de evidência pode ajudar na validação.\n\nO ideal é que a comprovação mostre claramente a ação realizada e não seja uma imagem ou arquivo genérico."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "tipo_evidencia": "<? @tipo_evidencia ?>",
+        "ultima_intencao": "orientar_evidencia_validacao"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#orientar_evidencia_validacao && $tipo_acao_label != null && @tipo_evidencia",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "06_evidencia_contexto_e_tipo",
+      "digress_out": "allow_returning",
+      "previous_sibling": "06_evidencia_followup_contexto"
+    },
+    {
+      "type": "standard",
+      "title": "Evidência por contexto da ação",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Para sua ação de $tipo_acao_label, esse tipo de evidência pode ajudar na validação.\n\nA comprovação deve mostrar claramente a ação realizada e evitar arquivos ou imagens genéricas."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "tipo_evidencia": "<? @tipo_evidencia ?>",
+        "ultima_intencao": "orientar_evidencia_validacao"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "$tipo_acao_label != null && @tipo_evidencia",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "06_evidencia_followup_contexto",
+      "digress_out": "allow_returning",
+      "previous_sibling": "08_status_manual"
+    },
+    {
+      "type": "standard",
+      "title": "Evidência - documento ou arquivo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Documento, PDF ou comprovante pode servir como evidência quando confirma a participação ou realização da ação sustentável."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "tipo_evidencia": "arquivo_documento",
+        "ultima_intencao": "orientar_evidencia_validacao"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#orientar_evidencia_validacao && @tipo_evidencia:arquivo_documento",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "07_evidencia_documento",
+      "digress_out": "allow_returning",
+      "previous_sibling": "07_evidencia_qr_code"
+    },
+    {
+      "type": "standard",
+      "title": "Evidência - foto",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Foto é uma boa evidência quando mostra claramente a ação realizada.\n\nEvite imagens genéricas e registre o resultado real da prática sustentável."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "tipo_evidencia": "foto",
+        "ultima_intencao": "orientar_evidencia_validacao"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#orientar_evidencia_validacao && @tipo_evidencia:foto",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "07_evidencia_foto",
+      "digress_out": "allow_returning",
+      "previous_sibling": "06_evidencia_contexto_acao"
+    },
+    {
+      "type": "standard",
+      "title": "Evidência - localização complementar",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A localização pode ajudar a complementar a validação, principalmente em eventos, campanhas ou pontos de coleta.\n\nEla não precisa ser tratada como evidência obrigatória."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "tipo_evidencia": "localizacao",
+        "ultima_intencao": "orientar_evidencia_validacao"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#orientar_evidencia_validacao && @tipo_evidencia:localizacao",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "07_evidencia_localizacao",
+      "digress_out": "allow_returning",
+      "previous_sibling": "07_evidencia_documento"
+    },
+    {
+      "type": "standard",
+      "title": "Evidência - QR Code",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "QR Code pode ser usado quando a ação estiver ligada a uma campanha, ponto de coleta, parceiro ou evento verificável."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "tipo_evidencia": "qr_code",
+        "ultima_intencao": "orientar_evidencia_validacao"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#orientar_evidencia_validacao && @tipo_evidencia:qr_code",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "07_evidencia_qr_code",
+      "digress_out": "allow_returning",
+      "previous_sibling": "07_evidencia_video"
+    },
+    {
+      "type": "standard",
+      "title": "Evidência - vídeo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Vídeo é útil quando mostra o processo da ação, como o antes, o durante ou o depois da prática sustentável."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "tipo_evidencia": "video",
+        "ultima_intencao": "orientar_evidencia_validacao"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#orientar_evidencia_validacao && @tipo_evidencia:video",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "07_evidencia_video",
+      "digress_out": "allow_returning",
+      "previous_sibling": "07_evidencia_foto"
+    },
+    {
+      "type": "standard",
+      "title": "Status - aprovada",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Quando a evidência é aprovada, significa que a ação foi aceita pelo EcoScore. \nCom isso, os pontos podem ser considerados no progresso, no ranking e no impacto ambiental."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "ultima_intencao": "orientar_evidencia_validacao",
+        "status_validacao": "aprovada"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#orientar_evidencia_validacao && @status_validacao:aprovada",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "08_status_aprovada",
+      "digress_out": "allow_returning",
+      "previous_sibling": "08_status_pendente"
+    },
+    {
+      "type": "standard",
+      "title": "Validação automática",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A validação automática ajuda a analisar evidências com mais agilidade, usando dados, imagem, QR Code ou informações enviadas.\n\nEm alguns casos, pode haver revisão manual."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "ultima_intencao": "orientar_evidencia_validacao",
+        "status_validacao": "automatica"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#orientar_evidencia_validacao && @status_validacao:automatica",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "08_status_automatica",
+      "digress_out": "allow_returning",
+      "previous_sibling": "08_status_recusada"
+    },
+    {
+      "type": "standard",
+      "title": "Validação manual",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A validação manual ocorre quando uma pessoa ou avaliador verifica a evidência.\n\nEsse cuidado aumenta a confiança na pontuação e evita registros incorretos."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "ultima_intencao": "orientar_evidencia_validacao",
+        "status_validacao": "manual"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#orientar_evidencia_validacao && @status_validacao:manual",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "08_status_manual",
+      "digress_out": "allow_returning",
+      "previous_sibling": "08_status_automatica"
+    },
+    {
+      "type": "standard",
+      "title": "Status - pendente",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Quando a evidência está pendente, ela ainda está em análise.\n\nDepois da avaliação, a ação poderá ser aprovada ou recusada."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "ultima_intencao": "orientar_evidencia_validacao",
+        "status_validacao": "pendente"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#orientar_evidencia_validacao && @status_validacao:pendente",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "08_status_pendente",
+      "digress_out": "allow_returning",
+      "previous_sibling": "05_registrar_acao_sem_tipo"
+    },
+    {
+      "type": "standard",
+      "title": "Status - recusada",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Quando uma evidência é recusada, ela não foi suficiente para comprovar a ação.\n\nO usuário pode tentar novamente com uma evidência mais clara e relacionada à prática realizada."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "ultima_intencao": "orientar_evidencia_validacao",
+        "status_validacao": "recusada"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#orientar_evidencia_validacao && @status_validacao:recusada",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "08_status_recusada",
+      "digress_out": "allow_returning",
+      "previous_sibling": "08_status_aprovada"
+    },
+    {
+      "type": "standard",
+      "title": "Evidência e validação geral",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "As evidências comprovam que uma ação sustentável foi realizada.\n\nNo EcoScore, elas podem ser foto, vídeo, QR Code ou arquivo. Depois, passam por validação automática ou manual."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "ultima_intencao": "orientar_evidencia_validacao"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#orientar_evidencia_validacao",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "09_evidencia_validacao_geral",
+      "digress_out": "allow_returning",
+      "previous_sibling": "07_evidencia_localizacao"
+    },
+    {
+      "type": "standard",
+      "title": "Consultar pontos",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "No EcoScore, os pontos representam o reconhecimento pelas ações sustentáveis realizadas e validadas.\n\nEles ajudam no ranking, nas conquistas e no acompanhamento do progresso sustentável."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "ultima_intencao": "consultar_pontos_ranking",
+        "consulta_gamificacao": "pontos"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#consultar_pontos_ranking && @consulta_gamificacao:pontos",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "10_pontos",
+      "digress_out": "allow_returning",
+      "previous_sibling": "10_ranking_periodo"
+    },
+    {
+      "type": "standard",
+      "title": "Consultar pontos por período",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Você pode acompanhar seus pontos por período, como hoje, semana, mês, temporada ou histórico.\n\nNo EcoScore, os pontos vêm das ações sustentáveis registradas e validadas."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "ultima_intencao": "consultar_pontos_ranking",
+        "periodo_consulta": "<? @periodo ?>",
+        "consulta_gamificacao": "pontos"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#consultar_pontos_ranking && @consulta_gamificacao:pontos && @periodo",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "10_pontos_periodo",
+      "digress_out": "allow_returning",
+      "previous_sibling": "09_evidencia_validacao_geral"
+    },
+    {
+      "type": "standard",
+      "title": "Pontos e ranking geral",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A pontuação vem das ações sustentáveis registradas e validadas.\n\nEsses pontos ajudam o usuário a acompanhar seu progresso e influenciam sua posição no ranking da temporada."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "ultima_intencao": "consultar_pontos_ranking"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#consultar_pontos_ranking",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "10_pontos_ranking_geral",
+      "digress_out": "allow_returning",
+      "previous_sibling": "10_temporada"
+    },
+    {
+      "type": "standard",
+      "title": "Consultar ranking",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "O ranking mostra a classificação dos usuários conforme os pontos acumulados.\n\nEle incentiva uma competição saudável e destaca quem participa mais das ações sustentáveis."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "ultima_intencao": "consultar_pontos_ranking",
+        "consulta_gamificacao": "ranking"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#consultar_pontos_ranking && @consulta_gamificacao:ranking",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "10_ranking",
+      "digress_out": "allow_returning",
+      "previous_sibling": "10_pontos"
+    },
+    {
+      "type": "standard",
+      "title": "Consultar ranking por período",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "O ranking pode ser acompanhado por período, principalmente por temporada.\n\nEle mostra a classificação dos usuários conforme os pontos acumulados em ações sustentáveis válidas."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "ultima_intencao": "consultar_pontos_ranking",
+        "periodo_consulta": "<? @periodo ?>",
+        "consulta_gamificacao": "ranking"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#consultar_pontos_ranking && @consulta_gamificacao:ranking && @periodo",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "10_ranking_periodo",
+      "digress_out": "allow_returning",
+      "previous_sibling": "10_pontos_periodo"
+    },
+    {
+      "type": "standard",
+      "title": "Explicar temporada",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A temporada é um ciclo de participação no EcoScore.\n\nNela, os usuários registram ações, acumulam pontos, participam do ranking e podem desbloquear conquistas. Algumas temporadas também podem estar ligadas a campanhas ou datas ambientais."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "ultima_intencao": "consultar_pontos_ranking",
+        "consulta_gamificacao": "temporada"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#consultar_pontos_ranking && @consulta_gamificacao:temporada",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "10_temporada",
+      "digress_out": "allow_returning",
+      "previous_sibling": "10_ranking"
+    },
+    {
+      "type": "standard",
+      "title": "Consultar conquistas",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "As conquistas são reconhecimentos simbólicos desbloqueados quando o usuário atinge metas no EcoScore.\n\nElas podem aparecer como selos, badges, medalhas ou marcos de progresso sustentável."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "ultima_intencao": "consultar_conquistas_impacto",
+        "consulta_gamificacao": "conquista"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#consultar_conquistas_impacto && @consulta_gamificacao:conquista",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "11_conquistas",
+      "digress_out": "allow_returning",
+      "previous_sibling": "11_impacto_periodo"
+    },
+    {
+      "type": "standard",
+      "title": "Conquistas e impacto geral",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Além dos pontos e ranking, o EcoScore usa conquistas e métricas de impacto para mostrar a evolução sustentável do usuário.\n\nAssim, cada ação registrada contribui para o progresso individual e ambiental."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "ultima_intencao": "consultar_conquistas_impacto"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#consultar_conquistas_impacto",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "11_conquistas_impacto_geral",
+      "digress_out": "allow_returning",
+      "previous_sibling": "11_impacto"
+    },
+    {
+      "type": "standard",
+      "title": "Consultar conquistas por período",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "As conquistas podem ser acompanhadas ao longo da participação no EcoScore.\n\nElas reconhecem metas, ações e marcos sustentáveis alcançados pelo usuário."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "ultima_intencao": "consultar_conquistas_impacto",
+        "periodo_consulta": "<? @periodo ?>",
+        "consulta_gamificacao": "conquista"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#consultar_conquistas_impacto && @consulta_gamificacao:conquista && @periodo",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "11_conquistas_periodo",
+      "digress_out": "allow_returning",
+      "previous_sibling": "10_pontos_ranking_geral"
+    },
+    {
+      "type": "standard",
+      "title": "Consultar impacto ambiental",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "O impacto ambiental mostra os resultados positivos das ações sustentáveis realizadas.\n\nEle pode incluir economia de água, redução de energia, reciclagem, compostagem e outros indicadores ambientais."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "ultima_intencao": "consultar_conquistas_impacto",
+        "consulta_gamificacao": "impacto"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#consultar_conquistas_impacto && @consulta_gamificacao:impacto",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "11_impacto",
+      "digress_out": "allow_returning",
+      "previous_sibling": "11_conquistas"
+    },
+    {
+      "type": "standard",
+      "title": "Consultar impacto por período",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Você pode acompanhar seu impacto ambiental por período, como semana, mês, temporada ou histórico.\n\nIsso ajuda a visualizar a evolução das suas ações sustentáveis."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "ultima_intencao": "consultar_conquistas_impacto",
+        "periodo_consulta": "<? @periodo ?>",
+        "consulta_gamificacao": "impacto"
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "#consultar_conquistas_impacto && @consulta_gamificacao:impacto && @periodo",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "11_impacto_periodo",
+      "digress_out": "allow_returning",
+      "previous_sibling": "11_conquistas_periodo"
+    },
+    {
+      "type": "standard",
+      "title": "Não entendi",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Desculpe, ainda não entendi exatamente o que você precisa.\n\nVocê pode perguntar sobre ações sustentáveis, evidências, validação, pontos, ranking, conquistas, temporadas ou impacto ambiental."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "get_user_input"
+      },
+      "conditions": "anything_else",
+      "digress_in": "not_available",
+      "description": "",
+      "dialog_node": "12_fallback",
+      "digress_out": "allow_returning",
+      "previous_sibling": "11_conquistas_impacto_geral"
+    },
+    {
+      "type": "standard",
+      "title": "Saudação Simples",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Oi! Eu sou o EcoBot SolCon. \nPosso te ajudar com ações sustentáveis, evidências, validação, pontos, ranking, conquistas e impacto ambiental. Sobre o que você quer falar?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "input.text == \"oi\" ||                                                                                          input.text == \"olá\" ||                                                                                          input.text == \"ola\" ||                                                                                          input.text == \"ei\" ||        input.text == \"bom dia\" ||                                                                                          input.text == \"boa tarde\" ||                                                                                          input.text == \"boa noite\" ||                                                                                        input.text ==\"Oi\" ||                   input.text == \"Olá\" ||                 input.text == \"Eai\" ||                                                        input.text == \"olá\" ||         input.text == \"Ola\" ||             input.text == \"eai\" ||       input.text == \"Bom dia\" ||      input.text == \"Boa tarde\" ||     input.text == \"Boa noite\"",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_7_1779668277094",
+      "previous_sibling": "01_agradecimento_encerramento"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": "Você quis dizer:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "Nenhuma das anteriores",
+      "use_connect_to_support_prompt": "Falar com suporte",
+      "single_answer_clarification_prompt": "Outra opção"
+    },
+    "human_agent_assist": {
+      "prompt": "Você quis dizer:"
+    }
+  },
+  "learning_opt_out": false,
+  "language": "pt-br",
+  "description": "Habilidade do EcoBot para orientar sobre ações sustentáveis, evidências, validação, pontos, ranking e impacto.",
+  "name": "EcoBot SolCon-dialog"
+}
