@@ -1,19 +1,19 @@
 import { lazy } from 'react'
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { Layout } from './components/layout/Layout'
-import Home from './routes/Home'
+import Home from './pages/Home'
 
 // A home entra no bundle inicial; as demais páginas são carregadas sob demanda.
-const Sobre = lazy(() => import('./routes/Sobre'))
-const Solucao = lazy(() => import('./routes/Solucao'))
-const SolucaoDetalhe = lazy(() => import('./routes/SolucaoDetalhe'))
-const EcoScore = lazy(() => import('./routes/EcoScore'))
-const ComoFunciona = lazy(() => import('./routes/ComoFunciona'))
-const Dashboard = lazy(() => import('./routes/Dashboard'))
-const Trilha = lazy(() => import('./routes/Trilha'))
-const Faq = lazy(() => import('./routes/Faq'))
-const Integrantes = lazy(() => import('./routes/Integrantes'))
-const Contato = lazy(() => import('./routes/Contato'))
+const Sobre = lazy(() => import('./pages/Sobre'))
+const Solucao = lazy(() => import('./pages/Solucao'))
+const SolucaoDetalhe = lazy(() => import('./pages/SolucaoDetalhe'))
+const EcoScore = lazy(() => import('./pages/EcoScore'))
+const ComoFunciona = lazy(() => import('./pages/ComoFunciona'))
+const Dashboard = lazy(() => import('./pages/Dashboard'))
+const Trilha = lazy(() => import('./pages/Trilha'))
+const Faq = lazy(() => import('./pages/Faq'))
+const Integrantes = lazy(() => import('./pages/Integrantes'))
+const Contato = lazy(() => import('./pages/Contato'))
 
 export function App() {
   return (
